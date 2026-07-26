@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  try {
+    var saved = localStorage.getItem("theme");
+    var theme = saved || ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+})();
+</script>
+<title>Playground — Kleines Browserspiel | CreationFirst</title>
+<meta name="description" content="Miss dich mit dir selbst: eine kleine Runde Snake mit lokaler Bestenliste, gebaut mit Vanilla JavaScript — als Beweis dafür, was wir technisch bauen können.">
+<link rel="canonical" href="https://your-domain-here.com/spielplatz.html">
+<link rel="alternate" hreflang="de" href="https://your-domain-here.com/spielplatz.html">
+<link rel="alternate" hreflang="en" href="https://your-domain-here.com/en/playground.html">
+<link rel="alternate" hreflang="hr" href="https://your-domain-here.com/hr/igra.html">
+<link rel="alternate" hreflang="x-default" href="https://your-domain-here.com/spielplatz.html">
+
+<link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon.png?v=1785067226">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=1785067226">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CreationFirst">
+<meta property="og:title" content="Playground — Kleines Browserspiel | CreationFirst">
+<meta property="og:description" content="Miss dich mit dir selbst: eine kleine Runde Snake mit lokaler Bestenliste, gebaut mit Vanilla JavaScript — als Beweis dafür, was wir technisch bauen können.">
+<meta property="og:image" content="https://your-domain-here.com/assets/images/og-image.png">
+<meta property="og:url" content="https://your-domain-here.com/spielplatz.html">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Playground — Kleines Browserspiel | CreationFirst">
+<meta name="twitter:description" content="Miss dich mit dir selbst: eine kleine Runde Snake mit lokaler Bestenliste, gebaut mit Vanilla JavaScript — als Beweis dafür, was wir technisch bauen können.">
+<meta name="twitter:image" content="https://your-domain-here.com/assets/images/og-image.png">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a0e1a">
+
+<link rel="stylesheet" href="assets/css/style.css?v=1785067226">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CreationFirst", "url": "https://your-domain-here.com", "email": "info@creationfirst.io", "logo": "https://your-domain-here.com/assets/images/favicon.png", "sameAs": []}</script></head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="CreationFirst">
+      <img class="logo-mark logo-mark-color" src="assets/images/logo-mark-color.png?v=1785067226" alt="" width="34" height="28">
+      <img class="logo-mark logo-mark-white" src="assets/images/logo-mark-white.png?v=1785067226" alt="" width="34" height="28">
+      <span class="brand-word">Creation<em>First</em></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+<a href="index.html">Home</a>
+<a href="leistungen.html">Leistungen</a>
+<a href="ki-beschleunigung.html">KI</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="ueber-uns.html">Über uns</a>
+<a href="spielplatz.html" class="is-active" aria-current="page">Playground</a>
+<a href="kontakt.html">Kontakt</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn btn-icon theme-toggle" type="button" aria-label="Theme umschalten / toggle theme">
+        <span class="icon-sun"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
+        <span class="icon-moon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg></span>
+      </button>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="flag">🇩🇪</span> <span class="lang-code">DE</span>
+        </button>
+        <div class="lang-menu">
+<a href="spielplatz.html" class="is-active"><span class="flag">🇩🇪</span> Deutsch</a>
+<a href="en/playground.html"><span class="flag">🇬🇧</span> English</a>
+<a href="hr/igra.html"><span class="flag">🇭🇷</span> Hrvatski</a>
+        </div>
+      </div>
+      <a class="btn btn-primary btn-sm nav-cta-btn" href="kontakt.html">Projekt starten</a>
+      <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="main-nav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs" style="color:rgba(255,255,255,.6);"><a href="index.html" style="color:rgba(255,255,255,.8);">Startseite</a> / Playground</div>
+    <span class="eyebrow" style="color:#fff;">Playground</span>
+    <h1>Iss die Sparks. Vermeide dich selbst.</h1>
+    <p class="lede">Kein Mockup, kein Konzept-Video — eine waschechte Runde Snake, direkt in deinem Browser, inklusive lokaler Bestenliste. So fühlt es sich an, wenn wir für dich bauen.</p>
+  </div>
+  <div class="section-divider to-white"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,32 C300,70 900,-10 1200,28 L1200,60 L0,60 Z"/></svg></div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width: 900px;">
+    <div class="game-wrap" data-snake-game data-height="420"
+         data-leaderboard-key="creationfirst_snake_leaderboard"
+         data-leaderboard-empty="Noch keine Einträge — sei die/der Erste!"
+         data-rank-prefix="Platz"
+         data-initials-placeholder="ABC"
+         data-paused-label="Pausiert">
+      <div class="game-stage">
+      <canvas class="game-canvas" tabindex="0" aria-label="Snake-Spiel, steuerbar mit Pfeiltasten"></canvas>
+      <div class="game-hud">
+        <span>Punkte: <span class="game-score-value">0</span></span>
+        <span class="game-effect-badge"></span>
+        <span>Bestwert: <span class="game-best-value">0</span></span>
+      </div>
+      <div class="game-overlay game-overlay-start is-active">
+        <div class="game-panel">
+          <h3>Bereit?</h3>
+          <p>Pfeiltasten, WASD oder Wischen zum Steuern. Sammle Sparks, schnapp dir Power-ups – aber beiß dir nicht in den eigenen Schwanz!</p>
+          <button class="btn btn-primary game-start-btn" type="button">Spiel starten</button>
+        </div>
+      </div>
+      <div class="game-overlay game-overlay-over">
+        <div class="game-panel">
+          <h3>Game Over</h3>
+          <span class="game-new-best">Neuer Bestwert! 🎉</span>
+          <div class="game-score-row">
+            <div><b class="game-final-score-value">0</b><span>Punkte</span></div>
+            <div><b class="game-best-value">0</b><span>Bestwert</span></div>
+          </div>
+          <div class="game-initials-form">
+            <p class="game-initials-prompt">Neuer Highscore! Deine Initialen:</p>
+            <div class="game-initials-row">
+              <input class="game-initials-input" type="text" maxlength="3" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABC" aria-label="ABC">
+              <button class="btn btn-primary btn-sm game-save-score-btn" type="button">Eintragen</button>
+            </div>
+          </div>
+          <div class="game-leaderboard">
+            <p class="game-leaderboard-title">Bestenliste (dieses Gerät)</p>
+            <ol class="game-leaderboard-list"></ol>
+          </div>
+          <button class="btn btn-ghost game-restart-btn" type="button">Nochmal spielen</button>
+        </div>
+      </div>
+      </div>
+      <div class="game-controls">
+        <button class="game-sound-btn" type="button"
+                aria-label="Ton ausschalten"
+                data-on-aria="Ton ausschalten"
+                data-off-aria="Ton einschalten">
+          <span class="icon-on"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.4 8.6a5 5 0 0 1 0 6.8"/><path d="M19.2 6a9 9 0 0 1 0 12"/></svg></span>
+          <span class="icon-off"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16 9l6 6M22 9l-6 6"/></svg></span>
+        </button>
+        <div class="game-dpad" aria-hidden="true">
+          <button class="game-dpad-btn dpad-up" data-dir="up" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <button class="game-dpad-btn dpad-left" data-dir="left" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <button class="game-dpad-btn dpad-right" data-dir="right" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <button class="game-dpad-btn dpad-down" data-dir="down" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+        </div>
+        <button class="game-fullscreen-btn" type="button"
+                aria-label="Vollbild"
+                data-on-aria="Vollbild"
+                data-off-aria="Vollbild verlassen">
+          <span class="icon-on"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H4v4M16 3h4v4M8 21H4v-4M16 21h4v-4"/></svg></span>
+          <span class="icon-off"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4H5M15 4v4h4M9 20v-4H5M15 20v-4h4"/></svg></span>
+        </button>
+      </div>
+    </div>
+    <p class="form-hint text-center" style="margin-top:16px;">Pfeiltasten, WASD oder Wischen zum Steuern, Leertaste zum Pausieren — funktioniert auch auf dem Handy.</p>
+  </div>
+</section>
+
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Unter der Haube</span>
+      <h2>So haben wir das gebaut</h2>
+      <p class="lede" style="margin:0 auto;">Kein Game-Engine-Baukasten — nur die Technik, die wir auch für deine Projekte einsetzen.</p>
+    </div>
+    <div class="grid grid-3">
+<div class="card" data-reveal>
+        <div class="card-icon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></svg></div>
+        <h3>100% Vanilla JavaScript</h3>
+        <p>Keine Engine, kein Framework — nur handgeschriebener Code, der genau das tut, was er soll.</p>
+      </div>
+<div class="card" data-reveal>
+        <div class="card-icon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M9 9v11"/></svg></div>
+        <h3>HTML5 Canvas</h3>
+        <p>Spiellogik, Kollisionsabfrage und Partikeleffekte direkt im Browser gerendert, ganz ohne Plugins.</p>
+      </div>
+<div class="card" data-reveal>
+        <div class="card-icon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-3"/><path d="M9 5.5L8 3M15 5.5L16 3"/></svg></div>
+        <h3>Leichtgewichtig &amp; schnell</h3>
+        <p>Wenige Kilobyte, läuft flüssig auf Mobilgeräten und beeinflusst die restliche Seite nicht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:760px;">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Noch mehr zum Ausprobieren</span>
+      <h2>Wie könnte eine KI-Idee für dein Geschäft aussehen?</h2>
+      <p class="lede" style="margin:0 auto;">Wähle deine Branche und lass dir eine mögliche Automatisierungs-Idee vorschlagen — genau die Art von Idee, die wir in einer echten Kurzanalyse gemeinsam vertiefen würden.</p>
+    </div>
+    <div class="idea-gen" data-idea-gen data-reveal
+         data-generate-label="Idee generieren"
+         data-again-label="Noch eine Idee"
+         data-placeholder="Branche wählen und auf „Idee generieren“ klicken.">
+      <div class="idea-gen-controls">
+        <label class="idea-gen-label" for="idea-gen-select">Deine Branche</label>
+        <div class="idea-gen-row">
+          <select class="idea-gen-select" id="idea-gen-select">
+<option value="trades">Handwerksbetrieb</option>
+<option value="retail">Einzelhandel</option>
+<option value="consulting">Beratung &amp; Dienstleistung</option>
+<option value="hospitality">Gastronomie</option>
+<option value="health">Gesundheitspraxis</option>
+<option value="fitness">Fitness &amp; Freizeit</option>
+<option value="education">Bildung &amp; Kurse</option>
+<option value="realestate">Immobilien</option>
+<option value="logistics">Logistik &amp; Transport</option>
+<option value="nonprofit">Verein &amp; Non-Profit</option>
+          </select>
+          <button class="btn btn-primary idea-gen-btn" type="button">Idee generieren</button>
+        </div>
+      </div>
+      <div class="idea-gen-output">
+        <p class="idea-gen-text">Branche wählen und auf „Idee generieren“ klicken.</p>
+      </div>
+      <p class="form-hint text-center idea-gen-disclaimer">Nur eine spielerische Demo unseres Denkansatzes — keine echte KI im Hintergrund, aber genau so würden wir mit dir mitdenken.</p>
+      <script type="application/json" class="idea-gen-data">{"trades": ["Ein Chatbot beantwortet Standardanfragen zu Preisen und Terminen automatisch — auch abends und am Wochenende.", "Angebote entstehen per Vorlage in Minuten statt Stunden, inklusive automatischer Materialkalkulation.", "Eingehende Anfragen werden automatisch nach Dringlichkeit sortiert, damit nichts im Postfach untergeht.", "Ein einfacher Sprachassistent hilft beim Erfassen von Arbeitszeiten direkt von der Baustelle.", "Rechnungen werden automatisch aus abgeschlossenen Aufträgen erstellt und verschickt.", "Häufige Fragen zu Gewährleistung und Wartung werden automatisch beantwortet.", "Fotos von der Baustelle werden automatisch dem richtigen Auftrag zugeordnet und archiviert.", "Ersatzteil- und Materialbestellungen werden automatisch ausgelöst, sobald der Lagerbestand knapp wird."], "retail": ["Lagerbestände werden automatisch zwischen Filialen abgeglichen, bevor etwas ausverkauft ist.", "Ein KI-Tool schreibt Produktbeschreibungen für den Online-Shop in Sekunden.", "Kundenanfragen per WhatsApp werden automatisch vorsortiert und beantwortet.", "Personalisierte Angebote werden automatisch an Stammkunden verschickt, basierend auf früheren Käufen.", "Retouren werden automatisch erfasst und der Lagerbestand entsprechend aktualisiert.", "Häufige Fragen zu Versand und Rückgabe werden rund um die Uhr automatisch beantwortet.", "Ein Chatbot hilft Kund:innen automatisch, das passende Produkt im Sortiment zu finden.", "Preisänderungen und Sonderaktionen werden automatisch auf Website und Shop synchronisiert."], "consulting": ["Meeting-Notizen werden automatisch in strukturierte Zusammenfassungen und Aufgabenlisten verwandelt.", "Ein KI-Assistent beantwortet häufige Kundenfragen sofort, auch außerhalb der Bürozeiten.", "Angebote und Verträge werden aus wenigen Stichpunkten automatisch vorformuliert.", "Eingehende Anfragen werden automatisch bewertet und priorisiert, bevor du überhaupt reagierst.", "Rechnungen und Zeiterfassung werden automatisch aus Projektdaten erstellt.", "Erste Entwürfe für Reports werden automatisch aus Rohdaten zusammengestellt.", "Ein Chatbot qualifiziert neue Leads automatisch vor, bevor ein Beratungstermin vereinbart wird.", "Wiederkehrende Recherche-Aufgaben werden automatisch vorbereitet, bevor ein Projekt startet."], "hospitality": ["Reservierungsanfragen werden automatisch bestätigt und ins System eingetragen — ganz ohne Anruf.", "Ein Chatbot beantwortet Fragen zu Öffnungszeiten, Speisekarte und Allergenen rund um die Uhr.", "Bestellungen aus Lieferdiensten werden automatisch zusammengeführt, damit in der Küche nichts durcheinanderkommt.", "Dienstpläne werden anhand vergangener Auslastung automatisch vorgeschlagen.", "Häufige Sonderwünsche wie Allergien oder Kindersitze werden automatisch vermerkt und ans Team weitergegeben.", "Feedback nach dem Besuch wird automatisch per Nachricht angefragt und ausgewertet.", "Trinkgeld- und Bewertungsanfragen werden automatisch nach dem Besuch verschickt.", "Personalengpässe werden frühzeitig erkannt, weil Schichtpläne automatisch mit Reservierungen abgeglichen werden."], "health": ["Terminanfragen werden automatisch verwaltet, inklusive Erinnerungen per SMS oder E-Mail.", "Häufige Patientenfragen werden automatisch beantwortet, damit das Team am Empfang entlastet wird.", "Rezepte und Überweisungen werden per Vorlage in Sekunden statt Minuten vorbereitet.", "Wartelisten werden automatisch nachbesetzt, sobald ein Termin abgesagt wird.", "Erinnerungen an Nachuntersuchungen werden automatisch verschickt.", "Häufige Fragen zur Vorbereitung auf Termine werden automatisch beantwortet.", "Rezeptanfragen von Stammpatient:innen werden automatisch vorbereitet und zur Freigabe vorgelegt.", "Fragebögen zur Anamnese werden vor dem Termin automatisch digital verschickt und ausgewertet."], "fitness": ["Mitgliederanfragen zu Kursen und Verfügbarkeit werden automatisch per Chat beantwortet.", "Ein KI-Tool erstellt individuelle Trainingspläne als erste Vorlage, die Trainer nur noch anpassen.", "Stornierte Kurstermine werden automatisch neu an Wartelisten vergeben.", "Erinnerungen an auslaufende Mitgliedschaften werden automatisch verschickt, statt manuell nachverfolgt zu werden.", "Anfragen nach Probetraining werden automatisch terminiert und bestätigt.", "Häufige Fragen zu Öffnungszeiten und Kursplänen werden rund um die Uhr automatisch beantwortet.", "Neue Mitglieder erhalten automatisch eine persönliche Willkommens-Sequenz mit den wichtigsten Infos.", "Auslastung einzelner Kurse wird automatisch ausgewertet, um den Stundenplan zu optimieren."], "education": ["Anmeldungen zu Kursen werden automatisch bestätigt und ins System eingetragen.", "Häufige Fragen von Teilnehmenden werden automatisch beantwortet und entlasten das Sekretariat.", "Individuelles Feedback zu Übungsaufgaben wird als erster Entwurf automatisch vorbereitet.", "Erinnerungen an bevorstehende Kurstermine werden automatisch per E-Mail verschickt.", "Zertifikate und Teilnahmebestätigungen werden automatisch aus einer Vorlage erstellt.", "Interessierte werden automatisch nach passenden Kursen gefragt und weitergeleitet.", "Elternfragen zu Terminen und Ausfällen werden automatisch beantwortet.", "Neue Interessierte erhalten automatisch passende Kursempfehlungen basierend auf ihren Angaben."], "realestate": ["Anfragen zu Exposés werden automatisch beantwortet und mit weiteren Unterlagen versorgt.", "Besichtigungstermine werden automatisch koordiniert, ganz ohne Hin-und-Her-Telefonate.", "Erste Entwürfe für Exposé-Texte werden automatisch aus Objektdaten erstellt.", "Interessenten werden automatisch nach Kriterien vorqualifiziert, bevor ein Termin vereinbart wird.", "Anfragen außerhalb der Geschäftszeiten werden automatisch mit ersten Informationen beantwortet.", "Erinnerungen an anstehende Vertragsfristen werden automatisch verschickt.", "Automatische Marktpreis-Einschätzungen liefern eine erste Grundlage für Verkaufsgespräche.", "Unterschriftsreife Unterlagen werden automatisch vorbereitet, sobald sich beide Seiten einig sind."], "logistics": ["Sendungsstatus-Anfragen werden automatisch per Chat beantwortet, ganz ohne Rückruf beim Disponenten.", "Routen werden automatisch anhand von Verkehrslage und Lieferfenstern optimiert vorgeschlagen.", "Frachtpapiere und Lieferscheine werden automatisch aus Auftragsdaten erstellt.", "Verspätungen werden automatisch erkannt und Kund:innen proaktiv informiert.", "Fahrer:innen erhalten automatisch aktualisierte Touren aufs Handy, ohne Rückfrage im Büro.", "Rechnungen an Auftraggeber werden automatisch aus abgeschlossenen Touren erstellt.", "Leerfahrten werden automatisch erkannt und mit passenden Rückladungen vorgeschlagen.", "Häufige Fragen zu Abholzeiten und Kapazitäten werden automatisch rund um die Uhr beantwortet."], "nonprofit": ["Mitgliedsanfragen und Beitrittsformulare werden automatisch geprüft und ins System übernommen.", "Ein Chatbot beantwortet häufige Fragen zu Terminen, Spenden und Mitgliedschaft automatisch.", "Spendenquittungen werden automatisch erstellt und verschickt, sobald eine Spende eingeht.", "Erinnerungen an fällige Mitgliedsbeiträge werden automatisch verschickt.", "Freiwillige werden automatisch anhand ihrer Verfügbarkeit für Einsätze vorgeschlagen.", "Newsletter-Entwürfe werden automatisch aus den wichtigsten Neuigkeiten des Monats vorbereitet.", "Anfragen von Presse oder Partnern werden automatisch vorsortiert und weitergeleitet.", "Berichte für Förderer und Zuschussgeber werden automatisch aus vorhandenen Daten vorbereitet."]}</script>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt">
+  <div class="container">
+    <div class="cta-band" data-reveal>
+      <h2>Gefällt dir, was du siehst?</h2>
+      <p class="lede" style="margin:0 auto 28px;">Genauso durchdacht bauen wir auch deine Website, deinen Shop, deine App oder deine KI-Automatisierung.</p>
+      <div class="hero-cta" style="justify-content:center;">
+        <a class="btn btn-primary" href="kontakt.html">Projekt anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <img class="logo-mark" src="assets/images/logo-mark-white.png?v=1785067226" alt="" width="34" height="28">
+          <span class="brand-word">Creation<em>First</em></span>
+        </a>
+        <p style="max-width:32ch; font-size:14.5px;">Digitalagentur für Webdesign, Softwareentwicklung und alles dazwischen. Mehrsprachig betreut auf Deutsch, Englisch und Kroatisch.</p>
+        <div class="footer-social" aria-hidden="false">
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="leistungen.html">Leistungen</a></li>
+<li><a href="ki-beschleunigung.html">KI</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="ueber-uns.html">Über uns</a></li>
+<li><a href="spielplatz.html">Playground</a></li>
+<li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+<li><a href="leistungen.html#webdesign">Webdesign &amp; Homepages</a></li>
+<li><a href="leistungen.html#entwicklung">App- &amp; Softwareentwicklung</a></li>
+<li><a href="leistungen.html#ki">KI &amp; Automatisierung</a></li>
+<li><a href="leistungen.html#ecommerce">E-Commerce &amp; Online-Shops</a></li>
+<li><a href="leistungen.html#branding">Branding, SEO &amp; Content-Marketing</a></li>
+<li><a href="leistungen.html#support">Wartung, Support &amp; Hosting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:info@creationfirst.io">info@creationfirst.io</a></li>
+          <li><a href="tel:+491621717423">+49 1621 717423</a></li>
+          <li>Split, Croatia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CreationFirst. Alle Rechte vorbehalten.</span>
+      <div class="flex gap-10">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" type="button" aria-label="Nach oben">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<button class="dev-toggle" type="button" aria-label="Technische Details anzeigen" aria-expanded="false">
+  <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></svg>
+</button>
+<div class="dev-panel" aria-hidden="true">
+  <div class="dev-panel-inner">
+    <div class="dev-panel-head">
+      <span class="dev-dot"></span><span class="dev-dot"></span><span class="dev-dot"></span>
+      <b>Unter der Haube</b>
+      <button type="button" class="dev-panel-close" aria-label="Schließen"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+    </div>
+    <ul class="dev-stats">
+      <li><span>HTTP-Anfragen</span><b class="dev-stat-requests">–</b></li>
+      <li><span>Seitengröße</span><b class="dev-stat-weight">–</b></li>
+      <li><span>Ladezeit</span><b class="dev-stat-load">–</b></li>
+      <li><span>Externe Tracker</span><b>0</b></li>
+      <li><span>Technik</span><b>Vanilla JS</b></li>
+      <li><span>Sprachen</span><b>DE · EN · HR</b></li>
+      <li><span>Build</span><b>#1785067226</b></li>
+    </ul>
+    <p class="dev-panel-note">Live gemessen für diese Seite — kein Marketing-Blabla.</p>
+  </div>
+</div>
+
+<script src="assets/js/main.js?v=1785067226"></script>
+<script src="assets/js/game.js?v=1785067226"></script><script src="assets/js/idea-generator.js?v=1785067226"></script></body>
+</html>

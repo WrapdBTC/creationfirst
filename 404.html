@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Seite nicht gefunden | CreationFirst</title>
+<meta name="robots" content="noindex, follow">
+<!--
+  This 404 page is intentionally self-contained (no external CSS/JS/images) so it
+  always renders correctly no matter how deep the missing URL was.
+  NOTE: the links below use root-relative paths ("/index.html"). That only works
+  correctly if this site is served from a domain root (a custom domain, or a
+  <username>.github.io user/organization repo). If you deploy this as a normal
+  GitHub Pages PROJECT page (served at https://<username>.github.io/<repo>/),
+  update the three links below to include the "/<repo>" prefix.
+-->
+<style>
+  * { box-sizing: border-box; }
+  html,body{height:100%;margin:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:radial-gradient(120% 140% at 10% 0%, #1c2340 0%, #0a0e1a 55%);
+    color:#ffffff;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+  }
+  .wrap{max-width:640px;padding:40px 24px;}
+  .code{
+    font-size:5.5rem;font-weight:800;line-height:1;margin-bottom:10px;letter-spacing:-0.02em;
+    background:linear-gradient(120deg,#4f46e5 0%,#6d5ef8 45%,#22d3ee 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .title{font-size:20px;font-weight:700;margin-bottom:26px;}
+  .msg{color:#aab0c6;margin:0 0 6px;font-size:15.5px;}
+  .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:999px;
+    font-weight:600;font-size:14.5px;text-decoration:none;transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:linear-gradient(120deg,#4f46e5 0%,#6d5ef8 45%,#22d3ee 100%);color:#fff;}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28);}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="code">404</div>
+    <p class="title">Seite nicht gefunden · Page not found · Stranica nije pronađena</p>
+    <p class="msg">Die gesuchte Seite existiert nicht oder wurde verschoben.</p>
+    <p class="msg">The page you're looking for doesn't exist or was moved.</p>
+    <p class="msg">Tražena stranica ne postoji ili je premještena.</p>
+    <div class="links">
+      <a class="btn btn-primary" href="/index.html">Zur Startseite</a>
+      <a class="btn btn-ghost" href="/en/index.html">English Home</a>
+      <a class="btn btn-ghost" href="/hr/index.html">Početna (HR)</a>
+    </div>
+  </div>
+</body>
+</html>

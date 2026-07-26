@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  try {
+    var saved = localStorage.getItem("theme");
+    var theme = saved || ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+})();
+</script>
+<title>Playground — A Tiny Browser Game | CreationFirst</title>
+<meta name="description" content="Race your own high score: a small Snake game with a local leaderboard, built with vanilla JavaScript — proof of what we can build technically.">
+<link rel="canonical" href="https://your-domain-here.com/en/playground.html">
+<link rel="alternate" hreflang="de" href="https://your-domain-here.com/spielplatz.html">
+<link rel="alternate" hreflang="en" href="https://your-domain-here.com/en/playground.html">
+<link rel="alternate" hreflang="hr" href="https://your-domain-here.com/hr/igra.html">
+<link rel="alternate" hreflang="x-default" href="https://your-domain-here.com/spielplatz.html">
+
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/images/favicon.png?v=1785067226">
+<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=1785067226">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CreationFirst">
+<meta property="og:title" content="Playground — A Tiny Browser Game | CreationFirst">
+<meta property="og:description" content="Race your own high score: a small Snake game with a local leaderboard, built with vanilla JavaScript — proof of what we can build technically.">
+<meta property="og:image" content="https://your-domain-here.com/assets/images/og-image.png">
+<meta property="og:url" content="https://your-domain-here.com/en/playground.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Playground — A Tiny Browser Game | CreationFirst">
+<meta name="twitter:description" content="Race your own high score: a small Snake game with a local leaderboard, built with vanilla JavaScript — proof of what we can build technically.">
+<meta name="twitter:image" content="https://your-domain-here.com/assets/images/og-image.png">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a0e1a">
+
+<link rel="stylesheet" href="../assets/css/style.css?v=1785067226">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CreationFirst", "url": "https://your-domain-here.com", "email": "info@creationfirst.io", "logo": "https://your-domain-here.com/assets/images/favicon.png", "sameAs": []}</script></head>
+<body>
+<div class="scroll-progress" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="CreationFirst">
+      <img class="logo-mark logo-mark-color" src="../assets/images/logo-mark-color.png?v=1785067226" alt="" width="34" height="28">
+      <img class="logo-mark logo-mark-white" src="../assets/images/logo-mark-white.png?v=1785067226" alt="" width="34" height="28">
+      <span class="brand-word">Creation<em>First</em></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="ai-acceleration.html">AI</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="about.html">About</a>
+<a href="playground.html" class="is-active" aria-current="page">Playground</a>
+<a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn btn-icon theme-toggle" type="button" aria-label="Theme umschalten / toggle theme">
+        <span class="icon-sun"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
+        <span class="icon-moon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg></span>
+      </button>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="flag">🇬🇧</span> <span class="lang-code">EN</span>
+        </button>
+        <div class="lang-menu">
+<a href="../spielplatz.html"><span class="flag">🇩🇪</span> Deutsch</a>
+<a href="playground.html" class="is-active"><span class="flag">🇬🇧</span> English</a>
+<a href="../hr/igra.html"><span class="flag">🇭🇷</span> Hrvatski</a>
+        </div>
+      </div>
+      <a class="btn btn-primary btn-sm nav-cta-btn" href="contact.html">Start a project</a>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumbs" style="color:rgba(255,255,255,.6);"><a href="index.html" style="color:rgba(255,255,255,.8);">Home</a> / Playground</div>
+    <span class="eyebrow" style="color:#fff;">Playground</span>
+    <h1>Eat the sparks. Don&#39;t bite yourself.</h1>
+    <p class="lede">No mockup, no concept video — an actual round of Snake, right in your browser, with a local leaderboard. This is what it feels like when we build for you.</p>
+  </div>
+  <div class="section-divider to-white"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,32 C300,70 900,-10 1200,28 L1200,60 L0,60 Z"/></svg></div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width: 900px;">
+    <div class="game-wrap" data-snake-game data-height="420"
+         data-leaderboard-key="creationfirst_snake_leaderboard"
+         data-leaderboard-empty="No entries yet — be the first!"
+         data-rank-prefix="Rank"
+         data-initials-placeholder="ABC"
+         data-paused-label="Paused">
+      <div class="game-stage">
+      <canvas class="game-canvas" tabindex="0" aria-label="Snake game, steer with the arrow keys"></canvas>
+      <div class="game-hud">
+        <span>Score: <span class="game-score-value">0</span></span>
+        <span class="game-effect-badge"></span>
+        <span>Best: <span class="game-best-value">0</span></span>
+      </div>
+      <div class="game-overlay game-overlay-start is-active">
+        <div class="game-panel">
+          <h3>Ready?</h3>
+          <p>Arrow keys, WASD, or swipe to steer. Collect sparks, grab power-ups — just don&#39;t bite your own tail!</p>
+          <button class="btn btn-primary game-start-btn" type="button">Start game</button>
+        </div>
+      </div>
+      <div class="game-overlay game-overlay-over">
+        <div class="game-panel">
+          <h3>Game Over</h3>
+          <span class="game-new-best">New best score! 🎉</span>
+          <div class="game-score-row">
+            <div><b class="game-final-score-value">0</b><span>Score</span></div>
+            <div><b class="game-best-value">0</b><span>Best</span></div>
+          </div>
+          <div class="game-initials-form">
+            <p class="game-initials-prompt">New high score! Your initials:</p>
+            <div class="game-initials-row">
+              <input class="game-initials-input" type="text" maxlength="3" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABC" aria-label="ABC">
+              <button class="btn btn-primary btn-sm game-save-score-btn" type="button">Save</button>
+            </div>
+          </div>
+          <div class="game-leaderboard">
+            <p class="game-leaderboard-title">Leaderboard (this device)</p>
+            <ol class="game-leaderboard-list"></ol>
+          </div>
+          <button class="btn btn-ghost game-restart-btn" type="button">Play again</button>
+        </div>
+      </div>
+      </div>
+      <div class="game-controls">
+        <button class="game-sound-btn" type="button"
+                aria-label="Mute sound"
+                data-on-aria="Mute sound"
+                data-off-aria="Unmute sound">
+          <span class="icon-on"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.4 8.6a5 5 0 0 1 0 6.8"/><path d="M19.2 6a9 9 0 0 1 0 12"/></svg></span>
+          <span class="icon-off"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16 9l6 6M22 9l-6 6"/></svg></span>
+        </button>
+        <div class="game-dpad" aria-hidden="true">
+          <button class="game-dpad-btn dpad-up" data-dir="up" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <button class="game-dpad-btn dpad-left" data-dir="left" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <button class="game-dpad-btn dpad-right" data-dir="right" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <button class="game-dpad-btn dpad-down" data-dir="down" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+        </div>
+        <button class="game-fullscreen-btn" type="button"
+                aria-label="Fullscreen"
+                data-on-aria="Fullscreen"
+                data-off-aria="Exit fullscreen">
+          <span class="icon-on"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H4v4M16 3h4v4M8 21H4v-4M16 21h4v-4"/></svg></span>
+          <span class="icon-off"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4H5M15 4v4h4M9 20v-4H5M15 20v-4h4"/></svg></span>
+        </button>
+      </div>
+    </div>
+    <p class="form-hint text-center" style="margin-top:16px;">Arrow keys, WASD, or swipe to steer, space to pause — works on mobile too.</p>
+  </div>
+</section>
+
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Under the hood</span>
+      <h2>How we built this</h2>
+      <p class="lede" style="margin:0 auto;">No game-engine toolkit — just the same tech we use for your projects.</p>
+    </div>
+    <div class="grid grid-3">
+<div class="card" data-reveal>
+        <div class="card-icon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></svg></div>
+        <h3>100% vanilla JavaScript</h3>
+        <p>No engine, no framework — just hand-written code that does exactly what it needs to.</p>
+      </div>
+<div class="card" data-reveal>
+        <div class="card-icon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M9 9v11"/></svg></div>
+        <h3>HTML5 Canvas</h3>
+        <p>Game logic, collision detection, and particle effects rendered directly in the browser, no plugins.</p>
+      </div>
+<div class="card" data-reveal>
+        <div class="card-icon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-3"/><path d="M9 5.5L8 3M15 5.5L16 3"/></svg></div>
+        <h3>Lightweight &amp; fast</h3>
+        <p>A few kilobytes, runs smoothly on mobile, and doesn&#39;t slow down the rest of the page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:760px;">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">One More Thing to Try</span>
+      <h2>What could an AI idea for your business look like?</h2>
+      <p class="lede" style="margin:0 auto;">Pick your industry and get a possible automation idea — exactly the kind of idea we&#39;d dig into together in a real quick analysis.</p>
+    </div>
+    <div class="idea-gen" data-idea-gen data-reveal
+         data-generate-label="Generate an idea"
+         data-again-label="Another idea"
+         data-placeholder="Pick an industry and click &#34;Generate an idea.&#34;">
+      <div class="idea-gen-controls">
+        <label class="idea-gen-label" for="idea-gen-select">Your industry</label>
+        <div class="idea-gen-row">
+          <select class="idea-gen-select" id="idea-gen-select">
+<option value="trades">Trades Business</option>
+<option value="retail">Retail</option>
+<option value="consulting">Consulting &amp; Services</option>
+<option value="hospitality">Hospitality</option>
+<option value="health">Health Practice</option>
+<option value="fitness">Fitness &amp; Recreation</option>
+<option value="education">Education &amp; Courses</option>
+<option value="realestate">Real Estate</option>
+<option value="logistics">Logistics &amp; Transport</option>
+<option value="nonprofit">Nonprofit &amp; Associations</option>
+          </select>
+          <button class="btn btn-primary idea-gen-btn" type="button">Generate an idea</button>
+        </div>
+      </div>
+      <div class="idea-gen-output">
+        <p class="idea-gen-text">Pick an industry and click &#34;Generate an idea.&#34;</p>
+      </div>
+      <p class="form-hint text-center idea-gen-disclaimer">Just a playful demo of how we think — no real AI running behind this, but this is exactly the kind of thinking we&#39;d bring to your project.</p>
+      <script type="application/json" class="idea-gen-data">{"trades": ["A chatbot automatically answers standard questions about pricing and appointments — even in the evening and on weekends.", "Quotes get created in minutes instead of hours using a template, including automatic material costing.", "Incoming requests get automatically sorted by urgency, so nothing gets lost in the inbox.", "A simple voice assistant helps log working hours directly from the job site.", "Invoices get created and sent automatically from completed jobs.", "Common questions about warranty and maintenance get answered automatically.", "Job-site photos get automatically matched to the right job and archived.", "Parts and material orders get automatically triggered once stock runs low."], "retail": ["Stock levels get automatically reconciled across locations before anything sells out.", "An AI tool writes product descriptions for the online store in seconds.", "Customer messages on WhatsApp get automatically pre-sorted and answered.", "Personalized offers get automatically sent to repeat customers, based on past purchases.", "Returns get logged automatically and stock gets updated accordingly.", "Common shipping and returns questions get answered automatically around the clock.", "A chatbot automatically helps customers find the right product in your range.", "Price changes and promotions get automatically synced across your website and store."], "consulting": ["Meeting notes get automatically turned into structured summaries and task lists.", "An AI assistant answers common client questions instantly, even outside office hours.", "Quotes and contracts get pre-drafted automatically from a few bullet points.", "Incoming leads get automatically scored and prioritized before you even respond.", "Invoices and time tracking get generated automatically from project data.", "First report drafts get automatically assembled from raw data.", "A chatbot automatically qualifies new leads before a consultation gets booked.", "Recurring research tasks get automatically prepared before a project kicks off."], "hospitality": ["Reservation requests get confirmed and logged automatically — no phone call needed.", "A chatbot answers questions about hours, the menu, and allergens around the clock.", "Orders from delivery platforms get automatically merged so the kitchen never gets mixed up.", "Staff schedules get automatically suggested based on past demand.", "Common special requests, like allergies or high chairs, get automatically noted and passed to the team.", "Feedback after a visit gets automatically requested by message and evaluated.", "Tip and review requests get sent automatically after a visit.", "Staffing gaps get caught early because schedules get automatically matched against reservations."], "health": ["Appointment requests get managed automatically, including reminders by text or email.", "Common patient questions get answered automatically, taking load off the front desk.", "Prescriptions and referrals get prepared from templates in seconds instead of minutes.", "Waitlists get automatically refilled the moment an appointment is cancelled.", "Reminders for follow-up appointments get sent automatically.", "Common questions about preparing for an appointment get answered automatically.", "Repeat prescription requests get automatically prepared and put up for approval.", "Intake questionnaires get automatically sent digitally before the appointment and evaluated."], "fitness": ["Member questions about classes and availability get answered automatically via chat.", "An AI tool drafts a first training plan that trainers just need to adjust.", "Cancelled class slots get automatically reassigned from the waitlist.", "Reminders about expiring memberships get sent automatically instead of tracked by hand.", "Trial session requests get automatically scheduled and confirmed.", "Common questions about hours and class schedules get answered automatically around the clock.", "New members automatically get a personal welcome sequence with the key information.", "Attendance across classes gets automatically analyzed to fine-tune the schedule."], "education": ["Course sign-ups get confirmed and logged automatically.", "Common questions from participants get answered automatically, taking load off the office.", "First-draft feedback on exercises gets prepared automatically.", "Reminders about upcoming sessions get sent automatically by email.", "Certificates and confirmations of attendance get generated automatically from a template.", "Prospects get automatically asked about their needs and matched to the right course.", "Parent questions about schedules and cancellations get answered automatically.", "New prospects automatically get matching course recommendations based on their answers."], "realestate": ["Inquiries about listings get answered automatically and sent further documents.", "Viewing appointments get coordinated automatically, with no back-and-forth calls.", "First-draft listing descriptions get generated automatically from property data.", "Prospects get automatically pre-qualified against your criteria before a viewing is booked.", "Inquiries outside business hours get an automatic first response.", "Reminders about upcoming contract deadlines get sent automatically.", "Automatic market-price estimates give you a first basis for the sales conversation.", "Signature-ready documents get automatically prepared as soon as both sides agree."], "logistics": ["Shipment status questions get answered automatically by chat, no callback to dispatch needed.", "Routes get automatically suggested and optimized based on traffic and delivery windows.", "Freight papers and delivery notes get generated automatically from order data.", "Delays get detected automatically and customers get proactively informed.", "Drivers automatically get updated routes on their phone, no need to call the office.", "Invoices to clients get generated automatically from completed runs.", "Empty return trips get automatically flagged and matched with backhaul loads.", "Common questions about pickup times and capacity get answered automatically around the clock."], "nonprofit": ["Membership inquiries and sign-up forms get automatically checked and entered into the system.", "A chatbot automatically answers common questions about events, donations, and membership.", "Donation receipts get generated and sent automatically as soon as a donation comes in.", "Reminders for due membership fees get sent automatically.", "Volunteers get automatically matched to shifts based on their availability.", "Newsletter drafts get automatically prepared from the month's key updates.", "Press or partner inquiries get automatically pre-sorted and routed.", "Reports for funders and grant-makers get automatically drafted from existing data."]}</script>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt">
+  <div class="container">
+    <div class="cta-band" data-reveal>
+      <h2>Like what you see?</h2>
+      <p class="lede" style="margin:0 auto 28px;">We build your website, store, app, or AI automation with the same level of care.</p>
+      <div class="hero-cta" style="justify-content:center;">
+        <a class="btn btn-primary" href="contact.html">Request a project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <img class="logo-mark" src="../assets/images/logo-mark-white.png?v=1785067226" alt="" width="34" height="28">
+          <span class="brand-word">Creation<em>First</em></span>
+        </a>
+        <p style="max-width:32ch; font-size:14.5px;">Digital agency for web design, software development and everything in between. We work in German, English and Croatian.</p>
+        <div class="footer-social" aria-hidden="false">
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="ai-acceleration.html">AI</a></li>
+<li><a href="portfolio.html">Portfolio</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="playground.html">Playground</a></li>
+<li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+<li><a href="services.html#webdesign">Web Design &amp; Websites</a></li>
+<li><a href="services.html#entwicklung">App &amp; Software Development</a></li>
+<li><a href="services.html#ki">AI &amp; Automation</a></li>
+<li><a href="services.html#ecommerce">E-Commerce &amp; Online Stores</a></li>
+<li><a href="services.html#branding">Branding, SEO &amp; Content Marketing</a></li>
+<li><a href="services.html#support">Maintenance, Support &amp; Hosting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@creationfirst.io">info@creationfirst.io</a></li>
+          <li><a href="tel:+491621717423">+49 1621 717423</a></li>
+          <li>Split, Croatia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CreationFirst. All rights reserved.</span>
+      <div class="flex gap-10">
+        <a href="legal-notice.html">Legal Notice</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<button class="dev-toggle" type="button" aria-label="Show technical details" aria-expanded="false">
+  <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></svg>
+</button>
+<div class="dev-panel" aria-hidden="true">
+  <div class="dev-panel-inner">
+    <div class="dev-panel-head">
+      <span class="dev-dot"></span><span class="dev-dot"></span><span class="dev-dot"></span>
+      <b>Under the hood</b>
+      <button type="button" class="dev-panel-close" aria-label="Close"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+    </div>
+    <ul class="dev-stats">
+      <li><span>HTTP requests</span><b class="dev-stat-requests">–</b></li>
+      <li><span>Page weight</span><b class="dev-stat-weight">–</b></li>
+      <li><span>Load time</span><b class="dev-stat-load">–</b></li>
+      <li><span>External trackers</span><b>0</b></li>
+      <li><span>Tech stack</span><b>Vanilla JS</b></li>
+      <li><span>Languages</span><b>DE · EN · HR</b></li>
+      <li><span>Build</span><b>#1785067226</b></li>
+    </ul>
+    <p class="dev-panel-note">Measured live for this page — no marketing fluff.</p>
+  </div>
+</div>
+
+<script src="../assets/js/main.js?v=1785067226"></script>
+<script src="../assets/js/game.js?v=1785067226"></script><script src="../assets/js/idea-generator.js?v=1785067226"></script></body>
+</html>
