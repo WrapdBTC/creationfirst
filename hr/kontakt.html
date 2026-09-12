@@ -140,8 +140,7 @@
 <section class="section">
   <div class="container contact-wrap">
     <div data-reveal="left">
-      <form data-contact-form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
-            data-msg-sending="Slanje u tijeku …" data-msg-notconfigured="Obrazac još nije aktiviran. Kontaktirajte nas izravno putem e-maila.">
+      <form data-contact-form action="https://creationfirst-chat.creationfirst-wrapd.workers.dev/api/contact" method="POST" data-msg-sending="Šalje se …" data-msg-ok="Hvala — upit je poslan. Javit ćemo se u 1–2 radna dana." data-msg-err="Slanje nije uspjelo. Pokušajte ponovo ili pišite na info@creationfirst.io." data-msg-notconfigured="Obrazac još nije aktivan. Kontaktirajte nas e-poštom.">
         <div class="form-grid">
           <div class="form-field">
             <label for="name">Ime <span class="req">*</span></label>
@@ -150,6 +149,10 @@
           <div class="form-field">
             <label for="email">E-mail <span class="req">*</span></label>
             <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="phone">Telefon <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="+385 … / +49 …">
           </div>
           <div class="form-field">
             <label for="company">Tvrtka (neobavezno)</label>
@@ -304,6 +307,6 @@
   </div>
 </div>
 
-<script src="../assets/js/main.js?v=1789310000"></script>
+<script src="../assets/js/main.js?v=1789325000"></script>
 </body>
 </html>

@@ -13,16 +13,41 @@ const ALLOWED_ORIGINS = [
   "http://127.0.0.1:8080",
 ];
 
-const SYSTEM_PROMPT = `Du bist der Live-Chat von CreationFirst (Sie-Form, klar, kein Hype, kein Crypto).
-Produkte:
+const SYSTEM_PROMPT = `Du bist ausschließlich der Live-Chat von CreationFirst (KI für KMUs).
+
+HARTE REGELN:
+- Nur Themen: CreationFirst, KI/Automatisierung für Unternehmen, Produkte/Preise, Termin/Kontakt, Fit für KMUs.
+- Off-Topic (Kochen, Sport, Privat, allgemeine Quizfragen, Coding-Hilfe ohne Business-Bezug, Scherze): freundlich ablehnen in 1–2 Sätzen und zurück zum Business lenken. KEINE Rezepte, KEINE Schritt-für-Schritt-Hilfe außerhalb des Angebots.
+- Sie-Form (nicht du). Klar, kein Hype, kein Crypto, keine erfundenen Case-Metrics oder Kundenlogos.
+- Knapp: 2–6 Sätze, außer der Besucher will Details zu Angebot/Prozess.
+
+PRODUKTE:
 - 0€ Erstgespräch: 30 Min Call, kein PDF, 2–3 Chancen mündlich
 - 199€ schriftliche Kurzanalyse: PDF 4–8 Seiten (Ist, 3–5 Chancen Impact×Aufwand, Budget-Bänder, Next Step), anrechenbar auf Audit/Sprint
 - KI-Audit: 1.500–3.000€, 7–14 Tage (Interviews, Prozess-Map, Quick Wins, 90-Tage-Roadmap, Build-vs-Buy, Sprint-Angebot, Readout)
 - Sprint: 4–12k €, 2–4 Wochen Umsetzung
 - Retainer: 1.5–4k €/Monat
-ICP: deutschsprachige KMU (ca. 10–150 MA), Fokus Umsetzung/Automationen.
-Ziel: helfen und bei Fit zum Erstgespräch/Kontakt führen (info@creationfirst.io oder kontakt.html).
-Keine erfundenen Case-Metrics. Antworte knapp (2–6 Sätze), außer Details werden gewünscht. Deutsch, außer der Besucher schreibt auf Englisch/Kroatisch.`;
+
+ICP: deutschsprachige KMU ca. 10–150 MA. Ziel: helfen + bei Fit zu Erstgespräch/Kontakt (info@creationfirst.io / kontakt.html).
+Sprache: Deutsch, außer der Besucher schreibt EN/HR.`;
+
+
+function looksOffTopic(text) {
+  const s = String(text || "").toLowerCase();
+  // Off-topic keywords always win (even if "ki" appears as substring elsewhere).
+  const off = /\b(curry|rezept|kochen|backen|pizza|nudeln|suppe|kuchen|sport|fu[sß]ball|liebe|beziehung|wetter|witz|meme|hausaufgaben|minecraft|fortnite|hobby)\b/i;
+  if (off.test(s)) return true;
+  // Too-short / clearly non-business without any company signal
+  const business = /\b(ki|künstliche intellig[eä]nz|automatis|audit|sprint|retainer|kurzanalyse|erstgespr[aä]ch|creation\s*first|unternehmen|firma|prozess|workflow|crm|leads?|website|angebot|preis|kosten|termin|kontakt|kmu|beratung)\b/i;
+  if (s.length > 12 && !business.test(s) && /\b(wie|was|mach|hilfe|erkl[aä]r)\b/i.test(s)) {
+    // Heuristic: question without business terms → refuse
+    return true;
+  }
+  return false;
+}
+
+const OFFTOPIC_REPLY =
+  "Dazu kann ich hier leider nicht helfen — dieser Chat ist nur für CreationFirst und KI in Ihrem Unternehmen. Wenn Sie möchten, klären wir gern, wo Automatisierung bei Ihnen Zeit oder Umsatz bringt. Passend wäre ein kurzes 0€-Erstgespräch oder die 199€-Kurzanalyse.";
 
 const AI_MODEL = "@cf/meta/llama-3.2-3b-instruct";
 
@@ -171,7 +196,15 @@ async function handleChatPost(request, env) {
   }
 
   try {
-    const reply = await replyWithWorkersAi(env, store.messages);
+    let reply;
+    if (looksOffTopic(message)) {
+      reply = OFFTOPIC_REPLY;
+    } else {
+      reply = await replyWithWorkersAi(env, store.messages);
+      if (/\b(curry|rezept|kochen|backen|pizza)\b/i.test(reply)) {
+        reply = OFFTOPIC_REPLY;
+      }
+    }
     store.messages.push({ role: "assistant", text: reply, ts: Date.now() });
     store.pending = false;
     await saveChat(env, conversation_id, store);
@@ -229,6 +262,69 @@ async function handleChatGet(request, env) {
   return json({ messages: store.messages }, 200, request);
 }
 
+
+async function handleContactPost(request, env) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: "Invalid JSON" }, 400, request);
+  }
+
+  const name = typeof body.name === "string" ? body.name.trim() : "";
+  const email = typeof body.email === "string" ? body.email.trim() : "";
+  const phone = typeof body.phone === "string" ? body.phone.trim() : "";
+  const company = typeof body.company === "string" ? body.company.trim() : "";
+  const budget = typeof body.budget === "string" ? body.budget.trim() : "";
+  const service = typeof body.service === "string" ? body.service.trim() : "";
+  const message = typeof body.message === "string" ? body.message.trim() : "";
+  const hp = typeof body._gotcha === "string" ? body._gotcha.trim() : "";
+
+  // Honeypot: pretend success
+  if (hp) return json({ ok: true }, 200, request);
+
+  if (!name || name.length > 200) return json({ error: "name required" }, 400, request);
+  if (!email || email.length > 320 || !email.includes("@")) return json({ error: "email required" }, 400, request);
+  if (!phone || phone.length < 5 || phone.length > 40) return json({ error: "phone required" }, 400, request);
+  if (!message || message.length > 5000) return json({ error: "message required" }, 400, request);
+
+  const webhook = env.DISCORD_CONTACT_WEBHOOK_URL;
+  if (!webhook) return json({ error: "contact not configured" }, 503, request);
+
+  const content =
+    "**Neue CreationFirst Anfrage**\\n" +
+    `**Name:** ${name}\\n` +
+    `**E-Mail:** ${email}\\n` +
+    `**Telefon:** ${phone}\\n` +
+    (company ? `**Unternehmen:** ${company}\\n` : "") +
+    (service ? `**Thema:** ${service}\\n` : "") +
+    (budget ? `**Budget:** ${budget}\\n` : "") +
+    `**Nachricht:**\\n${message.slice(0, 1800)}`;
+
+  const payload = {
+    username: "CreationFirst Kontakt",
+    content: content.slice(0, 1900),
+  };
+
+  try {
+    const res = await fetch(webhook, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      console.log("discord status", res.status);
+      return json({ error: "delivery failed" }, 502, request);
+    }
+  } catch (err) {
+    console.log("discord error", String(err));
+    return json({ error: "delivery failed" }, 502, request);
+  }
+
+  return json({ ok: true }, 200, request);
+}
+
+
 export default {
   async fetch(request, env) {
     if (request.method === "OPTIONS") {
@@ -241,6 +337,9 @@ export default {
     try {
       if (path === "/api/chat" && request.method === "POST") {
         return await handleChatPost(request, env);
+      }
+      if (path === "/api/contact" && request.method === "POST") {
+        return await handleContactPost(request, env);
       }
       if (path === "/api/chat/reply" && request.method === "POST") {
         return await handleReplyPost(request, env);

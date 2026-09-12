@@ -211,30 +211,66 @@
     }
   }
 
-  /* Contact form: basic client-side validation + Formspree-friendly submit */
+  /* Contact form → Cloudflare relay → Discord */
   var form = document.querySelector("[data-contact-form]");
   if (form) {
     form.addEventListener("submit", function (e) {
+      e.preventDefault();
       var statusEl = form.querySelector(".form-status");
-      var action = form.getAttribute("action") || "";
-      var isConfigured = action.indexOf("YOUR_FORM_ID") === -1 && action.length > 0;
+      var action = (form.getAttribute("action") || "").trim();
+      var isConfigured = action.indexOf("YOUR_FORM_ID") === -1 && action.length > 0 && action.indexOf("http") === 0;
+      var btn = form.querySelector('button[type="submit"]');
+
+      function setStatus(msg, ok) {
+        if (!statusEl) return;
+        statusEl.textContent = msg;
+        statusEl.className = "form-status is-visible" + (ok === false ? " err" : ok === true ? " ok" : "");
+      }
 
       if (!isConfigured) {
-        e.preventDefault();
-        if (statusEl) {
-          statusEl.textContent = form.getAttribute("data-msg-notconfigured") ||
-            "Formular ist noch nicht aktiviert. Bitte kontaktiere uns per E-Mail.";
-          statusEl.className = "form-status is-visible err";
-        }
+        setStatus(form.getAttribute("data-msg-notconfigured") ||
+          "Formular ist noch nicht aktiviert. Bitte kontaktieren Sie uns per E-Mail.", false);
         return;
       }
 
-      // Let Formspree handle the actual submission (native POST),
-      // but show an optimistic status message.
-      if (statusEl) {
-        statusEl.textContent = form.getAttribute("data-msg-sending") || "Wird gesendet …";
-        statusEl.className = "form-status is-visible";
+      var fd = new FormData(form);
+      var phone = String(fd.get("phone") || "").trim();
+      if (!phone) {
+        setStatus("Bitte Telefonnummer angeben.", false);
+        return;
       }
+
+      var payload = {
+        name: String(fd.get("name") || "").trim(),
+        email: String(fd.get("email") || "").trim(),
+        phone: phone,
+        company: String(fd.get("company") || "").trim(),
+        budget: String(fd.get("budget") || "").trim(),
+        service: String(fd.get("service") || "").trim(),
+        message: String(fd.get("message") || "").trim(),
+        _gotcha: String(fd.get("_gotcha") || "").trim()
+      };
+
+      setStatus(form.getAttribute("data-msg-sending") || "Wird gesendet …");
+      if (btn) btn.disabled = true;
+
+      fetch(action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(payload),
+        credentials: "omit"
+      }).then(function (res) {
+        if (!res.ok) throw new Error("bad status");
+        return res.json().catch(function () { return { ok: true }; });
+      }).then(function () {
+        setStatus(form.getAttribute("data-msg-ok") || "Danke — Ihre Anfrage ist raus.", true);
+        form.reset();
+      }).catch(function () {
+        setStatus(form.getAttribute("data-msg-err") ||
+          "Senden fehlgeschlagen. Bitte erneut versuchen oder info@creationfirst.io schreiben.", false);
+      }).finally(function () {
+        if (btn) btn.disabled = false;
+      });
     });
   }
 
