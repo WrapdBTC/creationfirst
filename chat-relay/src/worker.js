@@ -20,6 +20,7 @@ HARTE REGELN:
 - Off-Topic (Kochen, Sport, Privat, allgemeine Quizfragen, Coding-Hilfe ohne Business-Bezug, Scherze): freundlich ablehnen in 1–2 Sätzen und zurück zum Business lenken. KEINE Rezepte, KEINE Schritt-für-Schritt-Hilfe außerhalb des Angebots.
 - Sie-Form (nicht du). Klar, kein Hype, kein Crypto, keine erfundenen Case-Metrics oder Kundenlogos.
 - Knapp: 2–6 Sätze, außer der Besucher will Details zu Angebot/Prozess.
+- Bei Interesse (Audit/Sprint/Termin/Analyse): aktiv nach Name, E-Mail und Telefon fragen, damit wir uns melden können. Nicht nerven — einmal klar fragen.
 
 PRODUKTE:
 - 0€ Erstgespräch: 30 Min Call, kein PDF, 2–3 Chancen mündlich
@@ -207,6 +208,11 @@ async function handleChatPost(request, env) {
     }
     store.messages.push({ role: "assistant", text: reply, ts: Date.now() });
     store.pending = false;
+    try {
+      await maybeNotifyChatLead(env, conversation_id, store, message);
+    } catch (e) {
+      console.log("lead notify", String(e));
+    }
     await saveChat(env, conversation_id, store);
     return json({ conversation_id, status: "ok", reply }, 200, request);
   } catch (err) {
@@ -263,6 +269,127 @@ async function handleChatGet(request, env) {
 }
 
 
+
+function extractEmail(text) {
+  const m = String(text || "").match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+  return m ? m[0] : "";
+}
+
+function extractPhone(text) {
+  const m = String(text || "").match(/(?:\+|00)?[\d][\d\s\/().-]{6,}\d/);
+  if (!m) return "";
+  const digits = m[0].replace(/\D/g, "");
+  return digits.length >= 7 ? m[0].trim() : "";
+}
+
+function isLeadSignal(text) {
+  return /\b(termin|anruf|anrufen|rückruf|rueckruf|audit|kurzanalyse|erstgespräch|erstgespraech|sprint|retainer|angebot|preis|kontakt|meldem|zurückrufen|zurueckrufen|call|meeting)\b/i.test(
+    String(text || "")
+  );
+}
+
+async function postDiscord(env, payload) {
+  const webhook = env.DISCORD_CONTACT_WEBHOOK_URL;
+  if (!webhook) return false;
+  try {
+    const res = await fetch(webhook, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      console.log("discord status", res.status);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.log("discord error", String(err));
+    return false;
+  }
+}
+
+function field(name, value, inline) {
+  return {
+    name,
+    value: String(value || "—").slice(0, 1024) || "—",
+    inline: !!inline,
+  };
+}
+
+async function notifyContactDiscord(env, data) {
+  const embed = {
+    title: "Neue Website-Anfrage",
+    color: 0x22d3ee,
+    timestamp: new Date().toISOString(),
+    fields: [
+      field("Name", data.name, true),
+      field("E-Mail", data.email, true),
+      field("Telefon", data.phone, true),
+      field("Unternehmen", data.company || "—", true),
+      field("Thema", data.service || "—", true),
+      field("Budget", data.budget || "—", true),
+      field("Nachricht", data.message, false),
+    ],
+    footer: { text: "CreationFirst · Kontaktformular" },
+  };
+  return postDiscord(env, {
+    username: "CreationFirst Kontakt",
+    embeds: [embed],
+  });
+}
+
+async function notifyChatLeadDiscord(env, data) {
+  const lines = (data.history || [])
+    .slice(-8)
+    .map((m) => `**${m.role === "user" ? "Besucher" : "Bot"}:** ${String(m.text || "").slice(0, 280)}`)
+    .join("\n");
+  const embed = {
+    title: "Chat-Lead (Site Widget)",
+    color: 0xa78bfa,
+    timestamp: new Date().toISOString(),
+    fields: [
+      field("Conversation", data.conversation_id, false),
+      field("E-Mail", data.email || "—", true),
+      field("Telefon", data.phone || "—", true),
+      field("Signal", data.signal || "Kontakt/Interesse", true),
+      field("Letzte Nachricht", data.message, false),
+      field("Verlauf", lines || "—", false),
+    ],
+    footer: { text: "CreationFirst · Live-Chat" },
+  };
+  return postDiscord(env, {
+    username: "CreationFirst Chat",
+    embeds: [embed],
+  });
+}
+
+async function maybeNotifyChatLead(env, conversation_id, store, message) {
+  const email = extractEmail(message);
+  const phone = extractPhone(message);
+  const lead = isLeadSignal(message);
+  if (!email && !phone && !lead) return;
+
+  // Avoid spamming: one Discord ping per conversation unless new contact details appear
+  const prevEmail = store.leadEmail || "";
+  const prevPhone = store.leadPhone || "";
+  const already = !!store.leadNotified;
+  const newContact = (email && email !== prevEmail) || (phone && phone !== prevPhone);
+  if (already && !newContact) return;
+
+  if (email) store.leadEmail = email;
+  if (phone) store.leadPhone = phone;
+  store.leadNotified = true;
+
+  await notifyChatLeadDiscord(env, {
+    conversation_id,
+    message,
+    email: store.leadEmail,
+    phone: store.leadPhone,
+    signal: email || phone ? "Kontaktdaten im Chat" : "Kauf-/Termin-Signal",
+    history: store.messages,
+  });
+}
+
 async function handleContactPost(request, env) {
   let body;
   try {
@@ -280,7 +407,6 @@ async function handleContactPost(request, env) {
   const message = typeof body.message === "string" ? body.message.trim() : "";
   const hp = typeof body._gotcha === "string" ? body._gotcha.trim() : "";
 
-  // Honeypot: pretend success
   if (hp) return json({ ok: true }, 200, request);
 
   if (!name || name.length > 200) return json({ error: "name required" }, 400, request);
@@ -288,39 +414,20 @@ async function handleContactPost(request, env) {
   if (!phone || phone.length < 5 || phone.length > 40) return json({ error: "phone required" }, 400, request);
   if (!message || message.length > 5000) return json({ error: "message required" }, 400, request);
 
-  const webhook = env.DISCORD_CONTACT_WEBHOOK_URL;
-  if (!webhook) return json({ error: "contact not configured" }, 503, request);
-
-  const content =
-    "**Neue CreationFirst Anfrage**\\n" +
-    `**Name:** ${name}\\n` +
-    `**E-Mail:** ${email}\\n` +
-    `**Telefon:** ${phone}\\n` +
-    (company ? `**Unternehmen:** ${company}\\n` : "") +
-    (service ? `**Thema:** ${service}\\n` : "") +
-    (budget ? `**Budget:** ${budget}\\n` : "") +
-    `**Nachricht:**\\n${message.slice(0, 1800)}`;
-
-  const payload = {
-    username: "CreationFirst Kontakt",
-    content: content.slice(0, 1900),
-  };
-
-  try {
-    const res = await fetch(webhook, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    if (!res.ok) {
-      console.log("discord status", res.status);
-      return json({ error: "delivery failed" }, 502, request);
-    }
-  } catch (err) {
-    console.log("discord error", String(err));
-    return json({ error: "delivery failed" }, 502, request);
+  if (!env.DISCORD_CONTACT_WEBHOOK_URL) {
+    return json({ error: "contact not configured" }, 503, request);
   }
 
+  const ok = await notifyContactDiscord(env, {
+    name,
+    email,
+    phone,
+    company,
+    budget,
+    service,
+    message,
+  });
+  if (!ok) return json({ error: "delivery failed" }, 502, request);
   return json({ ok: true }, 200, request);
 }
 
