@@ -143,13 +143,19 @@ h3 { font-size: 1.25rem; }
 }
 .section > .container > *:not(.blob) { position: relative; z-index: 1; }
 
-/* Angled section divider — absolutely positioned at the bottom edge of a hero,
-   filled with the color of the NEXT section so the page reads as one continuous
-   scroll instead of hard rectangular cuts. */
-.section-divider { position: absolute; left: 0; right: 0; bottom: -1px; height: 60px; overflow: hidden; z-index: 1; line-height: 0; }
-.section-divider svg { width: 100%; height: 100%; display: block; }
-.section-divider.to-white svg path { fill: var(--color-bg); }
-.section-divider.to-alt svg path { fill: var(--color-bg-alt); }
+/* Crisp angled section divider — CSS clip-path slant avoids SVG wave aliasing /
+   stair-step white fringe at the hero/page-hero edge. Sits with a 2px overlap so
+   no hairline gap shows against the next section background. */
+.section-divider {
+  position: absolute; left: 0; right: 0; bottom: -2px; height: 56px;
+  overflow: hidden; z-index: 1; line-height: 0; pointer-events: none;
+  clip-path: polygon(0 52%, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 52%, 100% 0, 100% 100%, 0 100%);
+}
+/* Legacy SVG markup kept in HTML for older caches; color now comes from the div. */
+.section-divider svg { display: none; }
+.section-divider.to-white { background: var(--color-bg); }
+.section-divider.to-alt { background: var(--color-bg-alt); }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -202,14 +208,20 @@ h3 { font-size: 1.25rem; }
 
 .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 20px; letter-spacing: -.01em; }
 .brand:hover { opacity: .92; }
-.brand .logo-mark { height: 30px; width: auto; display: block; flex-shrink: 0; }
+.brand .logo-mark { height: 30px; width: 30px; display: block; flex-shrink: 0; object-fit: contain; }
 /* Header sits on a background that flips with the theme toggle, so it needs both a
    color and a white logo variant, swapped via [data-theme] — the footer/hero are
    always dark regardless of theme, so they only ever include the white version. */
 .brand .logo-mark-white { display: none; }
 [data-theme="dark"] .site-header .brand .logo-mark-color { display: none; }
 [data-theme="dark"] .site-header .brand .logo-mark-white { display: block; }
-.brand-word em { font-style: normal; background: var(--gradient-brand); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.brand-word em {
+  font-style: normal; font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  transform: translateZ(0); will-change: transform;
+}
 /* On the header, the wordmark sits on a background that flips with the theme
    toggle, so the two-tone gradient treatment (Creation + gradient First) reads
    fine either way. The footer/hero/page-hero backgrounds are always dark, and
@@ -428,11 +440,34 @@ h3 { font-size: 1.25rem; }
 /* Offer ladder (Audit → Sprint → Retainer) */
 .offer-ladder .offer-price {
   font-size: 1.55rem; font-weight: 800; line-height: 1.2; margin: 8px 0 4px;
-  background: var(--gradient-brand); -webkit-background-clip: text; background-clip: text; color: transparent;
+  background: var(--gradient-brand); -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent; transform: translateZ(0);
 }
 .offer-ladder .pricing-card p { color: var(--color-text-muted); font-size: 14.5px; margin: 0 0 8px; }
 .offer-ladder .pricing-card .price-note { margin-bottom: 14px; }
 .offer-ladder-cta { text-align: center; margin-top: 36px; }
+.offer-funnel-note {
+  text-align: center; max-width: 62ch; margin: 0 auto 28px;
+  font-size: 14.5px; line-height: 1.55; color: var(--color-text-muted);
+  padding: 12px 16px; border-radius: var(--radius-md);
+  background: var(--color-bg-alt); border: 1px solid var(--color-border);
+}
+.offer-ladder .offer-card-sub {
+  display: block; font-size: 12.5px; font-weight: 600; color: var(--color-text-muted);
+  margin-top: 2px; letter-spacing: .01em;
+}
+.offer-ladder .offer-deliverables { margin-top: 14px; }
+.offer-ladder .offer-deliverables li { font-size: 13.5px; color: var(--color-text-muted); }
+.offer-ladder .offer-deliverables li span { color: var(--color-text-muted); }
+
+.audit-compare {
+  list-style: none; margin: 8px auto 22px; padding: 14px 18px; max-width: 52ch;
+  text-align: left; font-size: 13.5px; line-height: 1.5; color: var(--color-text-muted);
+  background: var(--color-bg-alt); border: 1px solid var(--color-border); border-radius: var(--radius-md);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.audit-compare li strong { color: var(--color-text); font-weight: 700; }
+.audit-compare a { font-weight: 600; }
 
 /* Pricing */
 .pricing-card {
@@ -441,7 +476,9 @@ h3 { font-size: 1.25rem; }
 .pricing-card.is-featured { border-color: var(--color-primary); box-shadow: var(--shadow-glow); position: relative; }
 .pricing-card.is-featured::before {
   content: attr(data-badge); position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-  background: var(--gradient-brand); color: #fff; font-size: 12px; font-weight: 800; padding: 6px 16px; border-radius: var(--radius-full);
+  background: var(--gradient-brand); background-clip: padding-box; color: #fff; font-size: 12px; font-weight: 800; padding: 6px 16px; border-radius: var(--radius-full);
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  mask-image: radial-gradient(circle, #fff, #000);
 }
 .pricing-card h3 { margin-bottom: 4px; }
 .pricing-card .price-note { color: var(--color-text-muted); font-size: 14px; margin-bottom: 22px; }
@@ -466,7 +503,7 @@ h3 { font-size: 1.25rem; }
 }
 .audit-offer h3 { margin-bottom: 10px; }
 .audit-offer > p { color: var(--color-text-muted); max-width: 56ch; margin: 0 auto 22px; }
-.audit-offer .pricing-list { max-width: 44ch; margin: 0 auto 26px; text-align: left; }
+.audit-offer .pricing-list { max-width: 44ch; margin: 0 auto 10px; text-align: left; }
 .audit-offer .btn-block { max-width: 320px; margin: 0 auto; }
 /* Named grid areas (not source order) drive the layout, so the free/paid price
    always stays paired with its own label on every breakpoint — desktop lays the
@@ -484,7 +521,7 @@ h3 { font-size: 1.25rem; }
 .audit-area-paid-label { grid-area: paidlabel; }
 .audit-area-or { grid-area: or; }
 .audit-area-spacer { grid-area: spacer; }
-.audit-price-value { font-size: 2.4rem; font-weight: 800; background: var(--gradient-brand); -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1; text-align: center; }
+.audit-price-value { font-size: 2.4rem; font-weight: 800; background: var(--gradient-brand); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; transform: translateZ(0); line-height: 1; text-align: center; }
 .audit-price-label { font-size: 13px; color: var(--color-text-muted); text-align: center; max-width: 20ch; margin: 0 auto; }
 .audit-price-or-spacer { display: block; }
 .audit-price-or {
@@ -669,7 +706,7 @@ h3 { font-size: 1.25rem; }
 }
 .footer-top { display: grid; grid-template-columns: 1.55fr 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid var(--color-border-dark); align-items: start; }
 .footer-brand .brand { color: #fff; margin-bottom: 16px; }
-.footer-brand .brand .logo-mark { height: 28px; width: auto; }
+.footer-brand .brand .logo-mark { height: 28px; width: 28px; object-fit: contain; }
 .footer-brand-blurb { max-width: 34ch; font-size: 14.5px; line-height: 1.65; color: var(--color-text-inverse-muted); margin: 0; }
 .footer-col h4 { color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 18px; font-weight: 800; }
 .footer-col ul { display: flex; flex-direction: column; gap: 11px; margin: 0; padding: 0; list-style: none; }
@@ -1095,7 +1132,7 @@ html.footer-near .dev-panel.is-open { opacity: 0; }
      the container without wrapping or spilling off-screen. */
   .header-inner { gap: 6px; }
   .brand { font-size: 17px; gap: 6px; }
-  .brand .logo-mark { height: 24px; }
+  .brand .logo-mark { height: 24px; width: 24px; }
   .header-actions { gap: 4px; }
   .btn-icon, .nav-toggle { width: 38px; height: 38px; }
   .lang-switch-btn { padding: 8px 9px; gap: 0; }
