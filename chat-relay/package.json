@@ -1,0 +1,15 @@
+{
+  "name": "chat-relay",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker that stores site-chat messages in **Workers KV** and notifies a Grok Bot routine via webhook. The Worker does **not** call xAI; the agent replies by POSTing back to `/api/chat/reply`.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "wrangler": "^3.112.0"
+  }
+}

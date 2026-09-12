@@ -1540,3 +1540,258 @@ html.footer-near .dev-panel.is-open { opacity: 0; }
 :root:not([data-theme="dark"]) .filter-pill {
   color: var(--color-text-muted);
 }
+
+/* ==========================================================================
+   Floating live site chat (cf-site-chat) — additional to homepage demos
+   ========================================================================== */
+.cf-site-chat {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9990;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+}
+.cf-site-chat__launcher {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--gradient-brand);
+  box-shadow: var(--shadow-glow);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.cf-site-chat__launcher:hover { transform: translateY(-2px) scale(1.03); }
+.cf-site-chat__launcher:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.cf-site-chat__icon-close { display: none; }
+.cf-site-chat.is-open .cf-site-chat__icon-open { display: none; }
+.cf-site-chat.is-open .cf-site-chat__icon-close { display: block; }
+
+.cf-site-chat__panel {
+  position: absolute;
+  right: 0;
+  bottom: 72px;
+  width: min(380px, calc(100vw - 32px));
+  height: min(560px, calc(100vh - 120px));
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px) scale(.98);
+  transform-origin: bottom right;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.cf-site-chat.is-open .cf-site-chat__panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.cf-site-chat__header {
+  position: relative;
+  padding: 16px 44px 14px 18px;
+  background: var(--gradient-dark);
+  color: var(--color-text-inverse);
+}
+.cf-site-chat__title {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .01em;
+}
+.cf-site-chat__subtitle {
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--color-text-inverse-muted);
+}
+.cf-site-chat__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.cf-site-chat__close:hover { background: rgba(255,255,255,.18); }
+.cf-site-chat__close:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.cf-site-chat__thread {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--color-bg);
+}
+.cf-site-chat__row { display: flex; }
+.cf-site-chat__row--user { justify-content: flex-end; }
+.cf-site-chat__row--bot { justify-content: flex-start; }
+.cf-site-chat__bubble {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.cf-site-chat__bubble--bot {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-bottom-left-radius: 4px;
+  color: var(--color-text);
+}
+.cf-site-chat__bubble--user {
+  background: var(--gradient-brand);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.cf-site-chat__typing-bubble {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cf-site-chat__dots {
+  display: inline-flex;
+  gap: 4px;
+}
+.cf-site-chat__dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: block;
+  animation: cfChatDot 1s ease-in-out infinite;
+}
+.cf-site-chat__dots i:nth-child(2) { animation-delay: .15s; }
+.cf-site-chat__dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes cfChatDot {
+  0%, 80%, 100% { opacity: .35; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-3px); }
+}
+.cf-site-chat__typing-label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+.cf-site-chat__system {
+  font-size: 12.5px;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: 6px 8px;
+  line-height: 1.4;
+}
+.cf-site-chat__retry {
+  margin-left: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--surface);
+  color: var(--color-primary);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.cf-site-chat__retry:hover { border-color: var(--color-primary); }
+
+.cf-site-chat__form {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  padding: 12px;
+  border-top: 1px solid var(--color-border);
+  background: var(--surface);
+}
+.cf-site-chat__input {
+  flex: 1;
+  resize: none;
+  min-height: 40px;
+  max-height: 120px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--input-bg);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.cf-site-chat__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18);
+}
+.cf-site-chat__input:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+.cf-site-chat__send {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--gradient-brand);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.cf-site-chat__send:hover { filter: brightness(1.05); }
+.cf-site-chat__send:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  filter: none;
+}
+.cf-site-chat__send:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.cf-site-chat.is-disabled .cf-site-chat__launcher {
+  background: linear-gradient(120deg, #6b7280 0%, #4b5563 100%);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 480px) {
+  .cf-site-chat {
+    right: 12px;
+    bottom: 12px;
+  }
+  .cf-site-chat__panel {
+    position: fixed;
+    right: 12px;
+    left: 12px;
+    bottom: 76px;
+    width: auto;
+    height: min(70vh, 560px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-site-chat__panel,
+  .cf-site-chat__launcher {
+    transition: none;
+  }
+  .cf-site-chat__dots i { animation: none; }
+}

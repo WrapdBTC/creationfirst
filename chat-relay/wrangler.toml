@@ -1,0 +1,11 @@
+name = "creationfirst-chat"
+account_id = "bc62d7a80cc7b0090ddc7920987a97fc"
+main = "src/worker.js"
+compatibility_date = "2024-09-23"
+
+[[kv_namespaces]]
+binding = "CHATS"
+id = "a31db94309ef48e584a64efcdbe4b596"
+
+[ai]
+binding = "AI"
