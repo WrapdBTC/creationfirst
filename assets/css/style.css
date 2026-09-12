@@ -201,7 +201,8 @@ h3 { font-size: 1.25rem; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: 100%; }
 
 .brand { display: flex; align-items: center; gap: 9px; font-weight: 800; font-size: 20px; letter-spacing: -.01em; }
-.brand .logo-mark { height: 30px; width: auto; display: block; }
+.brand:hover { opacity: .92; }
+.brand .logo-mark { height: 30px; width: auto; display: block; flex-shrink: 0; }
 /* Header sits on a background that flips with the theme toggle, so it needs both a
    color and a white logo variant, swapped via [data-theme] — the footer/hero are
    always dark regardless of theme, so they only ever include the white version. */
@@ -537,12 +538,19 @@ h3 { font-size: 1.25rem; }
 /* ---------- Portfolio filters + lightbox ---------- */
 .portfolio-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 32px; }
 .filter-pill {
+  position: relative; overflow: hidden; isolation: isolate;
   padding: 9px 18px; border-radius: var(--radius-full); border: 1px solid var(--color-border);
-  background: var(--surface); color: var(--color-text-muted); font-weight: 600; font-size: 13.5px;
+  background: var(--surface); background-clip: padding-box; color: var(--color-text-muted); font-weight: 600; font-size: 13.5px;
   transition: border-color .15s ease, color .15s ease, background .15s ease, box-shadow .15s ease;
+  cursor: pointer;
 }
 .filter-pill:hover { border-color: var(--color-primary); color: var(--color-primary); }
-.filter-pill.is-active { background: var(--gradient-brand); color: #fff; border-color: transparent; box-shadow: var(--shadow-glow); }
+.filter-pill.is-active {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: var(--gradient-brand); background-clip: padding-box; color: #fff; border-color: transparent; box-shadow: var(--shadow-glow);
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  mask-image: radial-gradient(circle, #fff, #000);
+}
 
 .portfolio-card[role="button"] { cursor: pointer; }
 .portfolio-card.is-filtered-out { display: none; }
@@ -647,22 +655,50 @@ h3 { font-size: 1.25rem; }
 .contact-info-row span, .contact-info-row a { font-size: 13.5px; color: var(--color-text-inverse-muted); }
 
 /* ---------- Footer ---------- */
-.site-footer { background: var(--color-bg-dark); color: var(--color-text-inverse-muted); padding: 72px 0 28px; }
-.footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid var(--color-border-dark); }
-.footer-brand .brand { color: #fff; margin-bottom: 14px; }
-.footer-col h4 { color: #fff; font-size: 13.5px; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 18px; }
-.footer-col ul { display: flex; flex-direction: column; gap: 12px; }
-.footer-col a { font-size: 14.5px; transition: color .15s ease; }
+.site-footer {
+  position: relative;
+  background: var(--color-bg-dark); color: var(--color-text-inverse-muted);
+  padding: 76px 0 30px;
+  border-top: 1px solid rgba(79,70,229,.28);
+  box-shadow: inset 0 1px 0 rgba(34,211,238,.12);
+}
+.site-footer::before {
+  content: ""; position: absolute; left: 10%; right: 10%; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79,70,229,.55), rgba(34,211,238,.45), transparent);
+  pointer-events: none;
+}
+.footer-top { display: grid; grid-template-columns: 1.55fr 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid var(--color-border-dark); align-items: start; }
+.footer-brand .brand { color: #fff; margin-bottom: 16px; }
+.footer-brand .brand .logo-mark { height: 28px; width: auto; }
+.footer-brand-blurb { max-width: 34ch; font-size: 14.5px; line-height: 1.65; color: var(--color-text-inverse-muted); margin: 0; }
+.footer-col h4 { color: #fff; font-size: 13px; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 18px; font-weight: 800; }
+.footer-col ul { display: flex; flex-direction: column; gap: 11px; margin: 0; padding: 0; list-style: none; }
+/* Style ALL li (not only anchors) so plain location lines like "Split, Kroatien"
+   match link typography and never render oversized/default. */
+.footer-col li { font-size: 14.5px; line-height: 1.45; color: var(--color-text-inverse-muted); }
+.footer-col a { font-size: 14.5px; color: var(--color-text-inverse-muted); transition: color .15s ease; }
 .footer-col a:hover { color: #fff; }
-.footer-social { display: flex; gap: 10px; margin-top: 20px; }
+.footer-social { display: flex; gap: 10px; margin-top: 22px; }
 .footer-social a {
   width: 38px; height: 38px; border-radius: var(--radius-full); border: 1px solid var(--color-border-dark);
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center; color: var(--color-text-inverse-muted);
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
 }
-.footer-social a:hover { border-color: var(--color-accent); }
+.footer-social a:hover { border-color: var(--color-accent); color: #fff; background: rgba(255,255,255,.04); }
 .footer-social svg { width: 17px; height: 17px; stroke: currentColor; }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 26px; font-size: 13px; flex-wrap: wrap; gap: 12px; }
-.footer-bottom a { text-decoration: underline; text-underline-offset: 3px; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 28px; font-size: 13px; flex-wrap: wrap; gap: 14px;
+  color: #8b92ab;
+}
+.footer-bottom-links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.footer-bottom-links a,
+.footer-bottom a {
+  color: #b6bdd4; text-decoration: none; border-bottom: 1px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.footer-bottom-links a:hover,
+.footer-bottom a:hover { color: #fff; border-bottom-color: rgba(255,255,255,.35); }
 
 /* ---------- Snake (game) ---------- */
 /* .game-wrap holds the game viewport (.game-stage) on top and a control bar below it,
@@ -977,15 +1013,44 @@ html.footer-near .dev-panel.is-open { opacity: 0; }
    contact + the CTA button), the header row gets visually tight on mid-size desktop
    viewports before the mobile hamburger breakpoint kicks in — trim gaps/padding a
    little earlier instead of only reacting at the phone breakpoint. */
+/* Overflow "Mehr" for secondary nav items (Playground) on mid widths */
+.nav-more { position: relative; display: none; }
+.nav-more-btn {
+  padding: 10px 12px; border-radius: var(--radius-full); font-weight: 600; font-size: 14.5px;
+  color: var(--color-text-muted); background: transparent; border: 0; cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+.nav-more-btn:hover, .nav-more.is-open .nav-more-btn { background: var(--color-bg-alt); color: var(--color-text); }
+.nav-more-menu {
+  position: absolute; top: calc(100% + 8px); right: 0; min-width: 180px; padding: 6px;
+  background: var(--surface); border: 1px solid var(--color-border); border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg); display: none; z-index: 60;
+}
+.nav-more.is-open .nav-more-menu { display: block; }
+.nav-more-menu a {
+  display: block; padding: 10px 12px; border-radius: 8px; font-size: 14px; font-weight: 600;
+  color: var(--color-text); white-space: nowrap;
+}
+.nav-more-menu a:hover, .nav-more-menu a.is-active { background: var(--color-bg-alt); color: var(--color-primary); }
+.nav-more-menu a::after { display: none !important; }
+
 @media (max-width: 1180px) {
-  .header-inner { gap: 12px; }
+  .header-inner { gap: 10px; }
   .main-nav { gap: 0; }
-  .main-nav a { padding: 10px 10px; font-size: 13.5px; }
+  .main-nav > a { padding: 9px 9px; font-size: 13.25px; }
+  .main-nav a::after { left: 10px; right: 10px; }
   .header-actions { gap: 6px; }
+  .nav-more-btn { padding: 9px 9px; font-size: 13.25px; }
   /* The "Kontakt" nav link already covers this call-to-action, so the header CTA
      button is redundant weight once things get tight — drop it here and keep it
      only on wide desktop where there's room to spare. */
   .nav-cta-btn { display: none; }
+}
+/* Mid desktop: keep Über uns / Leistungen / Portfolio / Kontakt; tuck Playground into Mehr */
+@media (max-width: 1040px) and (min-width: 721px) {
+  .main-nav > a.nav-secondary { display: none; }
+  .nav-more { display: inline-flex; }
+  .main-nav > a { padding: 8px 8px; font-size: 13px; }
 }
 @media (min-width: 981px) {
   .process-step:not(:last-child) .chevron { display: flex; align-items: center; justify-content: center; }
@@ -1015,8 +1080,13 @@ html.footer-near .dev-panel.is-open { opacity: 0; }
   .main-nav.is-open {
     display: flex; flex-direction: column; position: absolute; top: var(--header-h); left: 0; right: 0;
     background: var(--surface); border-bottom: 1px solid var(--color-border); padding: 12px; box-shadow: var(--shadow-md);
+    z-index: 80;
   }
-  .main-nav.is-open a { padding: 14px 16px; }
+  .main-nav.is-open > a,
+  .main-nav.is-open .nav-more-menu a { padding: 14px 16px; }
+  /* On mobile the hamburger already lists everything — expand secondary inline, hide Mehr shell */
+  .main-nav.is-open > a.nav-secondary { display: block; }
+  .main-nav.is-open .nav-more { display: none; }
 
   /* Mobile header: logo + theme toggle + lang switch + hamburger were all fighting
      for space in one unwrapped row and overflowing on real phone widths ("alles in
@@ -1213,11 +1283,18 @@ html.footer-near .dev-panel.is-open { opacity: 0; }
 .sim { background: var(--surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 30px; }
 .sim-toggle { display: flex; gap: 8px; justify-content: center; margin-bottom: 26px; }
 .sim-toggle-manual, .sim-toggle-ai {
+  position: relative; overflow: hidden; isolation: isolate; cursor: pointer;
   padding: 10px 20px; border-radius: var(--radius-full); border: 1px solid var(--color-border);
-  background: var(--color-bg-alt); font-weight: 700; font-size: 14px; color: var(--color-text);
+  background: var(--color-bg-alt); background-clip: padding-box; font-weight: 700; font-size: 14px; color: var(--color-text);
   transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
-.sim-toggle-manual.is-active, .sim-toggle-ai.is-active { background: var(--gradient-brand); color: #fff; border-color: transparent; }
+.sim-toggle-manual.is-active, .sim-toggle-ai.is-active {
+  background: var(--gradient-brand); background-clip: padding-box; color: #fff; border-color: transparent;
+  /* Same Chromium seam fix as .btn-primary: overflow+radius+gradient can leave a
+     faint square edge at the pill corners without a fresh mask compositing pass. */
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff, #000);
+  mask-image: radial-gradient(circle, #fff, #000);
+}
 .sim-steps { display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px; }
 .sim-step { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,2fr) auto; align-items: center; gap: 14px; font-size: 13.5px; }
 .sim-step-label { color: var(--color-text-muted); }
@@ -1272,6 +1349,39 @@ html.footer-near .dev-panel.is-open { opacity: 0; }
   .process-grid-3::before { display: none; }
 }
 
+
+
+
+/* ---------- Section figures (process / webapps) ---------- */
+.section-figure {
+  max-width: 760px;
+  margin: 8px auto 36px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.section-figure picture,
+.section-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+.section-figure-wide { max-width: 920px; }
+.section-figure-caption {
+  padding: 12px 16px 14px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+}
+@media (max-width: 720px) {
+  .section-figure { margin-bottom: 28px; border-radius: var(--radius-md); }
+}
 
 /* ---------- Polish: hero visual, founder card, offer ladder ---------- */
 .hero-panel-visual {

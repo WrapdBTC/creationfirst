@@ -57,6 +57,32 @@
     document.querySelectorAll(".lang-switch.is-open").forEach(function (el) {
       el.classList.remove("is-open");
     });
+    document.querySelectorAll(".nav-more.is-open").forEach(function (el) {
+      el.classList.remove("is-open");
+      var b = el.querySelector(".nav-more-btn");
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  /* Mid-width nav overflow ("Mehr") for secondary items such as Playground */
+  document.querySelectorAll(".nav-more").forEach(function (el) {
+    var btn = el.querySelector(".nav-more-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      document.querySelectorAll(".nav-more.is-open").forEach(function (other) {
+        if (other !== el) {
+          other.classList.remove("is-open");
+          var ob = other.querySelector(".nav-more-btn");
+          if (ob) ob.setAttribute("aria-expanded", "false");
+        }
+      });
+      document.querySelectorAll(".lang-switch.is-open").forEach(function (other) {
+        other.classList.remove("is-open");
+      });
+      var open = el.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
   });
 
   /* FAQ accordion */
