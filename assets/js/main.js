@@ -352,4 +352,23 @@
       }
     });
   }
+
+  /* Hide the floating technical-details control when the footer is in view so it
+     does not sit on top of the copyright line (left-bottom collision). */
+  var siteFooter = document.querySelector(".site-footer");
+  if (siteFooter && "IntersectionObserver" in window) {
+    var footerObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        document.documentElement.classList.toggle("footer-near", entry.isIntersecting);
+        if (entry.isIntersecting && devPanel && devPanel.classList.contains("is-open")) {
+          devPanel.classList.remove("is-open");
+          if (devToggle) {
+            devToggle.setAttribute("aria-expanded", "false");
+            devPanel.setAttribute("aria-hidden", "true");
+          }
+        }
+      });
+    }, { root: null, threshold: 0, rootMargin: "0px 0px -8% 0px" });
+    footerObs.observe(siteFooter);
+  }
 })();
