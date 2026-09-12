@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-domain-here.com/sitemap.xml
+Sitemap: https://wrapdbtc.github.io/creationfirst/sitemap.xml

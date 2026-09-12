@@ -249,7 +249,7 @@
       function openLightbox(card) {
         var thumb = card.querySelector(".portfolio-thumb");
         var title = card.querySelector("h3");
-        var text = card.querySelector(".portfolio-body p");
+        var facts = card.querySelector(".portfolio-facts");
         var cat = card.querySelector(".cat");
         var chips = card.querySelectorAll(".portfolio-meta .chip");
 
@@ -257,7 +257,8 @@
         if (thumb) lbThumb.appendChild(thumb.cloneNode(true));
         lbCat.textContent = cat ? cat.textContent : "";
         lbTitle.textContent = title ? title.textContent : "";
-        lbText.textContent = text ? text.textContent : "";
+        lbText.innerHTML = "";
+        if (facts) lbText.appendChild(facts.cloneNode(true));
         lbMeta.innerHTML = "";
         chips.forEach(function (chip) {
           var span = document.createElement("span");

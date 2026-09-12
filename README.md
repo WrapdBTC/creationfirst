@@ -46,13 +46,11 @@ Domain als Inhalt im Root ab und richte bei deinem Domain-Anbieter einen CNAME/A
 
 ## 3. Vor dem Livegang noch zu prüfen
 
-- **Domain**: Die Adresse `https://your-domain-here.com` (in den `<link rel="canonical">`, hreflang-Tags,
-  `sitemap.xml` und `robots.txt`) ist noch ein Platzhalter. Nach dem Livegang per „Suchen & Ersetzen" durch die
-  echte GitHub-Pages- oder Custom-Domain-URL ersetzen.
-- **Social-Links**: `#` unter „LinkedIn/Instagram/GitHub" im Footer durch echte Profil-URLs ersetzen, sobald
-  vorhanden.
-- **Testimonials & Portfolio**: Die Kundenstimmen und Projektbeispiele sind als Beispiele gekennzeichnet — vor
-  Veröffentlichung nach und nach durch echte Referenzen ersetzen, sobald diese vorliegen.
+- **Domain**: Canonical-, hreflang-, Open-Graph-, Twitter- und JSON-LD-URLs sowie `sitemap.xml` / `robots.txt`
+  zeigen auf `https://wrapdbtc.github.io/creationfirst` (inkl. `/en/` und `/hr/`). Bei Custom Domain entsprechend anpassen.
+- **Social-Links**: Dead Footer-Links auf `#` wurden entfernt. Echte Profil-URLs können später wieder ergänzt werden.
+- **Testimonials**: Erfundene Kundenstimmen wurden durch ehrliche Arbeitsprinzipien ersetzt. Portfolio-Beispiele
+  bei Bedarf schrittweise durch echte Referenzen ersetzen.
 
 Kontaktdaten, Impressum und Datenschutzerklärung sind bereits mit den echten CreationFirst-Angaben befüllt.
 
