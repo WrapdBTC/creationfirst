@@ -433,4 +433,33 @@
     }, { root: null, threshold: 0, rootMargin: "0px 0px -8% 0px" });
     footerObs.observe(siteFooter);
   }
+
+  /* Conversion sticky CTA (mobile) */
+  (function () {
+    var bar = document.querySelector("[data-sticky-cta]");
+    if (!bar) return;
+    var path = (location.pathname || "").replace(/\\/g, "/");
+    if (/kontakt\.html$/i.test(path) || /contact\.html$/i.test(path)) return;
+    document.body.classList.add("has-sticky-cta");
+    var hero = document.querySelector(".hero, .page-hero");
+    var finalCta = document.querySelector(".cta-band");
+    function update() {
+      var y = window.scrollY || 0;
+      var pastHero = true;
+      if (hero) {
+        var hr = hero.getBoundingClientRect();
+        pastHero = hr.bottom < 40;
+      }
+      var nearEnd = false;
+      if (finalCta) {
+        var fr = finalCta.getBoundingClientRect();
+        nearEnd = fr.top < window.innerHeight - 40;
+      }
+      bar.classList.toggle("is-visible", pastHero && !nearEnd && y > 280);
+    }
+    document.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    update();
+  })();
+
 })();
