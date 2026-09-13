@@ -56,21 +56,38 @@ const OFFTOPIC_REPLY =
 
 function sanitizeReply(text) {
   let s = String(text || "");
-  // Force Sie-forms if the small model slips into du
   const pairs = [
-    [/\bdein(er|em|en|e|es)?\b/gi, (m) => m.toLowerCase().startsWith("deine") ? "Ihre" : m.toLowerCase().startsWith("deinem") ? "Ihrem" : m.toLowerCase().startsWith("deinen") ? "Ihren" : m.toLowerCase().startsWith("deiner") ? "Ihrer" : m.toLowerCase().startsWith("deines") ? "Ihres" : "Ihr"],
+    [/\bdein(e|em|en|er|es)?\b/gi, (m) => {
+      const x = m.toLowerCase();
+      if (x === "deine") return "Ihre";
+      if (x === "deinem") return "Ihrem";
+      if (x === "deinen") return "Ihren";
+      if (x === "deiner") return "Ihrer";
+      if (x === "deines") return "Ihres";
+      return "Ihr";
+    }],
     [/\bdir\b/gi, "Ihnen"],
     [/\bdich\b/gi, "Sie"],
     [/\bdu\b/gi, "Sie"],
+    [/\bteile uns\b/gi, "teilen Sie uns"],
+    [/\bteil uns\b/gi, "teilen Sie uns"],
+    [/\bgib uns\b/gi, "geben Sie uns"],
+    [/\bsag uns\b/gi, "sagen Sie uns"],
+    [/\bschreib uns\b/gi, "schreiben Sie uns"],
+    [/\bInteresse hast\b/gi, "Interesse haben"],
+    [/\bwenn Sie .* hast\b/gi, (m) => m.replace(/hast/i, "haben")],
+    [/\bBitte gib\b/gi, "Bitte geben Sie"],
+    [/\bBitte teile\b/gi, "Bitte teilen Sie"],
   ];
   for (const [re, rep] of pairs) s = s.replace(re, rep);
-  // Avoid implying we control the calendar
   s = s.replace(/damit ich den Termin\s*planen kann/gi, "damit wir uns zur Terminfindung melden können");
-  s = s.replace(/Terminplanieren kann/gi, "zur Terminfindung melden können");
+  s = s.replace(/wir werden Ihnen einen Termin anbieten/gi, "wir melden uns zur Terminfindung");
+  s = s.replace(/einen Termin anbieten/gi, "uns zur Terminfindung melden");
+  s = s.replace(/\b(montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag)\b/gi, "zeitnah");
   return s;
 }
 
-const AI_MODEL = "@cf/meta/llama-3.2-3b-instruct";
+const AI_MODEL = "@cf/meta/llama-3.1-8b-instruct-fast";
 
 function corsHeaders(request) {
   const origin = request.headers.get("Origin") || "";
