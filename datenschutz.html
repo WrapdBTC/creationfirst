@@ -115,7 +115,7 @@ E-Mail: info@creationfirst.io
 <p>Diese Website wird über GitHub Pages gehostet, einen Dienst der GitHub Inc. (bzw. GitHub B.V. für Nutzer:innen in der EU). Beim
 Aufruf dieser Website verarbeitet der Hosting-Anbieter automatisch technische Daten wie IP-Adresse, Datum und Uhrzeit des Zugriffs,
 verwendeten Browser sowie die aufgerufene Seite (Server-Logfiles). Diese Verarbeitung erfolgt auf Grundlage unseres berechtigten
-Interesses an einer sicheren und funktionsfähigen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Weitere Informationen findest
+Interesses an einer sicheren und funktionsfähigen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Weitere Informationen finden
 Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
 
 <h2>3. Cookies & Tracking</h2>
@@ -123,17 +123,23 @@ Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en
 die Cookies setzen. Es werden keine Nutzerprofile erstellt.</p>
 
 <h2>4. Kontaktformular</h2>
-<p>Wenn Sie das Kontaktformular auf dieser Website nutzen, werden die von Ihnen eingegebenen Daten (z. B. Name, E-Mail-Adresse, Nachricht)
-zur Bearbeitung deiner Anfrage verarbeitet (Art. 6 Abs. 1 lit. b DSGVO). Die Übermittlung erfolgt über den Formular-Dienst Formspree
-(Formspree, Inc.). Dabei können personenbezogene Daten auch auf Servern in den USA verarbeitet werden; weitere Informationen findest
-Sie in der <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Datenschutzerklärung von Formspree</a>.
+<p>Wenn Sie das Kontaktformular auf dieser Website nutzen, werden die von Ihnen eingegebenen Daten (z. B. Name, E-Mail-Adresse, Telefonnummer, Nachricht)
+zur Bearbeitung Ihrer Anfrage verarbeitet (Art. 6 Abs. 1 lit. b DSGVO). Die Übermittlung erfolgt über einen von uns betriebenen Cloudflare Worker
+(Cloudflare, Inc.). Die Anfrage wird anschließend an unseren internen Benachrichtigungskanal (Discord) weitergeleitet, damit wir Sie zeitnah kontaktieren können.
+Weitere Informationen zu Cloudflare finden Sie in der
+<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a>.
 Alternativ können Sie uns direkt per E-Mail kontaktieren; in diesem Fall verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage.</p>
 
-<h2>5. Externe Schriftarten & Ressourcen</h2>
-<p>Diese Website verwendet ausschließlich systemeigene Schriftarten und bindet keine externen Schriftarten (z. B. Google Fonts) oder
-sonstigen Drittanbieter-Ressourcen ein, die eine Datenübertragung an Dritte auslösen könnten.</p>
+<h2>5. Live-Chat</h2>
+<p>Auf ausgewählten Seiten bieten wir einen optionalen Live-Chat an. Wenn Sie den Chat nutzen, werden Ihre Nachrichten sowie ggf. angegebene
+Kontaktdaten (z. B. E-Mail oder Telefonnummer) über denselben Cloudflare Worker verarbeitet, um Ihre Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO).
+Zur Beantwortung kann eine KI-Unterstützung (Cloudflare Workers AI) eingesetzt werden; bei erkennbaren Kontaktdaten oder Kaufinteresse kann eine Benachrichtigung an unseren internen Kanal erfolgen.</p>
 
-<h2>6. Deine Rechte</h2>
+<h2>6. Externe Schriftarten & Ressourcen</h2>
+<p>Diese Website verwendet ausschließlich systemeigene Schriftarten und bindet keine externen Schriftarten (z. B. Google Fonts) ein.
+Technische Anfragen des Kontaktformulars und des Live-Chats laufen über Cloudflare Workers wie unter Ziffer 4 und 5 beschrieben.</p>
+
+<h2>7. Ihre Rechte</h2>
 <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten
 personenbezogenen Daten, deren Herkunft und Empfänger sowie den Zweck der Datenverarbeitung sowie ggf. ein Recht auf Berichtigung,
 Sperrung oder Löschung dieser Daten. Zudem steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
@@ -146,7 +152,7 @@ Sperrung oder Löschung dieser Daten. Zudem steht Ihnen ein Beschwerderecht bei 
 <li>Widerspruchsrecht (Art. 21 DSGVO)</li>
 </ul>
 
-<h2>7. Kontakt bei Datenschutzfragen</h2>
+<h2>8. Kontakt bei Datenschutzfragen</h2>
 <p>Bei Fragen zum Datenschutz erreichen Sie uns unter info@creationfirst.io.</p>
 
   </div>
@@ -233,5 +239,7 @@ Sperrung oder Löschung dieser Daten. Zudem steht Ihnen ein Beschwerderecht bei 
 </div>
 
 <script src="assets/js/main.js?v=1789310000"></script>
+<script src="assets/js/site-chat-config.js?v=1789330000"></script>
+<script src="assets/js/site-chat.js?v=1789330000"></script>
 </body>
 </html>

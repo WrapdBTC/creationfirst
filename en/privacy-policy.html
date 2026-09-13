@@ -123,17 +123,22 @@ functional website (Art. 6(1)(f) GDPR). More information is available in GitHub'
 that set cookies. No user profiles are created.</p>
 
 <h2>4. Contact Form</h2>
-<p>If you use the contact form on this website, the data you enter (e.g., name, email address, message) is processed to handle your
-request (Art. 6(1)(b) GDPR). Submission is handled via the form service Formspree (Formspree, Inc.), which may process personal data
-on servers in the USA; further information is available in
-<a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspree's privacy policy</a>. Alternatively, you
+<p>If you use the contact form on this website, the data you enter (e.g., name, email address, phone number, message) is processed to handle your
+request (Art. 6(1)(b) GDPR). Submission is handled via a Cloudflare Worker we operate (Cloudflare, Inc.). The request is then forwarded to our
+internal notification channel (Discord) so we can reply promptly. More information is available in the
+<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a>. Alternatively, you
 can contact us directly by email, in which case we process your details to handle your inquiry.</p>
 
-<h2>5. External Fonts & Resources</h2>
-<p>This website uses only system-native fonts and does not embed external fonts (e.g. Google Fonts) or other third-party resources
-that could trigger data transfers to third parties.</p>
+<h2>5. Live Chat</h2>
+<p>On selected pages we offer an optional live chat. If you use it, your messages and any contact details you provide (e.g. email or phone)
+are processed via the same Cloudflare Worker to answer your request (Art. 6(1)(b) or (f) GDPR). Replies may use AI assistance (Cloudflare Workers AI);
+if contact details or buying intent are detected, an internal notification may be sent.</p>
 
-<h2>6. Your Rights</h2>
+<h2>6. External Fonts & Resources</h2>
+<p>This website uses only system-native fonts and does not embed external fonts (e.g. Google Fonts). Technical requests for the contact form
+and live chat run through Cloudflare Workers as described in sections 4 and 5.</p>
+
+<h2>7. Your Rights</h2>
 <p>Subject to applicable law, you have the right to free information about your stored personal data, its origin and recipients, and
 the purpose of its processing, as well as a right to rectification, restriction, or deletion of this data. You also have the right to
 lodge a complaint with the competent supervisory authority.</p>
@@ -146,7 +151,7 @@ lodge a complaint with the competent supervisory authority.</p>
 <li>Right to object (Art. 21 GDPR)</li>
 </ul>
 
-<h2>7. Contact for Privacy Questions</h2>
+<h2>8. Contact for Privacy Questions</h2>
 <p>If you have questions about data protection, reach us at info@creationfirst.io.</p>
 
   </div>
@@ -233,5 +238,7 @@ lodge a complaint with the competent supervisory authority.</p>
 </div>
 
 <script src="../assets/js/main.js?v=1789310000"></script>
+<script src="../assets/js/site-chat-config.js?v=1789330000"></script>
+<script src="../assets/js/site-chat.js?v=1789330000"></script>
 </body>
 </html>

@@ -54,17 +54,13 @@ Domain als Inhalt im Root ab und richte bei deinem Domain-Anbieter einen CNAME/A
 
 Kontaktdaten, Impressum und Datenschutzerklärung sind bereits mit den echten CreationFirst-Angaben befüllt.
 
-## 4. Kontaktformular aktivieren
+## 4. Kontaktformular & Live-Chat
 
-Das Formular auf der Kontaktseite ist technisch vorbereitet, aber noch nicht aktiv (statische Seiten können Formulare
-nicht selbst verarbeiten). So aktivierst du es kostenlos über [Formspree](https://formspree.io):
+Kontaktformular (DE/EN/HR) und Live-Chat laufen über den Cloudflare Worker in `chat-relay/`
+(`https://creationfirst-chat.creationfirst-wrapd.workers.dev`). Telefon ist Pflichtfeld; Anfragen landen
+per Discord-Webhook. Secrets (`DISCORD_WEBHOOK_URL` u. a.) liegen in Wrangler, nicht im Repo.
 
-1. Kostenloses Konto auf formspree.io erstellen und ein neues Formular anlegen.
-2. Die dir angezeigte Form-ID kopieren.
-3. In `kontakt.html`, `en/contact.html` und `hr/kontakt.html` jeweils `YOUR_FORM_ID` in der Zeile
-   `action="https://formspree.io/f/YOUR_FORM_ID"` durch deine echte ID ersetzen.
-
-Alternativ kannst du jeden anderen Formular-Endpoint (z. B. einen eigenen Server) eintragen.
+Deploy nach Worker-Änderungen: `cd chat-relay && npx wrangler deploy` (Account/Secrets vorausgesetzt).
 
 ## 5. Design & Inhalte anpassen
 

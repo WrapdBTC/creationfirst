@@ -140,8 +140,11 @@
 <section class="section">
   <div class="container contact-wrap">
     <div data-reveal="left">
-      <form data-contact-form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
-            data-msg-sending="Sending …" data-msg-notconfigured="This form isn&#39;t activated yet. Please contact us directly by email.">
+      <form data-contact-form action="https://creationfirst-chat.creationfirst-wrapd.workers.dev/api/contact" method="POST"
+            data-msg-sending="Sending …"
+            data-msg-ok="Thanks — your request is in. We&#39;ll get back to you within 1–2 business days."
+            data-msg-err="Sending failed. Please try again or email info@creationfirst.io."
+            data-msg-notconfigured="This form isn&#39;t activated yet. Please contact us directly by email.">
         <div class="form-grid">
           <div class="form-field">
             <label for="name">Name <span class="req">*</span></label>
@@ -150,6 +153,10 @@
           <div class="form-field">
             <label for="email">Email <span class="req">*</span></label>
             <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="+49 … / +385 …">
           </div>
           <div class="form-field">
             <label for="company">Company (optional)</label>
@@ -304,6 +311,8 @@
   </div>
 </div>
 
-<script src="../assets/js/main.js?v=1789310000"></script>
+<script src="../assets/js/main.js?v=1789325000"></script>
+<script src="../assets/js/site-chat-config.js?v=1789330000"></script>
+<script src="../assets/js/site-chat.js?v=1789330000"></script>
 </body>
 </html>

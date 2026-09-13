@@ -123,17 +123,22 @@ funkcionalno pružanje stranice (čl. 6. st. 1. t. f GDPR-a). Više informacija 
 postavljaju kolačiće. Ne izrađuju se korisnički profili.</p>
 
 <h2>4. Kontakt obrazac</h2>
-<p>Ako koristite kontakt obrazac na ovoj stranici, podaci koje unesete (npr. ime, e-mail adresa, poruka) obrađuju se radi rješavanja
-vašeg upita (čl. 6. st. 1. t. b GDPR-a). Slanje se obrađuje putem usluge obrasca Formspree (Formspree, Inc.), koja osobne podatke može
-obrađivati na poslužiteljima u SAD-u; više informacija dostupno je u
-<a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">Formspreeovoj politici privatnosti</a>. Alternativno,
+<p>Ako koristite kontakt obrazac na ovoj stranici, podaci koje unesete (npr. ime, e-mail adresa, broj telefona, poruka) obrađuju se radi rješavanja
+vašeg upita (čl. 6. st. 1. t. b GDPR-a). Slanje se obrađuje putem Cloudflare Workera kojim upravljamo (Cloudflare, Inc.). Upit se zatim prosljeđuje
+našem internom kanalu obavijesti (Discord) kako bismo vam mogli brzo odgovoriti. Više informacija dostupno je u
+<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a>. Alternativno,
 možete nas kontaktirati izravno putem e-maila, u kojem slučaju obrađujemo vaše podatke radi rješavanja upita.</p>
 
-<h2>5. Vanjski fontovi i resursi</h2>
-<p>Ova stranica koristi isključivo sistemske fontove i ne ugrađuje vanjske fontove (npr. Google Fonts) ni druge resurse trećih strana
-koji bi mogli izazvati prijenos podataka trećim stranama.</p>
+<h2>5. Live chat</h2>
+<p>Na odabranim stranicama nudimo opcionalni live chat. Ako ga koristite, vaše poruke te eventualni kontaktni podaci (npr. e-mail ili telefon)
+obrađuju se putem istog Cloudflare Workera radi odgovora na upit (čl. 6. st. 1. t. b odnosno t. f GDPR-a). Za odgovore se može koristiti AI podrška
+(Cloudflare Workers AI); ako se otkriju kontaktni podaci ili kupovni interes, može se poslati interna obavijest.</p>
 
-<h2>6. Vaša prava</h2>
+<h2>6. Vanjski fontovi i resursi</h2>
+<p>Ova stranica koristi isključivo sistemske fontove i ne ugrađuje vanjske fontove (npr. Google Fonts). Tehnički zahtjevi kontakt obrasca i live chata
+prolaze kroz Cloudflare Workere kako je opisano u točkama 4. i 5.</p>
+
+<h2>7. Vaša prava</h2>
 <p>U skladu s važećim propisima, u svakom trenutku imate pravo na besplatnu informaciju o svojim pohranjenim osobnim podacima,
 njihovom podrijetlu i primateljima te svrsi obrade, kao i pravo na ispravak, ograničenje obrade ili brisanje tih podataka. Također
 imate pravo podnijeti pritužbu nadležnom nadzornom tijelu.</p>
@@ -146,7 +151,7 @@ imate pravo podnijeti pritužbu nadležnom nadzornom tijelu.</p>
 <li>Pravo na prigovor (čl. 21. GDPR-a)</li>
 </ul>
 
-<h2>7. Kontakt za pitanja o privatnosti</h2>
+<h2>8. Kontakt za pitanja o privatnosti</h2>
 <p>Za pitanja vezana uz zaštitu podataka dostupni smo na info@creationfirst.io.</p>
 
   </div>
@@ -233,5 +238,7 @@ imate pravo podnijeti pritužbu nadležnom nadzornom tijelu.</p>
 </div>
 
 <script src="../assets/js/main.js?v=1789310000"></script>
+<script src="../assets/js/site-chat-config.js?v=1789330000"></script>
+<script src="../assets/js/site-chat.js?v=1789330000"></script>
 </body>
 </html>
