@@ -54,9 +54,9 @@
       unavailable: "Chat uskoro dostupan",
       unavailableHint: "Live chat se upravo postavlja. Piši nam putem kontakt obrasca.",
       typing: "Asistent tipka…",
-      timeout: "Još nema odgovora. Pokušajte ponovo ili pišite kasnije.",
+      timeout: "Još nema odgovora. Pokušaj ponovo ili piši kasnije.",
       retry: "Pokušaj ponovo",
-      error: "Poruka nije poslana. Pokušajte ponovo.",
+      error: "Poruka nije poslana. Pokušaj ponovo.",
       greeting: "Bok — AI, audit ili razgovor?",
     },
   };

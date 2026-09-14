@@ -232,7 +232,7 @@
 
       if (!isConfigured) {
         setStatus(form.getAttribute("data-msg-notconfigured") ||
-          "Formular ist noch nicht aktiviert. Bitte kontaktieren Sie uns per E-Mail.", false);
+          "Formular ist noch nicht aktiviert. Bitte kontaktiere uns per E-Mail.", false);
         return;
       }
 
@@ -266,7 +266,7 @@
         if (!res.ok) throw new Error("bad status");
         return res.json().catch(function () { return { ok: true }; });
       }).then(function () {
-        setStatus(form.getAttribute("data-msg-ok") || "Danke — Ihre Anfrage ist raus.", true);
+        setStatus(form.getAttribute("data-msg-ok") || "Danke — deine Anfrage ist raus.", true);
         form.reset();
       }).catch(function () {
         setStatus(form.getAttribute("data-msg-err") ||
