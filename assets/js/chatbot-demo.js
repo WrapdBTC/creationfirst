@@ -1,6 +1,6 @@
 /* CreationFirst, chatbot-demo.js
    A scripted, honest mini-chatbot demo: pick a topic, and the bot walks
-   through a short 2-3 message exchange, not just one canned reply, so it
+   through a short 2-3 message exchange, not just one fixed reply, so it
    actually feels like a conversation. Deliberately NOT wired to a real
    language model, a static site has nowhere safe to hold an API key, and
    faking a "live AI" would be misleading. The disclaimer text says so
