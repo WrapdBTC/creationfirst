@@ -2628,19 +2628,20 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
 }
 
 /* Service sections: calm top row (copy + image) + full-width checklist */
-.service-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
+.service-block,
 .service-block.is-compact {
-  display: block;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
 }
 .service-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   align-items: center;
+  width: 100%;
 }
 .service-block.is-compact.is-flip .service-top .service-visual { order: -1; }
 .service-block.is-compact .service-visual,
@@ -2651,24 +2652,36 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   border-radius: 16px;
   width: 100%;
 }
+.service-copy { max-width: 36rem; }
 .service-copy h2 { margin-top: 0; }
 .service-copy .card-icon { margin-bottom: 16px !important; }
 .service-checks {
-  margin-top: 22px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 24px;
+  clear: both;
+  grid-column: 1 / -1;
 }
-.service-checklist {
-  margin: 0;
+.service-checklist,
+.service-checklist.pricing-list {
+  margin: 0 !important;
+  width: 100%;
+  max-width: none !important;
+  flex-grow: 0 !important;
   background: var(--surface);
   border: 1px solid var(--color-border);
   border-radius: 16px;
-  padding: 18px 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 24px;
+  padding: 16px 20px;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  align-items: flex-start;
 }
-.service-checklist.pricing-list {
-  display: grid;
-  flex-direction: unset;
+.service-checklist li {
+  flex: 1 1 240px;
+  min-width: 220px;
 }
 .service-ai-note {
   margin: 16px 0 0;
@@ -2679,36 +2692,21 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   font-size: 14px;
   line-height: 1.55;
   color: var(--color-text-muted);
+  width: 100%;
 }
-/* Deprecated nesting (checks beside image) — keep harmless if remnants appear */
-.service-main {
-  display: block;
-}
+.service-main { display: contents; }
 .service-ai-row,
-.service-ai-card {
-  display: none;
-}
+.service-ai-card { display: none !important; }
 @media (max-width: 900px) {
   .service-top {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  .service-block.is-compact.is-flip .service-top .service-visual {
-    order: initial;
-  }
+  .service-block.is-compact.is-flip .service-top .service-visual { order: initial; }
   .service-top .service-copy { order: 1; }
   .service-top .service-visual { order: 2; max-height: 200px; }
-  .service-checks { order: 3; margin-top: 18px; }
-  .service-checklist {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 16px 18px;
-  }
-}
-@media (max-width: 560px) {
-  .service-checklist {
-    grid-template-columns: 1fr;
-  }
+  .service-checks { order: 3; margin-top: 18px; width: 100%; }
+  .service-checklist li { flex: 1 1 100%; min-width: 0; }
 }
 
 /* Legacy service-split (kept harmless if any remain) */
