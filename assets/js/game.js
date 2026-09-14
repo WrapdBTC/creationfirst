@@ -786,22 +786,6 @@
       ctx.fillRect(-10, -10, W + 20, H + 20);
 
       if (phase !== "over") {
-        // subtle grid texture within the play field
-        ctx.strokeStyle = "rgba(255,255,255.045)";
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        for (var gx = 0; gx <= cols; gx++) {
-          var lx = offsetX + gx * cell + 0.5;
-          ctx.moveTo(lx, offsetY);
-          ctx.lineTo(lx, offsetY + rows * cell);
-        }
-        for (var gy = 0; gy <= rows; gy++) {
-          var ly = offsetY + gy * cell + 0.5;
-          ctx.moveTo(offsetX, ly);
-          ctx.lineTo(offsetX + cols * cell, ly);
-        }
-        ctx.stroke();
-
         // obstacles (static or, past OBSTACLE_MOVE_SCORE, slowly patrolling)
         for (var o = 0; o < obstacles.length; o++) {
           var ob = obstacles[o];
