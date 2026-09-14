@@ -15,7 +15,7 @@ const ALLOWED_ORIGINS = [
 
 const SYSTEM_PROMPT = `Du bist der Live-Chat von CreationFirst (KI-Umsetzung für deutschsprachige KMUs).
 
-ANREDE (hart): immer Sie/Ihnen/Ihr — niemals du/dein/dir/dich. Auch nicht gemischt.
+ANREDE (hart): immer du/dein/dir/dich — niemals Sie/Ihnen/Ihr als Höflichkeitsform. Auch nicht gemischt.
 
 TON: ruhig, hilfreich, knapp (meist 2–4 Sätze). Kein Hype, kein Crypto, keine erfundenen Cases.
 
@@ -24,16 +24,17 @@ SCOPE: nur CreationFirst, KI/Automatisierung, Produkte/Preise, Fit, Kontakt. Off
 PRODUKTE:
 - 0€ Erstgespräch (30 Min, kein PDF)
 - 199€ Kurzanalyse (PDF 4–8 Seiten, anrechenbar)
-- KI-Audit 1.500–3.000€ (7–14 Tage)
-- Sprint 4–12k € · Retainer 1.5–4k €/Monat
+- KI-Audit 1.500–3.000€ (7–14 Tage): Interviews, Ist-Prozesse, 3–5 Quick Wins+Skizze, 90-Tage-Roadmap, Build-vs-Buy, Sprint-Angebot, Readout
+- Sprint 4–12k € / 2–4 Wo: Lieferinkrement, Integration, Doku/Handoff, Review-Call
+- Retainer 1.5–4k €/Monat: Priority-Queue, monatliches Review, laufende Verbesserungen, Response-Zeit
 
 TERMINE / LEADS:
 - Keinen konkreten Wochentag oder Uhrzeit vorschlagen oder bestätigen. Kein Kalender.
-- Call-Wunsch: kurz erklären, dass es ein 0€-Erstgespräch gibt, und EINMAL nach Name, E-Mail und Telefon fragen — oder auf kontakt.html / info@creationfirst.io verweisen.
+- Call-Wunsch: kurz erklären, dass es ein unverbindliches 0€-Erstgespräch gibt, und EINMAL nach Name, E-Mail und Telefon fragen — oder auf kontakt.html / info@creationfirst.io verweisen.
 - Wenn Kontaktdaten da: danken, „wir melden uns zur Terminfindung“ — fertig. Nicht nachhaken, nicht Montag/Freitag anbieten.
 - Keine Fragebögen (keine Bullet-Listen zu Branche/MA-Zahl).
 
-Sprache: Deutsch mit Sie, außer der Besucher schreibt EN/HR (dann passend, weiterhin förmlich).`;
+Sprache: Deutsch mit Du, außer der Besucher schreibt EN/HR (dann passend, weiterhin locker: you / ti).`;
 
 
 function looksOffTopic(text) {
@@ -51,36 +52,34 @@ function looksOffTopic(text) {
 }
 
 const OFFTOPIC_REPLY =
-  "Dazu kann ich hier leider nicht helfen — dieser Chat ist nur für CreationFirst und KI in Ihrem Unternehmen. Wenn Sie möchten, klären wir gern, wo Automatisierung bei Ihnen Zeit oder Umsatz bringt. Passend wäre ein kurzes 0€-Erstgespräch oder die 199€-Kurzanalyse.";
+  "Dazu kann ich hier leider nicht helfen — dieser Chat ist nur für CreationFirst und KI in deinem Unternehmen. Wenn du magst, klären wir gern, wo Automatisierung bei dir Zeit oder Umsatz bringt. Passend wäre ein kurzes unverbindliches Erstgespräch.";
 
 
 function sanitizeReply(text) {
   let s = String(text || "");
   const pairs = [
-    [/\bdein(e|em|en|er|es)?\b/gi, (m) => {
+    [/\bteilen Sie uns\b/gi, "teil uns"],
+    [/\bgeben Sie uns\b/gi, "gib uns"],
+    [/\bsagen Sie uns\b/gi, "sag uns"],
+    [/\bschreiben Sie uns\b/gi, "schreib uns"],
+    [/\bBitte geben Sie\b/gi, "Bitte gib"],
+    [/\bBitte teilen Sie\b/gi, "Bitte teil"],
+    [/\bIhre(m|n|r|s)?\b/g, (m) => {
       const x = m.toLowerCase();
-      if (x === "deine") return "Ihre";
-      if (x === "deinem") return "Ihrem";
-      if (x === "deinen") return "Ihren";
-      if (x === "deiner") return "Ihrer";
-      if (x === "deines") return "Ihres";
-      return "Ihr";
+      if (x === "ihre") return "deine";
+      if (x === "ihrem") return "deinem";
+      if (x === "ihren") return "deinen";
+      if (x === "ihrer") return "deiner";
+      if (x === "ihres") return "deines";
+      return "deine";
     }],
-    [/\bdir\b/gi, "Ihnen"],
-    [/\bdich\b/gi, "Sie"],
-    [/\bdu\b/gi, "Sie"],
-    [/\bteile uns\b/gi, "teilen Sie uns"],
-    [/\bteil uns\b/gi, "teilen Sie uns"],
-    [/\bgib uns\b/gi, "geben Sie uns"],
-    [/\bsag uns\b/gi, "sagen Sie uns"],
-    [/\bschreib uns\b/gi, "schreiben Sie uns"],
-    [/\bInteresse hast\b/gi, "Interesse haben"],
-    [/\bwenn Sie .* hast\b/gi, (m) => m.replace(/hast/i, "haben")],
-    [/\bBitte gib\b/gi, "Bitte geben Sie"],
-    [/\bBitte teile\b/gi, "Bitte teilen Sie"],
+    [/\bIhr\b/g, "dein"],
+    [/\bIhnen\b/g, "dir"],
+    [/\bSie\b/g, "du"],
   ];
   for (const [re, rep] of pairs) s = s.replace(re, rep);
   s = s.replace(/damit ich den Termin\s*planen kann/gi, "damit wir uns zur Terminfindung melden können");
+  s = s.replace(/wir werden dir einen Termin anbieten/gi, "wir melden uns zur Terminfindung");
   s = s.replace(/wir werden Ihnen einen Termin anbieten/gi, "wir melden uns zur Terminfindung");
   s = s.replace(/einen Termin anbieten/gi, "uns zur Terminfindung melden");
   s = s.replace(/\b(montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag)\b/gi, "zeitnah");

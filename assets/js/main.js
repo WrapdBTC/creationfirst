@@ -117,7 +117,10 @@
       },
       { threshold: 0.12 }
     );
-    revealEls.forEach(function (el) { io.observe(el); });
+    revealEls.forEach(function (el, i) {
+      el.style.transitionDelay = ((i % 8) * 55) + "ms";
+      io.observe(el);
+    });
   } else {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
@@ -164,7 +167,7 @@
 
   if (isFinePointer) {
     /* Tilt-hover on cards */
-    var tiltEls = document.querySelectorAll(".card, .portfolio-card, .pricing-card, .testimonial");
+    var tiltEls = document.querySelectorAll(".card, .portfolio-card, .pricing-card, .path-option, .entry-step");
     tiltEls.forEach(function (el) {
       el.addEventListener("mousemove", function (e) {
         var r = el.getBoundingClientRect();
