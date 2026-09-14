@@ -551,7 +551,7 @@ h3 { font-size: 1.25rem; }
 .portfolio-card { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); background: var(--surface); transition: transform .2s ease, box-shadow .2s ease; }
 .portfolio-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
 .portfolio-thumb {
-  height: 190px; background: var(--gradient-dark); position: relative; overflow: hidden;
+  aspect-ratio: 16 / 9; height: auto; background: var(--gradient-dark); position: relative; overflow: hidden;
 }
 .project-mock { width: 100%; height: 100%; display: block; }
 
@@ -2035,7 +2035,8 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
 }
 
 .portfolio-thumb {
-  height: 228px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   background: #0a0e1a;
 }
 .portfolio-thumb picture,
@@ -2044,12 +2045,7 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   transition: transform .55s cubic-bezier(.22,1,.36,1);
 }
 .portfolio-card:hover .portfolio-thumb img.scenario-visual { transform: scale(1.045); }
-.portfolio-thumb .visual-label {
-  position: absolute; left: 14px; bottom: 14px; z-index: 2;
-  font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
-  color: #fff; background: rgba(10,14,26,.72); border: 1px solid rgba(34,211,238,.35);
-  padding: 5px 10px; border-radius: var(--radius-full); backdrop-filter: blur(6px);
-}
+/* visual-label removed */
 
 /* Path chooser */
 .path-chooser {
@@ -2128,3 +2124,40 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   .hero-mesh, .hero-orb, .hero-panel, .hero-panel-visual::after { animation: none; }
   [data-reveal] { transition: none; opacity: 1; transform: none; }
 }
+
+/* Pierre feedback: equal-height portfolio cards + unified image area */
+#portfolio-grid.grid,
+.grid.grid-3:has(> .portfolio-card) {
+  align-items: stretch;
+}
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.portfolio-thumb {
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+}
+.portfolio-thumb picture,
+.portfolio-thumb img.scenario-visual,
+.portfolio-thumb .project-mock {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.portfolio-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.portfolio-meta {
+  margin-top: auto;
+}
+.portfolio-thumb span.cat {
+  z-index: 3;
+}
+
