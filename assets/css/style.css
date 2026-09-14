@@ -2516,9 +2516,10 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   inset: 0;
   pointer-events: none;
   z-index: 1;
+  /* Light wash only — dark flat art already has navy; heavy teal muddies it */
   background:
-    linear-gradient(145deg, rgba(34,211,238,.28) 0%, transparent 40%, rgba(15,23,56,.55) 100%),
-    linear-gradient(180deg, transparent 48%, rgba(10,14,26,.38) 100%);
+    linear-gradient(145deg, rgba(34,211,238,.08) 0%, transparent 38%, rgba(15,23,56,.18) 100%),
+    linear-gradient(180deg, transparent 55%, rgba(10,14,26,.16) 100%);
   mix-blend-mode: soft-light;
 }
 .visual-frame picture,
@@ -2738,14 +2739,7 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   touch-action: none;
 }
 .ba-slider::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  background:
-    linear-gradient(145deg, rgba(34,211,238,.22) 0%, transparent 42%, rgba(15,23,56,.4) 100%);
-  mix-blend-mode: soft-light;
+  content: none; /* photoreal BA — no teal wash overlay */
 }
 .ba-slider-frame {
   position: absolute;
@@ -2758,7 +2752,7 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: saturate(.85) contrast(1.05);
+  filter: none; /* photoreal BA — no flat saturate wash */
 }
 .ba-slider-after {
   position: absolute;
