@@ -2935,3 +2935,12 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   max-width: 760px;
 }
 .page-hero-grid.is-text-only .page-hero-copy { max-width: 720px; }
+
+.contact-faq-hint {
+  margin: 28px auto 0;
+  max-width: 52ch;
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
