@@ -1,3 +1,4 @@
 chat-relay/.cache/
 chat-relay/.wrangler/
 chat-relay/node_modules/
+_qa/
