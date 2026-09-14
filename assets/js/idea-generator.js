@@ -1,8 +1,8 @@
-/* CreationFirst — idea-generator.js
+/* CreationFirst, idea-generator.js
    Second Playground mini-experience (the first is Snake). A small, honest demo:
    pick an industry, get back one of several pre-written automation ideas at random.
    Deliberately NOT wired to a real AI model (a static site has nowhere safe to hold
-   an API key, and faking a "live AI" would be misleading) — the on-page disclaimer
+   an API key, and faking a "live AI" would be misleading), the on-page disclaimer
    text says so explicitly. The point is to give visitors a fast, concrete feel for
    the kind of thinking behind the AI-acceleration offer, not to claim this widget
    itself is AI-generated. */

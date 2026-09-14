@@ -1,4 +1,4 @@
-/* CreationFirst — before-after-sim.js
+/* CreationFirst, before-after-sim.js
    "Vorher-Nachher-Simulator": toggle between a manual and an AI-assisted
    version of the same task (e.g. quote creation) and watch the per-step time
    breakdown and the running total change. Numbers are illustrative example

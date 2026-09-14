@@ -1,8 +1,8 @@
-/* CreationFirst — quiz.js
+/* CreationFirst, quiz.js
    The "KI-Reifegrad-Check" on the homepage: a short, honest self-assessment.
    Click through 4 questions, each answer carries a small score, and at the
    end we bucket the total score into one of a few result tiers defined in
-   content_de/en/hr.py. No backend, no real scoring model behind the scenes —
+   content_de/en/hr.py. No backend, no real scoring model behind the scenes , 
    just a simple, transparent heuristic, exactly as the on-page disclaimer says. */
 (function () {
   "use strict";

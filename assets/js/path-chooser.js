@@ -1,4 +1,4 @@
-/* CreationFirst — path-chooser.js
+/* CreationFirst, path-chooser.js
    3-path picker: pain → distinct recommendation + next step.
    Outcomes are intentionally different (Audit / Sprint / Retainer). */
 (function () {

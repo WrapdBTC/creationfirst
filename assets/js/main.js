@@ -1,4 +1,4 @@
-/* CreationFirst — main.js (vanilla, no dependencies) */
+/* CreationFirst, main.js (vanilla, no dependencies) */
 (function () {
   "use strict";
 
@@ -167,7 +167,7 @@
 
   if (isFinePointer) {
     /* Tilt-hover on cards */
-    var tiltEls = document.querySelectorAll(".card, .portfolio-card, .pricing-card, .path-option, .entry-step");
+    var tiltEls = document.querySelectorAll(".card.portfolio-card.pricing-card.path-option.entry-step");
     tiltEls.forEach(function (el) {
       el.addEventListener("mousemove", function (e) {
         var r = el.getBoundingClientRect();
@@ -266,7 +266,7 @@
         if (!res.ok) throw new Error("bad status");
         return res.json().catch(function () { return { ok: true }; });
       }).then(function () {
-        setStatus(form.getAttribute("data-msg-ok") || "Danke — deine Anfrage ist raus.", true);
+        setStatus(form.getAttribute("data-msg-ok") || "Danke, deine Anfrage ist raus.", true);
         form.reset();
       }).catch(function () {
         setStatus(form.getAttribute("data-msg-err") ||
@@ -278,7 +278,7 @@
   }
 
   /* Portfolio: category filter + lightbox (reads content straight off the clicked card,
-     no duplicated data — the lightbox is just a bigger, focused view of the same DOM). */
+     no duplicated data, the lightbox is just a bigger, focused view of the same DOM). */
   var portfolioGrid = document.querySelector("#portfolio-grid");
   if (portfolioGrid) {
     var filterPills = document.querySelectorAll(".filter-pill");
@@ -359,7 +359,7 @@
     }
   }
 
-  /* "Under the hood" — a small terminal-styled panel with real, live-measured facts
+  /* "Under the hood", a small terminal-styled panel with real, live-measured facts
      about the current page (HTTP requests, transferred bytes, load time), plus a few
      static facts that are simply true for this site (no external trackers, vanilla JS). */
   var devToggle = document.querySelector(".dev-toggle");
@@ -381,7 +381,7 @@
         var weightEl = devPanel.querySelector(".dev-stat-weight");
         var loadEl = devPanel.querySelector(".dev-stat-load");
         if (reqEl) reqEl.textContent = String(resources.length + 1);
-        if (weightEl) weightEl.textContent = totalBytes > 0 ? (totalBytes / 1024).toFixed(0) + " KB" : "–";
+        if (weightEl) weightEl.textContent = totalBytes > 0 ? (totalBytes / 1024).toFixed(0) + " KB" : ", ";
         if (loadEl) {
           var ms = null;
           if (nav && typeof nav.loadEventEnd === "number" && nav.loadEventEnd > 0) {
@@ -390,7 +390,7 @@
             var t = performance.timing;
             if (t.loadEventEnd > 0) ms = t.loadEventEnd - t.navigationStart;
           }
-          loadEl.textContent = ms != null && ms >= 0 ? ms + " ms" : "–";
+          loadEl.textContent = ms != null && ms >= 0 ? ms + " ms" : ", ";
         }
       } catch (e) { /* stats are a nice-to-have, never worth breaking the page over */ }
     }
@@ -444,7 +444,7 @@
     var path = (location.pathname || "").replace(/\\/g, "/");
     if (/kontakt\.html$/i.test(path) || /contact\.html$/i.test(path)) return;
     document.body.classList.add("has-sticky-cta");
-    var hero = document.querySelector(".hero, .page-hero");
+    var hero = document.querySelector(".hero.page-hero");
     var finalCta = document.querySelector(".cta-band");
     function update() {
       var y = window.scrollY || 0;

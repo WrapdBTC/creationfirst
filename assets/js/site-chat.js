@@ -16,7 +16,7 @@
   var copy = {
     de: {
       title: "CreationFirst Chat",
-      subtitle: "Kurze Fragen zu KI & Angebot — unverbindlich.",
+      subtitle: "Kurze Fragen zu KI & Angebot, unverbindlich.",
       placeholder: "Nachricht schreiben…",
       send: "Senden",
       open: "Chat öffnen",
@@ -27,11 +27,11 @@
       timeout: "Noch keine Antwort. Bitte erneut versuchen oder später nochmal schreiben.",
       retry: "Erneut versuchen",
       error: "Nachricht konnte nicht gesendet werden. Bitte erneut versuchen.",
-      greeting: "Hey — worum geht's bei dir (KI, Audit, Call)?",
+      greeting: "Hey, worum geht's bei dir (KI, Audit, Call)?",
     },
     en: {
       title: "CreationFirst Chat",
-      subtitle: "Quick questions on AI & offers — no pressure.",
+      subtitle: "Quick questions on AI & offers, no pressure.",
       placeholder: "Write a message…",
       send: "Send",
       open: "Open chat",
@@ -42,11 +42,11 @@
       timeout: "No reply yet. Please try again or write later.",
       retry: "Try again",
       error: "Could not send message. Please try again.",
-      greeting: "Hi — AI, audit, or a call?",
+      greeting: "Hi, AI, audit, or a call?",
     },
     hr: {
       title: "CreationFirst Chat",
-      subtitle: "Kratka pitanja o AI i ponudi — bez pritiska.",
+      subtitle: "Kratka pitanja o AI i ponudi, bez pritiska.",
       placeholder: "Napiši poruku…",
       send: "Pošalji",
       open: "Otvori chat",
@@ -57,7 +57,7 @@
       timeout: "Još nema odgovora. Pokušaj ponovo ili piši kasnije.",
       retry: "Pokušaj ponovo",
       error: "Poruka nije poslana. Pokušaj ponovo.",
-      greeting: "Bok — AI, audit ili razgovor?",
+      greeting: "Bok, AI, audit ili razgovor?",
     },
   };
   var t = copy[lang] || copy.de;

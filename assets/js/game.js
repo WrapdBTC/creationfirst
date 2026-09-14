@@ -1,4 +1,4 @@
-/* CreationFirst Snake — a tiny canvas easter-egg game, v6.
+/* CreationFirst Snake, a tiny canvas easter-egg game, v6.
    Vanilla JS, no dependencies. One self-contained instance per [data-snake-game] element,
    so it can run both as a compact homepage teaser and as the full Playground page.
 
@@ -12,13 +12,13 @@
    Root cause finally found for the long-running "text overlaps in the game window" bug:
    .game-stage sets line-height:0 (to remove the canvas baseline gap), and line-height is
    an INHERITED property, so every text node inside the overlay panels silently inherited
-   that 0 too — any text that wrapped onto a 2nd line rendered directly on top of the 1st.
+   that 0 too, any text that wrapped onto a 2nd line rendered directly on top of the 1st.
    That's fixed in style.css (line-height reset on .game-overlay/.game-hud), not here, but
    documented here since it was repeatedly (and wrongly) suspected to be a canvas issue.
 
    IMPORTANT invariant learned the hard way: once the game is over, the canvas must not
    keep drawing gameplay content (snake/food/popup text) underneath the HTML "Game Over"
-   overlay — any leftover animation bleeds through the overlay and visually collides with
+   overlay, any leftover animation bleeds through the overlay and visually collides with
    the overlay's own text. So render() only draws the live play field while phase is one
    of "ready" / "countdown" / "playing" / "paused", and gameOver() wipes any in-flight
    particles/timers before (optionally) spawning a fresh, non-text confetti burst. */
@@ -488,7 +488,7 @@
       moveObstacles();
       var head = snake[0];
       // All four edges wrap around (teleport to the opposite side) instead of killing
-      // you — there is no more "hitWall" death at all; self-collision and obstacles are
+      // you, there is no more "hitWall" death at all; self-collision and obstacles are
       // the only things that end a run now (the shield still protects against those).
       var rawX = head.x + dir.x;
       var rawY = head.y + dir.y;
@@ -531,7 +531,7 @@
 
       if (wrappedX || wrappedY) {
         // render() interpolates every segment with wraparound-aware ("shortest path
-        // around the edge") lerping, so no manual snap is needed here — just a little
+        // around the edge") lerping, so no manual snap is needed here, just a little
         // flash at the entry point so the teleport reads as intentional.
         var wrapPoint = cellCenter(newHead);
         addFlash(wrapPoint.x, wrapPoint.y, COLORS.food);
@@ -678,7 +678,7 @@
     function lerp(a, b, t) { return a + (b - a) * t; }
     // Shortest-path ("circular") interpolation for a wrapping grid axis: if the naive
     // straight-line distance between two grid coordinates is more than half the board,
-    // it's actually shorter to go the other way around the wrap — this is what makes a
+    // it's actually shorter to go the other way around the wrap, this is what makes a
     // wrap-teleport look instant instead of like the segment slid across the entire
     // board. Without this, the lag/smear the user reported keeps recurring for several
     // ticks after every wrap, because the prev/cur pair for a body segment can straddle
@@ -787,7 +787,7 @@
 
       if (phase !== "over") {
         // subtle grid texture within the play field
-        ctx.strokeStyle = "rgba(255,255,255,.045)";
+        ctx.strokeStyle = "rgba(255,255,255.045)";
         ctx.lineWidth = 1;
         ctx.beginPath();
         for (var gx = 0; gx <= cols; gx++) {
@@ -809,7 +809,7 @@
           ctx.fillStyle = COLORS.obstacle;
           roundRect(oc.x - cell * 0.42, oc.y - cell * 0.42, cell * 0.84, cell * 0.84, cell * 0.16);
           ctx.fill();
-          ctx.strokeStyle = "rgba(255,255,255,.5)";
+          ctx.strokeStyle = "rgba(255,255,255.5)";
           ctx.lineWidth = 1.5;
           ctx.beginPath();
           ctx.moveTo(oc.x - cell * 0.2, oc.y - cell * 0.2);
@@ -819,7 +819,7 @@
           ctx.stroke();
           if (ob.moving) {
             var spin = (performance.now() * 0.004) % (Math.PI * 2);
-            ctx.strokeStyle = "rgba(255,255,255,.85)";
+            ctx.strokeStyle = "rgba(255,255,255.85)";
             ctx.lineWidth = 1.5;
             ctx.beginPath();
             ctx.arc(oc.x, oc.y, cell * 0.58, spin, spin + Math.PI * 1.15);
@@ -832,7 +832,7 @@
           var fc2 = cellCenter(foods[fdIdx]);
           var pulse = Math.sin(performance.now() * 0.006 + fdIdx) * 1.5;
           var rg = ctx.createRadialGradient(fc2.x, fc2.y, 0, fc2.x, fc2.y, cell * 0.55 + pulse);
-          rg.addColorStop(0, "rgba(34,211,238,.9)");
+          rg.addColorStop(0, "rgba(34,211,238.9)");
           rg.addColorStop(1, "rgba(34,211,238,0)");
           ctx.fillStyle = rg;
           ctx.beginPath();
@@ -847,7 +847,7 @@
         // magnet pull lines from head to nearby food
         if (magnetTimer > 0 && foods.length) {
           var mHead = cellCenter(snake[0]);
-          ctx.strokeStyle = "rgba(177,140,255,.55)";
+          ctx.strokeStyle = "rgba(177,140,255.55)";
           ctx.lineWidth = 1.5;
           ctx.setLineDash([4, 4]);
           for (var mfi = 0; mfi < foods.length; mfi++) {
@@ -916,7 +916,7 @@
           }
           ctx.restore();
           var frac = Math.max(0, powerUp.life / powerUp.maxLife);
-          ctx.strokeStyle = "rgba(255,255,255,.85)";
+          ctx.strokeStyle = "rgba(255,255,255.85)";
           ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.arc(puc.x, puc.y, cell * 0.9, -Math.PI / 2, -Math.PI / 2 + frac * Math.PI * 2);
@@ -964,7 +964,7 @@
             ctx.arc(px + ex * 1.6 - perpX, py + ey * 1.6 - perpY, cell * 0.045, 0, Math.PI * 2);
             ctx.fill();
             if (shieldActive) {
-              ctx.strokeStyle = "rgba(79,158,255,.85)";
+              ctx.strokeStyle = "rgba(79,158,255.85)";
               ctx.lineWidth = 2;
               ctx.beginPath();
               ctx.arc(px, py, size * 0.72, 0, Math.PI * 2);
@@ -973,7 +973,7 @@
           }
         }
 
-        // full-field border glow while an effect that changes the rules is active —
+        // full-field border glow while an effect that changes the rules is active , 
         // this is the "make it unmistakable" fix for the shield feeling invisible.
         if (shieldActive) {
           var shieldPulse = 0.45 + Math.sin(performance.now() * 0.006) * 0.3;
@@ -992,7 +992,7 @@
           ctx.restore();
         } else if (speedTimer > 0) {
           ctx.save();
-          ctx.strokeStyle = "rgba(255,93,162,.35)";
+          ctx.strokeStyle = "rgba(255,93,162.35)";
           ctx.lineWidth = 3;
           ctx.strokeRect(2, 2, W - 4, H - 4);
           ctx.restore();
@@ -1016,7 +1016,7 @@
         }
 
         if (phase === "paused") {
-          ctx.fillStyle = "rgba(6,9,18,.55)";
+          ctx.fillStyle = "rgba(6,9,18.55)";
           ctx.fillRect(0, 0, W, H);
           ctx.fillStyle = "#ffffff";
           ctx.font = "800 26px " + fontFamily;
@@ -1039,7 +1039,7 @@
         ctx.globalAlpha = 1;
       }
 
-      // particles (bursts, confetti, score popups) — safe during every phase since
+      // particles (bursts, confetti, score popups), safe during every phase since
       // gameOver() wipes stale particles before spawning a fresh confetti burst.
       for (var k = 0; k < particles.length; k++) {
         var p = particles[k];
@@ -1127,14 +1127,14 @@
 
     // Belt-and-braces on top of `touch-action: none` in CSS: some mobile browsers still
     // let a fast swipe over a canvas bubble up into a page scroll gesture, which is
-    // exactly the "I keep losing by accident because the page scrolled" complaint —
+    // exactly the "I keep losing by accident because the page scrolled" complaint , 
     // explicitly swallowing touchstart/touchmove on the canvas closes that gap for good.
     canvas.addEventListener("touchstart", function (e) { if (e.cancelable) e.preventDefault(); }, { passive: false });
     canvas.addEventListener("touchmove", function (e) { if (e.cancelable) e.preventDefault(); }, { passive: false });
 
     /* ---------- fullscreen ----------
        Prefers the real browser Fullscreen API so the game takes over the actual physical
-       display it's opened on — no address bar, no tabs, just the game, adapting to
+       display it's opened on, no address bar, no tabs, just the game, adapting to
        whatever screen/resolution the visitor has (the "like Netflix" behavior that was
        asked for). Falls back to the earlier CSS-only fixed-overlay approach only where
        the native API is unavailable for arbitrary elements (mainly iOS Safari). */
@@ -1209,7 +1209,7 @@
         // on arbitrary elements as a leftover of the <video>-only fullscreen API, but
         // calling it on a non-video element throws SYNCHRONOUSLY rather than returning a
         // rejected promise. An unguarded call there aborts this whole click handler with
-        // nothing else running — which reads to the visitor as "the button does nothing".
+        // nothing else running, which reads to the visitor as "the button does nothing".
         // Wrapping in try/catch guarantees the CSS-only fallback always kicks in instead.
         var usedNative = false;
         if (supportsNativeFullscreen()) {
@@ -1324,7 +1324,7 @@
     /* Opt-in test seam: completely inert in production (no template ever sets
        data-test-hooks), only used by the headless harness to deterministically
        drive collisions/shield-consumption without depending on animation-frame
-       timing or Math.random — this is what finally lets us assert (not just
+       timing or Math.random, this is what finally lets us assert (not just
        hope) that "wall kills you" and "shield blocks exactly one hit" actually
        hold, instead of relying on code review alone. */
     if (wrap.dataset.testHooks === "1") {

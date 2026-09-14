@@ -1,9 +1,9 @@
-/* CreationFirst — time-calculator.js
+/* CreationFirst, time-calculator.js
    "Zeitersparnis-Rechner": pick an industry, enter roughly how many hours per
    week your team spends on recurring tasks, and get a rough estimate of the
    weekly/monthly/yearly time an AI-assisted workflow could give back. The
    per-industry "factor" is an illustrative rule of thumb (see the on-page
-   disclaimer), not a scientific model — it exists to make the abstract pitch
+   disclaimer), not a scientific model, it exists to make the abstract pitch
    concrete with the visitor's own numbers. */
 (function () {
   "use strict";

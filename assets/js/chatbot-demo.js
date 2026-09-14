@@ -1,8 +1,8 @@
-/* CreationFirst — chatbot-demo.js
+/* CreationFirst, chatbot-demo.js
    A scripted, honest mini-chatbot demo: pick a topic, and the bot walks
-   through a short 2-3 message exchange — not just one canned reply — so it
+   through a short 2-3 message exchange, not just one canned reply, so it
    actually feels like a conversation. Deliberately NOT wired to a real
-   language model — a static site has nowhere safe to hold an API key, and
+   language model, a static site has nowhere safe to hold an API key, and
    faking a "live AI" would be misleading. The disclaimer text says so
    explicitly; the point is to show the kind of dialogue we'd actually build
    for a client, not to claim this widget itself is AI-generated. */
