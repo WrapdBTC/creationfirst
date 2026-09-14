@@ -2298,12 +2298,15 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
 
 .mosaic {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   align-items: start;
+  justify-items: stretch;
 }
-.mosaic > * { grid-column: span 4; }
-.mosaic .mosaic-wide { grid-column: span 8; }
+.mosaic > *,
+.mosaic .mosaic-wide {
+  grid-column: auto;
+}
 .mosaic .mosaic-tall { grid-row: span 1; }
 .mosaic-card {
   display: flex;
@@ -2431,14 +2434,16 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   .media-split.is-reverse .media-split-visual { order: initial; }
   .media-split-visual.is-sticky,
   .process-sticky-visual { position: static; }
+  .mosaic { grid-template-columns: repeat(2, 1fr); }
   .mosaic > *,
-  .mosaic .mosaic-wide { grid-column: span 6; }
+  .mosaic .mosaic-wide { grid-column: auto; }
   .visual-banner img { aspect-ratio: 16 / 9; min-height: 180px; }
   .process-sticky .usp-mini { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
+  .mosaic { grid-template-columns: 1fr; }
   .mosaic > *,
-  .mosaic .mosaic-wide { grid-column: span 12; }
+  .mosaic .mosaic-wide { grid-column: auto; }
   .hero.is-v2 .hero-panel-visual { min-height: 180px; }
   .visual-banner-overlay { padding: 18px 16px 16px; }
 }
@@ -2673,15 +2678,13 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 16px 20px;
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px 28px;
   align-items: flex-start;
 }
 .service-checklist li {
-  flex: 1 1 240px;
-  min-width: 220px;
+  min-width: 0;
 }
 .service-ai-note {
   margin: 16px 0 0;
@@ -2706,7 +2709,9 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
   .service-top .service-copy { order: 1; }
   .service-top .service-visual { order: 2; max-height: 200px; }
   .service-checks { order: 3; margin-top: 18px; width: 100%; }
-  .service-checklist li { flex: 1 1 100%; min-width: 0; }
+  .service-checklist,
+  .service-checklist.pricing-list { grid-template-columns: 1fr; }
+  .service-checklist li { min-width: 0; }
 }
 
 /* Legacy service-split (kept harmless if any remain) */
