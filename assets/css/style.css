@@ -41,7 +41,7 @@
   --shadow-lg: 0 20px 60px rgba(18, 22, 43, 0.16);
   --shadow-glow: 0 0 0 1px rgba(79, 70, 229, 0.15), 0 20px 50px rgba(79, 70, 229, 0.25);
 
-  --container: 1180px;
+  --container: 1040px;
   --header-h: 76px;
   color-scheme: light;
 }
@@ -93,7 +93,7 @@ button { font-family: inherit; cursor: pointer; }
 h1,h2,h3,h4 { line-height: 1.15; margin: 0 0 .5em; font-weight: 700; letter-spacing: -0.02em; }
 p { margin: 0 0 1em; }
 
-.container { max-width: var(--container); margin: 0 auto; padding: 0 24px; position: relative; }
+.container { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); position: relative; width: 100%; }
 
 /* Skip link */
 .skip-link {
@@ -2609,18 +2609,20 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
 }
 .page-hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 40px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(24px, 4vw, 36px);
   align-items: center;
+  width: 100%;
 }
 .page-hero-grid .page-hero-visual {
-  max-width: 440px;
+  max-width: 400px;
   margin-left: auto;
   width: 100%;
   box-shadow: var(--shadow-lg);
   aspect-ratio: 4 / 3;
   max-height: 360px;
 }
+.page-hero-copy { min-width: 0; max-width: 34rem; }
 @media (max-width: 980px) {
   .page-hero-grid {
     grid-template-columns: 1fr;
@@ -2954,7 +2956,7 @@ body.has-sticky-cta .back-to-top { bottom: 150px; }
    ========================================================================== */
 .section { padding: 88px 0; }
 .section-head { margin-bottom: 40px; }
-.container { padding-left: 24px; padding-right: 24px; }
+.container { padding-left: clamp(20px, 5vw, 40px); padding-right: clamp(20px, 5vw, 40px); }
 
 img, picture, video, canvas, svg {
   max-width: 100%;
@@ -2994,4 +2996,26 @@ img { height: auto; }
 /* Kill accidental horizontal scroll from wide media/grids */
 .grid, .mosaic, .service-block, .page-hero-grid, .media-split, .process-sticky {
   max-width: 100%;
+}
+
+
+/* edge gutters launch fix */
+.page-hero > .container,
+.section > .container,
+.site-header .container,
+.site-footer .container {
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 5vw, 40px);
+  padding-right: clamp(20px, 5vw, 40px);
+  box-sizing: border-box;
+}
+.portfolio-grid,
+.grid.grid-3,
+.mosaic {
+  width: 100%;
+}
+@media (min-width: 1200px) {
+  :root { --container: 1000px; }
 }
