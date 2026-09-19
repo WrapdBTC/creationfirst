@@ -15,23 +15,23 @@ const ALLOWED_ORIGINS = [
 
 const SYSTEM_PROMPT = `Du bist der Live-Chat von CreationFirst (KI-Umsetzung für deutschsprachige KMUs).
 
-ANREDE (hart): immer du/dein/dir/dich — niemals Sie/Ihnen/Ihr als Höflichkeitsform. Auch nicht gemischt.
+ANREDE (hart): immer du/dein/dir/dich, niemals Sie/Ihnen/Ihr als Höflichkeitsform. Auch nicht gemischt.
 
-TON: ruhig, hilfreich, knapp (meist 2–4 Sätze). Kein Hype, kein Crypto, keine erfundenen Cases.
+TON: ruhig, hilfreich, knapp (meist 2–4 Sätze). Kein Hype, kein Crypto, keine erfundenen Cases. Keine Gedankenstriche als Satzzeichen, lieber Punkt oder Komma.
 
 SCOPE: nur CreationFirst, KI/Automatisierung, Produkte/Preise, Fit, Kontakt. Off-Topic höflich ablehnen.
 
 PRODUKTE:
 - 0€ Erstgespräch (30 Min, kein PDF)
-- 199€ Kurzanalyse (PDF 4–8 Seiten, anrechenbar)
+- 199€ Kurzanalyse (PDF 4–8 Seiten, wird bei Audit oder Sprint voll angerechnet)
 - KI-Audit 1.500–3.000€ (7–14 Tage): Interviews, Ist-Prozesse, 3–5 Quick Wins+Skizze, 90-Tage-Roadmap, Build-vs-Buy, Sprint-Angebot, Readout
 - Sprint 4–12k € / 2–4 Wo: Lieferinkrement, Integration, Doku/Handoff, Review-Call
 - Retainer 1.5–4k €/Monat: Priority-Queue, monatliches Review, laufende Verbesserungen, Response-Zeit
 
 TERMINE / LEADS:
 - Keinen konkreten Wochentag oder Uhrzeit vorschlagen oder bestätigen. Kein Kalender.
-- Call-Wunsch: kurz erklären, dass es ein unverbindliches 0€-Erstgespräch gibt, und EINMAL nach Name, E-Mail und Telefon fragen — oder auf kontakt.html / info@creationfirst.io verweisen.
-- Wenn Kontaktdaten da: danken, „wir melden uns zur Terminfindung“ — fertig. Nicht nachhaken, nicht Montag/Freitag anbieten.
+- Call-Wunsch: kurz erklären, dass es ein unverbindliches 0€-Erstgespräch gibt, und EINMAL nach Name, E-Mail und Telefon fragen, alternativ auf kontakt.html / info@creationfirst.io verweisen.
+- Wenn Kontaktdaten da: danken, „wir melden uns zur Terminfindung“. Dann fertig. Nicht nachhaken, nicht Montag/Freitag anbieten.
 - Keine Fragebögen (keine Bullet-Listen zu Branche/MA-Zahl).
 
 Sprache: Deutsch mit Du, außer der Besucher schreibt EN/HR (dann passend, weiterhin locker: you / ti).`;
@@ -52,7 +52,7 @@ function looksOffTopic(text) {
 }
 
 const OFFTOPIC_REPLY =
-  "Dazu kann ich hier leider nicht helfen — dieser Chat ist nur für CreationFirst und KI in deinem Unternehmen. Wenn du magst, klären wir gern, wo Automatisierung bei dir Zeit oder Umsatz bringt. Passend wäre ein kurzes unverbindliches Erstgespräch.";
+  "Dazu kann ich hier leider nicht helfen. Dieser Chat ist nur für CreationFirst und KI in deinem Unternehmen. Wenn du magst, klären wir gern, wo Automatisierung bei dir Zeit oder Umsatz bringt. Passend wäre ein kurzes unverbindliches Erstgespräch.";
 
 
 function sanitizeReply(text) {
@@ -83,6 +83,7 @@ function sanitizeReply(text) {
   s = s.replace(/wir werden Ihnen einen Termin anbieten/gi, "wir melden uns zur Terminfindung");
   s = s.replace(/einen Termin anbieten/gi, "uns zur Terminfindung melden");
   s = s.replace(/\b(montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag)\b/gi, "zeitnah");
+  s = s.replace(/\s*—\s*/g, ", ");
   return s;
 }
 
@@ -256,7 +257,7 @@ async function handleChatPost(request, env) {
     store.pending = false;
     await saveChat(env, conversation_id, store);
     const fallback =
-      "Danke für Ihre Nachricht. Der Assistent ist gerade nicht erreichbar. Schreiben Sie uns bitte an info@creationfirst.io oder über die Kontaktseite — wir melden uns.";
+      "Danke für deine Nachricht. Der Assistent ist gerade nicht erreichbar. Schreib uns bitte an info@creationfirst.io oder über die Kontaktseite, wir melden uns.";
     store.messages.push({ role: "assistant", text: fallback, ts: Date.now() });
     await saveChat(env, conversation_id, store);
     return json({ conversation_id, status: "ok", reply: fallback }, 200, request);

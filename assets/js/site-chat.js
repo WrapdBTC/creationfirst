@@ -16,7 +16,7 @@
   var copy = {
     de: {
       title: "CreationFirst Chat",
-      subtitle: "Kurze Fragen zu KI & Angebot, unverbindlich.",
+      subtitle: "KI-Assistent für schnelle Fragen zu Angebot und Preisen. Termine vereinbaren wir persönlich.",
       placeholder: "Nachricht schreiben…",
       send: "Senden",
       open: "Chat öffnen",
@@ -27,11 +27,11 @@
       timeout: "Noch keine Antwort. Bitte erneut versuchen oder später nochmal schreiben.",
       retry: "Erneut versuchen",
       error: "Nachricht konnte nicht gesendet werden. Bitte erneut versuchen.",
-      greeting: "Hey, worum geht's bei dir (KI, Audit, Call)?",
+      greeting: "Hi! Ich bin der KI-Assistent von CreationFirst. Frag mich zu Preisen, Ablauf oder dazu, wo es bei dir gerade hakt.",
     },
     en: {
       title: "CreationFirst Chat",
-      subtitle: "Quick questions on AI & offers, no pressure.",
+      subtitle: "AI assistant for quick questions about offers and pricing. Appointments are arranged personally.",
       placeholder: "Write a message…",
       send: "Send",
       open: "Open chat",
@@ -42,11 +42,11 @@
       timeout: "No reply yet. Please try again or write later.",
       retry: "Try again",
       error: "Could not send message. Please try again.",
-      greeting: "Hi, AI, audit, or a call?",
+      greeting: "Hi! I am the CreationFirst AI assistant. Ask me about pricing, how we work or where things are stuck for you.",
     },
     hr: {
       title: "CreationFirst Chat",
-      subtitle: "Kratka pitanja o AI i ponudi, bez pritiska.",
+      subtitle: "AI asistent za brza pitanja o ponudi i cijenama. Termine dogovaramo osobno.",
       placeholder: "Napiši poruku…",
       send: "Pošalji",
       open: "Otvori chat",
@@ -57,7 +57,7 @@
       timeout: "Još nema odgovora. Pokušaj ponovo ili piši kasnije.",
       retry: "Pokušaj ponovo",
       error: "Poruka nije poslana. Pokušaj ponovo.",
-      greeting: "Bok, AI, audit ili razgovor?",
+      greeting: "Bok! Ja sam AI asistent CreationFirsta. Pitaj me o cijenama, načinu rada ili o tome gdje ti trenutačno zapinje.",
     },
   };
   var t = copy[lang] || copy.de;

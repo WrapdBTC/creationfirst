@@ -1,0 +1,220 @@
+<section class="page-hero">
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-orb o1" aria-hidden="true"></div>
+  <div class="hero-orb o3" aria-hidden="true"></div>
+  <div class="container page-hero-grid">
+    <div class="page-hero-copy">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{url:home}}">Home</a><span aria-hidden="true">/</span><span>Projects</span></nav>
+      <p class="eyebrow">Projects</p>
+      <h1>Example projects from practice</h1>
+      <p class="lede">This is how typical projects run with us: starting point, approach, goal. We deliberately do not show client names or logos, out of respect for confidentiality.</p>
+    </div>
+    <div class="page-hero-visual">
+      <picture>
+        <source srcset="{{A}}images/page-hero-portfolio.webp?v={{v}}" type="image/webp">
+        <img src="{{A}}images/page-hero-portfolio.png?v={{v}}" alt="Pinboard with sketches and photos above a desk" width="1280" height="720" loading="eager" decoding="async">
+      </picture>
+    </div>
+  </div>
+  <div class="section-divider to-white" aria-hidden="true"></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="portfolio-filters" role="group" aria-label="Filter by area" data-reveal>
+      <button type="button" class="filter-pill is-active" data-filter="all">All</button>
+      <button type="button" class="filter-pill" data-filter="webdesign">Websites</button>
+      <button type="button" class="filter-pill" data-filter="app">Apps &amp; software</button>
+      <button type="button" class="filter-pill" data-filter="ecommerce">Online shops</button>
+      <button type="button" class="filter-pill" data-filter="branding">Branding</button>
+      <button type="button" class="filter-pill" data-filter="seo">SEO</button>
+      <button type="button" class="filter-pill" data-filter="ai">AI &amp; automation</button>
+    </div>
+    <h2 class="sr-only">All example projects</h2>
+    <div class="grid grid-3" id="portfolio-grid">
+      <article class="portfolio-card" data-reveal data-cat="ecommerce" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">Online shop</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="{{A}}images/case-ecommerce.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/case-ecommerce.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Shop relaunch for a fashion label</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> The shop looked dated and was slow on phones. Many buyers dropped off at checkout.</p>
+            <p><strong>Approach:</strong> A new shop with clear product pages, a fast mobile checkout and clean payment integration.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> More completed purchases on mobile.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Headless commerce</span><span class="chip">Mobile first</span><span class="chip">Checkout</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="app" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">App &amp; software</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="{{A}}images/case-booking.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/case-booking.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Online booking for a service business</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> Appointments ran on phone calls and paper. Double bookings and missed appointments were everyday life.</p>
+            <p><strong>Approach:</strong> A booking web app with calendar sync, smart scheduling and automatic reminders.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Fewer no-shows and fewer phone calls.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Web app</span><span class="chip">Calendar sync</span><span class="chip">Reminders</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="webdesign" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">Website</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="{{A}}images/scenario-web.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-web.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Company website for a consultancy</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> The old website was single-language, slow and brought in hardly any inquiries.</p>
+            <p><strong>Approach:</strong> A multilingual site (DE, EN, HR) with clear paths to an inquiry and a technical SEO foundation.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> More qualified inquiries through the website.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">DE · EN · HR</span><span class="chip">Technical SEO</span><span class="chip">Inquiries</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="branding" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">Branding</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="{{A}}images/scenario-brand.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-brand.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Brand identity for a startup</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> Shortly before market launch there was neither a logo nor a consistent look.</p>
+            <p><strong>Approach:</strong> Logo, design system and launch website in four weeks, in time for the product launch.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> A finished brand presence for launch day.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Brand identity</span><span class="chip">Design system</span><span class="chip">Launch website</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="seo" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">SEO</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="{{A}}images/home-v2-products.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/home-v2-products.png?v={{v}}" alt="" width="1280" height="720" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Knowledge hub and SEO for an education provider</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> Valuable expertise was scattered across single pages and barely findable on Google.</p>
+            <p><strong>Approach:</strong> A structured knowledge and blog area with a clear content architecture and technical SEO.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Expert content that actually gets found.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Technical SEO</span><span class="chip">Content architecture</span><span class="chip">Reach</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">AI &amp; automation</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="{{A}}images/scenario-chatbot.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-chatbot.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>AI chatbot for a trade business</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> Questions about prices and appointments came in around the clock, but could only be answered during office hours.</p>
+            <p><strong>Approach:</strong> A chatbot on the website and WhatsApp that answers standard questions and forwards urgent cases right away.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Reachable around the clock without extra staff.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">AI chatbot</span><span class="chip">WhatsApp</span><span class="chip">Forwarding</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">AI &amp; automation</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="{{A}}images/case-automation.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/case-automation.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>AI assistant for a family business</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> Quotes and documentation cost hours every week, and there was no IT department.</p>
+            <p><strong>Approach:</strong> An easy-to-use assistant for quotes and docs, introduced without any technical background in the team.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Quotes in minutes instead of hours.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">AI assistant</span><span class="chip">Documents</span><span class="chip">No IT team</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">AI &amp; automation</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="{{A}}images/scenario-process.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-process.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Process automation for a retail chain</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> Stock reconciliation and reporting across several stores ran through Excel and cost hours every week.</p>
+            <p><strong>Approach:</strong> Automatic stock reconciliation and a report that updates itself.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Several hours less manual work per week.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Automation</span><span class="chip">Multiple locations</span><span class="chip">Reporting</span></div>
+        </div>
+      </article>
+    </div>
+    <p class="portfolio-empty" hidden>There is no example in this area yet.</p>
+    <div class="note-callout" data-reveal>{{icon:shield}}<p>The examples show typical starting points and our approach, without names or confidential details. If you want to know how we would handle a case like yours, ask us on the <a href="{{url:contact}}">intro call</a>.</p></div>
+  </div>
+</section>
+
+<div class="lightbox" id="portfolio-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+  <div class="lightbox-backdrop" data-lightbox-close></div>
+  <div class="lightbox-panel">
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close">{{icon:x}}</button>
+    <div class="lightbox-thumb"></div>
+    <div class="lightbox-body">
+      <span class="cat lightbox-cat"></span>
+      <h3 class="lightbox-title" id="lightbox-title"></h3>
+      <div class="lightbox-text"></div>
+      <div class="portfolio-meta lightbox-meta"></div>
+    </div>
+  </div>
+</div>
+
+<section class="section bg-alt section-cta">
+  <div class="container">
+    <div class="cta-band" data-reveal>
+      <div class="cta-band-copy">
+        <h2>Does one of these sound like your business?</h2>
+        <p>Then let’s spend 30 minutes on what a sensible first step would be for you. Free and without obligation.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-primary" href="{{url:contact}}">Book a free call</a>
+        <a class="btn btn-ghost" href="{{url:services#pricing}}">See pricing</a>
+      </div>
+    </div>
+  </div>
+</section>

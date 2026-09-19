@@ -1,0 +1,148 @@
+<section class="page-hero">
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-orb o1" aria-hidden="true"></div>
+  <div class="hero-orb o3" aria-hidden="true"></div>
+  <div class="container page-hero-grid is-text-only">
+    <div class="page-hero-copy">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{url:home}}">Home</a><span aria-hidden="true">/</span><span>Contact</span></nav>
+      <p class="eyebrow">Contact</p>
+      <h1>Tell us briefly what it is about</h1>
+      <p class="lede">You get a reply within 1–2 business days with suggested times for a 30-minute intro call. Free and without obligation.</p>
+    </div>
+  </div>
+  <div class="section-divider to-white" aria-hidden="true"></div>
+</section>
+
+<section class="section section-contact">
+  <div class="container contact-wrap">
+    <div class="contact-form-card" data-reveal>
+      <h2>Your inquiry</h2>
+      <p>Required fields are marked with <span class="req">*</span>. The more specific you are, the better we can prepare.</p>
+      <form data-contact-form action="https://creationfirst-chat.creationfirst-wrapd.workers.dev/api/contact" method="POST"
+            data-msg-sending="Sending …"
+            data-msg-ok="Thanks! Your inquiry has arrived. We will get back to you within 1–2 business days."
+            data-msg-err="That did not work, sorry. Please try again or write directly to info@creationfirst.io."
+            data-msg-phone="Please add a phone number so we can reach you to schedule the call."
+            data-msg-notconfigured="The form is not available right now. Please write to info@creationfirst.io.">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email" inputmode="email">
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" required minlength="5" autocomplete="tel" inputmode="tel" placeholder="+49 … or +385 …" aria-describedby="phone-hint">
+            <p class="field-hint" id="phone-hint">For quick questions when scheduling the call.</p>
+          </div>
+          <div class="form-field">
+            <label for="company">Company <span class="opt">(optional)</span></label>
+            <input type="text" id="company" name="company" autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="service">What is it about?</label>
+            <select id="service" name="service">
+              <option data-topic="call">Free intro call</option>
+              <option data-topic="analysis">Quick analysis (€199)</option>
+              <option data-topic="audit">AI audit (from €1,500)</option>
+              <option data-topic="sprint">Delivery sprint (from €4,000)</option>
+              <option data-topic="retainer">Ongoing care (from €1,500 / month)</option>
+              <option data-topic="web">Website</option>
+              <option data-topic="app">App / software</option>
+              <option data-topic="ai">AI &amp; automation</option>
+              <option data-topic="shop">Online shop</option>
+              <option data-topic="seo">SEO / branding</option>
+              <option data-topic="other">Not sure yet / other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="budget">Rough budget</label>
+            <select id="budget" name="budget">
+              <option>Not sure yet</option>
+              <option>under €1,500</option>
+              <option>€1,500–4,000</option>
+              <option>€4,000–12,000</option>
+              <option>over €12,000</option>
+              <option>monthly (ongoing care)</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" required placeholder="What should get better? What do you use today? Is there a timeline?"></textarea>
+          </div>
+        </div>
+        <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="form-consent">
+          <input type="checkbox" required>
+          <span>I have read the <a href="{{url:privacy}}">privacy policy</a> and agree that my details are processed to handle my inquiry.</span>
+        </label>
+        <button class="btn btn-primary btn-block" type="submit">Send inquiry {{icon:arrow}}</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <p class="form-hint">Prefer to reach out directly? Write to <a href="mailto:info@creationfirst.io">info@creationfirst.io</a> or call <a href="tel:+491621717423">+49 162 1717423</a>.</p>
+      </form>
+    </div>
+
+    <aside class="contact-aside" data-reveal="right">
+      <div class="contact-person">
+        <picture>
+          <source srcset="{{A}}images/founder-pierre.webp?v={{v}}" type="image/webp">
+          <img src="{{A}}images/founder-pierre.png?v={{v}}" alt="" width="800" height="800" loading="lazy" decoding="async">
+        </picture>
+        <div><b>Your inquiry goes to Pierre</b><span>Founder of CreationFirst. He gets back to you personally.</span></div>
+      </div>
+      <div class="next-steps">
+        <h3>What happens next</h3>
+        <ol>
+          <li><span class="num">1</span><div><b>You send the inquiry</b>It reaches us directly, no call center in between.</div></li>
+          <li><span class="num">2</span><div><b>We read it and prepare</b>We look at your request and collect first ideas.</div></li>
+          <li><span class="num">3</span><div><b>You get suggested times</b>Within 1–2 business days, by email or a short phone call.</div></li>
+        </ol>
+      </div>
+      <div class="contact-info-card">
+        <div class="contact-info-row">{{icon:mail}}<div><b>Email</b><a href="mailto:info@creationfirst.io">info@creationfirst.io</a></div></div>
+        <div class="contact-info-row">{{icon:phone}}<div><b>Phone</b><a href="tel:+491621717423">+49 162 1717423</a></div></div>
+        <div class="contact-info-row">{{icon:pin}}<div><b>Location</b><span>Split, Croatia</span></div></div>
+        <div class="contact-info-row">{{icon:clock}}<div><b>Available</b><span>Mon–Fri, 9 am–5 pm CET</span></div></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section bg-alt" id="faq">
+  <div class="container container-narrow">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">FAQ</p>
+      <h2>About the intro call</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Am I already booking a quick analysis or an audit here? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">No. With this form you request the free intro call. Whether a quick analysis, audit or sprint makes sense, we figure out together afterwards. All prices are under <a href="{{url:services#pricing}}">Services &amp; pricing</a>.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How quickly will I hear back? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Usually within 1–2 business days, with suggested times for the intro call.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Why do you need my phone number? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">So we can call briefly if something is unclear, instead of sending emails back and forth for days. We never make sales calls.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do I need to know exactly what I need? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">No. A rough description is plenty. We work out the rest on the call.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Can I write in German or Croatian? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Of course. We reply in the language you write in.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Is the intro call really free? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. 30 minutes, free and without obligation. You get an honest assessment, even if we are not the right fit for your project.</div></div>
+      </div>
+    </div>
+    <p class="faq-after" data-reveal>Just a quick question? The chat in the bottom right replies instantly.</p>
+  </div>
+</section>

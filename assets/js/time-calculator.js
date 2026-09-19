@@ -8,13 +8,19 @@
 (function () {
   "use strict";
 
-  function animateNumber(el, to, duration) {
-    var from = parseFloat(el.textContent) || 0;
+  var lang = (document.documentElement.lang || "de").slice(0, 2);
+  var nf = new Intl.NumberFormat(lang === "en" ? "en-GB" : lang === "hr" ? "hr-HR" : "de-DE", { maximumFractionDigits: 0 });
+  var nf1 = new Intl.NumberFormat(lang === "en" ? "en-GB" : lang === "hr" ? "hr-HR" : "de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  function fmt(v, precise) { return precise ? nf1.format(v) : nf.format(Math.round(v)); }
+  function animateNumber(el, to, duration, precise) {
+    var from = parseFloat(el.getAttribute("data-value")) || 0;
+    el.setAttribute("data-value", String(to));
     var startTime = null;
     function step(ts) {
       if (!startTime) startTime = ts;
       var progress = Math.min((ts - startTime) / duration, 1);
-      el.textContent = (from + (to - from) * progress).toFixed(1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = fmt(from + (to - from) * eased, precise);
       if (progress < 1) window.requestAnimationFrame(step);
     }
     window.requestAnimationFrame(step);
@@ -44,21 +50,26 @@
       return 0.3;
     }
 
-    btn.addEventListener("click", function () {
-      var hours = parseFloat(hoursInput.value);
+    var shown = false;
+    function calculate() {
+      var hours = parseFloat(String(hoursInput.value).replace(",", "."));
       if (!hours || hours < 0) hours = 0;
-      var factor = factorFor(industrySelect.value);
-      var weekly = hours * factor;
-
-      resultEl.hidden = false;
-      resultEl.classList.remove("is-in");
-      void resultEl.offsetWidth;
-      resultEl.classList.add("is-in");
-
-      if (weekEl) animateNumber(weekEl, weekly, 600);
-      if (monthEl) animateNumber(monthEl, weekly * 4.33, 600);
-      if (yearEl) animateNumber(yearEl, weekly * 52, 600);
-    });
+      hours = Math.min(hours, 400);
+      var weekly = hours * factorFor(industrySelect.value);
+      if (!shown) {
+        resultEl.hidden = false;
+        void resultEl.offsetWidth;
+        resultEl.classList.add("is-in");
+        shown = true;
+      }
+      if (weekEl) animateNumber(weekEl, weekly, 600, true);
+      if (monthEl) animateNumber(monthEl, weekly * 4.33, 600, false);
+      if (yearEl) animateNumber(yearEl, weekly * 52, 600, false);
+    }
+    btn.addEventListener("click", calculate);
+    hoursInput.addEventListener("input", function () { if (shown) calculate(); });
+    industrySelect.addEventListener("change", function () { if (shown) calculate(); });
+    hoursInput.addEventListener("keydown", function (e) { if (e.key === "Enter") calculate(); });
   }
 
   document.querySelectorAll("[data-calc]").forEach(initCalc);

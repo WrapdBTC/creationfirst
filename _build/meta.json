@@ -1,0 +1,52 @@
+{
+ "home": {
+  "de": {"title": "Websites, Apps & KI-Automatisierung für KMU | CreationFirst", "desc": "Wir bauen Websites, Tools und KI-Automatisierung, die Anfragen, Angebote und Doku schneller machen. Fester Preis vor dem Start, Erstgespräch kostenlos.", "crumb": "Start"},
+  "en": {"title": "Websites, Apps & AI Automation for SMEs | CreationFirst", "desc": "We build websites, tools and AI automation that speed up inquiries, quotes and paperwork. Fixed price before we start, free intro call.", "crumb": "Home"},
+  "hr": {"title": "Web, aplikacije i AI automatizacija za poduzeća | CreationFirst", "desc": "Gradimo web stranice, alate i AI automatizaciju koji ubrzavaju upite, ponude i papirologiju. Fiksna cijena prije početka, uvodni razgovor besplatan.", "crumb": "Početna"}
+ },
+ "services": {
+  "de": {"title": "Leistungen & Preise für Web, Apps und KI | CreationFirst", "desc": "Webdesign, App-Entwicklung, KI-Automatisierung, Shops, SEO und Betreuung. Mit klaren Preisen: Kurzanalyse 199 €, Audit ab 1.500 €, Sprint ab 4.000 €.", "crumb": "Leistungen"},
+  "en": {"title": "Services & Pricing for Web, Apps and AI | CreationFirst", "desc": "Web design, app development, AI automation, online shops, SEO and ongoing care. Clear prices: quick analysis €199, audit from €1,500, sprint from €4,000.", "crumb": "Services"},
+  "hr": {"title": "Usluge i cijene: web, aplikacije i AI | CreationFirst", "desc": "Web dizajn, razvoj aplikacija, AI automatizacija, webshopovi, SEO i održavanje. Jasne cijene: kratka analiza 199 €, audit od 1.500 €, sprint od 4.000 €.", "crumb": "Usluge"}
+ },
+ "ai": {
+  "de": {"title": "KI-Automatisierung für KMU ohne eigene IT | CreationFirst", "desc": "Chatbots, E-Mail- und Dokumenten-Automatisierung, Telefonassistenten und Integrationen für kleine und mittlere Unternehmen. Wir bauen es, dein Team nutzt es.", "crumb": "KI-Automatisierung"},
+  "en": {"title": "AI Automation for SMEs Without an IT Team | CreationFirst", "desc": "Chatbots, email and document automation, phone assistants and custom integrations for small and mid-sized businesses. We build it, your team uses it.", "crumb": "AI automation"},
+  "hr": {"title": "AI automatizacija za mala i srednja poduzeća | CreationFirst", "desc": "Chatbotovi, automatizacija e-pošte i dokumenata, telefonski asistenti i integracije za mala i srednja poduzeća. Mi gradimo, tvoj tim koristi.", "crumb": "AI automatizacija"}
+ },
+ "portfolio": {
+  "de": {"title": "Projektbeispiele aus der Praxis | CreationFirst", "desc": "Typische Projekte für KMU: Shop-Relaunch, Buchungs-App, Firmenwebsite, KI-Assistent und Prozessautomatisierung. Jeweils mit Ausgangslage, Vorgehen und Ziel.", "crumb": "Projekte"},
+  "en": {"title": "Project Examples from Practice | CreationFirst", "desc": "Typical SME projects: shop relaunch, booking app, company website, AI assistant and process automation. Each with starting point, approach and goal.", "crumb": "Projects"},
+  "hr": {"title": "Primjeri projekata iz prakse | CreationFirst", "desc": "Tipični projekti za mala i srednja poduzeća: redizajn webshopa, aplikacija za rezervacije, web stranica, AI asistent i automatizacija procesa.", "crumb": "Projekti"}
+ },
+ "about": {
+  "de": {"title": "Über uns: Pierre Schulteis & CreationFirst", "desc": "CreationFirst ist eine Digitalagentur aus Split, geführt von Gründer Pierre Schulteis. Du sprichst direkt mit ihm, auf Deutsch, Englisch oder Kroatisch.", "crumb": "Über uns"},
+  "en": {"title": "About: Pierre Schulteis & CreationFirst", "desc": "CreationFirst is a digital studio in Split led by founder Pierre Schulteis. You talk to him directly, in German, English or Croatian.", "crumb": "About"},
+  "hr": {"title": "O nama: Pierre Schulteis i CreationFirst", "desc": "CreationFirst je digitalna agencija iz Splita koju vodi osnivač Pierre Schulteis. Razgovaraš izravno s njim, na njemačkom, engleskom ili hrvatskom.", "crumb": "O nama"}
+ },
+ "playground": {
+  "de": {"title": "Playground: KI-Ideen, Zeitrechner & Snake | CreationFirst", "desc": "Zum Ausprobieren: Ideen-Generator für KI im eigenen Betrieb, Angebots-Simulator, Zeitersparnis-Rechner und ein kleines Snake-Spiel im Browser.", "crumb": "Playground"},
+  "en": {"title": "Playground: AI Ideas, Time Calculator & Snake | CreationFirst", "desc": "Try it yourself: an AI idea generator for your business, a quote simulator, a time-savings calculator and a small Snake game in the browser.", "crumb": "Playground"},
+  "hr": {"title": "Playground: AI ideje, kalkulator i Snake | CreationFirst", "desc": "Isprobaj sam: generator AI ideja za tvoj posao, simulator ponuda, kalkulator uštede vremena i mala igra Snake u pregledniku.", "crumb": "Playground"}
+ },
+ "contact": {
+  "de": {"title": "Kontakt & kostenloses Erstgespräch | CreationFirst", "desc": "Schreib uns kurz, worum es geht. Du bekommst innerhalb von 1–2 Werktagen eine Antwort mit Terminvorschlag. 30 Minuten, kostenlos und unverbindlich.", "crumb": "Kontakt"},
+  "en": {"title": "Contact & Free Intro Call | CreationFirst", "desc": "Tell us briefly what it is about. You get a reply with suggested times within 1–2 business days. 30 minutes, free, no obligation.", "crumb": "Contact"},
+  "hr": {"title": "Kontakt i besplatan uvodni razgovor | CreationFirst", "desc": "Napiši nam ukratko o čemu se radi. Odgovor s prijedlogom termina dobiješ u roku 1–2 radna dana. 30 minuta, besplatno i bez obveze.", "crumb": "Kontakt"}
+ },
+ "trades": {
+  "de": {"title": "Website & Abläufe für Bau und Handwerk | CreationFirst", "desc": "Für Bau- und Handwerksbetriebe: eine Website, die Anfragen bringt, ein klarer Weg von der Anfrage zum Angebot und Termine, die nicht mehr nur im Kopf stehen.", "crumb": "Bau & Handwerk"},
+  "en": {"title": "Website & Workflows for Construction and Trades | CreationFirst", "desc": "For construction and trade businesses: a website that brings inquiries, a clear path from inquiry to quote, and schedules that no longer live in your head.", "crumb": "Construction & trades"},
+  "hr": {"title": "Web i procesi za građevinu i obrt | CreationFirst", "desc": "Za građevinske i obrtničke tvrtke: web stranica koja donosi upite, jasan put od upita do ponude i termini koji više nisu samo u glavi.", "crumb": "Građevina i obrt"}
+ },
+ "imprint": {
+  "de": {"title": "Impressum | CreationFirst", "desc": "Impressum von CreationFirst: Anbieterangaben, Kontakt und rechtliche Hinweise.", "crumb": "Impressum"},
+  "en": {"title": "Legal Notice | CreationFirst", "desc": "Legal notice of CreationFirst: provider details, contact and legal information.", "crumb": "Legal notice"},
+  "hr": {"title": "Impresum | CreationFirst", "desc": "Impresum CreationFirsta: podaci o pružatelju usluge, kontakt i pravne napomene.", "crumb": "Impresum"}
+ },
+ "privacy": {
+  "de": {"title": "Datenschutzerklärung | CreationFirst", "desc": "Wie CreationFirst mit deinen Daten umgeht: Hosting, Kontaktformular, Live-Chat und deine Rechte nach DSGVO.", "crumb": "Datenschutz"},
+  "en": {"title": "Privacy Policy | CreationFirst", "desc": "How CreationFirst handles your data: hosting, contact form, live chat and your rights under the GDPR.", "crumb": "Privacy"},
+  "hr": {"title": "Politika privatnosti | CreationFirst", "desc": "Kako CreationFirst postupa s tvojim podacima: hosting, kontakt obrazac, live chat i tvoja prava prema GDPR-u.", "crumb": "Privatnost"}
+ }
+}

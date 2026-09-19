@@ -1,90 +1,89 @@
-# CreationFirst — Agentur-Website (statisch, GitHub-Pages-ready)
+# CreationFirst, Website (statisch, GitHub-Pages-ready)
 
-Diese Website ist zu 100 % statisches HTML/CSS/JS — kein Build-Prozess nötig. Du kannst den Inhalt dieses Ordners
-direkt in ein GitHub-Repository hochladen und über GitHub Pages veröffentlichen.
+Reines HTML/CSS/Vanilla-JS, kein Build-Schritt nötig. Der Ordnerinhalt kann direkt über GitHub Pages
+veröffentlicht werden.
 
-Sprachen: Deutsch (Standard, im Root), Englisch (`/en/`), Kroatisch (`/hr/`).
+Sprachen: Deutsch (Root), Englisch (`/en/`), Kroatisch (`/hr/`). Alle drei Sprachversionen haben dieselbe
+Struktur, dieselben Sektionen und dieselben Preise.
 
-## 1. Struktur
+## 1. Seiten
 
-```
-index.html, leistungen.html, ki-beschleunigung.html, ueber-uns.html, portfolio.html, spielplatz.html, kontakt.html, impressum.html, datenschutz.html   → Deutsch (Root)
-en/index.html, en/services.html, en/ai-acceleration.html, en/about.html, en/portfolio.html, en/playground.html, en/contact.html, en/legal-notice.html, en/privacy-policy.html → Englisch
-hr/index.html, hr/usluge.html, hr/ubrzanje-uz-ai.html, hr/o-nama.html, hr/portfolio.html, hr/igra.html, hr/kontakt.html, hr/impresum.html, hr/politika-privatnosti.html → Kroatisch
-assets/css/style.css, assets/js/main.js, assets/js/game.js, assets/images/*   → Styles, Skripte (inkl. Minigame), Logo/Favicon/OG-Bild
-404.html, robots.txt, sitemap.xml, .nojekyll                → Technische Dateien
-```
+| Seite | DE | EN | HR |
+|---|---|---|---|
+| Start | `index.html` | `en/index.html` | `hr/index.html` |
+| Leistungen & Preise | `leistungen.html` (`#preise`, `#kurzanalyse`) | `en/services.html` (`#pricing`, `#quick-analysis`) | `hr/usluge.html` (`#cijene`, `#kratka-analiza`) |
+| KI-Automatisierung | `ki-beschleunigung.html` | `en/ai-acceleration.html` | `hr/ubrzanje-uz-ai.html` |
+| Projekte | `portfolio.html` | `en/portfolio.html` | `hr/portfolio.html` |
+| Über uns | `ueber-uns.html` | `en/about.html` | `hr/o-nama.html` |
+| Playground | `spielplatz.html` | `en/playground.html` | `hr/igra.html` |
+| Kontakt | `kontakt.html` | `en/contact.html` | `hr/kontakt.html` |
+| Bau & Handwerk | `bau-handwerk.html` | `en/construction-trades.html` | `hr/gradjevinarstvo-obrt.html` |
+| Impressum / Datenschutz | `impressum.html`, `datenschutz.html` | `en/legal-notice.html`, `en/privacy-policy.html` | `hr/impresum.html`, `hr/politika-privatnosti.html` |
 
-**Playground / Minigame:** "spielplatz.html" (bzw. "en/playground.html", "hr/igra.html") sowie ein kompakter
-spielbarer Teaser auf der Startseite enthalten ein kleines Canvas-Snake-Minigame — komplett in Vanilla
-JavaScript, ohne Frameworks oder Abhängigkeiten. Mit 3-2-1-Countdown-Start, Pause (Leertaste/Antippen), stummschaltbarem
-Sound, drei Power-up-Typen (Bonus-Punkte, Schild, Zeitlupe), Hindernissen im späteren Spielverlauf, Rundum-Wraparound,
-einem Combo-Punktesystem und Konfetti bei neuem persönlichen Highscore. Dient als spielerischer Beweis technischer
-Fähigkeiten. Bestwerte und Bestenliste werden ausschließlich lokal im Browser der Besucher:innen gespeichert
-(localStorage), es werden keine Daten übertragen.
+Dazu: `404.html` (eigenständig, funktioniert unter `/creationfirst/` und auf eigener Domain), `sitemap.xml`
+(alle 30 URLs mit hreflang), `robots.txt`.
 
-## 2. In 5 Minuten auf GitHub Pages veröffentlichen
+## 2. Angebot & Preise (so steht es auf der Website)
 
-1. Erstelle ein neues (leeres) Repository auf GitHub, z. B. `creationfirst-website`.
-2. Lade **den gesamten Inhalt dieses Ordners** (nicht den Ordner selbst, sondern alles darin) in das Repository hoch
-   — entweder per Drag & Drop im Browser oder per Git:
-   ```
-   git init
-   git add .
-   git commit -m "Initial site"
-   git branch -M main
-   git remote add origin <deine-repo-url>
-   git push -u origin main
-   ```
-3. Gehe im Repository zu **Settings → Pages**.
-4. Wähle unter „Build and deployment" als Source **„Deploy from a branch"**, Branch **`main`**, Ordner **`/ (root)`**.
-5. Nach ein paar Minuten ist die Seite unter `https://<dein-username>.github.io/<repo-name>/` erreichbar.
+| Schritt | Preis | Hinweis |
+|---|---|---|
+| Erstgespräch | 0 € | 30 Min. per Video |
+| Kurzanalyse | 199 € | PDF, 4–8 Seiten, wird bei Audit oder Sprint voll angerechnet |
+| KI-Audit | ab 1.500 € | 7–14 Tage |
+| Umsetzungs-Sprint | ab 4.000 € | 2–4 Wochen |
+| Laufende Betreuung (Retainer) | ab 1.500 € / Monat | |
 
-Möchtest du eine eigene Domain (z. B. `www.deine-domain.de`) nutzen, lege zusätzlich eine Datei `CNAME` mit deiner
-Domain als Inhalt im Root ab und richte bei deinem Domain-Anbieter einen CNAME/A-Record auf GitHub Pages ein
-(siehe GitHub-Dokumentation zu „Custom domains").
+Die Preise decken sich mit dem System-Prompt des Chat-Workers (`chat-relay/src/worker.js`). Wer Preise ändert,
+muss sie an diesen Stellen anpassen: Angebots-Baustein auf Start- und Leistungsseite (alle drei Sprachen),
+Pfad-Wähler auf der Startseite (JSON im HTML), Service-Preiszeilen und FAQ, Kontaktformular-Auswahl,
+Meta-Descriptions der Leistungsseiten und den Worker-Prompt.
 
-## 3. Vor dem Livegang noch zu prüfen
+Angebots-Buttons verlinken auf das Kontaktformular mit Vorauswahl, z. B. `kontakt.html?thema=audit`
+(EN/HR: `?topic=audit`). Mögliche Werte: `call`, `analysis`, `audit`, `sprint`, `retainer`, `web`, `app`,
+`ai`, `shop`, `seo`, `other`.
 
-- **Domain**: Canonical-, hreflang-, Open-Graph-, Twitter- und JSON-LD-URLs sowie `sitemap.xml` / `robots.txt`
-  zeigen auf `https://wrapdbtc.github.io/creationfirst` (inkl. `/en/` und `/hr/`). Bei Custom Domain entsprechend anpassen.
-- **Social-Links**: Dead Footer-Links auf `#` wurden entfernt. Echte Profil-URLs können später wieder ergänzt werden.
-- **Testimonials**: Erfundene Kundenstimmen wurden durch ehrliche Arbeitsprinzipien ersetzt. Portfolio-Beispiele
-  bei Bedarf schrittweise durch echte Referenzen ersetzen.
+## 3. Kontaktformular & Live-Chat
 
-Kontaktdaten, Impressum und Datenschutzerklärung sind bereits mit den echten CreationFirst-Angaben befüllt.
+Beide laufen über den Cloudflare Worker in `chat-relay/`
+(`https://creationfirst-chat.creationfirst-wrapd.workers.dev`). Das Formular sendet dieselben Felder wie
+bisher (`name`, `email`, `phone`, `company`, `budget`, `service`, `message`, `_gotcha`). Telefon ist
+Pflichtfeld, weil der Worker es verlangt. Anfragen landen per Discord-Webhook, Secrets liegen in Wrangler.
 
-## 4. Kontaktformular & Live-Chat
+Deploy nach Worker-Änderungen: `cd chat-relay && npx wrangler deploy`.
 
-Kontaktformular (DE/EN/HR) und Live-Chat laufen über den Cloudflare Worker in `chat-relay/`
-(`https://creationfirst-chat.creationfirst-wrapd.workers.dev`). Telefon ist Pflichtfeld; Anfragen landen
-per Discord-Webhook. Secrets (`DISCORD_WEBHOOK_URL` u. a.) liegen in Wrangler, nicht im Repo.
+## 4. Technik
 
-Deploy nach Worker-Änderungen: `cd chat-relay && npx wrangler deploy` (Account/Secrets vorausgesetzt).
+- `assets/css/style.css`: ein Stylesheet, gegliedert in 17 Abschnitte (Tokens oben in `:root`, Dark Mode
+  unter `[data-theme="dark"]`).
+- `assets/js/main.js`: Theme, Navigation, FAQ, Reveal-Animationen, Kontaktformular, Portfolio-Filter und
+  Lightbox, Sticky-CTA, Dev-Panel.
+- Module: `path-chooser.js`, `ba-slider.js`, `before-after-sim.js`, `time-calculator.js`,
+  `idea-generator.js`, `game.js`, `site-chat.js` (+ `site-chat-config.js`).
+- `quiz.js` und `chatbot-demo.js` werden derzeit auf keiner Seite geladen.
+- Icons stehen pro Seite einmal als SVG-Sprite direkt nach `<body>` und werden per `<use href="#i-…">`
+  eingebunden.
+- Cache-Busting über `?v=…` an allen Asset-URLs. Bei Änderungen an CSS/JS die Versionsnummer in allen
+  HTML-Dateien erhöhen.
+- Keine externen Schriften, keine Tracker, keine Cookies. Local Storage nur für Theme und Snake-Bestenliste,
+  Session Storage für die Chat-Gesprächs-ID (in der Datenschutzerklärung beschrieben).
 
-## 5. Design & Inhalte anpassen
+## 5. SEO
 
-- Farben, Schrift, Abstände: `assets/css/style.css` (CSS-Variablen oben in `:root`).
-- Texte: direkt in den jeweiligen `.html`-Dateien.
-- Logo/Favicon/Social-Bild: `assets/images/favicon.svg`, `favicon.png`, `og-image.png` — kannst du durch dein eigenes
-  Branding ersetzen (gleiche Dateinamen beibehalten oder Pfade in den HTML-Head-Bereichen anpassen).
+- Title und Description pro Seite und Sprache, Canonical, hreflang (de, en, hr, x-default)
+- Open Graph und Twitter Cards inkl. `og:locale:alternate`
+- JSON-LD pro Seite: `Organization`/`ProfessionalService`, `BreadcrumbList` auf Unterseiten, `WebSite` auf der
+  Startseite, `FAQPage` überall dort, wo ein FAQ steht
+- `sitemap.xml` mit allen 30 URLs und hreflang-Alternates
 
-## 6. SEO — was bereits eingebaut ist
+Bei eigener Domain: Basis-URL `https://wrapdbtc.github.io/creationfirst/` in allen HTML-Dateien und in
+`sitemap.xml`/`robots.txt` ersetzen.
 
-- Meta-Title & -Description pro Seite und Sprache
-- `hreflang`-Alternates zwischen DE/EN/HR + `x-default`
-- Canonical-Tags, Open-Graph- & Twitter-Card-Meta-Tags, generiertes Social-Share-Bild
-- `sitemap.xml` und `robots.txt`
-- JSON-LD (schema.org `Organization`)
-- Sauberes, semantisches HTML, keine externen Tracking-Skripte oder Cookies (datenschutzfreundlich per Default)
+## 6. Wichtig zum alten Generator
 
-## 7. Ordner „generator-source" (optional, nur für Entwickler)
+Die Seiten wurden ursprünglich mit einem Python/Jinja-Generator (`generator-source/`, außerhalb dieses
+Ordners) erzeugt. Dieser Stand ist inzwischen deutlich weiterentwickelt. **Den alten Generator nicht mehr
+laufen lassen**, er würde alle Änderungen überschreiben.
 
-Im übergeordneten Projektordner liegt zusätzlich ein Ordner `generator-source/` mit dem Python/Jinja2-Generator,
-der diese Website erzeugt hat (Inhalte zentral in `content_de.py` / `content_en.py` / `content_hr.py`, Layout in
-`templates/*.html`). Damit lassen sich alle Seiten auf einmal neu generieren, z. B. nach größeren Textänderungen
-(`python3 generate.py`, danach `python3 generate_assets.py` für Logo/Favicon/Social-Bild).
-
-Für den normalen Betrieb auf GitHub Pages brauchst du diesen Ordner **nicht** — du kannst die HTML-Dateien auch
-direkt von Hand bearbeiten. Du kannst `generator-source/` vor dem Hochladen auf GitHub auch einfach löschen oder in
-ein eigenes, privates Repository verschieben, wenn du eine schlanke Veröffentlichung bevorzugst.
+Der aktuelle Stand liegt als Quelltext in `_build/` (siehe `_build/README.md`). Damit lassen sich Header,
+Footer, SEO-Daten und alle drei Sprachen synchron neu bauen. Alternativ können Texte direkt in den HTML-Dateien
+gepflegt werden, dann aber nicht mehr mit `_build/` neu bauen.

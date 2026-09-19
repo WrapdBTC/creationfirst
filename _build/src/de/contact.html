@@ -1,0 +1,148 @@
+<section class="page-hero">
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-orb o1" aria-hidden="true"></div>
+  <div class="hero-orb o3" aria-hidden="true"></div>
+  <div class="container page-hero-grid is-text-only">
+    <div class="page-hero-copy">
+      <nav class="breadcrumbs" aria-label="Brotkrümelnavigation"><a href="{{url:home}}">Start</a><span aria-hidden="true">/</span><span>Kontakt</span></nav>
+      <p class="eyebrow">Kontakt</p>
+      <h1>Erzähl uns kurz, worum es geht</h1>
+      <p class="lede">Du bekommst innerhalb von 1–2 Werktagen eine Antwort mit Terminvorschlägen für ein 30-minütiges Erstgespräch. Kostenlos und unverbindlich.</p>
+    </div>
+  </div>
+  <div class="section-divider to-white" aria-hidden="true"></div>
+</section>
+
+<section class="section section-contact">
+  <div class="container contact-wrap">
+    <div class="contact-form-card" data-reveal>
+      <h2>Deine Anfrage</h2>
+      <p>Pflichtfelder sind mit <span class="req">*</span> markiert. Je konkreter du schreibst, desto besser können wir uns vorbereiten.</p>
+      <form data-contact-form action="https://creationfirst-chat.creationfirst-wrapd.workers.dev/api/contact" method="POST"
+            data-msg-sending="Wird gesendet …"
+            data-msg-ok="Danke! Deine Anfrage ist angekommen. Wir melden uns innerhalb von 1–2 Werktagen bei dir."
+            data-msg-err="Das hat leider nicht geklappt. Bitte versuch es noch einmal oder schreib direkt an info@creationfirst.io."
+            data-msg-phone="Bitte gib eine Telefonnummer an, damit wir dich für die Terminabstimmung erreichen."
+            data-msg-notconfigured="Das Formular ist gerade nicht erreichbar. Schreib uns bitte an info@creationfirst.io.">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="email">E-Mail <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" required autocomplete="email" inputmode="email">
+          </div>
+          <div class="form-field">
+            <label for="phone">Telefon <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" required minlength="5" autocomplete="tel" inputmode="tel" placeholder="+49 … oder +385 …" aria-describedby="phone-hint">
+            <p class="field-hint" id="phone-hint">Für kurze Rückfragen zur Terminabstimmung.</p>
+          </div>
+          <div class="form-field">
+            <label for="company">Unternehmen <span class="opt">(optional)</span></label>
+            <input type="text" id="company" name="company" autocomplete="organization">
+          </div>
+          <div class="form-field">
+            <label for="service">Worum geht es?</label>
+            <select id="service" name="service">
+              <option data-topic="call">Kostenloses Erstgespräch</option>
+              <option data-topic="analysis">Kurzanalyse (199 €)</option>
+              <option data-topic="audit">KI-Audit (ab 1.500 €)</option>
+              <option data-topic="sprint">Umsetzungs-Sprint (ab 4.000 €)</option>
+              <option data-topic="retainer">Laufende Betreuung (ab 1.500 € / Monat)</option>
+              <option data-topic="web">Website / Homepage</option>
+              <option data-topic="app">App / Software</option>
+              <option data-topic="ai">KI &amp; Automatisierung</option>
+              <option data-topic="shop">Online-Shop</option>
+              <option data-topic="seo">SEO / Branding</option>
+              <option data-topic="other">Noch unklar / Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="budget">Ungefähres Budget</label>
+            <select id="budget" name="budget">
+              <option>Noch offen</option>
+              <option>unter 1.500 €</option>
+              <option>1.500–4.000 €</option>
+              <option>4.000–12.000 €</option>
+              <option>über 12.000 €</option>
+              <option>monatlich (Betreuung)</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="message">Nachricht <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" required placeholder="Was soll besser werden? Was nutzt ihr heute? Gibt es einen Zeitrahmen?"></textarea>
+          </div>
+        </div>
+        <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="form-consent">
+          <input type="checkbox" required>
+          <span>Ich habe die <a href="{{url:privacy}}">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verarbeitet werden.</span>
+        </label>
+        <button class="btn btn-primary btn-block" type="submit">Anfrage senden {{icon:arrow}}</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+        <p class="form-hint">Lieber direkt? Schreib an <a href="mailto:info@creationfirst.io">info@creationfirst.io</a> oder ruf an unter <a href="tel:+491621717423">+49 162 1717423</a>.</p>
+      </form>
+    </div>
+
+    <aside class="contact-aside" data-reveal="right">
+      <div class="contact-person">
+        <picture>
+          <source srcset="{{A}}images/founder-pierre.webp?v={{v}}" type="image/webp">
+          <img src="{{A}}images/founder-pierre.png?v={{v}}" alt="" width="800" height="800" loading="lazy" decoding="async">
+        </picture>
+        <div><b>Deine Anfrage landet bei Pierre</b><span>Gründer von CreationFirst. Er meldet sich persönlich bei dir.</span></div>
+      </div>
+      <div class="next-steps">
+        <h3>So geht es weiter</h3>
+        <ol>
+          <li><span class="num">1</span><div><b>Du schickst die Anfrage ab</b>Sie kommt direkt bei uns an, ohne Umweg über ein Callcenter.</div></li>
+          <li><span class="num">2</span><div><b>Wir lesen und bereiten vor</b>Wir schauen uns dein Anliegen an und sammeln erste Ideen.</div></li>
+          <li><span class="num">3</span><div><b>Du bekommst Terminvorschläge</b>Innerhalb von 1–2 Werktagen, per E-Mail oder kurz per Telefon.</div></li>
+        </ol>
+      </div>
+      <div class="contact-info-card">
+        <div class="contact-info-row">{{icon:mail}}<div><b>E-Mail</b><a href="mailto:info@creationfirst.io">info@creationfirst.io</a></div></div>
+        <div class="contact-info-row">{{icon:phone}}<div><b>Telefon</b><a href="tel:+491621717423">+49 162 1717423</a></div></div>
+        <div class="contact-info-row">{{icon:pin}}<div><b>Standort</b><span>Split, Kroatien</span></div></div>
+        <div class="contact-info-row">{{icon:clock}}<div><b>Erreichbar</b><span>Mo–Fr, 9–17 Uhr</span></div></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section bg-alt" id="faq">
+  <div class="container container-narrow">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Häufige Fragen</p>
+      <h2>Rund um das Erstgespräch</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Buche ich hier schon eine Kurzanalyse oder ein Audit? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Nein. Mit dem Formular fragst du das kostenlose Erstgespräch an. Ob Kurzanalyse, Audit oder Sprint sinnvoll ist, klären wir danach gemeinsam. Alle Preise findest du unter <a href="{{url:services#preise}}">Leistungen &amp; Preise</a>.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Wie schnell bekomme ich eine Antwort? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">In der Regel innerhalb von 1–2 Werktagen, mit Terminvorschlägen für das Erstgespräch.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Wofür braucht ihr meine Telefonnummer? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Damit wir bei Rückfragen kurz anrufen können, statt tagelang E-Mails hin und her zu schicken. Werbeanrufe gibt es von uns nicht.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Muss ich schon genau wissen, was ich brauche? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Nein. Eine grobe Beschreibung reicht völlig. Den Rest klären wir im Gespräch.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Kann ich auch auf Englisch oder Kroatisch schreiben? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Klar. Wir antworten in der Sprache, in der du schreibst.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Ist das Erstgespräch wirklich kostenlos? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Ja. 30 Minuten, kostenlos und unverbindlich. Du bekommst eine ehrliche Einschätzung, auch wenn wir nicht die Richtigen für dein Vorhaben sind.</div></div>
+      </div>
+    </div>
+    <p class="faq-after" data-reveal>Nur eine kurze Frage? Der Chat unten rechts antwortet sofort.</p>
+  </div>
+</section>

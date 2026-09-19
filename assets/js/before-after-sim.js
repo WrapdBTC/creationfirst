@@ -31,6 +31,9 @@
     var totalManual = stepsManual.reduce(function (s, x) { return s + x.minutes; }, 0);
     var totalAi = stepsAi.reduce(function (s, x) { return s + x.minutes; }, 0);
     var maxMinutes = Math.max.apply(null, stepsManual.concat(stepsAi).map(function (s) { return s.minutes; }));
+    var unit = data.unit || "Min.";
+    var docLang = (document.documentElement.lang || "de").slice(0, 2);
+    var pctFormat = new Intl.NumberFormat(docLang === "en" ? "en-GB" : docLang === "hr" ? "hr-HR" : "de-DE", { style: "percent", maximumFractionDigits: 0 });
 
     var listEl = wrap.querySelector(".sim-steps");
     var totalEl = wrap.querySelector(".sim-total-value");
@@ -60,7 +63,7 @@
         barWrap.appendChild(bar);
         var minutes = document.createElement("span");
         minutes.className = "sim-step-minutes";
-        minutes.textContent = s.minutes + " Min.";
+        minutes.textContent = s.minutes + " " + unit;
         row.appendChild(label);
         row.appendChild(barWrap);
         row.appendChild(minutes);
@@ -73,6 +76,8 @@
       animateNumber(totalEl, total, 500);
       toggleManualBtn.classList.toggle("is-active", mode === "manual");
       toggleAiBtn.classList.toggle("is-active", mode === "ai");
+      toggleManualBtn.setAttribute("aria-pressed", mode === "manual" ? "true" : "false");
+      toggleAiBtn.setAttribute("aria-pressed", mode === "ai" ? "true" : "false");
       wrap.classList.toggle("is-ai-mode", mode === "ai");
 
       if (mode === "manual") seenManual = true;
@@ -82,7 +87,7 @@
         var diff = totalManual - totalAi;
         var pctSaved = totalManual > 0 ? Math.round((diff / totalManual) * 100) : 0;
         savingsEl.hidden = false;
-        savingsValueEl.textContent = diff + " Min. (" + pctSaved + "%)";
+        savingsValueEl.textContent = diff + " " + unit + " (" + pctFormat.format(pctSaved / 100) + ")";
       }
     }
 

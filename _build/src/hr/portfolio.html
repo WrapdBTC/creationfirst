@@ -1,0 +1,220 @@
+<section class="page-hero">
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-orb o1" aria-hidden="true"></div>
+  <div class="hero-orb o3" aria-hidden="true"></div>
+  <div class="container page-hero-grid">
+    <div class="page-hero-copy">
+      <nav class="breadcrumbs" aria-label="Navigacijski put"><a href="{{url:home}}">Početna</a><span aria-hidden="true">/</span><span>Projekti</span></nav>
+      <p class="eyebrow">Projekti</p>
+      <h1>Primjeri projekata iz prakse</h1>
+      <p class="lede">Ovako kod nas teku tipični projekti: polazište, pristup, cilj. Imena i logotipe klijenata namjerno ne prikazujemo, iz poštovanja prema povjerljivosti.</p>
+    </div>
+    <div class="page-hero-visual">
+      <picture>
+        <source srcset="{{A}}images/page-hero-portfolio.webp?v={{v}}" type="image/webp">
+        <img src="{{A}}images/page-hero-portfolio.png?v={{v}}" alt="Ploča sa skicama i fotografijama iznad radnog stola" width="1280" height="720" loading="eager" decoding="async">
+      </picture>
+    </div>
+  </div>
+  <div class="section-divider to-white" aria-hidden="true"></div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="portfolio-filters" role="group" aria-label="Filtriraj po području" data-reveal>
+      <button type="button" class="filter-pill is-active" data-filter="all">Sve</button>
+      <button type="button" class="filter-pill" data-filter="webdesign">Web stranice</button>
+      <button type="button" class="filter-pill" data-filter="app">Aplikacije i softver</button>
+      <button type="button" class="filter-pill" data-filter="ecommerce">Webshopovi</button>
+      <button type="button" class="filter-pill" data-filter="branding">Branding</button>
+      <button type="button" class="filter-pill" data-filter="seo">SEO</button>
+      <button type="button" class="filter-pill" data-filter="ai">AI i automatizacija</button>
+    </div>
+    <h2 class="sr-only">Svi primjeri projekata</h2>
+    <div class="grid grid-3" id="portfolio-grid">
+      <article class="portfolio-card" data-reveal data-cat="ecommerce" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">Webshop</span>
+          <span class="lightbox-hint">Pogledaj detalje</span>
+          <picture>
+            <source srcset="{{A}}images/case-ecommerce.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/case-ecommerce.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Redizajn webshopa za modni brend</h3>
+          <div class="portfolio-facts">
+            <p><strong>Polazište:</strong> Webshop je izgledao zastarjelo i bio je spor na mobitelu. Mnogi su kupci odustajali na naplati.</p>
+            <p><strong>Pristup:</strong> Novi webshop s jasnim stranicama proizvoda, brzom mobilnom naplatom i urednim povezivanjem plaćanja.</p>
+            <p class="portfolio-result"><strong>Cilj:</strong> Više završenih kupnji na mobitelu.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Headless commerce</span><span class="chip">Mobile first</span><span class="chip">Naplata</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="app" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">Aplikacija i softver</span>
+          <span class="lightbox-hint">Pogledaj detalje</span>
+          <picture>
+            <source srcset="{{A}}images/case-booking.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/case-booking.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Online rezervacije za uslužnu tvrtku</h3>
+          <div class="portfolio-facts">
+            <p><strong>Polazište:</strong> Termini su se dogovarali telefonom i na papiru. Dvostruke rezervacije i zaboravljeni termini bili su svakodnevica.</p>
+            <p><strong>Pristup:</strong> Web aplikacija za rezervacije sa sinkronizacijom kalendara, pametnim planiranjem i automatskim podsjetnicima.</p>
+            <p class="portfolio-result"><strong>Cilj:</strong> Manje propuštenih termina i manje telefonskih poziva.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Web aplikacija</span><span class="chip">Sinkronizacija kalendara</span><span class="chip">Podsjetnici</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="webdesign" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">Web stranica</span>
+          <span class="lightbox-hint">Pogledaj detalje</span>
+          <picture>
+            <source srcset="{{A}}images/scenario-web.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-web.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Web stranica za savjetodavnu tvrtku</h3>
+          <div class="portfolio-facts">
+            <p><strong>Polazište:</strong> Stara web stranica bila je samo na jednom jeziku, spora i gotovo nije donosila upite.</p>
+            <p><strong>Pristup:</strong> Višejezična stranica (DE, EN, HR) s jasnim putem do upita i tehničkim SEO temeljem.</p>
+            <p class="portfolio-result"><strong>Cilj:</strong> Više kvalitetnih upita preko web stranice.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">DE · EN · HR</span><span class="chip">Tehnički SEO</span><span class="chip">Upiti</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="branding" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">Branding</span>
+          <span class="lightbox-hint">Pogledaj detalje</span>
+          <picture>
+            <source srcset="{{A}}images/scenario-brand.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-brand.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Vizualni identitet za startup</h3>
+          <div class="portfolio-facts">
+            <p><strong>Polazište:</strong> Neposredno prije izlaska na tržište nije bilo ni logotipa ni ujednačenog nastupa.</p>
+            <p><strong>Pristup:</strong> Logotip, dizajnerski sustav i web stranica za lansiranje u četiri tjedna, na vrijeme za predstavljanje proizvoda.</p>
+            <p class="portfolio-result"><strong>Cilj:</strong> Gotov nastup za dan lansiranja.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Vizualni identitet</span><span class="chip">Dizajnerski sustav</span><span class="chip">Web za lansiranje</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="seo" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">SEO</span>
+          <span class="lightbox-hint">Pogledaj detalje</span>
+          <picture>
+            <source srcset="{{A}}images/home-v2-products.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/home-v2-products.png?v={{v}}" alt="" width="1280" height="720" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Baza znanja i SEO za obrazovnu ustanovu</h3>
+          <div class="portfolio-facts">
+            <p><strong>Polazište:</strong> Vrijedno stručno znanje bilo je razbacano po pojedinačnim stranicama i Google ga je jedva pronalazio.</p>
+            <p><strong>Pristup:</strong> Strukturirana baza znanja i blog s jasnom arhitekturom sadržaja i tehničkim SEO-om.</p>
+            <p class="portfolio-result"><strong>Cilj:</strong> Stručni sadržaj koji se stvarno pronalazi.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Tehnički SEO</span><span class="chip">Arhitektura sadržaja</span><span class="chip">Doseg</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">AI i automatizacija</span>
+          <span class="lightbox-hint">Pogledaj detalje</span>
+          <picture>
+            <source srcset="{{A}}images/scenario-chatbot.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-chatbot.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>AI chatbot za obrtnika</h3>
+          <div class="portfolio-facts">
+            <p><strong>Polazište:</strong> Pitanja o cijenama i terminima stizala su danonoćno, a odgovori su bili mogući samo u radnom vremenu.</p>
+            <p><strong>Pristup:</strong> Chatbot na web stranici i u WhatsAppu koji odgovara na standardna pitanja i odmah prosljeđuje hitne slučajeve.</p>
+            <p class="portfolio-result"><strong>Cilj:</strong> Dostupnost danonoćno, bez dodatnog osoblja.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">AI chatbot</span><span class="chip">WhatsApp</span><span class="chip">Prosljeđivanje</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">AI i automatizacija</span>
+          <span class="lightbox-hint">Pogledaj detalje</span>
+          <picture>
+            <source srcset="{{A}}images/case-automation.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/case-automation.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>AI asistent za obiteljsku tvrtku</h3>
+          <div class="portfolio-facts">
+            <p><strong>Polazište:</strong> Ponude i dokumentacija svaki su tjedan trošile sate, a IT odjela nije bilo.</p>
+            <p><strong>Pristup:</strong> Jednostavan asistent za ponude i dokumentaciju, uveden bez tehničkog predznanja u timu.</p>
+            <p class="portfolio-result"><strong>Cilj:</strong> Ponude za nekoliko minuta umjesto sati.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">AI asistent</span><span class="chip">Dokumenti</span><span class="chip">Bez IT odjela</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">AI i automatizacija</span>
+          <span class="lightbox-hint">Pogledaj detalje</span>
+          <picture>
+            <source srcset="{{A}}images/scenario-process.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-process.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Automatizacija procesa za trgovački lanac</h3>
+          <div class="portfolio-facts">
+            <p><strong>Polazište:</strong> Usklađivanje zaliha i izvještavanje između više poslovnica išli su preko Excela i svaki tjedan trošili sate.</p>
+            <p><strong>Pristup:</strong> Automatsko usklađivanje zaliha i izvješće koje se samo ažurira.</p>
+            <p class="portfolio-result"><strong>Cilj:</strong> Nekoliko sati manje ručnog rada tjedno.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Automatizacija</span><span class="chip">Više lokacija</span><span class="chip">Izvještavanje</span></div>
+        </div>
+      </article>
+    </div>
+    <p class="portfolio-empty" hidden>U ovom području trenutačno nema primjera.</p>
+    <div class="note-callout" data-reveal>{{icon:shield}}<p>Primjeri pokazuju tipična polazišta i naš pristup, bez imena i bez povjerljivih detalja. Ako te zanima kako bismo pristupili slučaju sličnom tvojem, pitaj nas na <a href="{{url:contact}}">uvodnom razgovoru</a>.</p></div>
+  </div>
+</section>
+
+<div class="lightbox" id="portfolio-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+  <div class="lightbox-backdrop" data-lightbox-close></div>
+  <div class="lightbox-panel">
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Zatvori">{{icon:x}}</button>
+    <div class="lightbox-thumb"></div>
+    <div class="lightbox-body">
+      <span class="cat lightbox-cat"></span>
+      <h3 class="lightbox-title" id="lightbox-title"></h3>
+      <div class="lightbox-text"></div>
+      <div class="portfolio-meta lightbox-meta"></div>
+    </div>
+  </div>
+</div>
+
+<section class="section bg-alt section-cta">
+  <div class="container">
+    <div class="cta-band" data-reveal>
+      <div class="cta-band-copy">
+        <h2>Zvuči li nešto od ovoga kao tvoja tvrtka?</h2>
+        <p>Onda razgovarajmo 30 minuta o tome koji bi bio razuman prvi korak za tebe. Besplatno i bez obveze.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-primary" href="{{url:contact}}">Zatraži razgovor</a>
+        <a class="btn btn-ghost" href="{{url:services#cijene}}">Pogledaj cijene</a>
+      </div>
+    </div>
+  </div>
+</section>

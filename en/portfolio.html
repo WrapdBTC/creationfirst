@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
 (function(){
+  document.documentElement.classList.add("js");
   try {
     var saved = localStorage.getItem("theme");
     var theme = saved || ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light");
@@ -12,424 +13,386 @@
   } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
 })();
 </script>
-<title>Portfolio, Selected Project Examples | CreationFirst</title>
-<meta name="description" content="Example projects across web design, e-commerce, app development and AI automation, a look at how we design and build digital products.">
+<title>Project Examples from Practice | CreationFirst</title>
+<meta name="description" content="Typical SME projects: shop relaunch, booking app, company website, AI assistant and process automation. Each with starting point, approach and goal.">
 <link rel="canonical" href="https://wrapdbtc.github.io/creationfirst/en/portfolio.html">
 <link rel="alternate" hreflang="de" href="https://wrapdbtc.github.io/creationfirst/portfolio.html">
 <link rel="alternate" hreflang="en" href="https://wrapdbtc.github.io/creationfirst/en/portfolio.html">
 <link rel="alternate" hreflang="hr" href="https://wrapdbtc.github.io/creationfirst/hr/portfolio.html">
 <link rel="alternate" hreflang="x-default" href="https://wrapdbtc.github.io/creationfirst/portfolio.html">
-
-<link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg?v=1789502000">
-<link rel="icon" type="image/png" sizes="512x512" href="../assets/images/favicon.png?v=1789502000">
-<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=1789502000">
-
+<link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg?v=1789830000">
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/images/favicon.png?v=1789830000">
+<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=1789830000">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CreationFirst">
-<meta property="og:title" content="Portfolio, Selected Project Examples | CreationFirst">
-<meta property="og:description" content="Example projects across web design, e-commerce, app development and AI automation, a look at how we design and build digital products.">
+<meta property="og:title" content="Project Examples from Practice | CreationFirst">
+<meta property="og:description" content="Typical SME projects: shop relaunch, booking app, company website, AI assistant and process automation. Each with starting point, approach and goal.">
 <meta property="og:image" content="https://wrapdbtc.github.io/creationfirst/assets/images/og-image.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="CreationFirst">
 <meta property="og:url" content="https://wrapdbtc.github.io/creationfirst/en/portfolio.html">
 <meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="hr_HR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Portfolio, Selected Project Examples | CreationFirst">
-<meta name="twitter:description" content="Example projects across web design, e-commerce, app development and AI automation, a look at how we design and build digital products.">
+<meta name="twitter:title" content="Project Examples from Practice | CreationFirst">
+<meta name="twitter:description" content="Typical SME projects: shop relaunch, booking app, company website, AI assistant and process automation. Each with starting point, approach and goal.">
 <meta name="twitter:image" content="https://wrapdbtc.github.io/creationfirst/assets/images/og-image.png">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0a0e1a">
-
-<link rel="stylesheet" href="../assets/css/style.css?v=1789502000">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CreationFirst", "url": "https://wrapdbtc.github.io/creationfirst", "email": "info@creationfirst.io", "logo": "https://wrapdbtc.github.io/creationfirst/assets/images/favicon.png", "sameAs": []}</script></head>
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../assets/css/style.css?v=1789830000">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://wrapdbtc.github.io/creationfirst/#org","name":"CreationFirst","url":"https://wrapdbtc.github.io/creationfirst/","logo":"https://wrapdbtc.github.io/creationfirst/assets/images/favicon.png","image":"https://wrapdbtc.github.io/creationfirst/assets/images/og-image.png","email":"info@creationfirst.io","telephone":"+491621717423","address":{"@type":"PostalAddress","streetAddress":"Sarajevska ulica 24","postalCode":"21000","addressLocality":"Split","addressCountry":"HR"},"areaServed":["DE","AT","CH","HR"],"knowsLanguage":["de","en","hr"],"founder":{"@type":"Person","name":"Pierre Schulteis"},"priceRange":"€€"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://wrapdbtc.github.io/creationfirst/en/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://wrapdbtc.github.io/creationfirst/en/portfolio.html"}]}]}</script>
+</head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></symbol><symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></symbol><symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></symbol><symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol><symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></svg>
 <div class="scroll-progress" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="CreationFirst, Home">
-      <img class="logo-mark logo-mark-color" src="../assets/images/logo-mark-light.svg?v=1789502000" alt="CreationFirst" width="32" height="32">
-      <img class="logo-mark logo-mark-white" src="../assets/images/logo-mark-dark.svg?v=1789502000" alt="CreationFirst" width="32" height="32">
+    <a class="brand" href="index.html" aria-label="CreationFirst, home">
+      <img class="logo-mark logo-mark-color" src="../assets/images/logo-mark-light.svg?v=1789830000" alt="" width="32" height="32">
+      <img class="logo-mark logo-mark-white" src="../assets/images/logo-mark-dark.svg?v=1789830000" alt="" width="32" height="32">
       <span class="brand-word">Creation<em>First</em></span>
     </a>
-
     <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-<a href="services.html">Services</a>
-<a href="portfolio.html" class="is-active" aria-current="page">Portfolio</a>
-<a href="about.html">About</a>
-<a class="nav-secondary" href="playground.html">Playground</a>
-<a href="contact.html">Contact</a>
-<div class="nav-more">
-  <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false">More</button>
-  <div class="nav-more-menu" role="menu">
-    <a href="playground.html">Playground</a>
-  </div>
-</div>
-
+      <a href="services.html">Services</a>
+      <a href="ai-acceleration.html">AI automation</a>
+      <a href="services.html#pricing">Pricing</a>
+      <a href="portfolio.html" class="is-active" aria-current="page">Projects</a>
+      <a href="about.html">About</a>
+      <a class="nav-mobile-only" href="playground.html">Playground</a>
+      <a class="nav-mobile-only" href="contact.html">Contact</a>
+      <a class="btn btn-primary nav-mobile-cta" href="contact.html">Book a free call</a>
     </nav>
-
     <div class="header-actions">
-      <button class="btn btn-icon theme-toggle" type="button" aria-label="Theme umschalten / toggle theme">
-        <span class="icon-sun"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
-        <span class="icon-moon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg></span>
+      <button class="btn btn-icon theme-toggle" type="button" aria-label="Light or dark">
+        <span class="icon-sun"><svg class="icon" aria-hidden="true"><use href="#i-sun"></use></svg></span>
+        <span class="icon-moon"><svg class="icon" aria-hidden="true"><use href="#i-moon"></use></svg></span>
       </button>
       <div class="lang-switch">
-        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
-          <span class="flag">🇬🇧</span> <span class="lang-code">EN</span>
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+          <span class="flag" aria-hidden="true">🇬🇧</span> <span class="lang-code">EN</span>
         </button>
         <div class="lang-menu">
-<a href="../portfolio.html"><span class="flag">🇩🇪</span> Deutsch</a>
-<a href="portfolio.html" class="is-active"><span class="flag">🇬🇧</span> English</a>
-<a href="../hr/portfolio.html"><span class="flag">🇭🇷</span> Hrvatski</a>
+          <a href="../portfolio.html" hreflang="de" lang="de"><span class="flag" aria-hidden="true">🇩🇪</span> Deutsch</a>
+          <a href="portfolio.html" hreflang="en" lang="en" class="is-active" aria-current="true"><span class="flag" aria-hidden="true">🇬🇧</span> English</a>
+          <a href="../hr/portfolio.html" hreflang="hr" lang="hr"><span class="flag" aria-hidden="true">🇭🇷</span> Hrvatski</a>
         </div>
       </div>
-      <a class="btn btn-primary btn-sm nav-cta-btn" href="contact.html">Book a discovery call</a>
+      <a class="btn btn-primary btn-sm nav-cta-btn" href="contact.html">Book a free call</a>
       <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span></button>
     </div>
   </div>
 </header>
 
 <main id="main">
-
 <section class="page-hero">
   <div class="hero-mesh" aria-hidden="true"></div>
   <div class="hero-orb o1" aria-hidden="true"></div>
-  <div class="hero-orb o2" aria-hidden="true"></div>
   <div class="hero-orb o3" aria-hidden="true"></div>
   <div class="container page-hero-grid">
-    <div class="page-hero-copy" data-reveal="left">
-<div class="breadcrumbs" style="color:rgba(255,255,255.6);"><a href="index.html" style="color:rgba(255,255,255.8);">Home</a> / Portfolio</div>
-    <span class="eyebrow" style="color:#fff;">Project examples</span>
-    <h1>Real work, client names stay private</h1>
-    <p class="lede">We work with real companies. We keep client names and logos off this page out of respect for privacy and confidentiality. Instead you see how typical cases run: starting point, approach, target outcome.</p>
+    <div class="page-hero-copy">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Projects</span></nav>
+      <p class="eyebrow">Projects</p>
+      <h1>Example projects from practice</h1>
+      <p class="lede">This is how typical projects run with us: starting point, approach, goal. We deliberately do not show client names or logos, out of respect for confidentiality.</p>
     </div>
-
-    <div class="page-hero-visual visual-frame" data-reveal="right">
+    <div class="page-hero-visual">
       <picture>
-        <source srcset="../assets/images/page-hero-portfolio.webp?v=1789502000" type="image/webp">
-        <img src="../assets/images/page-hero-portfolio.png?v=1789502000" alt="Project examples and digital interfaces" width="1280" height="720" loading="eager" decoding="async">
+        <source srcset="../assets/images/page-hero-portfolio.webp?v=1789830000" type="image/webp">
+        <img src="../assets/images/page-hero-portfolio.png?v=1789830000" alt="Pinboard with sketches and photos above a desk" width="1280" height="720" loading="eager" decoding="async">
       </picture>
     </div>
   </div>
-  <div class="section-divider to-white"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,32 C300,70 900,-10 1200,28 L1200,60 L0,60 Z"/></svg></div>
+  <div class="section-divider to-white" aria-hidden="true"></div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="portfolio-filters" data-reveal role="group" aria-label="Project Examples">
-<button type="button" class="filter-pill is-active" data-filter="all">All</button>
-<button type="button" class="filter-pill" data-filter="webdesign">Web Design</button>
-<button type="button" class="filter-pill" data-filter="app">Apps &amp; Software</button>
-<button type="button" class="filter-pill" data-filter="ecommerce">E-Commerce</button>
-<button type="button" class="filter-pill" data-filter="branding">Branding</button>
-<button type="button" class="filter-pill" data-filter="seo">SEO</button>
-<button type="button" class="filter-pill" data-filter="ai">AI &amp; Automation</button>
+    <div class="portfolio-filters" role="group" aria-label="Filter by area" data-reveal>
+      <button type="button" class="filter-pill is-active" data-filter="all">All</button>
+      <button type="button" class="filter-pill" data-filter="webdesign">Websites</button>
+      <button type="button" class="filter-pill" data-filter="app">Apps &amp; software</button>
+      <button type="button" class="filter-pill" data-filter="ecommerce">Online shops</button>
+      <button type="button" class="filter-pill" data-filter="branding">Branding</button>
+      <button type="button" class="filter-pill" data-filter="seo">SEO</button>
+      <button type="button" class="filter-pill" data-filter="ai">AI &amp; automation</button>
     </div>
+    <h2 class="sr-only">All example projects</h2>
     <div class="grid grid-3" id="portfolio-grid">
-<div class="portfolio-card" data-reveal data-cat="ecommerce" tabindex="0" role="button" aria-haspopup="dialog">
+      <article class="portfolio-card" data-reveal data-cat="ecommerce" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="portfolio-thumb">
-          <span class="cat">E-Commerce</span>
-          <span class="lightbox-hint">Click for details</span>
+          <span class="cat">Online shop</span>
+          <span class="lightbox-hint">View details</span>
           <picture>
-            <source srcset="../assets/images/case-ecommerce.webp?v=1789502000" type="image/webp">
-            <img class="scenario-visual" src="../assets/images/case-ecommerce.png?v=1789502000" alt="Shop scenario in dark brand style" width="1400" height="788" loading="lazy" decoding="async">
+            <source srcset="../assets/images/case-ecommerce.webp?v=1789830000" type="image/webp">
+            <img src="../assets/images/case-ecommerce.png?v=1789830000" alt="" width="1400" height="788" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="portfolio-body">
-          <h3>E-Commerce Relaunch, Fashion Retail</h3>
+          <h3>Shop relaunch for a fashion label</h3>
           <div class="portfolio-facts">
-            <p><strong>Starting situation:</strong> An existing online store felt technically outdated and was losing mobile shoppers to faster competitors.</p>
-            <p><strong>What we did:</strong> Full relaunch as a headless store with a new design, faster checkout, and consistent mobile-first optimization.</p>
-            <p class="portfolio-result"><strong>Target picture:</strong> noticeably better mobile conversion after relaunch</p>
+            <p><strong>Starting point:</strong> The shop looked dated and was slow on phones. Many buyers dropped off at checkout.</p>
+            <p><strong>Approach:</strong> A new shop with clear product pages, a fast mobile checkout and clean payment integration.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> More completed purchases on mobile.</p>
           </div>
-          <div class="portfolio-meta">
-<span class="chip">Headless Commerce</span>
-<span class="chip">Mobile First</span>
-<span class="chip">Checkout Optimization</span>
-          </div>
+          <div class="portfolio-meta"><span class="chip">Headless commerce</span><span class="chip">Mobile first</span><span class="chip">Checkout</span></div>
         </div>
-      </div>
-<div class="portfolio-card" data-reveal data-cat="app" tabindex="0" role="button" aria-haspopup="dialog">
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="app" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="portfolio-thumb">
-          <span class="cat">App &amp; Software</span>
-          <span class="lightbox-hint">Click for details</span>
+          <span class="cat">App &amp; software</span>
+          <span class="lightbox-hint">View details</span>
           <picture>
-            <source srcset="../assets/images/case-booking.webp?v=1789502000" type="image/webp">
-            <img class="scenario-visual" src="../assets/images/case-booking.png?v=1789502000" alt="Booking app in dark brand style" width="1400" height="788" loading="lazy" decoding="async">
+            <source srcset="../assets/images/case-booking.webp?v=1789830000" type="image/webp">
+            <img src="../assets/images/case-booking.png?v=1789830000" alt="" width="1400" height="788" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="portfolio-body">
-          <h3>Booking App with Smart Scheduling, Service Business</h3>
+          <h3>Online booking for a service business</h3>
           <div class="portfolio-facts">
-            <p><strong>Starting situation:</strong> Appointments were managed by phone and paper notes, double bookings and forgotten appointments were common.</p>
-            <p><strong>What we did:</strong> Web app for appointment booking with calendar sync, smart schedule optimization, and automated reminders.</p>
-            <p class="portfolio-result"><strong>Target picture:</strong> fewer no-shows through reminders &amp; self-booking</p>
+            <p><strong>Starting point:</strong> Appointments ran on phone calls and paper. Double bookings and missed appointments were everyday life.</p>
+            <p><strong>Approach:</strong> A booking web app with calendar sync, smart scheduling and automatic reminders.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Fewer no-shows and fewer phone calls.</p>
           </div>
-          <div class="portfolio-meta">
-<span class="chip">iOS · Android · Web</span>
-<span class="chip">Calendar Sync</span>
-<span class="chip">Automated Reminders</span>
-          </div>
+          <div class="portfolio-meta"><span class="chip">Web app</span><span class="chip">Calendar sync</span><span class="chip">Reminders</span></div>
         </div>
-      </div>
-<div class="portfolio-card" data-reveal data-cat="webdesign" tabindex="0" role="button" aria-haspopup="dialog">
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="webdesign" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="portfolio-thumb">
-          <span class="cat">Web Design</span>
-          <span class="lightbox-hint">Click for details</span>
-                    <picture>
-            <source srcset="../assets/images/scenario-web.webp?v=1789502000" type="image/webp">
-            <img class="scenario-visual" src="../assets/images/scenario-web.png?v=1789502000" alt="Corporate website in dark brand style" width="1400" height="788" loading="lazy" decoding="async">
+          <span class="cat">Website</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="../assets/images/scenario-web.webp?v=1789830000" type="image/webp">
+            <img src="../assets/images/scenario-web.png?v=1789830000" alt="" width="1400" height="788" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="portfolio-body">
-          <h3>Corporate Website, Consulting Firm</h3>
+          <h3>Company website for a consultancy</h3>
           <div class="portfolio-facts">
-            <p><strong>Starting situation:</strong> The old website was single-language, technically slow, and generated almost no inquiries.</p>
-            <p><strong>What we did:</strong> Multilingual company site (DE/EN/HR) built around clear lead generation structure and a technical SEO foundation.</p>
-            <p class="portfolio-result"><strong>Target picture:</strong> more qualified inquiries via clear lead paths</p>
+            <p><strong>Starting point:</strong> The old website was single-language, slow and brought in hardly any inquiries.</p>
+            <p><strong>Approach:</strong> A multilingual site (DE, EN, HR) with clear paths to an inquiry and a technical SEO foundation.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> More qualified inquiries through the website.</p>
           </div>
-          <div class="portfolio-meta">
-<span class="chip">DE · EN · HR</span>
-<span class="chip">Technical SEO</span>
-<span class="chip">Lead Generation</span>
-          </div>
+          <div class="portfolio-meta"><span class="chip">DE · EN · HR</span><span class="chip">Technical SEO</span><span class="chip">Inquiries</span></div>
         </div>
-      </div>
-<div class="portfolio-card" data-reveal data-cat="branding" tabindex="0" role="button" aria-haspopup="dialog">
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="branding" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="portfolio-thumb">
           <span class="cat">Branding</span>
-          <span class="lightbox-hint">Click for details</span>
-                    <picture>
-            <source srcset="../assets/images/scenario-brand.webp?v=1789502000" type="image/webp">
-            <img class="scenario-visual" src="../assets/images/scenario-brand.png?v=1789502000" alt="Brand identity in dark brand style" width="1400" height="788" loading="lazy" decoding="async">
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="../assets/images/scenario-brand.webp?v=1789830000" type="image/webp">
+            <img src="../assets/images/scenario-brand.png?v=1789830000" alt="" width="1400" height="788" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="portfolio-body">
-          <h3>Brand Identity, Startup</h3>
+          <h3>Brand identity for a startup</h3>
           <div class="portfolio-facts">
-            <p><strong>Starting situation:</strong> A pre-launch startup had neither a logo nor a consistent brand presence.</p>
-            <p><strong>What we did:</strong> Developed a logo, design system, and launch website within four weeks ahead of the product launch.</p>
-            <p class="portfolio-result"><strong>Target picture:</strong> launch-ready presence within a few weeks</p>
+            <p><strong>Starting point:</strong> Shortly before market launch there was neither a logo nor a consistent look.</p>
+            <p><strong>Approach:</strong> Logo, design system and launch website in four weeks, in time for the product launch.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> A finished brand presence for launch day.</p>
           </div>
-          <div class="portfolio-meta">
-<span class="chip">Design System</span>
-<span class="chip">Brand Identity</span>
-<span class="chip">Launch Website</span>
-          </div>
+          <div class="portfolio-meta"><span class="chip">Brand identity</span><span class="chip">Design system</span><span class="chip">Launch website</span></div>
         </div>
-      </div>
-<div class="portfolio-card" data-reveal data-cat="seo" tabindex="0" role="button" aria-haspopup="dialog">
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="seo" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="portfolio-thumb">
           <span class="cat">SEO</span>
-          <span class="lightbox-hint">Click for details</span>
-                    <picture>
-            <source srcset="../assets/images/scenario-seo.webp?v=1789502000" type="image/webp">
-            <img class="scenario-visual" src="../assets/images/scenario-seo.png?v=1789502000" alt="Content hub &amp; SEO in dark brand style" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>Content Hub &amp; SEO, Education Provider</h3>
-          <div class="portfolio-facts">
-            <p><strong>Starting situation:</strong> The education provider&#39;s valuable expertise was scattered across individual pages and practically undiscoverable.</p>
-            <p><strong>What we did:</strong> A structured blog and resource area with a technical SEO foundation and a clear content architecture.</p>
-            <p class="portfolio-result"><strong>Target picture:</strong> findable specialist content instead of scattered pages</p>
-          </div>
-          <div class="portfolio-meta">
-<span class="chip">Technical SEO</span>
-<span class="chip">Content Architecture</span>
-<span class="chip">Organic Growth</span>
-          </div>
-        </div>
-      </div>
-<div class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">AI &amp; Automation</span>
-          <span class="lightbox-hint">Click for details</span>
-                    <picture>
-            <source srcset="../assets/images/scenario-chatbot.webp?v=1789502000" type="image/webp">
-            <img class="scenario-visual" src="../assets/images/scenario-chatbot.png?v=1789502000" alt="AI chatbot in dark brand style" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>AI Chatbot, Trades Business</h3>
-          <div class="portfolio-facts">
-            <p><strong>Starting situation:</strong> Customer inquiries about pricing and appointments came in around the clock, but the team could only reply during office hours.</p>
-            <p><strong>What we did:</strong> AI chatbot on the website and WhatsApp that answers routine inquiries automatically and escalates urgent cases immediately.</p>
-            <p class="portfolio-result"><strong>Target picture:</strong> 24/7 availability, no extra staff</p>
-          </div>
-          <div class="portfolio-meta">
-<span class="chip">AI Chatbot</span>
-<span class="chip">WhatsApp Integration</span>
-<span class="chip">Automation</span>
-          </div>
-        </div>
-      </div>
-<div class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">AI &amp; Automation</span>
-          <span class="lightbox-hint">Click for details</span>
+          <span class="lightbox-hint">View details</span>
           <picture>
-            <source srcset="../assets/images/case-automation.webp?v=1789502000" type="image/webp">
-            <img class="scenario-visual" src="../assets/images/case-automation.png?v=1789502000" alt="AI assistant in dark brand style" width="1400" height="788" loading="lazy" decoding="async">
+            <source srcset="../assets/images/home-v2-products.webp?v=1789830000" type="image/webp">
+            <img src="../assets/images/home-v2-products.png?v=1789830000" alt="" width="1280" height="720" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="portfolio-body">
-          <h3>AI Assistant, Family-Run Business</h3>
+          <h3>Knowledge hub and SEO for an education provider</h3>
           <div class="portfolio-facts">
-            <p><strong>Starting situation:</strong> Quotes and documentation ate up valuable time, and the family business had no in-house IT team.</p>
-            <p><strong>What we did:</strong> Easy-to-use AI assistant for quotes and documentation, rolled out with no technical know-how required on the team.</p>
-            <p class="portfolio-result"><strong>Target picture:</strong> ready on day one, no IT department</p>
+            <p><strong>Starting point:</strong> Valuable expertise was scattered across single pages and barely findable on Google.</p>
+            <p><strong>Approach:</strong> A structured knowledge and blog area with a clear content architecture and technical SEO.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Expert content that actually gets found.</p>
           </div>
-          <div class="portfolio-meta">
-<span class="chip">AI Assistant</span>
-<span class="chip">Document Automation</span>
-<span class="chip">No IT Know-How Needed</span>
-          </div>
+          <div class="portfolio-meta"><span class="chip">Technical SEO</span><span class="chip">Content architecture</span><span class="chip">Reach</span></div>
         </div>
-      </div>
-<div class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
         <div class="portfolio-thumb">
-          <span class="cat">AI &amp; Automation</span>
-          <span class="lightbox-hint">Click for details</span>
-                    <picture>
-            <source srcset="../assets/images/scenario-process.webp?v=1789502000" type="image/webp">
-            <img class="scenario-visual" src="../assets/images/scenario-process.png?v=1789502000" alt="Process automation in dark brand style" width="1400" height="788" loading="lazy" decoding="async">
+          <span class="cat">AI &amp; automation</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="../assets/images/scenario-chatbot.webp?v=1789830000" type="image/webp">
+            <img src="../assets/images/scenario-chatbot.png?v=1789830000" alt="" width="1400" height="788" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="portfolio-body">
-          <h3>Process Automation, Retail Chain</h3>
+          <h3>AI chatbot for a trade business</h3>
           <div class="portfolio-facts">
-            <p><strong>Starting situation:</strong> Stock reconciliation and reporting across multiple locations ran manually through spreadsheets and cost hours every week.</p>
-            <p><strong>What we did:</strong> Automated stock reconciliation and reporting across all locations in real time.</p>
-            <p class="portfolio-result"><strong>Target picture:</strong> several hours saved per week</p>
+            <p><strong>Starting point:</strong> Questions about prices and appointments came in around the clock, but could only be answered during office hours.</p>
+            <p><strong>Approach:</strong> A chatbot on the website and WhatsApp that answers standard questions and forwards urgent cases right away.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Reachable around the clock without extra staff.</p>
           </div>
-          <div class="portfolio-meta">
-<span class="chip">Process Automation</span>
-<span class="chip">Multiple Locations</span>
-<span class="chip">Real-Time Reporting</span>
-          </div>
+          <div class="portfolio-meta"><span class="chip">AI chatbot</span><span class="chip">WhatsApp</span><span class="chip">Forwarding</span></div>
         </div>
-      </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">AI &amp; automation</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="../assets/images/case-automation.webp?v=1789830000" type="image/webp">
+            <img src="../assets/images/case-automation.png?v=1789830000" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>AI assistant for a family business</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> Quotes and documentation cost hours every week, and there was no IT department.</p>
+            <p><strong>Approach:</strong> An easy-to-use assistant for quotes and docs, introduced without any technical background in the team.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Quotes in minutes instead of hours.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">AI assistant</span><span class="chip">Documents</span><span class="chip">No IT team</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-thumb">
+          <span class="cat">AI &amp; automation</span>
+          <span class="lightbox-hint">View details</span>
+          <picture>
+            <source srcset="../assets/images/scenario-process.webp?v=1789830000" type="image/webp">
+            <img src="../assets/images/scenario-process.png?v=1789830000" alt="" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Process automation for a retail chain</h3>
+          <div class="portfolio-facts">
+            <p><strong>Starting point:</strong> Stock reconciliation and reporting across several stores ran through Excel and cost hours every week.</p>
+            <p><strong>Approach:</strong> Automatic stock reconciliation and a report that updates itself.</p>
+            <p class="portfolio-result"><strong>Goal:</strong> Several hours less manual work per week.</p>
+          </div>
+          <div class="portfolio-meta"><span class="chip">Automation</span><span class="chip">Multiple locations</span><span class="chip">Reporting</span></div>
+        </div>
+      </article>
     </div>
-    <p class="portfolio-empty" hidden></p>
+    <p class="portfolio-empty" hidden>There is no example in this area yet.</p>
+    <div class="note-callout" data-reveal><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg><p>The examples show typical starting points and our approach, without names or confidential details. If you want to know how we would handle a case like yours, ask us on the <a href="contact.html">intro call</a>.</p></div>
   </div>
 </section>
 
-<div class="lightbox" id="portfolio-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+<div class="lightbox" id="portfolio-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
   <div class="lightbox-backdrop" data-lightbox-close></div>
   <div class="lightbox-panel">
-    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg></button>
     <div class="lightbox-thumb"></div>
     <div class="lightbox-body">
       <span class="cat lightbox-cat"></span>
-      <h3 class="lightbox-title"></h3>
-      <p class="lightbox-text"></p>
+      <h3 class="lightbox-title" id="lightbox-title"></h3>
+      <div class="lightbox-text"></div>
       <div class="portfolio-meta lightbox-meta"></div>
     </div>
   </div>
 </div>
 
-<section class="section bg-alt">
+<section class="section bg-alt section-cta">
   <div class="container">
     <div class="cta-band" data-reveal>
-      <h2>Your project could be next</h2>
-      <p class="lede" style="margin:0 auto 28px;">Let&#39;s talk about what your digital project could look like.</p>
-      <div class="hero-cta" style="justify-content:center;">
-        <a class="btn btn-primary" href="contact.html">Discuss your project</a>
+      <div class="cta-band-copy">
+        <h2>Does one of these sound like your business?</h2>
+        <p>Then let’s spend 30 minutes on what a sensible first step would be for you. Free and without obligation.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-primary" href="contact.html">Book a free call</a>
+        <a class="btn btn-ghost" href="services.html#pricing">See pricing</a>
       </div>
     </div>
   </div>
 </section>
-
 </main>
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a class="brand" href="index.html">
-          <img class="logo-mark" src="../assets/images/logo-mark-dark.svg?v=1789502000" alt="CreationFirst" width="32" height="32">
+        <a class="brand" href="index.html" aria-label="CreationFirst, home">
+          <img class="logo-mark" src="../assets/images/logo-mark-dark.svg?v=1789830000" alt="" width="32" height="32">
           <span class="brand-word">Creation<em>First</em></span>
         </a>
-        <p class="footer-brand-blurb">The agency that uses AI as a real lever for the mid-market, websites, apps and automation that noticeably lighten your load. Consulting in German, English and Croatian.</p>
+        <p class="footer-brand-blurb">Websites, apps and AI automation for small and mid-sized businesses. Built in Split, working remotely with teams in the DACH region and Croatia.</p>
+        <a class="btn btn-primary btn-sm footer-cta" href="contact.html">Book a free call</a>
       </div>
       <div class="footer-col">
-        <h4>Navigation</h4>
+        <h2 class="footer-h">Offer</h2>
         <ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="portfolio.html">Portfolio</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="playground.html">Playground</a></li>
-<li><a href="contact.html">Contact</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="ai-acceleration.html">AI automation</a></li>
+          <li><a href="services.html#pricing">Pricing &amp; packages</a></li>
+          <li><a href="services.html#quick-analysis">Quick analysis for €199</a></li>
+          <li><a href="construction-trades.html">For construction &amp; trades</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Services</h4>
+        <h2 class="footer-h">CreationFirst</h2>
         <ul>
-<li><a href="services.html#webdesign">Web Design &amp; Websites</a></li>
-<li><a href="services.html#entwicklung">App &amp; Software Development</a></li>
-<li><a href="services.html#ki">AI &amp; Automation</a></li>
-<li><a href="services.html#ecommerce">E-Commerce &amp; Online Stores</a></li>
-<li><a href="services.html#branding">Branding, SEO &amp; Content Marketing</a></li>
-<li><a href="services.html#support">Maintenance, Support &amp; Hosting</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h2 class="footer-h">Contact</h2>
         <ul>
           <li><a href="mailto:info@creationfirst.io">info@creationfirst.io</a></li>
-          <li><a href="tel:+491621717423">+49 1621 717423</a></li>
+          <li><a href="tel:+491621717423">+49 162 1717423</a></li>
           <li>Split, Croatia</li>
+          <li>Mon–Fri, 9 am–5 pm CET</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 CreationFirst. All rights reserved.</span>
+      <span>&copy; 2026 CreationFirst</span>
       <div class="footer-bottom-links">
-        <a href="legal-notice.html">Legal Notice</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="legal-notice.html">Legal notice</a>
+        <a href="privacy-policy.html">Privacy</a>
+        <span class="footer-langs"><a href="../portfolio.html" hreflang="de" lang="de">DE</a> · <a href="portfolio.html" hreflang="en" lang="en" aria-current="true">EN</a> · <a href="../hr/portfolio.html" hreflang="hr" lang="hr">HR</a></span>
       </div>
     </div>
   </div>
 </footer>
 
-
 <div class="conv-sticky-cta" data-sticky-cta>
   <div class="conv-sticky-cta-inner">
-    <div class="conv-sticky-cta-copy"><strong>Free discovery call</strong>30 min · no obligation · reply in 1, 2 business days</div>
-    <a class="btn btn-primary btn-sm" href="contact.html">Request</a>
+    <div class="conv-sticky-cta-copy"><strong>Intro call, €0</strong><span>30 min · no obligation</span></div>
+    <a class="btn btn-primary btn-sm" href="contact.html">Book</a>
   </div>
 </div>
 
-<button class="back-to-top" type="button" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>
+<button class="back-to-top" type="button" aria-label="Back to top"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg></button>
 
-<button class="dev-toggle" type="button" aria-label="Show technical details" aria-expanded="false">
-  <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></svg>
-</button>
-<div class="dev-panel" aria-hidden="true">
+<button class="dev-toggle" type="button" aria-label="Technical details about this page" aria-expanded="false" aria-controls="dev-panel"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg></button>
+<div class="dev-panel" id="dev-panel" aria-hidden="true">
   <div class="dev-panel-inner">
     <div class="dev-panel-head">
       <span class="dev-dot"></span><span class="dev-dot"></span><span class="dev-dot"></span>
       <b>Under the hood</b>
-      <button type="button" class="dev-panel-close" aria-label="Close"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+      <button type="button" class="dev-panel-close" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg></button>
     </div>
     <ul class="dev-stats">
-      <li><span>HTTP requests</span><b class="dev-stat-requests"></b></li>
-      <li><span>Page weight</span><b class="dev-stat-weight"></b></li>
-      <li><span>Load time</span><b class="dev-stat-load"></b></li>
-      <li><span>External trackers</span><b>0</b></li>
-      <li><span>Tech stack</span><b>Vanilla JS</b></li>
+      <li><span>HTTP requests</span><b class="dev-stat-requests">–</b></li>
+      <li><span>Transferred</span><b class="dev-stat-weight">–</b></li>
+      <li><span>Load time</span><b class="dev-stat-load">–</b></li>
+      <li><span>Trackers & cookies</span><b>0</b></li>
+      <li><span>Stack</span><b>HTML · CSS · Vanilla JS</b></li>
       <li><span>Languages</span><b>DE · EN · HR</b></li>
-      <li><span>Build</span><b>#1789238000</b></li>
     </ul>
-    <p class="dev-panel-note">Measured live for this page, no marketing fluff.</p>
+    <p class="dev-panel-note">Measured live, for this exact page.</p>
   </div>
 </div>
 
-<script src="../assets/js/main.js?v=1789502000"></script>
-<script src="../assets/js/site-chat-config.js?v=1789502000"></script>
-<script src="../assets/js/site-chat.js?v=1789502000"></script>
+<script src="../assets/js/main.js?v=1789830000"></script>
+<script src="../assets/js/site-chat-config.js?v=1789830000"></script>
+<script src="../assets/js/site-chat.js?v=1789830000"></script>
 </body>
 </html>

@@ -50,8 +50,8 @@
     btn.addEventListener("click", showIdea);
     select.addEventListener("change", function () {
       btn.textContent = generateLabel;
-      output.classList.remove("is-in");
       output.textContent = wrap.dataset.placeholder || "";
+      output.classList.add("is-in");
     });
   }
 

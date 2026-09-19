@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
 (function(){
+  document.documentElement.classList.add("js");
   try {
     var saved = localStorage.getItem("theme");
     var theme = saved || ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light");
@@ -12,205 +13,209 @@
   } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
 })();
 </script>
-<title>Playground, mala igra u pregledniku | CreationFirst</title>
-<meta name="description" content="Nadmaši vlastiti rezultat: mala igra Snake s lokalnom ljestvicom, izrađena Vanilla JavaScriptom, dokaz onoga što tehnički možemo napraviti.">
+<title>Playground: AI ideje, kalkulator i Snake | CreationFirst</title>
+<meta name="description" content="Isprobaj sam: generator AI ideja za tvoj posao, simulator ponuda, kalkulator uštede vremena i mala igra Snake u pregledniku.">
 <link rel="canonical" href="https://wrapdbtc.github.io/creationfirst/hr/igra.html">
 <link rel="alternate" hreflang="de" href="https://wrapdbtc.github.io/creationfirst/spielplatz.html">
 <link rel="alternate" hreflang="en" href="https://wrapdbtc.github.io/creationfirst/en/playground.html">
 <link rel="alternate" hreflang="hr" href="https://wrapdbtc.github.io/creationfirst/hr/igra.html">
 <link rel="alternate" hreflang="x-default" href="https://wrapdbtc.github.io/creationfirst/spielplatz.html">
-
-<link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg?v=1789502000">
-<link rel="icon" type="image/png" sizes="512x512" href="../assets/images/favicon.png?v=1789502000">
-<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=1789502000">
-
+<link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg?v=1789830000">
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/images/favicon.png?v=1789830000">
+<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png?v=1789830000">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CreationFirst">
-<meta property="og:title" content="Playground, mala igra u pregledniku | CreationFirst">
-<meta property="og:description" content="Nadmaši vlastiti rezultat: mala igra Snake s lokalnom ljestvicom, izrađena Vanilla JavaScriptom, dokaz onoga što tehnički možemo napraviti.">
+<meta property="og:title" content="Playground: AI ideje, kalkulator i Snake | CreationFirst">
+<meta property="og:description" content="Isprobaj sam: generator AI ideja za tvoj posao, simulator ponuda, kalkulator uštede vremena i mala igra Snake u pregledniku.">
 <meta property="og:image" content="https://wrapdbtc.github.io/creationfirst/assets/images/og-image.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="CreationFirst">
 <meta property="og:url" content="https://wrapdbtc.github.io/creationfirst/hr/igra.html">
 <meta property="og:locale" content="hr_HR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Playground, mala igra u pregledniku | CreationFirst">
-<meta name="twitter:description" content="Nadmaši vlastiti rezultat: mala igra Snake s lokalnom ljestvicom, izrađena Vanilla JavaScriptom, dokaz onoga što tehnički možemo napraviti.">
+<meta name="twitter:title" content="Playground: AI ideje, kalkulator i Snake | CreationFirst">
+<meta name="twitter:description" content="Isprobaj sam: generator AI ideja za tvoj posao, simulator ponuda, kalkulator uštede vremena i mala igra Snake u pregledniku.">
 <meta name="twitter:image" content="https://wrapdbtc.github.io/creationfirst/assets/images/og-image.png">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0a0e1a">
-
-<link rel="stylesheet" href="../assets/css/style.css?v=1789502000">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "CreationFirst", "url": "https://wrapdbtc.github.io/creationfirst", "email": "info@creationfirst.io", "logo": "https://wrapdbtc.github.io/creationfirst/assets/images/favicon.png", "sameAs": []}</script></head>
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../assets/css/style.css?v=1789830000">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://wrapdbtc.github.io/creationfirst/#org","name":"CreationFirst","url":"https://wrapdbtc.github.io/creationfirst/","logo":"https://wrapdbtc.github.io/creationfirst/assets/images/favicon.png","image":"https://wrapdbtc.github.io/creationfirst/assets/images/og-image.png","email":"info@creationfirst.io","telephone":"+491621717423","address":{"@type":"PostalAddress","streetAddress":"Sarajevska ulica 24","postalCode":"21000","addressLocality":"Split","addressCountry":"HR"},"areaServed":["DE","AT","CH","HR"],"knowsLanguage":["de","en","hr"],"founder":{"@type":"Person","name":"Pierre Schulteis"},"priceRange":"€€"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Početna","item":"https://wrapdbtc.github.io/creationfirst/hr/"},{"@type":"ListItem","position":2,"name":"Playground","item":"https://wrapdbtc.github.io/creationfirst/hr/igra.html"}]}]}</script>
+</head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol><symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></symbol><symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></symbol><symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></svg>
 <div class="scroll-progress" aria-hidden="true"></div>
 <a class="skip-link" href="#main">Preskoči na sadržaj</a>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="CreationFirst, Početna">
-      <img class="logo-mark logo-mark-color" src="../assets/images/logo-mark-light.svg?v=1789502000" alt="CreationFirst" width="32" height="32">
-      <img class="logo-mark logo-mark-white" src="../assets/images/logo-mark-dark.svg?v=1789502000" alt="CreationFirst" width="32" height="32">
+    <a class="brand" href="index.html" aria-label="CreationFirst, početna">
+      <img class="logo-mark logo-mark-color" src="../assets/images/logo-mark-light.svg?v=1789830000" alt="" width="32" height="32">
+      <img class="logo-mark logo-mark-white" src="../assets/images/logo-mark-dark.svg?v=1789830000" alt="" width="32" height="32">
       <span class="brand-word">Creation<em>First</em></span>
     </a>
-
     <nav class="main-nav" id="main-nav" aria-label="Glavna navigacija">
-<a href="usluge.html">Usluge</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="o-nama.html">O nama</a>
-<a href="igra.html" class="is-active" aria-current="page">Playground</a>
-<a href="kontakt.html">Kontakt</a>
-<div class="nav-more">
-  <button class="nav-more-btn" type="button" aria-haspopup="true" aria-expanded="false">Više</button>
-  <div class="nav-more-menu" role="menu">
-    <a class="is-active" href="igra.html">Playground</a>
-  </div>
-</div>
-
+      <a href="usluge.html">Usluge</a>
+      <a href="ubrzanje-uz-ai.html">AI automatizacija</a>
+      <a href="usluge.html#cijene">Cijene</a>
+      <a href="portfolio.html">Projekti</a>
+      <a href="o-nama.html">O nama</a>
+      <a class="nav-mobile-only is-active" href="igra.html" aria-current="page">Playground</a>
+      <a class="nav-mobile-only" href="kontakt.html">Kontakt</a>
+      <a class="btn btn-primary nav-mobile-cta" href="kontakt.html">Zatraži razgovor</a>
     </nav>
-
     <div class="header-actions">
-      <button class="btn btn-icon theme-toggle" type="button" aria-label="Theme umschalten / toggle theme">
-        <span class="icon-sun"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
-        <span class="icon-moon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg></span>
+      <button class="btn btn-icon theme-toggle" type="button" aria-label="Svijetlo ili tamno">
+        <span class="icon-sun"><svg class="icon" aria-hidden="true"><use href="#i-sun"></use></svg></span>
+        <span class="icon-moon"><svg class="icon" aria-hidden="true"><use href="#i-moon"></use></svg></span>
       </button>
       <div class="lang-switch">
-        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false">
-          <span class="flag">🇭🇷</span> <span class="lang-code">HR</span>
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Odaberi jezik">
+          <span class="flag" aria-hidden="true">🇭🇷</span> <span class="lang-code">HR</span>
         </button>
         <div class="lang-menu">
-<a href="../spielplatz.html"><span class="flag">🇩🇪</span> Deutsch</a>
-<a href="../en/playground.html"><span class="flag">🇬🇧</span> English</a>
-<a href="igra.html" class="is-active"><span class="flag">🇭🇷</span> Hrvatski</a>
+          <a href="../spielplatz.html" hreflang="de" lang="de"><span class="flag" aria-hidden="true">🇩🇪</span> Deutsch</a>
+          <a href="../en/playground.html" hreflang="en" lang="en"><span class="flag" aria-hidden="true">🇬🇧</span> English</a>
+          <a href="igra.html" hreflang="hr" lang="hr" class="is-active" aria-current="true"><span class="flag" aria-hidden="true">🇭🇷</span> Hrvatski</a>
         </div>
       </div>
-      <a class="btn btn-primary btn-sm nav-cta-btn" href="kontakt.html">Zatraži uvodni razgovor</a>
+      <a class="btn btn-primary btn-sm nav-cta-btn" href="kontakt.html">Zatraži razgovor</a>
       <button class="nav-toggle" type="button" aria-label="Izbornik" aria-expanded="false" aria-controls="main-nav"><span></span></button>
     </div>
   </div>
 </header>
 
 <main id="main">
-
 <section class="page-hero">
-  <div class="container">
-    <div class="breadcrumbs" style="color:rgba(255,255,255.6);"><a href="index.html" style="color:rgba(255,255,255.8);">Početna</a> / Playground</div>
-    <span class="eyebrow" style="color:#fff;">Playground</span>
-    <h1>Isprobaj sami, ovako razmišljamo i gradimo</h1>
-    <p class="lede">Bez mockupa, bez video koncepta: četiri male demonstracije koje pokazuju kako razmišljamo o automatizaciji i AI-ju, plus prava partija Snakea kao tehnički dokaz da uredno programiramo i zanatski.</p>
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-orb o1" aria-hidden="true"></div>
+  <div class="hero-orb o3" aria-hidden="true"></div>
+  <div class="container page-hero-grid is-text-only">
+    <div class="page-hero-copy">
+      <nav class="breadcrumbs" aria-label="Navigacijski put"><a href="index.html">Početna</a><span aria-hidden="true">/</span><span>Playground</span></nav>
+      <p class="eyebrow">Playground</p>
+      <h1>Isprobaj kako razmišljamo i gradimo</h1>
+      <p class="lede">Tri mala alata oko automatizacije i igra Snake, sve izravno u pregledniku, bez registracije i bez praćenja.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#ideas">Kreni</a>
+        <a class="btn btn-ghost" href="#snake">Ravno na igru</a>
+      </div>
+    </div>
   </div>
-  <div class="section-divider to-white"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,32 C300,70 900,-10 1200,28 L1200,60 L0,60 Z"/></svg></div>
+  <div class="section-divider to-white" aria-hidden="true"></div>
 </section>
 
-<section class="section">
-  <div class="container" style="max-width:760px;">
+<section class="section" id="ideas">
+  <div class="container container-narrow">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Isprobaj još nešto</span>
-      <h2>Kako bi mogla izgledati AI ideja za tvoje poslovanje?</h2>
-      <p class="lede" style="margin:0 auto;">Odaberi svoju djelatnost i dobijte moguću ideju za automatizaciju, točno onakvu kakvu bismo zajedno razradili u pravoj kratkoj analizi.</p>
+      <p class="eyebrow">Generator ideja</p>
+      <h2>Kako bi AI mogao pomoći u tvojoj djelatnosti?</h2>
+      <p class="lede">Odaberi djelatnost i pogledaj konkretnu ideju. Upravo takve ideje produbljujemo u pravoj kratkoj analizi.</p>
     </div>
     <div class="idea-gen" data-idea-gen data-reveal
-         data-generate-label="Generiraj ideju"
+         data-generate-label="Pokaži ideju"
          data-again-label="Još jedna ideja"
-         data-placeholder="Odaberi djelatnost i klikni na „Generiraj ideju”.">
+         data-placeholder="Odaberi djelatnost i klikni „Pokaži ideju“.">
       <div class="idea-gen-controls">
         <label class="idea-gen-label" for="idea-gen-select">Tvoja djelatnost</label>
         <div class="idea-gen-row">
           <select class="idea-gen-select" id="idea-gen-select">
-<option value="trades">Obrtnička djelatnost</option>
-<option value="retail">Maloprodaja</option>
-<option value="consulting">Savjetovanje i usluge</option>
-<option value="hospitality">Ugostiteljstvo</option>
-<option value="health">Zdravstvena praksa</option>
-<option value="fitness">Fitness i rekreacija</option>
-<option value="education">Obrazovanje i tečajevi</option>
-<option value="realestate">Nekretnine</option>
-<option value="logistics">Logistika i transport</option>
-<option value="nonprofit">Udruge i neprofitne organizacije</option>
+            <option value="trades">Obrt i građevina</option>
+            <option value="retail">Maloprodaja</option>
+            <option value="consulting">Savjetovanje i usluge</option>
+            <option value="hospitality">Ugostiteljstvo i turizam</option>
+            <option value="health">Ordinacije i zdravstvo</option>
+            <option value="fitness">Fitness i rekreacija</option>
+            <option value="education">Obrazovanje i tečajevi</option>
+            <option value="realestate">Nekretnine</option>
+            <option value="logistics">Logistika i transport</option>
+            <option value="nonprofit">Udruge i neprofitne organizacije</option>
           </select>
-          <button class="btn btn-primary idea-gen-btn" type="button">Generiraj ideju</button>
+          <button class="btn btn-primary idea-gen-btn" type="button">Pokaži ideju</button>
         </div>
       </div>
-      <div class="idea-gen-output">
-        <p class="idea-gen-text">Odaberi djelatnost i klikni na „Generiraj ideju”.</p>
+      <div class="idea-gen-output" aria-live="polite">
+        <p class="idea-gen-text is-in">Odaberi djelatnost i klikni „Pokaži ideju“.</p>
       </div>
-      <p class="form-hint text-center idea-gen-disclaimer">Ovo je samo igriva demonstracija našeg načina razmišljanja, iza ovoga ne stoji prava umjetna inteligencija, ali baš bismo tako razmišljali i za tvoj projekt.</p>
+      <p class="form-hint">Unaprijed napisani primjeri, u pozadini nema pravog AI-ja. Ali upravo ovako razmišljamo zajedno s tobom.</p>
       <script type="application/json" class="idea-gen-data">{"trades": ["Chatbot automatski odgovara na standardna pitanja o cijenama i terminima, čak i navečer i vikendom.", "Ponude nastaju putem predloška u minutama umjesto sati, uključujući automatski izračun materijala.", "Dolazni upiti automatski se razvrstavaju po hitnosti, tako da ništa ne ostane zaboravljeno u pretincu.", "Jednostavan glasovni asistent pomaže bilježiti radno vrijeme izravno s gradilišta.", "Računi se automatski izrađuju i šalju po završetku posla.", "Česta pitanja o jamstvu i održavanju automatski se odgovaraju.", "Fotografije s gradilišta automatski se povezuju s pravim nalogom i arhiviraju.", "Narudžbe rezervnih dijelova i materijala automatski se pokreću čim zaliha padne nisko."], "retail": ["Zalihe se automatski usklađuju između poslovnica prije nego što nešto rasproda.", "AI alat piše opise proizvoda za online shop u nekoliko sekundi.", "Upiti kupaca putem WhatsAppa automatski se predrazvrstavaju i odgovaraju.", "Personalizirane ponude automatski se šalju stalnim kupcima na temelju prijašnjih kupnji.", "Povrati se automatski evidentiraju, a zalihe se sukladno ažuriraju.", "Česta pitanja o dostavi i povratu automatski se odgovaraju 0-24.", "Chatbot automatski pomaže kupcima pronaći pravi proizvod u ponudi.", "Promjene cijena i akcije automatski se usklađuju na web stranici i u shopu."], "consulting": ["Bilješke sa sastanaka automatski se pretvaraju u strukturirane sažetke i popise zadataka.", "AI asistent odmah odgovara na česta pitanja klijenata, čak i izvan radnog vremena.", "Ponude i ugovori automatski se predoblikuju iz nekoliko natuknica.", "Dolazni upiti automatski se ocjenjuju i prioritiziraju prije nego što uopće odgovoriš.", "Računi i evidencija radnog vremena automatski se izrađuju iz podataka o projektu.", "Prvi nacrti izvještaja automatski se sastavljaju iz sirovih podataka.", "Chatbot automatski predkvalificira nove upite prije dogovaranja termina savjetovanja.", "Ponavljajući istraživački zadaci automatski se pripremaju prije početka projekta."], "hospitality": ["Upiti za rezervacije automatski se potvrđuju i unose u sustav, bez telefonskog poziva.", "Chatbot odgovara na pitanja o radnom vremenu, jelovniku i alergenima 0-24.", "Narudžbe iz dostavnih servisa automatski se objedinjuju kako se u kuhinji ne bi pomiješale.", "Rasporedi smjena automatski se predlažu na temelju prijašnje popunjenosti.", "Česte posebne želje poput alergija ili dječjih sjedalica automatski se bilježe i prosljeđuju timu.", "Povratne informacije nakon posjeta automatski se traže porukom i analiziraju.", "Upiti za napojnicu i recenziju automatski se šalju nakon posjeta.", "Manjak osoblja rano se prepoznaje jer se rasporedi smjena automatski uspoređuju s rezervacijama."], "health": ["Upiti za termine automatski se upravljaju, uključujući podsjetnike SMS-om ili e-mailom.", "Česta pitanja pacijenata automatski se odgovaraju, čime se rasterećuje recepcija.", "Recepti i upute pripremaju se iz predložaka u sekundama umjesto minuta.", "Liste čekanja automatski se popunjavaju čim se otkaže termin.", "Podsjetnici za kontrolne preglede automatski se šalju.", "Česta pitanja o pripremi za termin automatski se odgovaraju.", "Upiti za ponavljajuće recepte automatski se pripremaju i stavljaju na odobrenje.", "Upitnici o anamnezi automatski se šalju digitalno prije termina i analiziraju."], "fitness": ["Upiti članova o terminima i dostupnosti automatski se odgovaraju putem chata.", "AI alat izrađuje prvi nacrt plana treninga koji treneri samo prilagode.", "Otkazani termini automatski se dodjeljuju sljedećima na listi čekanja.", "Podsjetnici o isteku članarine automatski se šalju umjesto ručnog praćenja.", "Upiti za probni trening automatski se zakazuju i potvrđuju.", "Česta pitanja o radnom vremenu i rasporedu termina automatski se odgovaraju 0-24.", "Novi članovi automatski dobivaju osobni dobrodošli slijed poruka s najvažnijim informacijama.", "Popunjenost pojedinih termina automatski se analizira kako bi se optimizirao raspored."], "education": ["Prijave na tečajeve automatski se potvrđuju i unose u sustav.", "Česta pitanja polaznika automatski se odgovaraju, rasterećujući tajništvo.", "Prvi nacrt povratne informacije na zadatke automatski se priprema.", "Podsjetnici o nadolazećim terminima automatski se šalju e-mailom.", "Potvrde o sudjelovanju automatski se izrađuju iz predloška.", "Zainteresirani se automatski upitaju o potrebama i usmjere na odgovarajući tečaj.", "Pitanja roditelja o terminima i otkazivanjima automatski se odgovaraju.", "Novi zainteresirani automatski dobivaju preporuke tečajeva na temelju svojih odgovora."], "realestate": ["Upiti o nekretninama automatski se odgovaraju i šalju dodatnu dokumentaciju.", "Termini razgledavanja automatski se usklađuju, bez učestalih telefonskih poziva.", "Prvi nacrt opisa nekretnine automatski se izrađuje iz podataka o objektu.", "Zainteresirani se automatski predkvalificiraju prema kriterijima prije dogovaranja termina.", "Upiti izvan radnog vremena automatski dobivaju prvi odgovor.", "Podsjetnici na nadolazeće ugovorne rokove automatski se šalju.", "Automatske procjene tržišne cijene daju prvu podlogu za razgovor o prodaji.", "Dokumenti spremni za potpis automatski se pripremaju čim se obje strane usuglase."], "logistics": ["Upiti o statusu pošiljke automatski se odgovaraju putem chata, bez poziva dispečeru.", "Rute se automatski predlažu i optimiziraju na temelju prometne situacije i vremena isporuke.", "Teretni list i otpremnica automatski se izrađuju iz podataka o nalogu.", "Kašnjenja se automatski prepoznaju, a kupci se proaktivno obavještavaju.", "Vozači automatski dobivaju ažurirane rute na mobitel, bez poziva u ured.", "Računi naručiteljima automatski se izrađuju iz završenih vožnji.", "Prazne vožnje automatski se prepoznaju i predlažu se odgovarajući povratni tereti.", "Česta pitanja o vremenu preuzimanja i kapacitetima automatski se odgovaraju 0-24."], "nonprofit": ["Zahtjevi za članstvo i pristupnice automatski se provjeravaju i unose u sustav.", "Chatbot automatski odgovara na česta pitanja o događanjima, donacijama i članstvu.", "Potvrde o donaciji automatski se izrađuju i šalju čim donacija stigne.", "Podsjetnici za dospjele članarine automatski se šalju.", "Volonteri se automatski raspoređuju na smjene prema svojoj dostupnosti.", "Nacrti newslettera automatski se pripremaju iz najvažnijih vijesti mjeseca.", "Upiti medija ili partnera automatski se predrazvrstavaju i prosljeđuju.", "Izvještaji za donatore i davatelje potpora automatski se izrađuju iz postojećih podataka."]}</script>
     </div>
-    <div class="text-center" style="margin-top:20px;">
-      <a class="btn btn-primary" href="kontakt.html">Razradimo zajedno tvoju vlastitu ideju</a>
-    </div>
+    <div class="section-more" data-reveal><a class="btn btn-ghost" href="kontakt.html?topic=analysis">Produbi ideju u kratkoj analizi</a></div>
   </div>
 </section>
 
 <section class="section bg-alt">
-  <div class="container" style="max-width:640px;">
+  <div class="container">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Prije / poslije</span>
-      <h2>Izrada ponude: ručno naspram uz AI</h2>
-      <p class="lede" style="margin:0 auto;">Tipičan tijek rada u uslužnom poduzeću, promijeni prikaz i pogledaj razliku.</p>
+      <p class="eyebrow">Brojke umjesto nagađanja</p>
+      <h2>Što automatizacija konkretno donosi?</h2>
+      <p class="lede">Dva kalkulatora s primjerima. Prave brojke za tvoj posao pronaći ćemo u razgovoru.</p>
     </div>
-    <div class="sim" data-sim data-reveal>
-      <div class="sim-toggle">
-        <button class="sim-toggle-manual is-active" type="button">Ručno</button>
-        <button class="sim-toggle-ai" type="button">Uz AI</button>
+    <div class="demo-split">
+      <div class="demo-col" data-reveal>
+        <h3>Pisanje ponude: ručno ili uz AI</h3>
+        <p class="demo-lede">Tipičan tijek rada u uslužnoj tvrtki. Prebaci prikaz i usporedi.</p>
+        <div class="sim" data-sim>
+          <div class="sim-toggle" role="group" aria-label="Odaberi prikaz">
+            <button class="sim-toggle-manual is-active" type="button">Ručno</button>
+            <button class="sim-toggle-ai" type="button">Uz AI</button>
+          </div>
+          <div class="sim-steps"></div>
+          <div class="sim-total">
+            <span class="sim-total-label">Vrijeme po ponudi</span>
+            <span class="sim-total-value">0</span>
+            <span class="sim-total-unit">min</span>
+          </div>
+          <p class="sim-savings" hidden><span class="sim-savings-value"></span> uštede na svakoj ponudi</p>
+          <p class="form-hint text-center">Primjeri vrijednosti za ilustraciju. Koliko je to kod tebe, ovisi o tvom procesu.</p>
+          <script type="application/json" class="sim-data">{"unit": "min", "steps_manual": [{"label": "Pročitati upit i razjasniti pitanja", "minutes": 15}, {"label": "Složiti ponudu iz starog predloška", "minutes": 35}, {"label": "Preračunati cijene i stavke", "minutes": 20}, {"label": "Provjeriti i poslati", "minutes": 10}], "steps_ai": [{"label": "Upit se automatski evidentira", "minutes": 2}, {"label": "AI piše nacrt iz tvojih podataka", "minutes": 3}, {"label": "Ti provjeriš i prilagodiš", "minutes": 5}, {"label": "Slanje s automatskim podsjetnikom", "minutes": 1}]}</script>
+        </div>
       </div>
-      <div class="sim-steps"></div>
-      <div class="sim-total">
-        <span class="sim-total-label">Ukupno vrijeme po ponudi</span>
-        <span class="sim-total-value">0</span>
-        <span class="sim-total-unit">Min.</span>
+      <div class="demo-col" data-reveal>
+        <h3>Koliko vremena odlazi na rutinu?</h3>
+        <p class="demo-lede">Upiši sate tjedno koje tim troši na ponavljajuće zadatke, odaberi djelatnost i gotovo.</p>
+        <div class="calc" data-calc>
+          <div class="calc-row">
+            <div class="calc-field">
+              <label for="calc-hours">Sati tjedno</label>
+              <input class="calc-hours-input" id="calc-hours" type="number" inputmode="numeric" min="0" max="400" step="1" value="10">
+            </div>
+            <div class="calc-field">
+              <label for="calc-industry">Djelatnost</label>
+              <select class="calc-industry-select" id="calc-industry">
+                <option value="trades">Obrt i građevina</option>
+                <option value="retail">Maloprodaja</option>
+                <option value="consulting" selected>Savjetovanje i usluge</option>
+                <option value="hospitality">Ugostiteljstvo i turizam</option>
+                <option value="health">Ordinacije i zdravstvo</option>
+                <option value="other">Druga djelatnost</option>
+              </select>
+            </div>
+            <button class="btn btn-primary calc-btn" type="button">Izračunaj</button>
+          </div>
+          <div class="calc-result" hidden aria-live="polite">
+            <div><span class="calc-result-value calc-result-week">0</span><span class="calc-result-label">sati tjedno</span></div>
+            <div><span class="calc-result-value calc-result-month">0</span><span class="calc-result-label">sati mjesečno</span></div>
+            <div><span class="calc-result-value calc-result-year">0</span><span class="calc-result-label">sati godišnje</span></div>
+          </div>
+          <p class="form-hint text-center">Gruba procjena na temelju iskustva, bez jamstva. Pravu brojku pronaći ćemo u razgovoru.</p>
+          <script type="application/json" class="calc-data">{"industries": [{"value": "trades", "factor": 0.35}, {"value": "retail", "factor": 0.3}, {"value": "consulting", "factor": 0.4}, {"value": "hospitality", "factor": 0.3}, {"value": "health", "factor": 0.35}, {"value": "other", "factor": 0.3}]}</script>
+        </div>
       </div>
-      <p class="sim-savings" hidden><span class="sim-savings-value"></span> Ušteda vremena po ponudi</p>
-      <p class="form-hint text-center" style="margin-top:16px;">Primjeri vremena služe ilustraciji, bez jamstva, stvarna ušteda ovisi o tvom procesu.</p>
-      <script type="application/json" class="sim-data">{"eyebrow": "Prije / poslije", "title": "Izrada ponude: ručno naspram uz AI", "lede": "Tipičan tijek rada u uslužnom poduzeću, promijeni prikaz i pogledaj razliku.", "toggle_manual": "Ručno", "toggle_ai": "Uz AI", "total_label": "Ukupno vrijeme po ponudi", "steps_manual": [{"label": "Pregled upita i razjašnjavanje pitanja", "minutes": 15}, {"label": "Ručna izrada ponude iz predloška", "minutes": 35}, {"label": "Ručni preračun cijena i stavki", "minutes": 20}, {"label": "Lektura i slanje", "minutes": 10}], "steps_ai": [{"label": "Upit se automatski evidentira i strukturira", "minutes": 2}, {"label": "AI izrađuje nacrt ponude iz predloška i podataka", "minutes": 3}, {"label": "Kratka provjera s tvoje strane", "minutes": 5}, {"label": "Automatsko slanje uz podsjetnik za follow-up", "minutes": 1}], "savings_label": "Ušteda vremena po ponudi", "cta": "Toliko bi vremena mogao uštedjeti", "cta_btn": "Zatraži uvodni razgovor", "disclaimer": "Primjeri vremena služe ilustraciji, bez jamstva, stvarna ušteda ovisi o tvom procesu."}</script>
-    </div>
-    <div class="text-center" style="margin-top:20px;">
-      <a class="btn btn-primary" href="kontakt.html">Zatraži uvodni razgovor</a>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="container" style="max-width:640px;">
+<section class="section" id="snake">
+  <div class="container container-narrow">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Izračunaj sam</span>
-      <h2>Koliko vremena bi mogao uštedjeti uz AI?</h2>
-      <p class="lede" style="margin:0 auto;">Navedi koliko sati tjedno tvoj tim trenutno provede na ponavljajućim zadacima, procijenit ćemo realnu uštedu.</p>
+      <p class="eyebrow">Treba ti pauza?</p>
+      <h2>Jedna runda Snakea</h2>
+      <p class="lede">Ručno napisan u čistom JavaScriptu, s power-upovima, kombinacijama i ljestvicom koja se sprema samo na tvom uređaju.</p>
     </div>
-    <div class="calc" data-calc data-reveal>
-      <div class="calc-row">
-        <div class="calc-field">
-          <label for="calc-hours">Sati tjedno na ponavljajućim zadacima</label>
-          <input class="calc-hours-input" id="calc-hours" type="number" min="0" step="1" value="10">
-        </div>
-        <div class="calc-field">
-          <label for="calc-industry">Djelatnost</label>
-          <select class="calc-industry-select" id="calc-industry">
-<option value="trades">Obrtnička djelatnost</option>
-<option value="retail">Maloprodaja</option>
-<option value="consulting">Savjetovanje i usluge</option>
-<option value="hospitality">Ugostiteljstvo</option>
-<option value="health">Zdravstvena praksa</option>
-<option value="other">Druga djelatnost</option>
-          </select>
-        </div>
-        <button class="btn btn-primary calc-btn" type="button">Izračunaj uštedu</button>
-      </div>
-      <div class="calc-result" hidden>
-        <div><span class="calc-result-value calc-result-week">0</span><span class="calc-result-label">Sati / tjedan ušteđeno</span></div>
-        <div><span class="calc-result-value calc-result-month">0</span><span class="calc-result-label">Sati / mjesec ušteđeno</span></div>
-        <div><span class="calc-result-value calc-result-year">0</span><span class="calc-result-label">Sati / godina ušteđeno</span></div>
-      </div>
-      <p class="form-hint text-center" style="margin-top:16px;">Gruba procjena na temelju tipičnih iskustava, bez jamstva, stvarnu uštedu rado konkretno razmatramo u razgovoru.</p>
-      <script type="application/json" class="calc-data">{"eyebrow": "Izračunaj sam", "title": "Koliko vremena bi mogao uštedjeti uz AI?", "lede": "Navedi koliko sati tjedno tvoj tim trenutno provede na ponavljajućim zadacima, procijenit ćemo realnu uštedu.", "hours_label": "Sati tjedno na ponavljajućim zadacima", "industry_label": "Djelatnost", "industries": [{"value": "trades", "label": "Obrtnička djelatnost", "factor": 0.35}, {"value": "retail", "label": "Maloprodaja", "factor": 0.3}, {"value": "consulting", "label": "Savjetovanje i usluge", "factor": 0.4}, {"value": "hospitality", "label": "Ugostiteljstvo", "factor": 0.3}, {"value": "health", "label": "Zdravstvena praksa", "factor": 0.35}, {"value": "other", "label": "Druga djelatnost", "factor": 0.3}], "calc_btn": "Izračunaj uštedu", "result_week_label": "Sati / tjedan ušteđeno", "result_month_label": "Sati / mjesec ušteđeno", "result_year_label": "Sati / godina ušteđeno", "cta": "Oslobodi to vrijeme i kod sebe", "cta_btn": "Zatraži uvodni razgovor", "disclaimer": "Gruba procjena na temelju tipičnih iskustava, bez jamstva, stvarnu uštedu rado konkretno razmatramo u razgovoru."}</script>
-    </div>
-    <div class="calc-cta">
-      <a class="btn btn-primary" href="kontakt.html">Zatraži uvodni razgovor</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container" style="max-width: 900px;">
     <div class="game-wrap" data-snake-game data-height="420"
          data-leaderboard-key="creationfirst_snake_leaderboard"
          data-leaderboard-empty="Još nema unosa, budi prvi!"
@@ -259,157 +264,157 @@
                 aria-label="Isključi zvuk"
                 data-on-aria="Isključi zvuk"
                 data-off-aria="Uključi zvuk">
-          <span class="icon-on"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.4 8.6a5 5 0 0 1 0 6.8"/><path d="M19.2 6a9 9 0 0 1 0 12"/></svg></span>
-          <span class="icon-off"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16 9l6 6M22 9l-6 6"/></svg></span>
+          <span class="icon-on"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.4 8.6a5 5 0 0 1 0 6.8"/><path d="M19.2 6a9 9 0 0 1 0 12"/></svg></span>
+          <span class="icon-off"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16 9l6 6M22 9l-6 6"/></svg></span>
         </button>
-        <div class="game-dpad" aria-hidden="true">
-          <button class="game-dpad-btn dpad-up" data-dir="up" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
-          <button class="game-dpad-btn dpad-left" data-dir="left" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
-          <button class="game-dpad-btn dpad-right" data-dir="right" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
-          <button class="game-dpad-btn dpad-down" data-dir="down" type="button"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+        <div class="game-dpad" role="group">
+          <button class="game-dpad-btn dpad-up" data-dir="up" type="button" aria-label="Gore"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <button class="game-dpad-btn dpad-left" data-dir="left" type="button" aria-label="Lijevo"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <button class="game-dpad-btn dpad-right" data-dir="right" type="button" aria-label="Desno"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+          <button class="game-dpad-btn dpad-down" data-dir="down" type="button" aria-label="Dolje"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
         </div>
         <button class="game-fullscreen-btn" type="button"
                 aria-label="Puni zaslon"
                 data-on-aria="Puni zaslon"
                 data-off-aria="Izađi iz punog zaslona">
-          <span class="icon-on"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H4v4M16 3h4v4M8 21H4v-4M16 21h4v-4"/></svg></span>
-          <span class="icon-off"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4H5M15 4v4h4M9 20v-4H5M15 20v-4h4"/></svg></span>
+          <span class="icon-on"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H4v4M16 3h4v4M8 21H4v-4M16 21h4v-4"/></svg></span>
+          <span class="icon-off"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v4H5M15 4v4h4M9 20v-4H5M15 20v-4h4"/></svg></span>
         </button>
       </div>
     </div>
-    <p class="form-hint text-center" style="margin-top:16px;">Strelice, WASD ili povlačenje za upravljanje, razmaknica za pauzu, radi i na mobitelu.</p>
+    <p class="form-hint text-center">Strelice, WASD ili povlačenje prstom za upravljanje, razmaknica za pauzu. Radi i na mobitelu.</p>
   </div>
 </section>
 
 <section class="section bg-alt">
   <div class="container">
     <div class="section-head" data-reveal>
-      <span class="eyebrow">Ispod haube</span>
-      <h2>Kako smo ovo napravili</h2>
-      <p class="lede" style="margin:0 auto;">Bez gotovog game-engine alata, samo ista tehnologija koju koristimo i za tvoje projekte.</p>
+      <p class="eyebrow">Ispod haube</p>
+      <h2>Kako smo to napravili</h2>
+      <p class="lede">Bez game enginea i bez gotovih alata, s istim alatima koje koristimo i za tvoje projekte.</p>
     </div>
     <div class="grid grid-3">
-<div class="card" data-reveal>
-        <div class="card-icon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></svg></div>
-        <h3>100% Vanilla JavaScript</h3>
-        <p>Bez engine-a, bez frameworka, samo ručno pisan kod koji radi točno ono što treba.</p>
+      <div class="card" data-reveal>
+        <div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg></div>
+        <h3>Čisti JavaScript</h3>
+        <p>Bez frameworka i bez ovisnosti. Ručno pisan kod koji radi točno ono što treba.</p>
       </div>
-<div class="card" data-reveal>
-        <div class="card-icon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M9 9v11"/></svg></div>
+      <div class="card" data-reveal>
+        <div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg></div>
         <h3>HTML5 Canvas</h3>
-        <p>Logika igre, detekcija sudara i efekti čestica renderirani izravno u pregledniku, bez dodataka.</p>
+        <p>Logika igre, sudari i efekti čestica rade izravno u pregledniku, bez dodataka.</p>
       </div>
-<div class="card" data-reveal>
-        <div class="card-icon"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-3"/><path d="M9 5.5L8 3M15 5.5L16 3"/></svg></div>
+      <div class="card" data-reveal>
+        <div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg></div>
         <h3>Lagano i brzo</h3>
-        <p>Samo par kilobajta, glatko radi na mobitelu i ne usporava ostatak stranice.</p>
+        <p>Nekoliko kilobajta, glatko na mobitelu i bez utjecaja na ostatak stranice.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section section-cta">
   <div class="container">
     <div class="cta-band" data-reveal>
-      <h2>Sviđa ti se ono što vidiš?</h2>
-      <p class="lede" style="margin:0 auto 28px;">S istom pažnjom gradimo i tvoju web stranicu, shop, aplikaciju ili AI automatizaciju.</p>
-      <div class="hero-cta" style="justify-content:center;">
+      <div class="cta-band-copy">
+        <h2>Sviđa ti se kako gradimo?</h2>
+        <p>S istom pažnjom gradimo tvoju web stranicu, webshop, aplikaciju ili automatizaciju.</p>
+      </div>
+      <div class="cta-band-actions">
         <a class="btn btn-primary" href="kontakt.html">Zatraži projekt</a>
+        <a class="btn btn-ghost" href="usluge.html">Pogledaj usluge</a>
       </div>
     </div>
   </div>
 </section>
-
 </main>
 
 <footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a class="brand" href="index.html">
-          <img class="logo-mark" src="../assets/images/logo-mark-dark.svg?v=1789502000" alt="CreationFirst" width="32" height="32">
+        <a class="brand" href="index.html" aria-label="CreationFirst, početna">
+          <img class="logo-mark" src="../assets/images/logo-mark-dark.svg?v=1789830000" alt="" width="32" height="32">
           <span class="brand-word">Creation<em>First</em></span>
         </a>
-        <p class="footer-brand-blurb">Agencija koja koristi AI kao pravu polugu za mala i srednja poduzeća, web stranice, aplikacije i automatizacija koje osjetno rasterećuju. Savjetovanje na njemačkom, engleskom i hrvatskom jeziku.</p>
+        <p class="footer-brand-blurb">Web stranice, aplikacije i AI automatizacija za mala i srednja poduzeća. Iz Splita, remote za DACH regiju i Hrvatsku.</p>
+        <a class="btn btn-primary btn-sm footer-cta" href="kontakt.html">Zatraži razgovor</a>
       </div>
       <div class="footer-col">
-        <h4>Navigacija</h4>
+        <h2 class="footer-h">Ponuda</h2>
         <ul>
-<li><a href="index.html">Početna</a></li>
-<li><a href="usluge.html">Usluge</a></li>
-<li><a href="portfolio.html">Portfolio</a></li>
-<li><a href="o-nama.html">O nama</a></li>
-<li><a href="igra.html">Playground</a></li>
-<li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="usluge.html">Usluge</a></li>
+          <li><a href="ubrzanje-uz-ai.html">AI automatizacija</a></li>
+          <li><a href="usluge.html#cijene">Cijene i paketi</a></li>
+          <li><a href="usluge.html#kratka-analiza">Kratka analiza za 199 €</a></li>
+          <li><a href="gradjevinarstvo-obrt.html">Za građevinu i obrt</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Usluge</h4>
+        <h2 class="footer-h">CreationFirst</h2>
         <ul>
-<li><a href="usluge.html#webdesign">Web dizajn i internetske stranice</a></li>
-<li><a href="usluge.html#entwicklung">Razvoj aplikacija i softvera</a></li>
-<li><a href="usluge.html#ki">AI i automatizacija</a></li>
-<li><a href="usluge.html#ecommerce">E-trgovina i online shopovi</a></li>
-<li><a href="usluge.html#branding">Branding, SEO i content marketing</a></li>
-<li><a href="usluge.html#support">Održavanje, podrška i hosting</a></li>
+          <li><a href="portfolio.html">Projekti</a></li>
+          <li><a href="o-nama.html">O nama</a></li>
+          <li><a href="igra.html">Playground</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kontakt</h4>
+        <h2 class="footer-h">Kontakt</h2>
         <ul>
           <li><a href="mailto:info@creationfirst.io">info@creationfirst.io</a></li>
-          <li><a href="tel:+491621717423">+49 1621 717423</a></li>
+          <li><a href="tel:+491621717423">+49 162 1717423</a></li>
           <li>Split, Hrvatska</li>
+          <li>pon–pet, 9–17 h</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 CreationFirst. Sva prava pridržana.</span>
+      <span>&copy; 2026 CreationFirst</span>
       <div class="footer-bottom-links">
         <a href="impresum.html">Impresum</a>
-        <a href="politika-privatnosti.html">Politika privatnosti</a>
+        <a href="politika-privatnosti.html">Privatnost</a>
+        <span class="footer-langs"><a href="../spielplatz.html" hreflang="de" lang="de">DE</a> · <a href="../en/playground.html" hreflang="en" lang="en">EN</a> · <a href="igra.html" hreflang="hr" lang="hr" aria-current="true">HR</a></span>
       </div>
     </div>
   </div>
 </footer>
 
-
 <div class="conv-sticky-cta" data-sticky-cta>
   <div class="conv-sticky-cta-inner">
-    <div class="conv-sticky-cta-copy"><strong>Besplatni uvodni razgovor</strong>30 min · bez obveze · odgovor u 1, 2 radna dana</div>
-    <a class="btn btn-primary btn-sm" href="kontakt.html">Pošalji upit</a>
+    <div class="conv-sticky-cta-copy"><strong>Uvodni razgovor, 0 €</strong><span>30 min · bez obveze</span></div>
+    <a class="btn btn-primary btn-sm" href="kontakt.html">Zatraži</a>
   </div>
 </div>
 
-<button class="back-to-top" type="button" aria-label="Povratak na vrh">
-  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>
+<button class="back-to-top" type="button" aria-label="Na vrh"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg></button>
 
-<button class="dev-toggle" type="button" aria-label="Prikaži tehničke detalje" aria-expanded="false">
-  <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></svg>
-</button>
-<div class="dev-panel" aria-hidden="true">
+<button class="dev-toggle" type="button" aria-label="Tehnički detalji ove stranice" aria-expanded="false" aria-controls="dev-panel"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg></button>
+<div class="dev-panel" id="dev-panel" aria-hidden="true">
   <div class="dev-panel-inner">
     <div class="dev-panel-head">
       <span class="dev-dot"></span><span class="dev-dot"></span><span class="dev-dot"></span>
       <b>Ispod haube</b>
-      <button type="button" class="dev-panel-close" aria-label="Zatvori"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+      <button type="button" class="dev-panel-close" aria-label="Zatvori"><svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg></button>
     </div>
     <ul class="dev-stats">
-      <li><span>HTTP zahtjevi</span><b class="dev-stat-requests"></b></li>
-      <li><span>Veličina stranice</span><b class="dev-stat-weight"></b></li>
-      <li><span>Vrijeme učitavanja</span><b class="dev-stat-load"></b></li>
-      <li><span>Vanjski trackeri</span><b>0</b></li>
-      <li><span>Tehnologija</span><b>Vanilla JS</b></li>
+      <li><span>HTTP zahtjevi</span><b class="dev-stat-requests">–</b></li>
+      <li><span>Preneseno</span><b class="dev-stat-weight">–</b></li>
+      <li><span>Učitavanje</span><b class="dev-stat-load">–</b></li>
+      <li><span>Trackeri i kolačići</span><b>0</b></li>
+      <li><span>Tehnika</span><b>HTML · CSS · Vanilla JS</b></li>
       <li><span>Jezici</span><b>DE · EN · HR</b></li>
-      <li><span>Build</span><b>#1789238000</b></li>
     </ul>
-    <p class="dev-panel-note">Mjereno uživo za ovu stranicu, bez marketinških fraza.</p>
+    <p class="dev-panel-note">Izmjereno uživo, za ovu stranicu.</p>
   </div>
 </div>
 
-<script src="../assets/js/main.js?v=1789502000"></script>
-<script src="../assets/js/game.js?v=1789502000"></script><script src="../assets/js/idea-generator.js?v=1789502000"></script><script src="../assets/js/before-after-sim.js?v=1789502000"></script><script src="../assets/js/time-calculator.js?v=1789502000"></script><script src="../assets/js/site-chat-config.js?v=1789502000"></script>
-<script src="../assets/js/site-chat.js?v=1789502000"></script>
+<script src="../assets/js/main.js?v=1789830000"></script>
+<script src="../assets/js/game.js?v=1789830000"></script>
+<script src="../assets/js/idea-generator.js?v=1789830000"></script>
+<script src="../assets/js/before-after-sim.js?v=1789830000"></script>
+<script src="../assets/js/time-calculator.js?v=1789830000"></script>
+<script src="../assets/js/site-chat-config.js?v=1789830000"></script>
+<script src="../assets/js/site-chat.js?v=1789830000"></script>
 </body>
 </html>

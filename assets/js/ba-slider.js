@@ -1,4 +1,4 @@
-/* CreationFirst — accessible before/after image slider */
+/* CreationFirst, accessible before/after image slider */
 (function () {
   "use strict";
 

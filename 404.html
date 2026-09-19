@@ -3,57 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404, Seite nicht gefunden | CreationFirst</title>
+<title>Seite nicht gefunden | CreationFirst</title>
 <meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0a0e1a">
 <!--
-  This 404 page is intentionally self-contained (no external CSS/JS/images) so it
-  always renders correctly no matter how deep the missing URL was.
-  NOTE: the links below use root-relative paths ("/index.html"). That only works
-  correctly if this site is served from a domain root (a custom domain, or a
-  <username>.github.io user/organization repo). If you deploy this as a normal
-  GitHub Pages PROJECT page (served at https://<username>.github.io/<repo>/),
-  update the three links below to include the "/<repo>" prefix.
+  Self-contained on purpose: a 404 can be served for any missing URL at any depth,
+  so it must not depend on relative asset paths. Links are resolved against the site
+  root at runtime, which works on the GitHub Pages project path (/creationfirst/)
+  and on a custom domain alike.
 -->
+<script>
+(function () {
+  var p = location.pathname, i = p.indexOf("/creationfirst/");
+  var base = i === 0 ? "/creationfirst/" : "/";
+  document.write('<base href="' + base + '">');
+})();
+</script>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 <style>
-  * { box-sizing: border-box; }
-  html,body{height:100%;margin:0;}
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    background:radial-gradient(120% 140% at 10% 0%, #1c2340 0%, #0a0e1a 55%);
-    color:#ffffff;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:radial-gradient(120% 140% at 10% 0%,#1c2340 0%,#0a0e1a 55%);
+    color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:640px;padding:40px 24px;}
-  .code{
-    font-size:5.5rem;font-weight:800;line-height:1;margin-bottom:10px;letter-spacing:-0.02em;
-    background:linear-gradient(120deg,#4f46e5 0%,#6d5ef8 45%,#22d3ee 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .title{font-size:20px;font-weight:700;margin-bottom:26px;}
-  .msg{color:#aab0c6;margin:0 0 6px;font-size:15.5px;}
-  .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;border-radius:999px;
-    font-weight:600;font-size:14.5px;text-decoration:none;transition:transform .15s ease;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:linear-gradient(120deg,#4f46e5 0%,#6d5ef8 45%,#22d3ee 100%);color:#fff;}
-  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255.28);}
+  .wrap{max-width:640px;padding:48px 24px}
+  .logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:#fff;text-decoration:none;margin-bottom:36px}
+  .logo svg{width:30px;height:30px}
+  .code{font-size:clamp(4.5rem,18vw,6.5rem);font-weight:800;line-height:1;margin:0 0 12px;letter-spacing:-.04em;
+    background:linear-gradient(120deg,#4f46e5 0%,#6d5ef8 45%,#22d3ee 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h1{font-size:22px;margin:0 0 14px;letter-spacing:-.01em}
+  .msg{color:#aab0c6;margin:0 0 6px;font-size:15.5px;line-height:1.55}
+  .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;border-radius:999px;font-weight:650;font-size:15px;text-decoration:none;transition:transform .15s ease,border-color .15s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid #22d3ee;outline-offset:3px}
+  .btn-primary{background:linear-gradient(120deg,#4f46e5 0%,#6d5ef8 45%,#22d3ee 100%);color:#fff}
+  .btn-ghost{color:#fff;border:1px solid rgba(255,255,255,.3)}
+  .btn-ghost:hover{border-color:#22d3ee}
+  .small{margin-top:28px;font-size:13.5px;color:#8b92ab}
+  .small a{color:#b6bdd4}
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="code">404</div>
-    <p class="title">Seite nicht gefunden · Page not found · Stranica nije pronađena</p>
-    <p class="msg">Die gesuchte Seite existiert nicht oder wurde verschoben.</p>
-    <p class="msg">The page you're looking for doesn't exist or was moved.</p>
-    <p class="msg">Tražena stranica ne postoji ili je premještena.</p>
+  <main class="wrap">
+    <a class="logo" href="index.html" aria-label="CreationFirst">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path fill="#fff" d="M45.2 14.8A22 22 0 1 0 45.2 49.2l-4.6-4.6a15.5 15.5 0 1 1 0-25.2l4.6-4.6z"/><path fill="#22d3ee" d="M40.6 24.2a9.8 9.8 0 0 1 0 15.6l4.2 4.2a15.8 15.8 0 0 0 0-24z"/></svg>
+      CreationFirst
+    </a>
+    <p class="code">404</p>
+    <h1>Diese Seite gibt es nicht (mehr).</h1>
+    <p class="msg">This page does not exist or has moved.</p>
+    <p class="msg">Ova stranica ne postoji ili je premještena.</p>
     <div class="links">
-      <a class="btn btn-primary" href="/index.html">Zur Startseite</a>
-      <a class="btn btn-ghost" href="/en/index.html">English Home</a>
-      <a class="btn btn-ghost" href="/hr/index.html">Početna (HR)</a>
+      <a class="btn btn-primary" href="index.html">Zur Startseite</a>
+      <a class="btn btn-ghost" href="en/index.html" hreflang="en">English</a>
+      <a class="btn btn-ghost" href="hr/index.html" hreflang="hr">Hrvatski</a>
     </div>
-  </div>
-<script src="assets/js/site-chat-config.js?v=1789502000"></script>
-<script src="assets/js/site-chat.js?v=1789502000"></script>
+    <p class="small">Du suchst etwas Bestimmtes? Schreib an <a href="mailto:info@creationfirst.io">info@creationfirst.io</a>.</p>
+  </main>
 </body>
 </html>

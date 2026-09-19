@@ -1,0 +1,294 @@
+<section class="page-hero">
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-orb o1" aria-hidden="true"></div>
+  <div class="hero-orb o3" aria-hidden="true"></div>
+  <div class="container page-hero-grid">
+    <div class="page-hero-copy">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="{{url:home}}">Home</a><span aria-hidden="true">/</span><span>Services</span></nav>
+      <p class="eyebrow">Services &amp; pricing</p>
+      <h1>What we build and what it costs</h1>
+      <p class="lede">Six areas, one contact. Every project starts with a free call and ends with something your team uses every day.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="{{url:contact}}">Book a free intro call</a>
+        <a class="btn btn-ghost" href="#pricing">See pricing</a>
+      </div>
+    </div>
+    <div class="page-hero-visual">
+      <picture>
+        <source srcset="{{A}}images/page-hero-services.webp?v={{v}}" type="image/webp">
+        <img src="{{A}}images/page-hero-services.png?v={{v}}" alt="Desk with a laptop where a website is being built" width="1280" height="720" loading="eager" decoding="async">
+      </picture>
+    </div>
+  </div>
+  <div class="section-divider to-white" aria-hidden="true"></div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <nav class="jump-nav" aria-label="On this page">
+      <a href="#webdesign">{{icon:window}} Websites</a>
+      <a href="#entwicklung">{{icon:code}} Apps &amp; software</a>
+      <a href="#ki">{{icon:spark}} AI &amp; automation</a>
+      <a href="#ecommerce">{{icon:cart}} Online shops</a>
+      <a href="#branding">{{icon:palette}} Branding &amp; SEO</a>
+      <a href="#support">{{icon:headset}} Maintenance &amp; hosting</a>
+      <a class="is-price" href="#pricing">{{icon:euro}} Pricing</a>
+    </nav>
+  </div>
+</section>
+
+<section class="section" id="webdesign">
+  <div class="container">
+    <div class="service-block">
+      <div class="service-top">
+        <div class="service-copy" data-reveal="left">
+          <div class="card-icon">{{icon:window}}</div>
+          <h2>Websites</h2>
+          <p class="lede">Websites that load fast, work well on a phone and lead visitors to get in touch. With a clear structure, plain-language copy and a form that asks the right questions.</p>
+          <p class="service-price">{{icon:euro}}<span>Usually a delivery sprint, <b>from €4,000</b>. A lean website is often done in 1–3 weeks.</span></p>
+          <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=web">Ask about a website</a></div>
+        </div>
+        <figure class="service-visual" data-reveal="right">
+          <picture>
+            <source srcset="{{A}}images/scenario-web.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-web.png?v={{v}}" alt="Laptop showing a bright, modern website" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+      <div class="service-checks" data-reveal>
+        <ul class="check-grid">
+          <li>{{icon:check}}<span>Custom design instead of a template look</span></li>
+          <li>{{icon:check}}<span>Built for phones and tablets</span></li>
+          <li>{{icon:check}}<span>Fast load times, good Core Web Vitals</span></li>
+          <li>{{icon:check}}<span>SEO basics from day one</span></li>
+          <li>{{icon:check}}<span>Content you can edit yourself later</span></li>
+          <li>{{icon:check}}<span>A contact form that lands straight with you</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt" id="entwicklung">
+  <div class="container">
+    <div class="service-block is-flip">
+      <div class="service-top">
+        <div class="service-copy" data-reveal="right">
+          <div class="card-icon">{{icon:code}}</div>
+          <h2>Apps &amp; software</h2>
+          <p class="lede">Web apps, customer portals and internal tools for workflows that no off-the-shelf program handles well. We connect them to what you already use instead of rebuilding everything.</p>
+          <p class="service-price">{{icon:euro}}<span>Usually 1–3 sprints, <b>from €4,000</b> per sprint.</span></p>
+          <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=app">Ask about an app project</a></div>
+        </div>
+        <figure class="service-visual" data-reveal="left">
+          <picture>
+            <source srcset="{{A}}images/scenario-booking.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-booking.png?v={{v}}" alt="Smartphone showing a booking app with a calendar" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+      <div class="service-checks" data-reveal>
+        <ul class="check-grid">
+          <li>{{icon:check}}<span>Web apps and progressive web apps</span></li>
+          <li>{{icon:check}}<span>APIs and integrations with existing systems</span></li>
+          <li>{{icon:check}}<span>Maintainable architecture that can grow</span></li>
+          <li>{{icon:check}}<span>Automated tests and code reviews</span></li>
+          <li>{{icon:check}}<span>Documentation for your team</span></li>
+          <li>{{icon:check}}<span>Handover with deployment and a walkthrough</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ki">
+  <div class="container">
+    <div class="service-block">
+      <div class="service-top">
+        <div class="service-copy" data-reveal="left">
+          <div class="card-icon">{{icon:spark}}</div>
+          <h2>AI &amp; automation</h2>
+          <p class="lede">Chatbots, assistants and automations that answer inquiries, write drafts and pass data between your tools. Built into your workflows, so your team has nothing new to learn.</p>
+          <p class="service-price">{{icon:euro}}<span>Start with the <b>AI audit from €1,500</b> or go straight to a sprint from €4,000.</span></p>
+          <div class="service-cta">
+            <a class="btn btn-primary" href="{{url:contact}}?topic=audit">Ask about an AI audit</a>
+            <a class="btn btn-ghost" href="{{url:ai}}">See examples</a>
+          </div>
+        </div>
+        <figure class="service-visual" data-reveal="right">
+          <picture>
+            <source srcset="{{A}}images/scenario-assist.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-assist.png?v={{v}}" alt="Screen with an AI assistant in an office" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+      <div class="service-checks" data-reveal>
+        <ul class="check-grid">
+          <li>{{icon:check}}<span>Chatbots for your website and WhatsApp</span></li>
+          <li>{{icon:check}}<span>Email and document automation</span></li>
+          <li>{{icon:check}}<span>Phone assistants and voice agents</span></li>
+          <li>{{icon:check}}<span>Custom AI integrations</span></li>
+          <li>{{icon:check}}<span>Connected to the tools you already use</span></li>
+          <li>{{icon:check}}<span>Data protection clarified and documented upfront</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt" id="ecommerce">
+  <div class="container">
+    <div class="service-block is-flip">
+      <div class="service-top">
+        <div class="service-copy" data-reveal="right">
+          <div class="card-icon">{{icon:cart}}</div>
+          <h2>Online shops</h2>
+          <p class="lede">Shops that work for buyers and for you: clear product pages, a fast checkout and clean integration with payment, shipping and inventory.</p>
+          <p class="service-price">{{icon:euro}}<span>Usually 1–2 sprints, <b>from €4,000</b>.</span></p>
+          <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=shop">Ask about a shop</a></div>
+        </div>
+        <figure class="service-visual" data-reveal="left">
+          <picture>
+            <source srcset="{{A}}images/scenario-shop.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-shop.png?v={{v}}" alt="Packaged product with a shipping box" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+      <div class="service-checks" data-reveal>
+        <ul class="check-grid">
+          <li>{{icon:check}}<span>Custom shop design</span></li>
+          <li>{{icon:check}}<span>Payment and shipping integration</span></li>
+          <li>{{icon:check}}<span>Product and inventory management</span></li>
+          <li>{{icon:check}}<span>Fast checkout, especially on mobile</span></li>
+          <li>{{icon:check}}<span>Multilingual shops possible</span></li>
+          <li>{{icon:check}}<span>Reports on orders and drop-offs</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="branding">
+  <div class="container">
+    <div class="service-block">
+      <div class="service-top">
+        <div class="service-copy" data-reveal="left">
+          <div class="card-icon">{{icon:palette}}</div>
+          <h2>Branding &amp; SEO</h2>
+          <p class="lede">A brand people recognize and content that Google finds. From logo and colors to copy for the things your customers are actually searching for.</p>
+          <p class="service-price">{{icon:euro}}<span>Often part of a website sprint, as a standalone project <b>from €4,000</b>.</span></p>
+          <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=seo">Ask about branding or SEO</a></div>
+        </div>
+        <figure class="service-visual" data-reveal="right">
+          <picture>
+            <source srcset="{{A}}images/scenario-brand.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-brand.png?v={{v}}" alt="Open brand book with logo and color swatches" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+      <div class="service-checks" data-reveal>
+        <ul class="check-grid">
+          <li>{{icon:check}}<span>Logo and visual identity</span></li>
+          <li>{{icon:check}}<span>Design system and style guide</span></li>
+          <li>{{icon:check}}<span>Technical SEO audit</span></li>
+          <li>{{icon:check}}<span>Keyword and content strategy</span></li>
+          <li>{{icon:check}}<span>Local SEO for your region</span></li>
+          <li>{{icon:check}}<span>Copy for your website and social media</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt" id="support">
+  <div class="container">
+    <div class="service-block is-flip">
+      <div class="service-top">
+        <div class="service-copy" data-reveal="right">
+          <div class="card-icon">{{icon:headset}}</div>
+          <h2>Maintenance &amp; hosting</h2>
+          <p class="lede">Launch is where the real work starts. We keep your website and apps up to date, secure and fast, and you have a contact when something gets stuck.</p>
+          <p class="service-price">{{icon:euro}}<span>As <b>ongoing care from €1,500 a month</b>. Smaller maintenance packages are agreed individually.</span></p>
+          <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=retainer">Ask about ongoing care</a></div>
+        </div>
+        <figure class="service-visual" data-reveal="left">
+          <picture>
+            <source srcset="{{A}}images/scenario-process.webp?v={{v}}" type="image/webp">
+            <img src="{{A}}images/scenario-process.png?v={{v}}" alt="Tablet with a dashboard for traffic and usage" width="1400" height="788" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+      <div class="service-checks" data-reveal>
+        <ul class="check-grid">
+          <li>{{icon:check}}<span>Updates and security patches</span></li>
+          <li>{{icon:check}}<span>Monitoring and backups</span></li>
+          <li>{{icon:check}}<span>Hosting advice and setup</span></li>
+          <li>{{icon:check}}<span>Fast help when something breaks</span></li>
+          <li>{{icon:check}}<span>Flexible support packages</span></li>
+          <li>{{icon:check}}<span>Small changes without a new project</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Pricing</p>
+      <h2>What it costs</h2>
+      <p class="lede">All of the services above follow the same three steps. You always know what comes next and what it costs.</p>
+    </div>
+    {{include:offer}}
+  </div>
+</section>
+
+<section class="section bg-alt" id="faq">
+  <div class="container container-narrow">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Questions about services &amp; pricing</p>
+      <h2>In short</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Why do you say “from” instead of a fixed price? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Because a website for a trade business is a very different job from a customer portal with five integrations. The “from” prices show you where things start. You get the fixed price for your project in writing after the intro call, before anything starts.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">When a quick analysis, when an AI audit? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">The <strong>quick analysis</strong> (€199) is a compact PDF after a short briefing, a good basis for decisions. The <strong>AI audit</strong> (from €1,500) goes deeper: conversations with the team, mapping your workflows, quick wins, a 90-day plan and a ready proposal for the first sprint.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Can I book individual services? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. You can book single building blocks, for example only branding or only SEO, or everything combined from one place.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do you work on existing websites? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. We take on further development, optimization or migration of existing websites and shops. That is often cheaper than a complete rebuild.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Which technology do you use? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Whatever fits the project: modern website frameworks, custom app development or established shop systems. What matters to us is that you are not tied to one agency later.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do I get access to the code and system? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. You get full access to the system, CMS and source code. For us, that is part of working together fairly.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-cta">
+  <div class="container">
+    <div class="cta-band" data-reveal>
+      <div class="cta-band-copy">
+        <h2>Let’s talk about your project</h2>
+        <p>In 30 minutes we work out which step fits and what it costs. Free and without obligation.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-primary" href="{{url:contact}}">Book a free call</a>
+        <a class="btn btn-ghost" href="mailto:info@creationfirst.io">Prefer email</a>
+      </div>
+    </div>
+  </div>
+</section>
