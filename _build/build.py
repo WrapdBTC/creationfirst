@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC = os.path.join(HERE, "src")
 BASE = "https://wrapdbtc.github.io/creationfirst/"
-VER = "1789830000"
+VER = "1789900000"
 YEAR = "2026"
 EMAIL = "info@creationfirst.io"
 PHONE_HREF = "+491621717423"
@@ -41,7 +41,7 @@ PAGES = {
 
 CHAT = ["site-chat-config", "site-chat"]
 SCRIPTS = {
- "home": ["main", "ba-slider", "path-chooser", "before-after-sim", "time-calculator"] + CHAT,
+ "home": ["main", "ba-slider", "path-chooser"] + CHAT,
  "playground": ["main", "game", "idea-generator", "before-after-sim", "time-calculator"] + CHAT,
 }
 # hero images to preload (LCP)
@@ -59,19 +59,19 @@ T = {
  "de": {
   "skip": "Zum Inhalt springen", "home_aria": "CreationFirst, zur Startseite",
   "nav_aria": "Hauptnavigation", "menu": "Menü", "theme": "Hell oder dunkel",
-  "nav": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("services#preise", "Preise"),
-          ("portfolio", "Projekte"), ("about", "Über uns")],
-  "nav_mobile": [("playground", "Playground"), ("contact", "Kontakt")],
+  "nav": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("portfolio", "Projekte"),
+          ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
+  "nav_mobile": [],
   "cta": "Erstgespräch anfragen", "cta_short": "Erstgespräch",
   "lang_label": "Sprache wählen",
-  "blurb": "Websites, Apps und KI-Automatisierung für kleine und mittlere Unternehmen. Gebaut in Split, remote für den DACH-Raum und Kroatien.",
+  "blurb": "Websites, Apps und KI-Automatisierung für kleine und mittlere Unternehmen. Ein kleines Team aus Split, remote für den DACH-Raum und Kroatien.",
   "f_offer": "Angebot", "f_company": "CreationFirst", "f_contact": "Kontakt",
-  "f_offer_links": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("services#preise", "Preise & Pakete"),
-                    ("services#kurzanalyse", "Kurzanalyse für 199 €"), ("trades", "Für Bau & Handwerk")],
-  "f_company_links": [("portfolio", "Projekte"), ("about", "Über uns"), ("playground", "Playground"), ("contact", "Kontakt")],
+  "f_offer_links": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("services#zusammenarbeit", "So arbeiten wir"),
+                    ("services#kurzanalyse", "Kurzanalyse"), ("trades", "Für Bau & Handwerk")],
+  "f_company_links": [("portfolio", "Projekte"), ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
   "place": "Split, Kroatien", "hours": "Mo–Fr, 9–17 Uhr", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Impressum", "privacy": "Datenschutz",
-  "sticky_title": "Erstgespräch, 0 €", "sticky_sub": "30 Min. · unverbindlich", "sticky_btn": "Anfragen",
+  "sticky_title": "Erstgespräch", "sticky_sub": "kostenlos · 30 Min.", "sticky_btn": "Anfragen",
   "top": "Nach oben", "dev_toggle": "Technische Details zu dieser Seite", "dev_head": "Unter der Haube",
   "dev_labels": ["HTTP-Anfragen", "Übertragen", "Ladezeit", "Tracker & Cookies", "Technik", "Sprachen"],
   "dev_note": "Live gemessen, für genau diese Seite.", "close": "Schließen",
@@ -80,19 +80,19 @@ T = {
  "en": {
   "skip": "Skip to content", "home_aria": "CreationFirst, home",
   "nav_aria": "Main navigation", "menu": "Menu", "theme": "Light or dark",
-  "nav": [("services", "Services"), ("ai", "AI automation"), ("services#pricing", "Pricing"),
-          ("portfolio", "Projects"), ("about", "About")],
-  "nav_mobile": [("playground", "Playground"), ("contact", "Contact")],
+  "nav": [("services", "Services"), ("ai", "AI automation"), ("portfolio", "Projects"),
+          ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
+  "nav_mobile": [],
   "cta": "Book a free call", "cta_short": "Free call",
   "lang_label": "Choose language",
-  "blurb": "Websites, apps and AI automation for small and mid-sized businesses. Built in Split, working remotely with teams in the DACH region and Croatia.",
+  "blurb": "Websites, apps and AI automation for small and mid-sized businesses. A small team in Split, working remotely across the DACH region and Croatia.",
   "f_offer": "Offer", "f_company": "CreationFirst", "f_contact": "Contact",
-  "f_offer_links": [("services", "Services"), ("ai", "AI automation"), ("services#pricing", "Pricing & packages"),
-                    ("services#quick-analysis", "Quick analysis for €199"), ("trades", "For construction & trades")],
-  "f_company_links": [("portfolio", "Projects"), ("about", "About"), ("playground", "Playground"), ("contact", "Contact")],
+  "f_offer_links": [("services", "Services"), ("ai", "AI automation"), ("services#working-together", "How we work"),
+                    ("services#quick-analysis", "Quick analysis"), ("trades", "For construction & trades")],
+  "f_company_links": [("portfolio", "Projects"), ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
   "place": "Split, Croatia", "hours": "Mon–Fri, 9 am–5 pm CET", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Legal notice", "privacy": "Privacy",
-  "sticky_title": "Intro call, €0", "sticky_sub": "30 min · no obligation", "sticky_btn": "Book",
+  "sticky_title": "Intro call", "sticky_sub": "free · 30 min", "sticky_btn": "Book",
   "top": "Back to top", "dev_toggle": "Technical details about this page", "dev_head": "Under the hood",
   "dev_labels": ["HTTP requests", "Transferred", "Load time", "Trackers & cookies", "Stack", "Languages"],
   "dev_note": "Measured live, for this exact page.", "close": "Close",
@@ -101,19 +101,19 @@ T = {
  "hr": {
   "skip": "Preskoči na sadržaj", "home_aria": "CreationFirst, početna",
   "nav_aria": "Glavna navigacija", "menu": "Izbornik", "theme": "Svijetlo ili tamno",
-  "nav": [("services", "Usluge"), ("ai", "AI automatizacija"), ("services#cijene", "Cijene"),
-          ("portfolio", "Projekti"), ("about", "O nama")],
-  "nav_mobile": [("playground", "Playground"), ("contact", "Kontakt")],
+  "nav": [("services", "Usluge"), ("ai", "AI automatizacija"), ("portfolio", "Projekti"),
+          ("playground", "Playground"), ("about", "O nama"), ("contact", "Kontakt")],
+  "nav_mobile": [],
   "cta": "Zatraži razgovor", "cta_short": "Razgovor",
   "lang_label": "Odaberi jezik",
-  "blurb": "Web stranice, aplikacije i AI automatizacija za mala i srednja poduzeća. Iz Splita, remote za DACH regiju i Hrvatsku.",
+  "blurb": "Web stranice, aplikacije i AI automatizacija za mala i srednja poduzeća. Mali tim iz Splita, na daljinu za DACH regiju i Hrvatsku.",
   "f_offer": "Ponuda", "f_company": "CreationFirst", "f_contact": "Kontakt",
-  "f_offer_links": [("services", "Usluge"), ("ai", "AI automatizacija"), ("services#cijene", "Cijene i paketi"),
-                    ("services#kratka-analiza", "Kratka analiza za 199 €"), ("trades", "Za građevinu i obrt")],
-  "f_company_links": [("portfolio", "Projekti"), ("about", "O nama"), ("playground", "Playground"), ("contact", "Kontakt")],
+  "f_offer_links": [("services", "Usluge"), ("ai", "AI automatizacija"), ("services#suradnja", "Kako radimo"),
+                    ("services#kratka-analiza", "Kratka analiza"), ("trades", "Za građevinu i obrt")],
+  "f_company_links": [("portfolio", "Projekti"), ("playground", "Playground"), ("about", "O nama"), ("contact", "Kontakt")],
   "place": "Split, Hrvatska", "hours": "pon–pet, 9–17 h", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Impresum", "privacy": "Privatnost",
-  "sticky_title": "Uvodni razgovor, 0 €", "sticky_sub": "30 min · bez obveze", "sticky_btn": "Zatraži",
+  "sticky_title": "Uvodni razgovor", "sticky_sub": "besplatno · 30 min", "sticky_btn": "Zatraži",
   "top": "Na vrh", "dev_toggle": "Tehnički detalji ove stranice", "dev_head": "Ispod haube",
   "dev_labels": ["HTTP zahtjevi", "Preneseno", "Učitavanje", "Trackeri i kolačići", "Tehnika", "Jezici"],
   "dev_note": "Izmjereno uživo, za ovu stranicu.", "close": "Zatvori",

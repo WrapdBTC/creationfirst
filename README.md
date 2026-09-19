@@ -11,7 +11,7 @@ Struktur, dieselben Sektionen und dieselben Preise.
 | Seite | DE | EN | HR |
 |---|---|---|---|
 | Start | `index.html` | `en/index.html` | `hr/index.html` |
-| Leistungen & Preise | `leistungen.html` (`#preise`, `#kurzanalyse`) | `en/services.html` (`#pricing`, `#quick-analysis`) | `hr/usluge.html` (`#cijene`, `#kratka-analiza`) |
+| Leistungen | `leistungen.html` (`#zusammenarbeit`, `#kurzanalyse`) | `en/services.html` (`#working-together`, `#quick-analysis`) | `hr/usluge.html` (`#suradnja`, `#kratka-analiza`) |
 | KI-Automatisierung | `ki-beschleunigung.html` | `en/ai-acceleration.html` | `hr/ubrzanje-uz-ai.html` |
 | Projekte | `portfolio.html` | `en/portfolio.html` | `hr/portfolio.html` |
 | Über uns | `ueber-uns.html` | `en/about.html` | `hr/o-nama.html` |
@@ -23,20 +23,19 @@ Struktur, dieselben Sektionen und dieselben Preise.
 Dazu: `404.html` (eigenständig, funktioniert unter `/creationfirst/` und auf eigener Domain), `sitemap.xml`
 (alle 30 URLs mit hreflang), `robots.txt`.
 
-## 2. Angebot & Preise (so steht es auf der Website)
+## 2. Angebot (bewusst ohne Preisschilder)
 
-| Schritt | Preis | Hinweis |
-|---|---|---|
-| Erstgespräch | 0 € | 30 Min. per Video |
-| Kurzanalyse | 199 € | PDF, 4–8 Seiten, wird bei Audit oder Sprint voll angerechnet |
-| KI-Audit | ab 1.500 € | 7–14 Tage |
-| Umsetzungs-Sprint | ab 4.000 € | 2–4 Wochen |
-| Laufende Betreuung (Retainer) | ab 1.500 € / Monat | |
+Hauptmenü: Leistungen, KI-Automatisierung, Projekte, Playground, Über uns, Kontakt. Jeder Punkt ist eine
+eigene Seite.
 
-Die Preise decken sich mit dem System-Prompt des Chat-Workers (`chat-relay/src/worker.js`). Wer Preise ändert,
-muss sie an diesen Stellen anpassen: Angebots-Baustein auf Start- und Leistungsseite (alle drei Sprachen),
-Pfad-Wähler auf der Startseite (JSON im HTML), Service-Preiszeilen und FAQ, Kontaktformular-Auswahl,
-Meta-Descriptions der Leistungsseiten und den Worker-Prompt.
+Ablauf auf der Website: kostenloses Erstgespräch, optional Kurzanalyse (199 €, wird bei Beauftragung
+angerechnet), danach eines der Formate KI-Audit, Umsetzungs-Sprint oder laufende Betreuung. Für die Formate
+stehen **keine Preise** auf der Seite. Die Aussage lautet überall: Preis nach Aufwand, festes schriftliches
+Angebot nach dem Erstgespräch. Die einzigen Euro-Beträge sind die Kurzanalyse auf der Leistungsseite und die
+Budget-Auswahl im Kontaktformular.
+
+Der Chat-Worker (`chat-relay/src/worker.js`) ist auf dieselbe Linie gebracht: Er nennt nur „Erstgespräch
+kostenlos“ und „Kurzanalyse 199 €“. Wirksam erst nach `npx wrangler deploy`.
 
 Angebots-Buttons verlinken auf das Kontaktformular mit Vorauswahl, z. B. `kontakt.html?thema=audit`
 (EN/HR: `?topic=audit`). Mögliche Werte: `call`, `analysis`, `audit`, `sprint`, `retainer`, `web`, `app`,

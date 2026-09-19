@@ -46,10 +46,10 @@
             <label for="service">Worum geht es?</label>
             <select id="service" name="service">
               <option data-topic="call">Kostenloses Erstgespräch</option>
-              <option data-topic="analysis">Kurzanalyse (199 €)</option>
-              <option data-topic="audit">KI-Audit (ab 1.500 €)</option>
-              <option data-topic="sprint">Umsetzungs-Sprint (ab 4.000 €)</option>
-              <option data-topic="retainer">Laufende Betreuung (ab 1.500 € / Monat)</option>
+              <option data-topic="analysis">Kurzanalyse</option>
+              <option data-topic="audit">KI-Audit</option>
+              <option data-topic="sprint">Umsetzungs-Sprint</option>
+              <option data-topic="retainer">Laufende Betreuung</option>
               <option data-topic="web">Website / Homepage</option>
               <option data-topic="app">App / Software</option>
               <option data-topic="ai">KI &amp; Automatisierung</option>
@@ -62,11 +62,10 @@
             <label for="budget">Ungefähres Budget</label>
             <select id="budget" name="budget">
               <option>Noch offen</option>
-              <option>unter 1.500 €</option>
-              <option>1.500–4.000 €</option>
-              <option>4.000–12.000 €</option>
-              <option>über 12.000 €</option>
-              <option>monatlich (Betreuung)</option>
+              <option>unter 2.000 €</option>
+              <option>2.000–5.000 €</option>
+              <option>5.000–15.000 €</option>
+              <option>über 15.000 €</option>
             </select>
           </div>
           <div class="form-field full">
@@ -86,17 +85,14 @@
     </div>
 
     <aside class="contact-aside" data-reveal="right">
-      <div class="contact-person">
-        <picture>
-          <source srcset="{{A}}images/founder-pierre.webp?v={{v}}" type="image/webp">
-          <img src="{{A}}images/founder-pierre.png?v={{v}}" alt="" width="800" height="800" loading="lazy" decoding="async">
-        </picture>
-        <div><b>Deine Anfrage landet bei Pierre</b><span>Gründer von CreationFirst. Er meldet sich persönlich bei dir.</span></div>
+      <div class="contact-person contact-team">
+        <div class="contact-team-icon">{{icon:users}}</div>
+        <div><b>Deine Anfrage kommt direkt bei uns an</b><span>Kein Callcenter, kein Ticketsystem. Ein fester Ansprechpartner aus unserem Team meldet sich persönlich.</span></div>
       </div>
       <div class="next-steps">
         <h3>So geht es weiter</h3>
         <ol>
-          <li><span class="num">1</span><div><b>Du schickst die Anfrage ab</b>Sie kommt direkt bei uns an, ohne Umweg über ein Callcenter.</div></li>
+          <li><span class="num">1</span><div><b>Du schickst die Anfrage ab</b>Du siehst sofort eine Bestätigung im Formular.</div></li>
           <li><span class="num">2</span><div><b>Wir lesen und bereiten vor</b>Wir schauen uns dein Anliegen an und sammeln erste Ideen.</div></li>
           <li><span class="num">3</span><div><b>Du bekommst Terminvorschläge</b>Innerhalb von 1–2 Werktagen, per E-Mail oder kurz per Telefon.</div></li>
         </ol>
@@ -120,7 +116,7 @@
     <div class="faq-list" data-reveal>
       <div class="faq-item">
         <button class="faq-q" type="button">Buche ich hier schon eine Kurzanalyse oder ein Audit? {{icon:plus}}</button>
-        <div class="faq-a"><div class="faq-a-inner">Nein. Mit dem Formular fragst du das kostenlose Erstgespräch an. Ob Kurzanalyse, Audit oder Sprint sinnvoll ist, klären wir danach gemeinsam. Alle Preise findest du unter <a href="{{url:services#preise}}">Leistungen &amp; Preise</a>.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Nein. Mit dem Formular fragst du das kostenlose Erstgespräch an. Ob Kurzanalyse, Audit oder Sprint sinnvoll ist, klären wir danach gemeinsam. Wie die Zusammenarbeit abläuft, siehst du unter <a href="{{url:services#zusammenarbeit}}">Leistungen</a>.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">Wie schnell bekomme ich eine Antwort? {{icon:plus}}</button>

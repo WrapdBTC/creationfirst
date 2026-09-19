@@ -12,16 +12,16 @@
       <p class="lede">Wir bauen Websites, Apps und Automatisierungen, die Anfragen, Angebote und Doku für dich vorbereiten. Für kleine und mittlere Betriebe ohne eigene IT, remote und in kurzen Sprints.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="{{url:contact}}">Kostenloses Erstgespräch</a>
-        <a class="btn btn-ghost" href="#angebot">Preise ansehen</a>
+        <a class="btn btn-ghost" href="{{url:services}}">Leistungen ansehen</a>
       </div>
       <ul class="hero-points">
         <li>{{icon:check}} Antwort in 1–2 Werktagen</li>
-        <li>{{icon:check}} Fester Preis vor dem Start</li>
+        <li>{{icon:check}} Festes Angebot vor dem Start</li>
         <li>{{icon:check}} Deutsch, Englisch, Kroatisch</li>
       </ul>
     </div>
     <div class="hero-panel">
-      <div class="floating-badge badge-1">{{icon:handshake}} Ein Ansprechpartner, von Anfang an</div>
+      <div class="floating-badge badge-1">{{icon:handshake}} Fester Ansprechpartner im Team</div>
       <div class="hero-panel-visual">
         <picture>
           <source srcset="{{A}}images/home-v2-hero.webp?v={{v}}" type="image/webp">
@@ -30,7 +30,7 @@
       </div>
       <div class="hero-panel-row">
         <div class="hero-panel-icon">{{icon:window}}</div>
-        <div><b>Website, App und Automatisierung</b><span>Aus einer Hand, mit einem Ansprechpartner</span></div>
+        <div><b>Website, App und Automatisierung</b><span>Aus einem Team, ohne Umwege</span></div>
       </div>
       <div class="hero-panel-row">
         <div class="hero-panel-icon">{{icon:spark}}</div>
@@ -194,7 +194,7 @@
     <div class="section-head" data-reveal>
       <p class="eyebrow">Wo anfangen?</p>
       <h2>Was brennt bei dir gerade am meisten?</h2>
-      <p class="lede">Such dir die Lage aus, die am besten passt. Du siehst sofort, womit wir anfangen würden und was das kostet.</p>
+      <p class="lede">Such dir die Lage aus, die am besten passt. Du siehst sofort, womit wir anfangen würden.</p>
     </div>
     <div class="path-chooser" data-path-chooser data-reveal>
       <div class="path-options">
@@ -235,116 +235,35 @@
         </div>
       </div>
       <script type="application/json" class="path-data">{"paths": [
-        {"id": "ops", "kicker": "Unsere Empfehlung: KI-Audit, ab 1.500 €", "result_title": "Erst schauen, wo die Zeit verloren geht", "result_text": "Wenn wiederkehrende Arbeit das Team auffrisst, hilft eine neue Website wenig. Im Audit nehmen wir deine Abläufe auf und zeigen, welche Automatisierung sich schon in wenigen Wochen bemerkbar macht.", "bullets": ["Gespräche mit den Leuten, die die Arbeit machen", "3–5 schnelle Hebel mit Umsetzungsskizze", "90-Tage-Plan: selbst bauen oder fertig einkaufen", "Fertiges Angebot für den ersten Sprint"], "next": "So geht es los: 30 Minuten Erstgespräch, danach bekommst du einen klaren Audit-Umfang mit festem Preis.", "cta": "Audit anfragen", "href": "{{url:contact}}?thema=audit"},
-        {"id": "build", "kicker": "Unsere Empfehlung: Umsetzungs-Sprint, ab 4.000 €", "result_title": "Ein Sprint, ein fertiges Ergebnis", "result_text": "Du brauchst kein Strategiepapier. Du brauchst etwas, das in 2–4 Wochen läuft: gebaut, angebunden und übergeben.", "bullets": ["Ein klares Ziel, schriftlich vereinbart", "Anbindung an deine bestehenden Tools", "Übergabe mit Doku und kurzer Einweisung", "Abnahme im gemeinsamen Review-Call"], "next": "So geht es los: Erstgespräch, danach ein Angebot mit festem Umfang und Preis.", "cta": "Sprint anfragen", "href": "{{url:contact}}?thema=sprint"},
-        {"id": "retain", "kicker": "Unsere Empfehlung: Laufende Betreuung, ab 1.500 € im Monat", "result_title": "Jeden Monat ein Stück besser", "result_text": "Wenn schon etwas läuft, bringt ein fester Rhythmus mehr als ein einzelnes Projekt. Wir arbeiten eine priorisierte Liste ab und schauen jeden Monat gemeinsam auf die Zahlen.", "bullets": ["Feste Kapazität für Verbesserungen", "Eine priorisierte Liste statt Zuruf per WhatsApp", "Monatliches Review mit Zahlen", "Vereinbarte Reaktionszeit bei Problemen"], "next": "So geht es los: kurzes Kennenlernen, dann ein fester Monatsrhythmus.", "cta": "Betreuung anfragen", "href": "{{url:contact}}?thema=retainer"}
+        {"id": "ops", "kicker": "Unsere Empfehlung: KI-Audit", "result_title": "Erst schauen, wo die Zeit verloren geht", "result_text": "Wenn wiederkehrende Arbeit das Team auffrisst, hilft eine neue Website wenig. Im Audit nehmen wir deine Abläufe auf und zeigen, welche Automatisierung sich schon in wenigen Wochen bemerkbar macht.", "bullets": ["Gespräche mit den Leuten, die die Arbeit machen", "3–5 schnelle Hebel mit Umsetzungsskizze", "90-Tage-Plan: selbst bauen oder fertig einkaufen", "Konkreter Vorschlag für die Umsetzung"], "next": "So geht es los: 30 Minuten Erstgespräch, danach bekommst du einen klaren Audit-Umfang als festes Angebot.", "cta": "Audit anfragen", "href": "{{url:contact}}?thema=audit"},
+        {"id": "build", "kicker": "Unsere Empfehlung: Umsetzungs-Sprint", "result_title": "Ein Sprint, ein fertiges Ergebnis", "result_text": "Du brauchst kein Strategiepapier. Du brauchst etwas, das in 2–4 Wochen läuft: gebaut, angebunden und übergeben.", "bullets": ["Ein klares Ziel, schriftlich vereinbart", "Anbindung an deine bestehenden Tools", "Übergabe mit Doku und kurzer Einweisung", "Abnahme im gemeinsamen Review-Call"], "next": "So geht es los: Erstgespräch, danach ein Angebot mit festem Umfang und Preis.", "cta": "Sprint anfragen", "href": "{{url:contact}}?thema=sprint"},
+        {"id": "retain", "kicker": "Unsere Empfehlung: Laufende Betreuung", "result_title": "Jeden Monat ein Stück besser", "result_text": "Wenn schon etwas läuft, bringt ein fester Rhythmus mehr als ein einzelnes Projekt. Wir arbeiten eine priorisierte Liste ab und schauen jeden Monat gemeinsam auf die Zahlen.", "bullets": ["Feste Kapazität für Verbesserungen", "Eine priorisierte Liste statt Zuruf per WhatsApp", "Monatliches Review mit Zahlen", "Vereinbarte Reaktionszeit bei Problemen"], "next": "So geht es los: kurzes Kennenlernen, dann ein fester Monatsrhythmus.", "cta": "Betreuung anfragen", "href": "{{url:contact}}?thema=retainer"}
       ]}</script>
     </div>
+    <p class="path-more" data-reveal><a class="card-link" href="{{url:services#zusammenarbeit}}">Alle Formate im Überblick {{icon:arrow}}</a></p>
   </div>
 </section>
 
-<section class="section bg-alt" id="angebot">
+<section class="section bg-alt" id="zusammenarbeit">
   <div class="container">
     <div class="section-head" data-reveal>
-      <p class="eyebrow">Angebot &amp; Preise</p>
-      <h2>Klare Schritte, klare Preise</h2>
-      <p class="lede">Du startest immer mit einem kostenlosen Gespräch. Danach entscheidest du, wie weit wir gehen. Jeder Schritt hat einen festen Preis, den du vor dem Start schriftlich bekommst.</p>
+      <p class="eyebrow">So arbeiten wir</p>
+      <h2>Ein kleines Team mit kurzen Wegen</h2>
+      <p class="lede">Strategie, Design, Entwicklung und Automatisierung kommen bei uns aus einem Team. Du hast einen festen Ansprechpartner, der dein Projekt kennt. Ohne Vertrieb dazwischen und ohne Ticketsystem.</p>
     </div>
-    {{include:offer}}
-  </div>
-</section>
-
-<section class="section" id="zusammenarbeit">
-  <div class="container">
-    <div class="founder-split">
-      <figure class="founder-photo" data-reveal="left">
-        <picture>
-          <source srcset="{{A}}images/founder-pierre.webp?v={{v}}" type="image/webp">
-          <img src="{{A}}images/founder-pierre.png?v={{v}}" alt="Pierre Schulteis, Gründer von CreationFirst" width="800" height="800" loading="lazy" decoding="async">
-        </picture>
-        <figcaption><b>Pierre Schulteis</b><span>Gründer von CreationFirst, Split</span></figcaption>
-      </figure>
-      <div class="founder-copy" data-reveal="right">
-        <p class="eyebrow">Wer dahintersteht</p>
-        <h2>Du sprichst direkt mit Pierre</h2>
-        <p class="lede">CreationFirst wird von Pierre Schulteis geführt, von Split aus und remote für Betriebe im DACH-Raum und in Kroatien. Die Person im Erstgespräch ist dieselbe, die dein Projekt verantwortet. Kein Vertrieb dazwischen, kein Ticketsystem.</p>
-        <ul class="principles">
-          <li>{{icon:handshake}}<div><b>Ein Ansprechpartner</b><span>Vom ersten Gespräch bis zur Übergabe.</span></div></li>
-          <li>{{icon:euro}}<div><b>Fester Preis</b><span>Umfang und Preis stehen schriftlich fest, bevor es losgeht.</span></div></li>
-          <li>{{icon:rocket}}<div><b>Kurze Zyklen</b><span>Du siehst regelmäßig echte Zwischenstände statt Folien.</span></div></li>
-          <li>{{icon:shield}}<div><b>Alles gehört dir</b><span>Code, Zugänge und Doku bekommst du vollständig.</span></div></li>
-        </ul>
-        <a class="card-link" href="{{url:about}}">Mehr über uns {{icon:arrow}}</a>
-      </div>
+    <div class="grid grid-4">
+      <div class="usp-card" data-reveal><div class="card-icon">{{icon:handshake}}</div><h3>Fester Ansprechpartner</h3><p>Vom ersten Gespräch bis zur Übergabe sprichst du mit derselben Person.</p></div>
+      <div class="usp-card" data-reveal><div class="card-icon">{{icon:file}}</div><h3>Festes Angebot</h3><p>Umfang, Zeitplan und Preis stehen schriftlich fest, bevor es losgeht.</p></div>
+      <div class="usp-card" data-reveal><div class="card-icon">{{icon:rocket}}</div><h3>Kurze Zyklen</h3><p>Du siehst regelmäßig echte Zwischenstände statt Folien.</p></div>
+      <div class="usp-card" data-reveal><div class="card-icon">{{icon:shield}}</div><h3>Alles gehört dir</h3><p>Code, Zugänge und Doku bekommst du vollständig.</p></div>
     </div>
     <ol class="timeline" aria-label="So läuft ein Projekt ab">
       <li data-reveal><span class="num">1</span><h3>Erstgespräch</h3><p>Wir klären Ziel, Ausgangslage und ob wir zusammenpassen.</p></li>
       <li data-reveal><span class="num">2</span><h3>Angebot</h3><p>Du bekommst Umfang, Zeitplan und festen Preis schriftlich.</p></li>
       <li data-reveal><span class="num">3</span><h3>Umsetzung</h3><p>Wir bauen in kurzen Zyklen, du gibst Feedback am echten Stand.</p></li>
-      <li data-reveal><span class="num">4</span><h3>Launch &amp; Betreuung</h3><p>Wir gehen live, weisen ein und bleiben erreichbar.</p></li>
+      <li data-reveal><span class="num">4</span><h3>Launch &amp; Betreuung</h3><p>Wir gehen live, weisen dein Team ein und bleiben erreichbar.</p></li>
     </ol>
-  </div>
-</section>
-
-<section class="section bg-alt" id="ausprobieren">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <p class="eyebrow">Zum Ausprobieren</p>
-      <h2>Rechne es für deinen Betrieb durch</h2>
-      <p class="lede">Zwei kleine Rechner, ohne Anmeldung. Mehr Experimente findest du im <a href="{{url:playground}}">Playground</a>.</p>
-    </div>
-    <div class="demo-split">
-      <div class="demo-col" data-reveal>
-        <h3>Ein Angebot schreiben: von Hand oder mit KI</h3>
-        <p class="demo-lede">Ein typischer Ablauf in einem Dienstleistungsbetrieb. Schalte um und vergleiche.</p>
-        <div class="sim" data-sim>
-          <div class="sim-toggle" role="group" aria-label="Ansicht wählen">
-            <button class="sim-toggle-manual is-active" type="button">Von Hand</button>
-            <button class="sim-toggle-ai" type="button">Mit KI</button>
-          </div>
-          <div class="sim-steps"></div>
-          <div class="sim-total">
-            <span class="sim-total-label">Zeit pro Angebot</span>
-            <span class="sim-total-value">0</span>
-            <span class="sim-total-unit">Min.</span>
-          </div>
-          <p class="sim-savings" hidden><span class="sim-savings-value"></span> gespart, bei jedem Angebot</p>
-          <p class="form-hint text-center">Beispielwerte zur Veranschaulichung. Wie viel es bei dir ist, hängt von deinem Ablauf ab.</p>
-          <script type="application/json" class="sim-data">{"unit": "Min.", "steps_manual": [{"label": "Anfrage lesen und Rückfragen klären", "minutes": 15}, {"label": "Angebot aus alter Vorlage zusammenbauen", "minutes": 35}, {"label": "Preise und Positionen nachrechnen", "minutes": 20}, {"label": "Korrekturlesen und verschicken", "minutes": 10}], "steps_ai": [{"label": "Anfrage wird automatisch erfasst", "minutes": 2}, {"label": "KI schreibt den Entwurf aus deinen Daten", "minutes": 3}, {"label": "Du prüfst und passt an", "minutes": 5}, {"label": "Versand mit automatischer Nachfass-Erinnerung", "minutes": 1}]}</script>
-        </div>
-      </div>
-      <div class="demo-col" data-reveal>
-        <h3>Wie viel Zeit steckt in Routine?</h3>
-        <p class="demo-lede">Stunden pro Woche mit wiederkehrenden Aufgaben eingeben, Branche wählen, fertig.</p>
-        <div class="calc" data-calc>
-          <div class="calc-row">
-            <div class="calc-field">
-              <label for="calc-hours">Stunden pro Woche</label>
-              <input class="calc-hours-input" id="calc-hours" type="number" inputmode="numeric" min="0" max="400" step="1" value="10">
-            </div>
-            <div class="calc-field">
-              <label for="calc-industry">Branche</label>
-              <select class="calc-industry-select" id="calc-industry">
-                <option value="trades">Handwerk &amp; Bau</option>
-                <option value="retail">Einzelhandel</option>
-                <option value="consulting" selected>Beratung &amp; Dienstleistung</option>
-                <option value="hospitality">Gastronomie &amp; Hotel</option>
-                <option value="health">Praxis &amp; Gesundheit</option>
-                <option value="other">Andere Branche</option>
-              </select>
-            </div>
-            <button class="btn btn-primary calc-btn" type="button">Berechnen</button>
-          </div>
-          <div class="calc-result" hidden aria-live="polite">
-            <div><span class="calc-result-value calc-result-week">0</span><span class="calc-result-label">Std. pro Woche</span></div>
-            <div><span class="calc-result-value calc-result-month">0</span><span class="calc-result-label">Std. pro Monat</span></div>
-            <div><span class="calc-result-value calc-result-year">0</span><span class="calc-result-label">Std. pro Jahr</span></div>
-          </div>
-          <p class="form-hint text-center">Grobe Schätzung aus Erfahrungswerten, keine Garantie. Die echte Zahl finden wir im Gespräch heraus.</p>
-          <script type="application/json" class="calc-data">{"industries": [{"value": "trades", "factor": 0.35}, {"value": "retail", "factor": 0.3}, {"value": "consulting", "factor": 0.4}, {"value": "hospitality", "factor": 0.3}, {"value": "health", "factor": 0.35}, {"value": "other", "factor": 0.3}]}</script>
-        </div>
-      </div>
-    </div>
+    <div class="section-more" data-reveal><a class="btn btn-ghost" href="{{url:about}}">Mehr über uns</a></div>
   </div>
 </section>
 
@@ -408,7 +327,22 @@
   </div>
 </section>
 
-<section class="section bg-alt" id="faq">
+<section class="section bg-alt" id="playground-teaser">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Playground</p>
+      <h2>Probier aus, wie wir denken</h2>
+      <p class="lede">Kleine Werkzeuge und ein Spiel, direkt im Browser. Ohne Anmeldung und ohne Tracking.</p>
+    </div>
+    <div class="grid grid-3">
+      <a class="card tile" href="{{url:playground#ideen}}" data-reveal><div class="card-icon">{{icon:spark}}</div><h3>Ideen-Generator</h3><p>Branche wählen und sehen, wo KI in deinem Betrieb helfen könnte.</p><span class="card-link">Ausprobieren {{icon:arrow}}</span></a>
+      <a class="card tile" href="{{url:playground#rechner}}" data-reveal><div class="card-icon">{{icon:timer}}</div><h3>Zeit- und Angebotsrechner</h3><p>Durchrechnen, wie viel Zeit in Routine und Angeboten steckt.</p><span class="card-link">Ausprobieren {{icon:arrow}}</span></a>
+      <a class="card tile" href="{{url:playground#snake}}" data-reveal><div class="card-icon">{{icon:bolt}}</div><h3>Snake</h3><p>Eine Runde zwischendurch, handgebaut in Vanilla JavaScript.</p><span class="card-link">Spielen {{icon:arrow}}</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
   <div class="container container-narrow">
     <div class="section-head" data-reveal>
       <p class="eyebrow">Häufige Fragen</p>
@@ -416,16 +350,16 @@
     </div>
     <div class="faq-list" data-reveal>
       <div class="faq-item">
-        <button class="faq-q" type="button">Was kostet eine Website oder Automatisierung bei euch? {{icon:plus}}</button>
-        <div class="faq-a"><div class="faq-a-inner">Die meisten Umsetzungen laufen als Sprint ab 4.000 €. Eine schlanke Website liegt eher am unteren Ende, Apps und größere Automatisierungen darüber. Den genauen Preis bekommst du schriftlich, bevor wir anfangen. Alle Pakete findest du <a href="#angebot">oben unter Preise</a>.</div></div>
+        <button class="faq-q" type="button">Was kostet ein Projekt bei euch? {{icon:plus}}</button>
+        <div class="faq-a"><div class="faq-a-inner">Das hängt vom Aufwand ab. Eine schlanke Website ist ein anderes Projekt als ein Kundenportal mit mehreren Schnittstellen. Nach dem kostenlosen Erstgespräch bekommst du ein schriftliches Angebot mit festem Preis, bevor irgendetwas startet. Wie die Zusammenarbeit abläuft, siehst du unter <a href="{{url:services#zusammenarbeit}}">Leistungen</a>.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">Was ist der Unterschied zwischen Kurzanalyse und KI-Audit? {{icon:plus}}</button>
-        <div class="faq-a"><div class="faq-a-inner">Die <strong>Kurzanalyse</strong> (199 €) ist ein kompaktes PDF nach einem kurzen Briefing, gedacht als Entscheidungsgrundlage. Das <strong>KI-Audit</strong> geht tiefer: Gespräche im Team, Aufnahme deiner Abläufe, schnelle Hebel, 90-Tage-Plan und ein fertiges Angebot für den ersten Sprint. Was davon sinnvoll ist, klären wir im Erstgespräch.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Die <strong>Kurzanalyse</strong> ist ein kompaktes PDF nach einem kurzen Briefing, gedacht als Entscheidungsgrundlage. Das <strong>KI-Audit</strong> geht tiefer: Gespräche im Team, Aufnahme deiner Abläufe, schnelle Hebel, 90-Tage-Plan und ein konkreter Vorschlag für die Umsetzung. Was davon sinnvoll ist, klären wir im Erstgespräch.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">Muss ich die Kurzanalyse buchen, bevor wir starten? {{icon:plus}}</button>
-        <div class="faq-a"><div class="faq-a-inner">Nein. Oft reicht das kostenlose Erstgespräch. Die Kurzanalyse lohnt sich, wenn du intern etwas Schriftliches brauchst. Buchst du danach ein Audit oder einen Sprint, rechnen wir die 199 € voll an.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Nein. Oft reicht das kostenlose Erstgespräch. Die Kurzanalyse lohnt sich, wenn du intern etwas Schriftliches brauchst. Beauftragst du uns danach, rechnen wir sie an.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">Wie lange dauert ein typisches Projekt? {{icon:plus}}</button>
@@ -447,7 +381,7 @@
   </div>
 </section>
 
-<section class="section section-cta">
+<section class="section bg-alt section-cta">
   <div class="container">
     <div class="cta-band" data-reveal>
       <div class="cta-band-copy">

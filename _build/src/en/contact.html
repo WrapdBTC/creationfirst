@@ -46,10 +46,10 @@
             <label for="service">What is it about?</label>
             <select id="service" name="service">
               <option data-topic="call">Free intro call</option>
-              <option data-topic="analysis">Quick analysis (€199)</option>
-              <option data-topic="audit">AI audit (from €1,500)</option>
-              <option data-topic="sprint">Delivery sprint (from €4,000)</option>
-              <option data-topic="retainer">Ongoing care (from €1,500 / month)</option>
+              <option data-topic="analysis">Quick analysis</option>
+              <option data-topic="audit">AI audit</option>
+              <option data-topic="sprint">Delivery sprint</option>
+              <option data-topic="retainer">Ongoing care</option>
               <option data-topic="web">Website</option>
               <option data-topic="app">App / software</option>
               <option data-topic="ai">AI &amp; automation</option>
@@ -62,11 +62,10 @@
             <label for="budget">Rough budget</label>
             <select id="budget" name="budget">
               <option>Not sure yet</option>
-              <option>under €1,500</option>
-              <option>€1,500–4,000</option>
-              <option>€4,000–12,000</option>
-              <option>over €12,000</option>
-              <option>monthly (ongoing care)</option>
+              <option>under €2,000</option>
+              <option>€2,000–5,000</option>
+              <option>€5,000–15,000</option>
+              <option>over €15,000</option>
             </select>
           </div>
           <div class="form-field full">
@@ -86,17 +85,14 @@
     </div>
 
     <aside class="contact-aside" data-reveal="right">
-      <div class="contact-person">
-        <picture>
-          <source srcset="{{A}}images/founder-pierre.webp?v={{v}}" type="image/webp">
-          <img src="{{A}}images/founder-pierre.png?v={{v}}" alt="" width="800" height="800" loading="lazy" decoding="async">
-        </picture>
-        <div><b>Your inquiry goes to Pierre</b><span>Founder of CreationFirst. He gets back to you personally.</span></div>
+      <div class="contact-person contact-team">
+        <div class="contact-team-icon">{{icon:users}}</div>
+        <div><b>Your inquiry comes straight to us</b><span>No call center, no ticket system. A fixed contact from our team gets back to you personally.</span></div>
       </div>
       <div class="next-steps">
         <h3>What happens next</h3>
         <ol>
-          <li><span class="num">1</span><div><b>You send the inquiry</b>It reaches us directly, no call center in between.</div></li>
+          <li><span class="num">1</span><div><b>You send the inquiry</b>You see a confirmation right in the form.</div></li>
           <li><span class="num">2</span><div><b>We read it and prepare</b>We look at your request and collect first ideas.</div></li>
           <li><span class="num">3</span><div><b>You get suggested times</b>Within 1–2 business days, by email or a short phone call.</div></li>
         </ol>
@@ -120,7 +116,7 @@
     <div class="faq-list" data-reveal>
       <div class="faq-item">
         <button class="faq-q" type="button">Am I already booking a quick analysis or an audit here? {{icon:plus}}</button>
-        <div class="faq-a"><div class="faq-a-inner">No. With this form you request the free intro call. Whether a quick analysis, audit or sprint makes sense, we figure out together afterwards. All prices are under <a href="{{url:services#pricing}}">Services &amp; pricing</a>.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">No. With this form you request the free intro call. Whether a quick analysis, audit or sprint makes sense, we figure out together afterwards. How we work together is explained under <a href="{{url:services#working-together}}">Services</a>.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">How quickly will I hear back? {{icon:plus}}</button>

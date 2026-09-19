@@ -46,10 +46,10 @@
             <label for="service">O čemu se radi?</label>
             <select id="service" name="service">
               <option data-topic="call">Besplatan uvodni razgovor</option>
-              <option data-topic="analysis">Kratka analiza (199 €)</option>
-              <option data-topic="audit">AI audit (od 1.500 €)</option>
-              <option data-topic="sprint">Sprint provedbe (od 4.000 €)</option>
-              <option data-topic="retainer">Stalna podrška (od 1.500 € / mjesečno)</option>
+              <option data-topic="analysis">Kratka analiza</option>
+              <option data-topic="audit">AI audit</option>
+              <option data-topic="sprint">Sprint provedbe</option>
+              <option data-topic="retainer">Stalna podrška</option>
               <option data-topic="web">Web stranica</option>
               <option data-topic="app">Aplikacija / softver</option>
               <option data-topic="ai">AI i automatizacija</option>
@@ -62,11 +62,10 @@
             <label for="budget">Okvirni budžet</label>
             <select id="budget" name="budget">
               <option>Još nije jasno</option>
-              <option>do 1.500 €</option>
-              <option>1.500–4.000 €</option>
-              <option>4.000–12.000 €</option>
-              <option>više od 12.000 €</option>
-              <option>mjesečno (podrška)</option>
+              <option>do 2.000 €</option>
+              <option>2.000–5.000 €</option>
+              <option>5.000–15.000 €</option>
+              <option>više od 15.000 €</option>
             </select>
           </div>
           <div class="form-field full">
@@ -86,17 +85,14 @@
     </div>
 
     <aside class="contact-aside" data-reveal="right">
-      <div class="contact-person">
-        <picture>
-          <source srcset="{{A}}images/founder-pierre.webp?v={{v}}" type="image/webp">
-          <img src="{{A}}images/founder-pierre.png?v={{v}}" alt="" width="800" height="800" loading="lazy" decoding="async">
-        </picture>
-        <div><b>Tvoj upit stiže Pierreu</b><span>Osnivač CreationFirsta. Javit će ti se osobno.</span></div>
+      <div class="contact-person contact-team">
+        <div class="contact-team-icon">{{icon:users}}</div>
+        <div><b>Tvoj upit stiže izravno k nama</b><span>Bez pozivnog centra i bez ticket sustava. Stalna kontakt osoba iz našeg tima javit će ti se osobno.</span></div>
       </div>
       <div class="next-steps">
         <h3>Što slijedi</h3>
         <ol>
-          <li><span class="num">1</span><div><b>Pošalješ upit</b>Stiže izravno do nas, bez posrednika i pozivnog centra.</div></li>
+          <li><span class="num">1</span><div><b>Pošalješ upit</b>Odmah vidiš potvrdu u obrascu.</div></li>
           <li><span class="num">2</span><div><b>Pročitamo i pripremimo se</b>Pogledamo tvoj upit i skupimo prve ideje.</div></li>
           <li><span class="num">3</span><div><b>Dobivaš prijedloge termina</b>U roku 1–2 radna dana, e-mailom ili kratkim pozivom.</div></li>
         </ol>
@@ -120,7 +116,7 @@
     <div class="faq-list" data-reveal>
       <div class="faq-item">
         <button class="faq-q" type="button">Naručujem li ovdje već kratku analizu ili audit? {{icon:plus}}</button>
-        <div class="faq-a"><div class="faq-a-inner">Ne. Ovim obrascem tražiš besplatan uvodni razgovor. Ima li smisla kratka analiza, audit ili sprint, dogovorimo zajedno nakon toga. Sve cijene pronaći ćeš pod <a href="{{url:services#cijene}}">Usluge i cijene</a>.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Ne. Ovim obrascem tražiš besplatan uvodni razgovor. Ima li smisla kratka analiza, audit ili sprint, dogovorimo zajedno nakon toga. Kako teče suradnja, pogledaj pod <a href="{{url:services#suradnja}}">Usluge</a>.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">Koliko brzo dobivam odgovor? {{icon:plus}}</button>
