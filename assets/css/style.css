@@ -1190,6 +1190,7 @@ html:not(.js) [data-reveal] { opacity: 1; transform: none; }
   }
   .main-nav.is-open { opacity: 1; visibility: visible; transform: none; }
   .main-nav > a:not(.btn) { padding: 14px 12px; font-size: 16.5px; color: var(--color-text); border-radius: var(--radius-sm); }
+  .main-nav .nav-drop-btn { padding: 14px 12px; font-size: 16.5px; font-weight: 600; color: var(--color-text); border-radius: var(--radius-sm); }
   .main-nav > a:not(.btn)::after { display: none; }
   .main-nav > a.is-active { background: var(--color-primary-soft); color: var(--color-primary-text); }
   .main-nav .nav-mobile-only { display: block; }
@@ -1307,6 +1308,25 @@ html:not(.js) [data-reveal] { opacity: 1; transform: none; }
   .hero-cta .btn { width: 100%; }
 }
 
+
+
+/* Match KI-Automatisierung link to other main-nav items */
+.main-nav .nav-drop-btn {
+  position: relative; padding: 9px 13px; border-radius: var(--radius-full);
+  font-weight: 600; font-size: 14.5px; color: var(--color-text-muted); white-space: nowrap;
+  text-decoration: none; transition: background-color .15s ease, color .15s ease;
+}
+.main-nav .nav-drop-btn:hover,
+.main-nav .nav-drop.is-active .nav-drop-btn,
+.main-nav .nav-drop-btn.is-active {
+  color: var(--color-text); background: var(--color-bg-alt);
+}
+.main-nav .nav-drop.is-active .nav-drop-btn::after,
+.main-nav .nav-drop-btn.is-active::after {
+  content: ""; position: absolute; left: 13px; right: 13px; bottom: 4px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transform: scaleX(1); transform-origin: left;
+}
 
 /* Industry dropdown under KI-Automatisierung */
 .nav-drop{position:relative;display:flex;align-items:center}
