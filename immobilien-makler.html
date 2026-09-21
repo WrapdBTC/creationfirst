@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(){
+  document.documentElement.classList.add("js");
+  try {
+    var saved = localStorage.getItem("theme");
+    var theme = saved || ((window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+})();
+</script>
+<title>Website &amp; Abläufe für Immobilien und Makler | CreationFirst</title>
+<meta name="description" content="Für Makler und Immobilienteams: eine Website, die Anfragen bringt, ein klarer Weg zur Besichtigung und Nachfassen, das nicht mehr nur im Posteingang steckt.">
+<link rel="canonical" href="https://wrapdbtc.github.io/creationfirst/immobilien-makler.html">
+<link rel="alternate" hreflang="de" href="https://wrapdbtc.github.io/creationfirst/immobilien-makler.html">
+<link rel="alternate" hreflang="en" href="https://wrapdbtc.github.io/creationfirst/en/real-estate.html">
+<link rel="alternate" hreflang="hr" href="https://wrapdbtc.github.io/creationfirst/hr/nekretnine.html">
+<link rel="alternate" hreflang="x-default" href="https://wrapdbtc.github.io/creationfirst/immobilien-makler.html">
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg?v=1789900200">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon.png?v=1789900200">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png?v=1789900200">
+<link rel="preload" as="image" href="assets/images/immobilien-makler-hero.webp?v=1789900200" type="image/webp" fetchpriority="high">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CreationFirst">
+<meta property="og:title" content="Website &amp; Abläufe für Immobilien und Makler | CreationFirst">
+<meta property="og:description" content="Für Makler und Immobilienteams: eine Website, die Anfragen bringt, ein klarer Weg zur Besichtigung und Nachfassen, das nicht mehr nur im Posteingang steckt.">
+<meta property="og:image" content="https://wrapdbtc.github.io/creationfirst/assets/images/og-image.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="CreationFirst">
+<meta property="og:url" content="https://wrapdbtc.github.io/creationfirst/immobilien-makler.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="hr_HR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Website &amp; Abläufe für Immobilien und Makler | CreationFirst">
+<meta name="twitter:description" content="Für Makler und Immobilienteams: eine Website, die Anfragen bringt, ein klarer Weg zur Besichtigung und Nachfassen, das nicht mehr nur im Posteingang steckt.">
+<meta name="twitter:image" content="https://wrapdbtc.github.io/creationfirst/assets/images/og-image.png">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="assets/css/style.css?v=1789900200">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://wrapdbtc.github.io/creationfirst/#org","name":"CreationFirst","url":"https://wrapdbtc.github.io/creationfirst/","logo":"https://wrapdbtc.github.io/creationfirst/assets/images/favicon.png","image":"https://wrapdbtc.github.io/creationfirst/assets/images/og-image.png","email":"info@creationfirst.io","telephone":"+491621717423","address":{"@type":"PostalAddress","streetAddress":"Sarajevska ulica 24","postalCode":"21000","addressLocality":"Split","addressCountry":"HR"},"areaServed":["DE","AT","CH","HR"],"knowsLanguage":["de","en","hr"],"founder":{"@type":"Person","name":"Pierre Schulteis"},"priceRange":"€€"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://wrapdbtc.github.io/creationfirst/"},{"@type":"ListItem","position":2,"name":"Immobilien & Makler","item":"https://wrapdbtc.github.io/creationfirst/immobilien-makler.html"}]}]}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></symbol><symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 8l-4 4 4 4"/><path d="M15 8l4 4-4 4"/></symbol><symbol id="i-euro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7.5A7 7 0 1 0 18 16.5"/><path d="M4 10h9M4 14h9"/></symbol><symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol><symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol><symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol><symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></symbol><symbol id="i-repeat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></symbol><symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol><symbol id="i-window" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M9 9v11"/></symbol><symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol></svg>
+<div class="scroll-progress" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="CreationFirst, zur Startseite">
+      <img class="logo-mark logo-mark-color" src="assets/images/logo-mark-light.svg?v=1789900200" alt="" width="32" height="32">
+      <img class="logo-mark logo-mark-white" src="assets/images/logo-mark-dark.svg?v=1789900200" alt="" width="32" height="32">
+      <span class="brand-word">Creation<em>First</em></span>
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+      <a href="leistungen.html">Leistungen</a>
+      <div class="nav-drop is-active"><a class="nav-drop-btn is-active" href="ki-beschleunigung.html">KI-Automatisierung</a><button class="nav-drop-toggle" type="button" aria-expanded="false" aria-label="Branchen öffnen"></button><div class="nav-drop-menu"><a href="ki-beschleunigung.html">Überblick</a><a href="bau-handwerk.html">Bau &amp; Handwerk</a><a href="gastronomie-hotels.html">Gastronomie &amp; Hotels</a><a href="sanitaer-elektro-klima.html">Sanitär, Elektro &amp; Klima</a><a href="praxen-lokale-services.html">Praxen &amp; lokale Services</a><a href="immobilien-makler.html" class="is-active" aria-current="page">Immobilien &amp; Makler</a></div></div>
+      <a href="portfolio.html">Projekte</a>
+      <a href="spielplatz.html">Playground</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="btn btn-primary nav-mobile-cta" href="kontakt.html">Erstgespräch anfragen</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn btn-icon theme-toggle" type="button" aria-label="Hell oder dunkel">
+        <span class="icon-sun"><svg class="icon" aria-hidden="true"><use href="#i-sun"></use></svg></span>
+        <span class="icon-moon"><svg class="icon" aria-hidden="true"><use href="#i-moon"></use></svg></span>
+      </button>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Sprache wählen">
+          <span class="flag" aria-hidden="true">🇩🇪</span> <span class="lang-code">DE</span>
+        </button>
+        <div class="lang-menu">
+          <a href="immobilien-makler.html" hreflang="de" lang="de" class="is-active" aria-current="true"><span class="flag" aria-hidden="true">🇩🇪</span> Deutsch</a>
+          <a href="en/real-estate.html" hreflang="en" lang="en"><span class="flag" aria-hidden="true">🇬🇧</span> English</a>
+          <a href="hr/nekretnine.html" hreflang="hr" lang="hr"><span class="flag" aria-hidden="true">🇭🇷</span> Hrvatski</a>
+        </div>
+      </div>
+      <a class="btn btn-primary btn-sm nav-cta-btn" href="kontakt.html">Erstgespräch anfragen</a>
+      <button class="nav-toggle" type="button" aria-label="Menü" aria-expanded="false" aria-controls="main-nav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-orb o1" aria-hidden="true"></div>
+  <div class="hero-orb o2" aria-hidden="true"></div>
+  <div class="hero-orb o3" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-1" data-parallax="0.05" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow-2" data-parallax="0.08" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <nav class="breadcrumbs" aria-label="Brotkrümelnavigation"><a href="index.html">Start</a><span aria-hidden="true">/</span><span>Immobilien & Makler</span></nav>
+      <p class="eyebrow">Für Immobilien und Makler</p>
+      <h1>Objekte, Anfragen und Besichtigungen, die im Alltag mitlaufen</h1>
+      <p class="lede">Wir bauen Maklern und Immobilienteams im DACH-Raum eine Website, die Anfragen bringt, einen klaren Weg von der Anfrage zur Besichtigung und Nachfassen, das nicht im Posteingang untergeht.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="kontakt.html?branche=immobilien">Erstgespräch anfragen</a>
+        <a class="btn btn-ghost" href="#loesungen">Was wir bauen</a>
+      </div>
+      <ul class="hero-points">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Kostenloses Erstgespräch</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Fester Preis vor dem Start</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg> Passt zu deinen bestehenden Tools</li>
+      </ul>
+    </div>
+    <div class="hero-panel">
+      <div class="floating-badge badge-1"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg> Anfragen, die ankommen</div>
+      <div class="hero-panel-visual">
+        <picture>
+          <source srcset="assets/images/immobilien-makler-hero.webp?v=1789900200" type="image/webp">
+          <img src="assets/images/immobilien-makler-hero.png?v=1789900200" alt="Makler bei Besichtigung mit Tablet für Objekte und Smartphone mit Interessenten-Anfragen" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+      <div class="hero-panel-row">
+        <div class="hero-panel-icon"><svg class="icon" aria-hidden="true"><use href="#i-window"></use></svg></div>
+        <div><b>Website, die anfragt</b><span>Objekte, Lage, klarer Weg zur Anfrage</span></div>
+      </div>
+      <div cl<div class="hero-panel-row">
+        <div class="hero-panel-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg></div>
+        <div><b>Von der Anfrage zur Besichtigung</b><span>Alles an einer Stelle statt in fünf Chats</span></div>
+      </div><div cl<div class="hero-panel-row">
+        <div class="hero-panel-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg></div>
+        <div><b>Termine und Nachfassen</b><span>Keine verlorenen Interessenten</span></div>
+      </div><div class="floating-badge badge-2"><svg class="icon" aria-hidden="true"><use href="#i-euro"></use></svg> Fester Preis vorab</div>
+    </div>
+  </div>
+  <div class="section-divider to-white" aria-hidden="true"></div>
+</section>
+
+<section class="trust-bar">
+  <div class="container trust-bar-inner">
+    <span class="trust-bar-label">Typisch bei dir?</span>
+    <div class="trust-bar-chips"><span class="trust-chip">Anfragen per Portal-Mail</span><span class="trust-chip">Exposés als PDF</span><span class="trust-chip">Besichtigungen im Kopf</span><span class="trust-chip">Nachfassen bleibt liegen</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Der Alltag</p>
+      <h2>Was Makler uns immer wieder erzählen</h2>
+      <p class="lede">Kein Vorwurf, eher der Normalzustand: Objekte, Interessenten und Termine laufen parallel, und die Werkzeuge halten nicht mit.</p>
+    </div>
+    <div class="grid grid-3">
+            <div class="usp-card" data-reveal>
+        <div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></div>
+        <h3>Anfragen und Objekte verstreut</h3>
+        <p>Portale, Mail, WhatsApp, Excel. Welcher Stand gilt, weiß oft nur eine Person.</p>
+      </div>
+      <div class="usp-card" data-reveal>
+        <div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-window"></use></svg></div>
+        <h3>Die Website bringt keine Anfragen</h3>
+        <p>Schöne Fotos, aber kein klarer Weg zur Anfrage oder Besichtigung.</p>
+      </div>
+      <div class="usp-card" data-reveal>
+        <div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg></div>
+        <h3>Besichtigungen und Follow-up im Kopf</h3>
+        <p>Wer war wo, wer ist heiß, was fehlt noch? Der Überblick sitzt bei dir statt im System.</p>
+      </div></div>
+  </div>
+</section>
+
+<section class="section bg-alt" id="loesungen">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Was wir für dich bauen</p>
+      <h2>Spürbare Entlastung ohne Software-Zoo</h2>
+      <p class="lede">Wir schauen uns deinen Ist-Zustand an und setzen nur um, was im Alltag wirklich hilft. Oft reicht schon eine gute Website plus ein klarer Anfrage- und Besichtigungs-Weg.</p>
+    </div>
+    <div class="grid grid-2">
+            <article class="portfolio-card" data-reveal>
+        <div class="portfolio-thumb">
+          <span class="cat">Website</span>
+          <picture>
+            <source srcset="assets/images/immobilien-makler-website.webp?v=1789900200" type="image/webp">
+            <img src="assets/images/immobilien-makler-website.png?v=1789900200" alt="" width="1280" height="720" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Eine Website, die Anfragen bringt</h3>
+          <p>Klare Objekte, Filter und ein Formular mit den richtigen Fragen. Interessenten finden schnell den Weg zu dir.</p>
+          <div class="portfolio-meta"><span class="chip">Anfragen</span><span class="chip">Mobil</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal>
+        <div class="portfolio-thumb">
+          <span class="cat">Ablauf</span>
+          <picture>
+            <source srcset="assets/images/immobilien-makler-ablauf.webp?v=1789900200" type="image/webp">
+            <img src="assets/images/immobilien-makler-ablauf.png?v=1789900200" alt="" width="1280" height="720" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Von der Anfrage zur Besichtigung</h3>
+          <p>Anfragen landen an einer Stelle und fließen in Termin oder Rückruf.</p>
+          <div class="portfolio-meta"><span class="chip">Besichtigungen</span><span class="chip">Klarer Stand</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal>
+        <div class="portfolio-thumb">
+          <span class="cat">Service</span>
+          <picture>
+            <source srcset="assets/images/immobilien-makler-ablauf.webp?v=1789900200" type="image/webp">
+            <img src="assets/images/immobilien-makler-ablauf.png?v=1789900200" alt="" width="1280" height="720" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Objekte und Termine im Blick</h3>
+          <p>Welche Objekte laufen, wer kommt wann, was ist offen.</p>
+          <div class="portfolio-meta"><span class="chip">Objekte</span><span class="chip">Kalender</span></div>
+        </div>
+      </article>
+      <article class="portfolio-card" data-reveal>
+        <div class="portfolio-thumb">
+          <span class="cat">Nachfassen</span>
+          <picture>
+            <source srcset="assets/images/immobilien-makler-ablauf.webp?v=1789900200" type="image/webp">
+            <img src="assets/images/immobilien-makler-ablauf.png?v=1789900200" alt="" width="1280" height="720" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="portfolio-body">
+          <h3>Nachfassen, das nicht liegen bleibt</h3>
+          <p>Erinnerungen an offene Anfragen und heiße Interessenten.</p>
+          <div class="portfolio-meta"><span class="chip">Erinnerungen</span><span class="chip">Weniger verlorene Deals</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">So sieht Entlastung aus</p>
+      <h2>Vom Posteingangschaos zum klaren Ablauf</h2>
+      <p class="lede">Anfrage rein, Besichtigung gesetzt, Nachfassen geplant. Genau das bauen wir mit dir, angepasst an dein Büro.</p>
+    </div>
+    <figure class="section-figure" data-reveal>
+      <picture>
+        <source srcset="assets/images/immobilien-makler-ablauf.webp?v=1789900200" type="image/webp">
+        <img src="assets/images/immobilien-makler-ablauf.png?v=1789900200" alt="Schreibtisch mit Zettelstapel links und aufgeräumter digitaler Objekt- und Terminübersicht rechts" width="1280" height="720" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    <div class="grid grid-3">
+            <div class="usp-card" data-reveal>
+        <div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-repeat"></use></svg></div>
+        <h3>Automatisierung, wo sie Stunden spart</h3>
+        <p>Erinnerungen und Weiterleitungen, die zuverlässig sitzen.</p>
+      </div>
+      <div class="usp-card" data-reveal>
+        <div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg></div>
+        <h3>Portal oder App, wenn es passt</h3>
+        <p>Interessenten-Portal oder interne Übersicht. Nur wenn es wirklich hilft.</p>
+      </div>
+      <div class="usp-card" data-reveal>
+        <div class="card-icon"><svg class="icon" aria-hidden="true"><use href="#i-euro"></use></svg></div>
+        <h3>Fester Preis vorab</h3>
+        <p>Nach dem Erstgespräch bekommst du Umfang und Preis schriftlich.</p>
+      </div>
+<h3>Fester Preis vorab</h3>
+        <p>Nach dem Erstgespräch bekommst du Umfang und Preis schriftlich, passend zu deinem Betrieb.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt" X Minuten Erstgespräch, kostenlos. Danach bekommst du ein Angebot mit festem Umfang und Preis. Die meisten starten mit einem Sprint für Website und Anfrage-Weg.</p>
+      </div>
+      <div class="cta-band-actions">
+        <a class="btn btn-primary" href="kontakt.html?branche=immobilien">Erstgespräch anfragen</a>
+        <a class="btn btn-ghost" href="tel:+491621717423">Lieber anrufen</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="CreationFirst, zur Startseite">
+          <img class="logo-mark" src="assets/images/logo-mark-dark.svg?v=1789900200" alt="" width="32" height="32">
+          <span class="brand-word">Creation<em>First</em></span>
+        </a>
+        <p class="footer-brand-blurb">Websites, Apps und KI-Automatisierung für kleine und mittlere Unternehmen. Ein kleines Team aus Split, remote für den DACH-Raum und Kroatien.</p>
+        <a class="btn btn-primary btn-sm footer-cta" href="kontakt.html">Erstgespräch anfragen</a>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-h">Angebot</h2>
+        <ul>
+          <li><a href="leistungen.html">Leistungen</a></li>
+          <li><a href="ki-beschleunigung.html">KI-Automatisierung</a></li>
+          <li><a href="leistungen.html#zusammenarbeit">So arbeiten wir</a></li>
+          <li><a href="leistungen.html#kurzanalyse">Kurzanalyse</a></li>
+          <li><a href="bau-handwerk.html">Bau &amp; Handwerk</a></li>
+          <li><a href="gastronomie-hotels.html">Gastronomie &amp; Hotels</a></li>
+          <li><a href="sanitaer-elektro-klima.html">Sanitär, Elektro &amp; Klima</a></li>
+          <li><a href="praxen-lokale-services.html">Praxen &amp; lokale Services</a></li>
+          <li><a href="immobilien-makler.html">Immobilien &amp; Makler</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-h">CreationFirst</h2>
+        <ul>
+          <li><a href="portfolio.html">Projekte</a></li>
+          <li><a href="spielplatz.html">Playground</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-h">Kontakt</h2>
+        <ul>
+          <li><a href="mailto:info@creationfirst.io">info@creationfirst.io</a></li>
+          <li><a href="tel:+491621717423">+49 162 1717423</a></li>
+          <li>Split, Kroatien</li>
+          <li>Mo–Fr, 9–17 Uhr</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CreationFirst</span>
+      <div class="footer-bottom-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <span class="footer-langs"><a href="immobilien-makler.html" hreflang="de" lang="de" aria-current="true">DE</a> · <a href="en/real-estate.html" hreflang="en" lang="en">EN</a> · <a href="hr/nekretnine.html" hreflang="hr" lang="hr">HR</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="conv-sticky-cta" data-sticky-cta>
+  <div class="conv-sticky-cta-inner">
+    <div class="conv-sticky-cta-copy"><strong>Erstgespräch</strong><span>kostenlos · 30 Min.</span></div>
+    <a class="btn btn-primary btn-sm" href="kontakt.html">Anfragen</a>
+  </div>
+</div>
+
+<button class="back-to-top" type="button" aria-label="Nach oben"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg></button>
+
+<button class="dev-toggle" type="button" aria-label="Technische Details zu dieser Seite" aria-expanded="false" aria-controls="dev-panel"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg></button>
+<div class="dev-panel" id="dev-panel" aria-hidden="true">
+  <div class="dev-panel-inner">
+    <div class="dev-panel-head">
+      <span class="dev-dot"></span><span class="dev-dot"></span><span class="dev-dot"></span>
+      <b>Unter der Haube</b>
+      <button type="button" class="dev-panel-close" aria-label="Schließen"><svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg></button>
+    </div>
+    <ul class="dev-stats">
+      <li><span>HTTP-Anfragen</span><b class="dev-stat-requests">–</b></li>
+      <li><span>Übertragen</span><b class="dev-stat-weight">–</b></li>
+      <li><span>Ladezeit</span><b class="dev-stat-load">–</b></li>
+      <li><span>Tracker & Cookies</span><b>0</b></li>
+      <li><span>Technik</span><b>HTML · CSS · Vanilla JS</b></li>
+      <li><span>Sprachen</span><b>DE · EN · HR</b></li>
+    </ul>
+    <p class="dev-panel-note">Live gemessen, für genau diese Seite.</p>
+  </div>
+</div>
+
+<script src="assets/js/main.js?v=1789900200"></script>
+<script src="assets/js/site-chat-config.js?v=1789900200"></script>
+<script src="assets/js/site-chat.js?v=1789900200"></script>
+</body>
+</html>

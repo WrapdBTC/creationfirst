@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC = os.path.join(HERE, "src")
 BASE = "https://wrapdbtc.github.io/creationfirst/"
-VER = "1789900000"
+VER = "1789900200"
 YEAR = "2026"
 EMAIL = "info@creationfirst.io"
 PHONE_HREF = "+491621717423"
@@ -35,6 +35,10 @@ PAGES = {
  "playground": {"de": "spielplatz.html", "en": "en/playground.html", "hr": "hr/igra.html"},
  "contact":    {"de": "kontakt.html", "en": "en/contact.html", "hr": "hr/kontakt.html"},
  "trades":     {"de": "bau-handwerk.html", "en": "en/construction-trades.html", "hr": "hr/gradjevinarstvo-obrt.html"},
+ "hospitality": {"de": "gastronomie-hotels.html", "en": "en/hospitality.html", "hr": "hr/ugostiteljstvo-hoteli.html"},
+ "field_services": {"de": "sanitaer-elektro-klima.html", "en": "en/plumbing-electrical-hvac.html", "hr": "hr/instalacije-elektro-klima.html"},
+ "practices": {"de": "praxen-lokale-services.html", "en": "en/practices-local-services.html", "hr": "hr/ordinacije-lokalne-usluge.html"},
+ "realestate": {"de": "immobilien-makler.html", "en": "en/real-estate.html", "hr": "hr/nekretnine.html"},
  "imprint":    {"de": "impressum.html", "en": "en/legal-notice.html", "hr": "hr/impresum.html"},
  "privacy":    {"de": "datenschutz.html", "en": "en/privacy-policy.html", "hr": "hr/politika-privatnosti.html"},
 }
@@ -48,9 +52,14 @@ SCRIPTS = {
 PRELOAD = {
  "home": "images/home-v2-hero.webp",
  "trades": "images/bau-handwerk-hero.webp",
+ "realestate": "images/immobilien-makler-hero.webp",
+ "practices": "images/praxen-lokale-services-hero.webp",
+ "field_services": "images/sanitaer-elektro-klima-hero.webp",
+ "hospitality": "images/gastronomie-hotels-hero.webp",
 }
 NAV_KEY = {"services": "services", "ai": "ai", "portfolio": "portfolio", "about": "about",
-           "playground": "playground", "contact": "contact", "trades": "services"}
+           "playground": "playground", "contact": "contact", "trades": "ai",
+           "hospitality": "ai", "field_services": "ai", "practices": "ai", "realestate": "ai"}
 
 META = json.load(open(os.path.join(HERE, "meta.json"), encoding="utf-8"))
 
@@ -67,7 +76,7 @@ T = {
   "blurb": "Websites, Apps und KI-Automatisierung für kleine und mittlere Unternehmen. Ein kleines Team aus Split, remote für den DACH-Raum und Kroatien.",
   "f_offer": "Angebot", "f_company": "CreationFirst", "f_contact": "Kontakt",
   "f_offer_links": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("services#zusammenarbeit", "So arbeiten wir"),
-                    ("services#kurzanalyse", "Kurzanalyse"), ("trades", "Für Bau & Handwerk")],
+                    ("services#kurzanalyse", "Kurzanalyse"), ("trades", "Bau & Handwerk"), ("hospitality", "Gastronomie & Hotels"), ("field_services", "Sanitär, Elektro & Klima"), ("practices", "Praxen & lokale Services"), ("realestate", "Immobilien & Makler")],
   "f_company_links": [("portfolio", "Projekte"), ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
   "place": "Split, Kroatien", "hours": "Mo–Fr, 9–17 Uhr", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Impressum", "privacy": "Datenschutz",
@@ -88,7 +97,7 @@ T = {
   "blurb": "Websites, apps and AI automation for small and mid-sized businesses. A small team in Split, working remotely across the DACH region and Croatia.",
   "f_offer": "Offer", "f_company": "CreationFirst", "f_contact": "Contact",
   "f_offer_links": [("services", "Services"), ("ai", "AI automation"), ("services#working-together", "How we work"),
-                    ("services#quick-analysis", "Quick analysis"), ("trades", "For construction & trades")],
+                    ("services#quick-analysis", "Quick analysis"), ("trades", "Construction & trades"), ("hospitality", "Hospitality"), ("field_services", "Plumbing, electrical & HVAC"), ("practices", "Practices & local services"), ("realestate", "Real estate")],
   "f_company_links": [("portfolio", "Projects"), ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
   "place": "Split, Croatia", "hours": "Mon–Fri, 9 am–5 pm CET", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Legal notice", "privacy": "Privacy",
@@ -109,7 +118,7 @@ T = {
   "blurb": "Web stranice, aplikacije i AI automatizacija za mala i srednja poduzeća. Mali tim iz Splita, na daljinu za DACH regiju i Hrvatsku.",
   "f_offer": "Ponuda", "f_company": "CreationFirst", "f_contact": "Kontakt",
   "f_offer_links": [("services", "Usluge"), ("ai", "AI automatizacija"), ("services#suradnja", "Kako radimo"),
-                    ("services#kratka-analiza", "Kratka analiza"), ("trades", "Za građevinu i obrt")],
+                    ("services#kratka-analiza", "Kratka analiza"), ("trades", "Građevina i obrt"), ("hospitality", "Ugostiteljstvo i hoteli"), ("field_services", "Instalacije, elektro i klima"), ("practices", "Ordinacije i lokalne usluge"), ("realestate", "Nekretnine")],
   "f_company_links": [("portfolio", "Projekti"), ("playground", "Playground"), ("about", "O nama"), ("contact", "Kontakt")],
   "place": "Split, Hrvatska", "hours": "pon–pet, 9–17 h", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Impresum", "privacy": "Privatnost",
@@ -330,11 +339,42 @@ def header(page, lang):
     A = rel_prefix(lang) + "assets/"
     active = NAV_KEY.get(page)
     nav = []
+    branchen = [
+        ("trades", {"de": "Bau & Handwerk", "en": "Construction & trades", "hr": "Građevina i obrt"}),
+        ("hospitality", {"de": "Gastronomie & Hotels", "en": "Hospitality", "hr": "Ugostiteljstvo i hoteli"}),
+        ("field_services", {"de": "Sanitär, Elektro & Klima", "en": "Plumbing, electrical & HVAC", "hr": "Instalacije, elektro i klima"}),
+        ("practices", {"de": "Praxen & lokale Services", "en": "Practices & local services", "hr": "Ordinacije i lokalne usluge"}),
+        ("realestate", {"de": "Immobilien & Makler", "en": "Real estate", "hr": "Nekretnine"}),
+    ]
+    drop_lbl = {"de": "Branchen öffnen", "en": "Open industries", "hr": "Otvori grane"}
+    overview = {"de": "Überblick", "en": "Overview", "hr": "Pregled"}
     for target, label in t["nav"]:
         p, _, anchor = target.partition("#")
         is_active = (p == active and not anchor)
-        attrs = ' class="is-active" aria-current="page"' if is_active else ""
-        nav.append('<a href="%s"%s>%s</a>' % (link(target, lang), attrs, esc(label)))
+        if p == "ai":
+            ind_active = (active == "ai")
+            items = ['<a href="%s"%s>%s</a>' % (link("ai", lang), ' class="is-active" aria-current="page"' if page == "ai" else "", esc(overview[lang]))]
+            for ik, labs in branchen:
+                cur = ' class="is-active" aria-current="page"' if page == ik else ""
+                items.append('<a href="%s"%s>%s</a>' % (link(ik, lang), cur, esc(labs[lang])))
+            nav.append(
+                '<div class="nav-drop%s">'
+                '<a class="nav-drop-btn%s" href="%s"%s>%s</a>'
+                '<button class="nav-drop-toggle" type="button" aria-expanded="false" aria-label="%s"></button>'
+                '<div class="nav-drop-menu">%s</div>'
+                '</div>' % (
+                    " is-active" if ind_active else "",
+                    " is-active" if ind_active else "",
+                    link("ai", lang),
+                    ' aria-current="page"' if page == "ai" else "",
+                    esc(label),
+                    esc(drop_lbl[lang]),
+                    "".join(items),
+                )
+            )
+        else:
+            attrs = ' class="is-active" aria-current="page"' if is_active else ""
+            nav.append('<a href="%s"%s>%s</a>' % (link(target, lang), attrs, esc(label)))
     for target, label in t["nav_mobile"]:
         is_active = (target == active)
         cls = "nav-mobile-only" + (" is-active" if is_active else "")

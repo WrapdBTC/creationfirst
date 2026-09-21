@@ -69,6 +69,34 @@
     });
   }
 
+
+  /* Industry nav dropdown */
+  var drops = document.querySelectorAll(".nav-drop");
+  function closeDrops(except) {
+    drops.forEach(function (el) {
+      if (el === except) return;
+      el.classList.remove("is-open");
+      var b = el.querySelector(".nav-drop-toggle");
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+  }
+  drops.forEach(function (el) {
+    var btn = el.querySelector(".nav-drop-toggle");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var open = !el.classList.contains("is-open");
+      closeDrops(el);
+      el.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+  document.addEventListener("click", function () { closeDrops(null); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeDrops(null);
+  });
+
   /* Language switcher */
   var langSwitches = document.querySelectorAll(".lang-switch");
   function closeLangs(except) {

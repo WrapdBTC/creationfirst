@@ -168,5 +168,73 @@
    "desc": "Kako CreationFirst postupa s tvojim podacima: hosting, kontakt obrazac, live chat i tvoja prava prema GDPR-u.",
    "crumb": "Privatnost"
   }
+ },
+ "hospitality": {
+  "de": {
+   "title": "Website & Abläufe für Gastronomie und Hotels | CreationFirst",
+   "desc": "Für Restaurants, Cafés und Hotels: eine Website, die Reservierungen bringt, ein klarer Weg von der Anfrage zur Bestätigung und Abläufe, die nicht mehr nur im Kopf stehen.",
+   "crumb": "Gastronomie & Hotels"
+  },
+  "en": {
+   "title": "Website & Workflows for Hospitality | CreationFirst",
+   "desc": "For restaurants, cafés and hotels: a website that brings bookings, a clear path from inquiry to confirmation, and workflows that no longer live only in your head.",
+   "crumb": "Hospitality"
+  },
+  "hr": {
+   "title": "Web i procesi za ugostiteljstvo i hotele | CreationFirst",
+   "desc": "Za restorane, kafiće i hotele: web koji donosi rezervacije, jasan put od upita do potvrde i procesi koji više nisu samo u glavi.",
+   "crumb": "Ugostiteljstvo i hoteli"
+  }
+ },
+ "field_services": {
+  "de": {
+   "title": "Website & Abläufe für Sanitär, Elektro & Klima | CreationFirst",
+   "desc": "Für Installations- und Technikbetriebe: eine Website, die Anfragen bringt, ein klarer Weg von der Anfrage zum Angebot und Termine für Montage und Service.",
+   "crumb": "Sanitär, Elektro & Klima"
+  },
+  "en": {
+   "title": "Website & Workflows for Plumbing, Electrical & HVAC | CreationFirst",
+   "desc": "For installation and technical trades: a website that brings inquiries, a clear path from inquiry to quote, and schedules for installs and service.",
+   "crumb": "Plumbing, electrical & HVAC"
+  },
+  "hr": {
+   "title": "Web i procesi za instalacije, elektro i klimu | CreationFirst",
+   "desc": "Za instalaterske i tehničke obrte: web koji donosi upite, jasan put do ponude i termini za montažu i servis.",
+   "crumb": "Instalacije, elektro i klima"
+  }
+ },
+ "practices": {
+  "de": {
+   "title": "Website & Abläufe für Praxen und lokale Services | CreationFirst",
+   "desc": "Für Praxen, Studios und lokale Dienstleister: eine Website, die Anfragen bringt, klare Terminwege und Nachfassen, das nicht mehr nur im Kopf steht.",
+   "crumb": "Praxen & lokale Services"
+  },
+  "en": {
+   "title": "Website & Workflows for Practices & Local Services | CreationFirst",
+   "desc": "For practices, studios and local services: a website that brings inquiries, clear booking paths and follow-up that no longer lives only in your head.",
+   "crumb": "Practices & local services"
+  },
+  "hr": {
+   "title": "Web i procesi za ordinacije i lokalne usluge | CreationFirst",
+   "desc": "Za ordinacije, studije i lokalne usluge: web koji donosi upite, jasni termini i follow-up koji više nije samo u glavi.",
+   "crumb": "Ordinacije i lokalne usluge"
+  }
+ },
+ "realestate": {
+  "de": {
+   "title": "Website & Abläufe für Immobilien und Makler | CreationFirst",
+   "desc": "Für Makler und Immobilienteams: eine Website, die Anfragen bringt, ein klarer Weg zur Besichtigung und Nachfassen, das nicht mehr nur im Posteingang steckt.",
+   "crumb": "Immobilien & Makler"
+  },
+  "en": {
+   "title": "Website & Workflows for Real Estate | CreationFirst",
+   "desc": "For brokers and property teams: a website that brings inquiries, a clear path to viewings, and follow-up that no longer lives only in the inbox.",
+   "crumb": "Real estate"
+  },
+  "hr": {
+   "title": "Web i procesi za nekretnine | CreationFirst",
+   "desc": "Za posrednike i nekretninske timove: web koji donosi upite, jasan put do razgleda i follow-up koji više nije samo u sandučiću.",
+   "crumb": "Nekretnine"
+  }
  }
 }
