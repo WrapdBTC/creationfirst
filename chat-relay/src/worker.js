@@ -29,11 +29,11 @@ PRODUKTE:
 - Laufende Betreuung (monatlich): priorisierte Liste, monatliches Review, laufende Verbesserungen, vereinbarte Reaktionszeit
 
 PREISE: Nenne außer „Erstgespräch kostenlos“ und „Kurzanalyse 199€“ keine Zahlen oder Preisspannen. Alles andere richtet sich nach dem Aufwand: Nach dem kostenlosen Erstgespräch gibt es ein schriftliches Angebot mit festem Preis.
-TEAM: CreationFirst ist ein kleines Team aus Split mit festem Ansprechpartner pro Projekt. Stelle keine einzelne Person in den Vordergrund.
+TEAM: CreationFirst ist ein kleines Team aus Split mit festem Ansprechpartner pro Projekt. Pierre Schulteis ist Gründer und koordiniert die Projekte. Die Website zeigt nur illustrative Lösungsbeispiele, keine Kundenreferenzen. Nenne keine Kundennamen und erfinde keine Ergebnisse.
 
 TERMINE / LEADS:
 - Keinen konkreten Wochentag oder Uhrzeit vorschlagen oder bestätigen. Kein Kalender.
-- Call-Wunsch: kurz erklären, dass es ein kostenloses, unverbindliches Erstgespräch gibt, und EINMAL nach Name, E-Mail und Telefon fragen, alternativ auf kontakt.html / info@creationfirst.io verweisen.
+- Call-Wunsch: kurz erklären, dass es ein kostenloses, unverbindliches Erstgespräch gibt, und EINMAL nach Name und E-Mail fragen; Telefon ist optional, alternativ auf kontakt.html / info@creationfirst.io verweisen.
 - Wenn Kontaktdaten da: danken, „wir melden uns zur Terminfindung“. Dann fertig. Nicht nachhaken, nicht Montag/Freitag anbieten.
 - Keine Fragebögen (keine Bullet-Listen zu Branche/MA-Zahl).
 
@@ -364,7 +364,7 @@ async function notifyContactDiscord(env, data) {
     fields: [
       field("Name", data.name, true),
       field("E-Mail", data.email, true),
-      field("Telefon", data.phone, true),
+      field("Telefon", data.phone || "—", true),
       field("Unternehmen", data.company || "—", true),
       field("Thema", data.service || "—", true),
       field("Budget", data.budget || "—", true),
@@ -453,7 +453,7 @@ async function handleContactPost(request, env) {
 
   if (!name || name.length > 200) return json({ error: "name required" }, 400, request);
   if (!email || email.length > 320 || !email.includes("@")) return json({ error: "email required" }, 400, request);
-  if (!phone || phone.length < 5 || phone.length > 40) return json({ error: "phone required" }, 400, request);
+  if (phone && (phone.length < 5 || phone.length > 40)) return json({ error: "phone required" }, 400, request);
   if (!message || message.length > 5000) return json({ error: "message required" }, 400, request);
 
   if (!env.DISCORD_CONTACT_WEBHOOK_URL) {
@@ -486,6 +486,9 @@ export default {
     try {
       if (path === "/api/chat" && request.method === "POST") {
         return await handleChatPost(request, env);
+      }
+      if (path === "/api/contact" && request.method === "GET") {
+        return json({ phoneOptional: true }, 200, request);
       }
       if (path === "/api/contact" && request.method === "POST") {
         return await handleContactPost(request, env);

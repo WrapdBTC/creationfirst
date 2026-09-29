@@ -10,7 +10,7 @@ Quelltexte und Build-Skript der Website. GitHub Pages liefert Ordner mit Unterst
 Platzhalter in den Fragmenten: `{{url:contact}}`, `{{url:services#preise}}`, `{{A}}` (Pfad zu assets/),
 `{{v}}` (Cache-Version), `{{icon:check}}`, `{{include:offer}}`.
 
-Bauen (überschreibt die 30 HTML-Dateien im Projektordner und `sitemap.xml`):
+Bauen (überschreibt die 42 HTML-Dateien im Projektordner und `sitemap.xml`):
 
     python3 _build/build.py            # alle Seiten
     python3 _build/build.py contact    # nur eine Seite in allen Sprachen

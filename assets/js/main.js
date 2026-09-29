@@ -207,7 +207,25 @@
   if (form) {
     var params = new URLSearchParams(window.location.search);
     var topic = (params.get("thema") || params.get("topic") || "").toLowerCase();
+    var aliases = { analysis: "ai", audit: "ai", sprint: "app", shop: "web", seo: "web" };
+    topic = aliases[topic] || topic;
     var serviceSelect = form.querySelector("#service");
+    // Progressive enhancement: never allow requests the deployed relay would reject.
+    var contactEndpoint = form.getAttribute("action");
+    if (contactEndpoint) {
+      fetch(contactEndpoint, { credentials: "omit" }).then(function (res) {
+        if (!res.ok) throw new Error("Capability unavailable");
+        return res.json();
+      }).then(function (capabilities) {
+        if (capabilities.phoneOptional !== true) return;
+        var phone = form.querySelector("#phone");
+        phone.required = false;
+        var marker = form.querySelector('label[for="phone"] .req');
+        if (marker) { marker.className = "opt"; marker.removeAttribute("aria-hidden"); marker.textContent = form.dataset.phoneOptional; }
+        var hint = form.querySelector("#phone-hint");
+        if (hint) hint.textContent = form.dataset.phoneHint;
+      }).catch(function () { /* Keep the current relay's required phone field. */ });
+    }
     if (topic && serviceSelect) {
       var match = serviceSelect.querySelector('option[data-topic="' + topic.replace(/[^a-z-]/g, "") + '"]');
       if (match) serviceSelect.value = match.value;
@@ -238,7 +256,7 @@
         message: String(fd.get("message") || "").trim(),
         _gotcha: String(fd.get("_gotcha") || "").trim()
       };
-      if (payload.phone.length < 5) {
+      if ((form.querySelector("#phone").required || payload.phone) && payload.phone.length < 5) {
         setStatus(form.getAttribute("data-msg-phone") || "", false);
         var phoneEl = form.querySelector("#phone");
         if (phoneEl) phoneEl.focus();

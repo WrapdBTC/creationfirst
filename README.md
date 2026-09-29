@@ -21,11 +21,11 @@ Struktur, dieselben Sektionen und dieselben Preise.
 | Impressum / Datenschutz | `impressum.html`, `datenschutz.html` | `en/legal-notice.html`, `en/privacy-policy.html` | `hr/impresum.html`, `hr/politika-privatnosti.html` |
 
 Dazu: `404.html` (eigenständig, funktioniert unter `/creationfirst/` und auf eigener Domain), `sitemap.xml`
-(alle 30 URLs mit hreflang), `robots.txt`.
+(alle 42 URLs mit hreflang), `robots.txt`.
 
 ## 2. Angebot (bewusst ohne Preisschilder)
 
-Hauptmenü: Leistungen, KI-Automatisierung, Projekte, Playground, Über uns, Kontakt. Jeder Punkt ist eine
+Hauptmenü: Leistungen, KI-Automatisierung, Beispiele, Über uns, Kontakt. Playground bleibt im Footer. Jeder Punkt ist eine
 eigene Seite.
 
 Ablauf auf der Website: kostenloses Erstgespräch, optional Kurzanalyse (199 €, wird bei Beauftragung
@@ -45,8 +45,7 @@ Angebots-Buttons verlinken auf das Kontaktformular mit Vorauswahl, z. B. `kontak
 
 Beide laufen über den Cloudflare Worker in `chat-relay/`
 (`https://creationfirst-chat.creationfirst-wrapd.workers.dev`). Das Formular sendet dieselben Felder wie
-bisher (`name`, `email`, `phone`, `company`, `budget`, `service`, `message`, `_gotcha`). Telefon ist
-Pflichtfeld, weil der Worker es verlangt. Anfragen landen per Discord-Webhook, Secrets liegen in Wrangler.
+bisher (`name`, `email`, `phone`, `company`, `budget`, `service`, `message`, `_gotcha`). Der neue Worker erlaubt Anfragen ohne Telefon. Die Website prüft per GET /api/contact, ob dieser Stand bereits deployed ist; bis dahin bleibt Telefon erforderlich. Anfragen landen per Discord-Webhook, Secrets liegen in Wrangler.
 
 Deploy nach Worker-Änderungen: `cd chat-relay && npx wrangler deploy`.
 
@@ -86,3 +85,13 @@ laufen lassen**, er würde alle Änderungen überschreiben.
 Der aktuelle Stand liegt als Quelltext in `_build/` (siehe `_build/README.md`). Damit lassen sich Header,
 Footer, SEO-Daten und alle drei Sprachen synchron neu bauen. Alternativ können Texte direkt in den HTML-Dateien
 gepflegt werden, dann aber nicht mehr mit `_build/` neu bauen.
+
+## Überarbeitung September 2026
+
+Startseite, Beispiele und Über-uns sind in DE/EN/HR neu aufgebaut. Beispiele sind illustrative Leistungsangebote, keine Kundenreferenzen. Keine Kundennamen oder behaupteten Kundenergebnisse ergänzen.
+
+Inhalte in `_build/src/` bearbeiten und anschließend `python3 _build/build.py` ausführen. Die Ausgabe umfasst 42 Inhaltsseiten; `404.html` ist separat. `_build/image-variants.json` beschreibt die optimierten Bildgrößen. Die Originalbilder bleiben erhalten.
+
+Prüfung: `python3 tests/site_structure.py` und `node tests/contact-relay.mjs`. Backend-Tests simulieren die Zustellung vollständig, ohne Nachrichten zu senden.
+
+GitHub Pages veröffentlicht nur die Website. Der geänderte Cloudflare Worker muss separat mit Wrangler deployed werden. Sein GET `/api/contact` liefert danach `{ "phoneOptional": true }`; die Website schaltet die optionale Telefonnummer erst nach diesem Signal frei.

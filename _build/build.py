@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC = os.path.join(HERE, "src")
 BASE = "https://wrapdbtc.github.io/creationfirst/"
-VER = "1790246962"
+VER = "20260929-1"
 YEAR = "2026"
 EMAIL = "info@creationfirst.io"
 PHONE_HREF = "+491621717423"
@@ -45,12 +45,11 @@ PAGES = {
 
 CHAT = ["site-chat-config", "site-chat"]
 SCRIPTS = {
- "home": ["main", "ba-slider", "path-chooser"] + CHAT,
+ "home": ["main"] + CHAT,
  "playground": ["main", "game", "idea-generator", "before-after-sim", "time-calculator"] + CHAT,
 }
 # hero images to preload (LCP)
 PRELOAD = {
- "home": "images/home-v2-hero.webp",
  "trades": "images/bau-handwerk-hero.webp",
  "realestate": "images/immobilien-makler-hero.webp",
  "practices": "images/praxen-lokale-services-hero.webp",
@@ -68,8 +67,8 @@ T = {
  "de": {
   "skip": "Zum Inhalt springen", "home_aria": "CreationFirst, zur Startseite",
   "nav_aria": "Hauptnavigation", "menu": "Menü", "theme": "Hell oder dunkel",
-  "nav": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("portfolio", "Projekte"),
-          ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
+  "nav": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("portfolio", "Beispiele"),
+          ("about", "Über uns"), ("contact", "Kontakt")],
   "nav_mobile": [],
   "cta": "Erstgespräch anfragen", "cta_short": "Erstgespräch",
   "lang_label": "Sprache wählen",
@@ -77,7 +76,7 @@ T = {
   "f_offer": "Angebot", "f_company": "CreationFirst", "f_contact": "Kontakt",
   "f_offer_links": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("services#zusammenarbeit", "So arbeiten wir"),
                     ("services#kurzanalyse", "Kurzanalyse"), ("trades", "Bau & Handwerk"), ("hospitality", "Gastronomie & Hotels"), ("field_services", "Sanitär, Elektro & Klima"), ("practices", "Praxen & lokale Services"), ("realestate", "Immobilien & Makler")],
-  "f_company_links": [("portfolio", "Projekte"), ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
+  "f_company_links": [("portfolio", "Lösungsbeispiele"), ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
   "place": "Split, Kroatien", "hours": "Mo–Fr, 9–17 Uhr", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Impressum", "privacy": "Datenschutz",
   "sticky_title": "Erstgespräch", "sticky_sub": "kostenlos · 30 Min.", "sticky_btn": "Anfragen",
@@ -89,8 +88,8 @@ T = {
  "en": {
   "skip": "Skip to content", "home_aria": "CreationFirst, home",
   "nav_aria": "Main navigation", "menu": "Menu", "theme": "Light or dark",
-  "nav": [("services", "Services"), ("ai", "AI automation"), ("portfolio", "Projects"),
-          ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
+  "nav": [("services", "Services"), ("ai", "AI automation"), ("portfolio", "Examples"),
+          ("about", "About"), ("contact", "Contact")],
   "nav_mobile": [],
   "cta": "Book a free call", "cta_short": "Free call",
   "lang_label": "Choose language",
@@ -98,7 +97,7 @@ T = {
   "f_offer": "Offer", "f_company": "CreationFirst", "f_contact": "Contact",
   "f_offer_links": [("services", "Services"), ("ai", "AI automation"), ("services#working-together", "How we work"),
                     ("services#quick-analysis", "Quick analysis"), ("trades", "Construction & trades"), ("hospitality", "Hospitality"), ("field_services", "Plumbing, electrical & HVAC"), ("practices", "Practices & local services"), ("realestate", "Real estate")],
-  "f_company_links": [("portfolio", "Projects"), ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
+  "f_company_links": [("portfolio", "Example solutions"), ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
   "place": "Split, Croatia", "hours": "Mon–Fri, 9 am–5 pm CET", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Legal notice", "privacy": "Privacy",
   "sticky_title": "Intro call", "sticky_sub": "free · 30 min", "sticky_btn": "Book",
@@ -110,8 +109,8 @@ T = {
  "hr": {
   "skip": "Preskoči na sadržaj", "home_aria": "CreationFirst, početna",
   "nav_aria": "Glavna navigacija", "menu": "Izbornik", "theme": "Svijetlo ili tamno",
-  "nav": [("services", "Usluge"), ("ai", "AI automatizacija"), ("portfolio", "Projekti"),
-          ("playground", "Playground"), ("about", "O nama"), ("contact", "Kontakt")],
+  "nav": [("services", "Usluge"), ("ai", "AI automatizacija"), ("portfolio", "Primjeri"),
+          ("about", "O nama"), ("contact", "Kontakt")],
   "nav_mobile": [],
   "cta": "Zatraži razgovor", "cta_short": "Razgovor",
   "lang_label": "Odaberi jezik",
@@ -119,7 +118,7 @@ T = {
   "f_offer": "Ponuda", "f_company": "CreationFirst", "f_contact": "Kontakt",
   "f_offer_links": [("services", "Usluge"), ("ai", "AI automatizacija"), ("services#suradnja", "Kako radimo"),
                     ("services#kratka-analiza", "Kratka analiza"), ("trades", "Građevina i obrt"), ("hospitality", "Ugostiteljstvo i hoteli"), ("field_services", "Instalacije, elektro i klima"), ("practices", "Ordinacije i lokalne usluge"), ("realestate", "Nekretnine")],
-  "f_company_links": [("portfolio", "Projekti"), ("playground", "Playground"), ("about", "O nama"), ("contact", "Kontakt")],
+  "f_company_links": [("portfolio", "Primjeri rješenja"), ("playground", "Igra"), ("about", "O nama"), ("contact", "Kontakt")],
   "place": "Split, Hrvatska", "hours": "pon–pet, 9–17 h", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Impresum", "privacy": "Privatnost",
   "sticky_title": "Uvodni razgovor", "sticky_sub": "besplatno · 30 min", "sticky_btn": "Zatraži",
@@ -231,10 +230,34 @@ def render_placeholders(s, lang):
     s = include_partials(s, lang)
     A = rel_prefix(lang) + "assets/"
     s = s.replace("{{A}}", A).replace("{{v}}", VER)
-    s = re.sub(r"\{\{url:([a-z]+)(?:#([A-Za-z0-9\-_]+))?\}\}",
+    s = re.sub(r"\{\{url:([a-z_]+)(?:#([A-Za-z0-9\-_]+))?\}\}",
                lambda m: url(m.group(1), lang, lang, m.group(2) or ""), s)
     s = re.sub(r"\{\{icon:([a-z\-]+)\}\}", lambda m: icon(m.group(1)), s)
     return s
+
+# Responsive variants are generated from existing illustrations; originals stay intact.
+IMAGE_VARIANTS = json.load(open(os.path.join(HERE, "image-variants.json"), encoding="utf-8"))
+def responsive_images(markup, lang):
+    prefix = rel_prefix(lang) + "assets/images/"
+    def replace_picture(match):
+        block = match.group(0)
+        found = re.search(r'<img[^>]+src="[^"]*/images/([\w-]+)\.(?:png|webp|jpg)[^"]*"', block)
+        if not found or found.group(1) not in IMAGE_VARIANTS:
+            return block
+        variants = IMAGE_VARIANTS[found.group(1)]
+        srcset = ", ".join(prefix + v["file"] + "?v=" + VER + " " + str(v["width"]) + "w" for v in variants)
+        sizes = "(max-width: 680px) calc(100vw - 40px), (max-width: 1000px) 48vw, 600px"
+        block = re.sub(r'<source[^>]*>', '', block)
+        largest = variants[-1]
+        tag = re.search(r'<img[^>]*>', block).group(0)
+        new = re.sub(r' src="[^"]*"', ' src="' + prefix + largest["file"] + '?v=' + VER + '"', tag)
+        new = re.sub(r' (?:srcset|sizes|width|height)="[^"]*"', '', new)
+        new = new[:-1] + ' srcset="' + srcset + '" sizes="' + sizes + '" width="' + str(largest["width"]) + '" height="' + str(largest["height"]) + '">'
+        return block.replace(tag, new)
+    markup = re.sub(r'<picture>.*?</picture>', replace_picture, markup, flags=re.S)
+    # New example cards use img directly, keeping their HTML simple.
+    markup = re.sub(r'<img[^>]+src="[^"]*/images/(?!responsive/)[^"]+"[^>]*>', lambda m: replace_picture(m), markup)
+    return markup
 
 # ---------------------------------------------------------------- head
 THEME_SCRIPT = """<script>
@@ -293,8 +316,6 @@ def head(page, lang, main_html):
     out += ['<link rel="icon" type="image/svg+xml" href="%simages/favicon.svg?v=%s">' % (A, VER),
             '<link rel="icon" type="image/png" sizes="512x512" href="%simages/favicon.png?v=%s">' % (A, VER),
             '<link rel="apple-touch-icon" href="%simages/apple-touch-icon.png?v=%s">' % (A, VER)]
-    if page in PRELOAD:
-        out.append('<link rel="preload" as="image" href="%s%s?v=%s" type="image/webp" fetchpriority="high">' % (A, PRELOAD[page], VER))
     og_img = BASE + "assets/images/og-image.png"
     out += ['<meta property="og:type" content="website">',
             '<meta property="og:site_name" content="CreationFirst">',
@@ -332,6 +353,30 @@ def head(page, lang, main_html):
     out.append('<script type="application/ld+json">%s</script>' % json.dumps(ld, ensure_ascii=False, separators=(",", ":")))
     out.append('</head>')
     return "\n".join(out)
+
+# Responsive variants are generated from existing illustrations; originals stay intact.
+IMAGE_VARIANTS = json.load(open(os.path.join(HERE, "image-variants.json"), encoding="utf-8"))
+def responsive_images(markup, lang):
+    prefix = rel_prefix(lang) + "assets/images/"
+    def replace_picture(match):
+        block = match.group(0)
+        found = re.search(r'<img[^>]+src="[^"]*/images/([\w-]+)\.(?:png|webp|jpg)[^"]*"', block)
+        if not found or found.group(1) not in IMAGE_VARIANTS:
+            return block
+        variants = IMAGE_VARIANTS[found.group(1)]
+        srcset = ", ".join(prefix + v["file"] + "?v=" + VER + " " + str(v["width"]) + "w" for v in variants)
+        sizes = "(max-width: 680px) calc(100vw - 40px), (max-width: 1000px) 48vw, 600px"
+        block = re.sub(r'<source[^>]*>', '', block)
+        largest = variants[-1]
+        tag = re.search(r'<img[^>]*>', block).group(0)
+        new = re.sub(r' src="[^"]*"', ' src="' + prefix + largest["file"] + '?v=' + VER + '"', tag)
+        new = re.sub(r' (?:srcset|sizes|width|height)="[^"]*"', '', new)
+        new = new[:-1] + ' srcset="' + srcset + '" sizes="' + sizes + '" width="' + str(largest["width"]) + '" height="' + str(largest["height"]) + '">'
+        return block.replace(tag, new)
+    markup = re.sub(r'<picture>.*?</picture>', replace_picture, markup, flags=re.S)
+    # New example cards use img directly, keeping their HTML simple.
+    markup = re.sub(r'<img[^>]+src="[^"]*/images/(?!responsive/)[^"]+"[^>]*>', lambda m: replace_picture(m), markup)
+    return markup
 
 # ---------------------------------------------------------------- header
 def header(page, lang):
@@ -494,30 +539,7 @@ def floating(page, lang):
     <a class="btn btn-primary btn-sm" href="%s">%s</a>
   </div>
 </div>""" % (esc(t["sticky_title"]), esc(t["sticky_sub"]), link("contact", lang), esc(t["sticky_btn"])))
-    L = t["dev_labels"]
-    out.append("""<button class="back-to-top" type="button" aria-label="%(top)s">%(arrow)s</button>
-
-<button class="dev-toggle" type="button" aria-label="%(dev_toggle)s" aria-expanded="false" aria-controls="dev-panel">%(code)s</button>
-<div class="dev-panel" id="dev-panel" aria-hidden="true">
-  <div class="dev-panel-inner">
-    <div class="dev-panel-head">
-      <span class="dev-dot"></span><span class="dev-dot"></span><span class="dev-dot"></span>
-      <b>%(dev_head)s</b>
-      <button type="button" class="dev-panel-close" aria-label="%(close)s">%(x)s</button>
-    </div>
-    <ul class="dev-stats">
-      <li><span>%(l0)s</span><b class="dev-stat-requests">–</b></li>
-      <li><span>%(l1)s</span><b class="dev-stat-weight">–</b></li>
-      <li><span>%(l2)s</span><b class="dev-stat-load">–</b></li>
-      <li><span>%(l3)s</span><b>0</b></li>
-      <li><span>%(l4)s</span><b>HTML · CSS · Vanilla JS</b></li>
-      <li><span>%(l5)s</span><b>DE · EN · HR</b></li>
-    </ul>
-    <p class="dev-panel-note">%(note)s</p>
-  </div>
-</div>""" % {"top": esc(t["top"]), "arrow": icon("arrow-up"), "dev_toggle": esc(t["dev_toggle"]), "code": icon("code"),
-             "dev_head": esc(t["dev_head"]), "close": esc(t["close"]), "x": icon("x"),
-             "l0": L[0], "l1": L[1], "l2": L[2], "l3": L[3], "l4": L[4], "l5": L[5], "note": esc(t["dev_note"])})
+    out.append('<button class="back-to-top" type="button" aria-label="%s">%s</button>' % (esc(t["top"]), icon("arrow-up")))
     return "\n\n".join(out)
 
 def scripts(page, lang):
@@ -530,7 +552,7 @@ def scripts(page, lang):
 def build_page(page, lang):
     USED_ICONS.clear()
     src = open(os.path.join(SRC, lang, page + ".html"), encoding="utf-8").read()
-    main = render_placeholders(src, lang).strip("\n")
+    main = responsive_images(render_placeholders(src, lang), lang).strip("\n")
     t = T[lang]
     hdr, ftr, flt = header(page, lang), footer(page, lang), floating(page, lang)
     parts = [head(page, lang, main), "<body>", sprite(),
@@ -538,9 +560,9 @@ def build_page(page, lang):
              '<a class="skip-link" href="#main">%s</a>' % esc(t["skip"]), "",
              hdr, "", '<main id="main">', main, "</main>", "",
              ftr, "", flt, "", scripts(page, lang), "</body>", "</html>", ""]
-    return "\n".join(parts)
+    return "\n".join(line.rstrip() for part in parts for line in part.split("\n"))
 
-SITEMAP_DATE = "2026-09-18"
+SITEMAP_DATE = "2026-09-29"
 def sitemap():
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']

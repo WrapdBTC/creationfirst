@@ -1,220 +1,184 @@
-<section class="page-hero">
-  <div class="hero-mesh" aria-hidden="true"></div>
-  <div class="hero-orb o1" aria-hidden="true"></div>
-  <div class="hero-orb o3" aria-hidden="true"></div>
-  <div class="container page-hero-grid">
-    <div class="page-hero-copy">
-      <nav class="breadcrumbs" aria-label="Brotkrümelnavigation"><a href="{{url:home}}">Start</a><span aria-hidden="true">/</span><span>Projekte</span></nav>
-      <p class="eyebrow">Projekte</p>
-      <h1>Beispielprojekte aus der Praxis</h1>
-      <p class="lede">So laufen typische Projekte bei uns ab: Ausgangslage, Vorgehen, Ziel. Kundennamen und Logos zeigen wir bewusst nicht, aus Respekt vor Vertraulichkeit.</p>
-    </div>
-    <div class="page-hero-visual">
-      <picture>
-        <source srcset="{{A}}images/page-hero-portfolio.webp?v={{v}}" type="image/webp">
-        <img src="{{A}}images/page-hero-portfolio.png?v={{v}}" alt="Pinnwand mit Skizzen und Fotos über einem Schreibtisch" width="1280" height="720" loading="eager" decoding="async">
-      </picture>
-    </div>
-  </div>
-  <div class="section-divider to-white" aria-hidden="true"></div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="portfolio-filters" role="group" aria-label="Nach Bereich filtern" data-reveal>
-      <button type="button" class="filter-pill is-active" data-filter="all">Alle</button>
-      <button type="button" class="filter-pill" data-filter="webdesign">Websites</button>
-      <button type="button" class="filter-pill" data-filter="app">Apps &amp; Software</button>
-      <button type="button" class="filter-pill" data-filter="ecommerce">Online-Shops</button>
-      <button type="button" class="filter-pill" data-filter="branding">Branding</button>
-      <button type="button" class="filter-pill" data-filter="seo">SEO</button>
-      <button type="button" class="filter-pill" data-filter="ai">KI &amp; Automatisierung</button>
-    </div>
-    <h2 class="sr-only">Alle Beispielprojekte</h2>
-    <div class="grid grid-3" id="portfolio-grid">
-      <article class="portfolio-card" data-reveal data-cat="ecommerce" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">Online-Shop</span>
-          <span class="lightbox-hint">Details ansehen</span>
-          <picture>
-            <source srcset="{{A}}images/case-ecommerce.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/case-ecommerce.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>Shop-Relaunch für ein Modelabel</h3>
-          <div class="portfolio-facts">
-            <p><strong>Ausgangslage:</strong> Der Shop wirkte veraltet und war auf dem Handy langsam. Viele Käufer brachen im Checkout ab.</p>
-            <p><strong>Vorgehen:</strong> Neuer Shop mit klaren Produktseiten, schnellem Mobile-Checkout und sauberer Zahlungsanbindung.</p>
-            <p class="portfolio-result"><strong>Ziel:</strong> Mehr abgeschlossene Käufe auf dem Handy.</p>
-          </div>
-          <div class="portfolio-meta"><span class="chip">Headless Commerce</span><span class="chip">Mobile First</span><span class="chip">Checkout</span></div>
-        </div>
-      </article>
-      <article class="portfolio-card" data-reveal data-cat="app" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">App &amp; Software</span>
-          <span class="lightbox-hint">Details ansehen</span>
-          <picture>
-            <source srcset="{{A}}images/case-booking.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/case-booking.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>Online-Buchung für einen Dienstleister</h3>
-          <div class="portfolio-facts">
-            <p><strong>Ausgangslage:</strong> Termine liefen über Telefon und Zettel. Doppelbuchungen und vergessene Termine waren Alltag.</p>
-            <p><strong>Vorgehen:</strong> Web-App zur Terminbuchung mit Kalender-Sync, smarter Terminplanung und automatischen Erinnerungen.</p>
-            <p class="portfolio-result"><strong>Ziel:</strong> Weniger Ausfälle und weniger Telefonate.</p>
-          </div>
-          <div class="portfolio-meta"><span class="chip">Web-App</span><span class="chip">Kalender-Sync</span><span class="chip">Erinnerungen</span></div>
-        </div>
-      </article>
-      <article class="portfolio-card" data-reveal data-cat="webdesign" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">Website</span>
-          <span class="lightbox-hint">Details ansehen</span>
-          <picture>
-            <source srcset="{{A}}images/scenario-web.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-web.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>Firmenwebsite für ein Beratungsunternehmen</h3>
-          <div class="portfolio-facts">
-            <p><strong>Ausgangslage:</strong> Die alte Website war einsprachig, langsam und brachte kaum Anfragen.</p>
-            <p><strong>Vorgehen:</strong> Mehrsprachiger Auftritt (DE, EN, HR) mit klaren Wegen zur Anfrage und technischem SEO-Fundament.</p>
-            <p class="portfolio-result"><strong>Ziel:</strong> Mehr passende Anfragen über die Website.</p>
-          </div>
-          <div class="portfolio-meta"><span class="chip">DE · EN · HR</span><span class="chip">Technisches SEO</span><span class="chip">Anfragen</span></div>
-        </div>
-      </article>
-      <article class="portfolio-card" data-reveal data-cat="branding" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">Branding</span>
-          <span class="lightbox-hint">Details ansehen</span>
-          <picture>
-            <source srcset="{{A}}images/scenario-brand.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-brand.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>Markenauftritt für ein Startup</h3>
-          <div class="portfolio-facts">
-            <p><strong>Ausgangslage:</strong> Kurz vor dem Marktstart gab es weder Logo noch einen einheitlichen Auftritt.</p>
-            <p><strong>Vorgehen:</strong> Logo, Design-System und Launch-Website in vier Wochen, rechtzeitig zum Produktstart.</p>
-            <p class="portfolio-result"><strong>Ziel:</strong> Ein fertiger Auftritt zum Launch.</p>
-          </div>
-          <div class="portfolio-meta"><span class="chip">Brand Identity</span><span class="chip">Design-System</span><span class="chip">Launch-Website</span></div>
-        </div>
-      </article>
-      <article class="portfolio-card" data-reveal data-cat="seo" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">SEO</span>
-          <span class="lightbox-hint">Details ansehen</span>
-          <picture>
-            <source srcset="{{A}}images/home-v2-products.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/home-v2-products.png?v={{v}}" alt="" width="1280" height="720" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>Wissensbereich und SEO für einen Bildungsanbieter</h3>
-          <div class="portfolio-facts">
-            <p><strong>Ausgangslage:</strong> Wertvolles Fachwissen lag verstreut auf einzelnen Seiten und war bei Google kaum zu finden.</p>
-            <p><strong>Vorgehen:</strong> Strukturierter Wissens- und Blogbereich mit klarer Content-Architektur und technischem SEO.</p>
-            <p class="portfolio-result"><strong>Ziel:</strong> Fachinhalte, die gefunden werden.</p>
-          </div>
-          <div class="portfolio-meta"><span class="chip">Technisches SEO</span><span class="chip">Content-Architektur</span><span class="chip">Reichweite</span></div>
-        </div>
-      </article>
-      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">KI &amp; Automatisierung</span>
-          <span class="lightbox-hint">Details ansehen</span>
-          <picture>
-            <source srcset="{{A}}images/scenario-chatbot.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-chatbot.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>KI-Chatbot für einen Handwerksbetrieb</h3>
-          <div class="portfolio-facts">
-            <p><strong>Ausgangslage:</strong> Anfragen zu Preisen und Terminen kamen rund um die Uhr, beantwortet werden konnten sie nur zu Bürozeiten.</p>
-            <p><strong>Vorgehen:</strong> Chatbot auf Website und WhatsApp, der Standardfragen beantwortet und dringende Fälle sofort weiterleitet.</p>
-            <p class="portfolio-result"><strong>Ziel:</strong> Rund um die Uhr erreichbar, ohne zusätzliches Personal.</p>
-          </div>
-          <div class="portfolio-meta"><span class="chip">KI-Chatbot</span><span class="chip">WhatsApp</span><span class="chip">Weiterleitung</span></div>
-        </div>
-      </article>
-      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">KI &amp; Automatisierung</span>
-          <span class="lightbox-hint">Details ansehen</span>
-          <picture>
-            <source srcset="{{A}}images/case-automation.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/case-automation.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>KI-Assistent für einen Familienbetrieb</h3>
-          <div class="portfolio-facts">
-            <p><strong>Ausgangslage:</strong> Angebote und Dokumentation kosteten jede Woche Stunden, eine IT-Abteilung gab es nicht.</p>
-            <p><strong>Vorgehen:</strong> Einfach bedienbarer Assistent für Angebote und Doku, eingeführt ohne technisches Vorwissen im Team.</p>
-            <p class="portfolio-result"><strong>Ziel:</strong> Angebote in Minuten statt in Stunden.</p>
-          </div>
-          <div class="portfolio-meta"><span class="chip">KI-Assistent</span><span class="chip">Dokumente</span><span class="chip">Ohne IT-Abteilung</span></div>
-        </div>
-      </article>
-      <article class="portfolio-card" data-reveal data-cat="ai" tabindex="0" role="button" aria-haspopup="dialog">
-        <div class="portfolio-thumb">
-          <span class="cat">KI &amp; Automatisierung</span>
-          <span class="lightbox-hint">Details ansehen</span>
-          <picture>
-            <source srcset="{{A}}images/scenario-process.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-process.png?v={{v}}" alt="" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="portfolio-body">
-          <h3>Prozessautomatisierung für eine Handelskette</h3>
-          <div class="portfolio-facts">
-            <p><strong>Ausgangslage:</strong> Bestandsabgleich und Reporting zwischen mehreren Filialen liefen per Excel und kosteten jede Woche Stunden.</p>
-            <p><strong>Vorgehen:</strong> Automatischer Abgleich der Bestände und ein Bericht, der sich von selbst aktualisiert.</p>
-            <p class="portfolio-result"><strong>Ziel:</strong> Mehrere Stunden weniger Handarbeit pro Woche.</p>
-          </div>
-          <div class="portfolio-meta"><span class="chip">Automatisierung</span><span class="chip">Mehrere Standorte</span><span class="chip">Reporting</span></div>
-        </div>
-      </article>
-    </div>
-    <p class="portfolio-empty" hidden>In diesem Bereich gibt es gerade kein Beispiel.</p>
-    <div class="note-callout" data-reveal>{{icon:shield}}<p>Die Beispiele zeigen typische Ausgangslagen und unser Vorgehen, ohne Namen und ohne vertrauliche Details. Wenn du wissen willst, wie wir bei einem ähnlichen Fall wie deinem vorgehen würden, frag uns im <a href="{{url:contact}}">Erstgespräch</a>.</p></div>
-  </div>
-</section>
-
-<div class="lightbox" id="portfolio-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
-  <div class="lightbox-backdrop" data-lightbox-close></div>
-  <div class="lightbox-panel">
-    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Schließen">{{icon:x}}</button>
-    <div class="lightbox-thumb"></div>
-    <div class="lightbox-body">
-      <span class="cat lightbox-cat"></span>
-      <h3 class="lightbox-title" id="lightbox-title"></h3>
-      <div class="lightbox-text"></div>
-      <div class="portfolio-meta lightbox-meta"></div>
-    </div>
-  </div>
+<section class="studio-hero compact">
+<div class="container">
+<p class="eyebrow">Alle Lösungsbeispiele</p>
+<h1>Konkrete Ideen.<br>
+<em>Für deinen Betrieb.</em>
+</h1>
+<p class="lede">Hier zeigen wir angebotene Leistungen als illustrative Beispiele. Wir veröffentlichen keine Kundennamen, vertraulichen Inhalte oder behaupteten Projektergebnisse.</p>
+<nav class="example-jumps" aria-label="Alle Lösungsbeispiele">
+<a href="#example-1">01 / Website &amp; Anfrage</a>
+<a href="#example-2">02 / KI &amp; Arbeitsabläufe</a>
+<a href="#example-3">03 / Individuelle Web-App</a>
+</nav>
 </div>
-
-<section class="section bg-alt section-cta">
-  <div class="container">
-    <div class="cta-band" data-reveal>
-      <div class="cta-band-copy">
-        <h2>Klingt eins davon nach deinem Betrieb?</h2>
-        <p>Dann lass uns 30 Minuten darüber reden, was bei dir der erste sinnvolle Schritt wäre. Kostenlos und unverbindlich.</p>
-      </div>
-      <div class="cta-band-actions">
-        <a class="btn btn-primary" href="{{url:contact}}">Erstgespräch anfragen</a>
-        <a class="btn btn-ghost" href="{{url:services}}">Leistungen ansehen</a>
-      </div>
-    </div>
-  </div>
+</section>
+<section class="section example-detail" id="example-1">
+<div class="container">
+<div class="case-heading">
+<span class="case-number">01</span>
+<div>
+<p class="eyebrow">Website &amp; Anfrage</p>
+<h2>Eine Website, die den nächsten Schritt leicht macht</h2>
+</div>
+</div>
+<div class="case-layout">
+<div class="case-visual">
+<img class="" src="{{A}}images/scenario-web.webp?v={{v}}" alt="" width="1200" height="675" loading="lazy" decoding="async">
+<p class="example-caption">Illustratives Beispiel · keine Kundendaten</p>
+</div>
+<div class="case-explanation">
+<h3>Typische Ausgangslage</h3>
+<p>Interessenten verstehen das Angebot nicht sofort. Wichtige Angaben fehlen in der ersten Nachricht.</p>
+<h3>Das können wir umsetzen</h3>
+<ul class="deliverables">
+<li>Seitenstruktur, Gestaltung und verständliche Leistungstexte</li>
+<li>Mobiler Anfrageweg mit passenden Formularfeldern</li>
+<li>Technische SEO-Grundlagen und Einführung zur Pflege</li>
+</ul>
+<h3>Wofür die Lösung gedacht ist</h3>
+<p>Ein klarer Weg vom ersten Besuch zur qualifizierten Anfrage.</p>
+<details class="scope-note">
+<summary>Wichtig für die Planung</summary>
+<p>Ein Startpunkt für Dienstleister und lokale Betriebe. Texte, Seitenumfang und Integrationen werden vorab vereinbart.</p>
+</details>
+<a class="btn btn-primary" href="{{url:contact}}?topic=web">Über eine ähnliche Lösung sprechen</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section example-detail" id="example-2">
+<div class="container">
+<div class="case-heading">
+<span class="case-number">02</span>
+<div>
+<p class="eyebrow">KI &amp; Arbeitsabläufe</p>
+<h2>Von der Anfrage zum Angebotsentwurf</h2>
+</div>
+</div>
+<div class="case-layout">
+<div class="case-visual">
+<div class="workflow-demo">
+<div class="demo-bar">
+<span class="demo-dots" aria-hidden="true">● ● ●</span>
+<span>CreationFirst / Studio</span>
+</div>
+<div class="demo-content">
+<p class="example-label">Illustratives Beispiel · keine Kundendaten</p>
+<h2>Eine Anfrage. Ein klarer Ablauf.</h2>
+<div class="demo-inquiry">
+<span class="mini-label">Neue Anfrage</span>
+<b>Website für einen Handwerksbetrieb</b>
+<p>Leistungen zeigen, passende Anfragen erhalten.</p>
+</div>
+<ol class="flow-list">
+<li>
+<span class="flow-number">01</span>
+<div>
+<b>Anfrage erfassen</b>
+<small>Website oder E-Mail</small>
+</div>
+<span class="flow-dot" aria-hidden="true">
+</span>
+</li>
+<li>
+<span class="flow-number">02</span>
+<div>
+<b>Informationen ordnen</b>
+<small>Alles an einem Ort</small>
+</div>
+<span class="flow-dot" aria-hidden="true">
+</span>
+</li>
+<li>
+<span class="flow-number">03</span>
+<div>
+<b>Angebot vorbereiten</b>
+<small>Entwurf für dein Team</small>
+</div>
+<span class="flow-dot" aria-hidden="true">
+</span>
+</li>
+<li>
+<span class="flow-number">04</span>
+<div>
+<b>Persönlich freigeben</b>
+<small>Du behältst die Kontrolle</small>
+</div>
+<span class="flow-dot" aria-hidden="true">
+</span>
+</li>
+</ol>
+<div class="demo-status">
+<span aria-hidden="true">✓</span>Bereit zur Prüfung</div>
+</div>
+<p class="demo-foot">Das Team entscheidet. Die Routine läuft mit.</p>
+</div>
+<p class="example-caption">Illustratives Beispiel · keine Kundendaten</p>
+</div>
+<div class="case-explanation">
+<h3>Typische Ausgangslage</h3>
+<p>Anfragen kommen über mehrere Kanäle. Informationen müssen wiederholt in andere Programme übertragen werden.</p>
+<h3>Das können wir umsetzen</h3>
+<ul class="deliverables">
+<li>Verbindung der vereinbarten Eingangsquellen</li>
+<li>Strukturierte Übersicht und KI-gestützter Angebotsentwurf</li>
+<li>Prüfschritt, Fehlerhinweise und Übergabe an dein Team</li>
+</ul>
+<h3>Wofür die Lösung gedacht ist</h3>
+<p>Weniger doppelte Eingaben; Entscheidungen und Freigaben bleiben beim Menschen.</p>
+<details class="scope-note">
+<summary>Wichtig für die Planung</summary>
+<p>Wir klären zuerst Datenzugriff, Datenschutz und bestehende Software. Ein Entwurf wird niemals ungeprüft als verbindliches Angebot verschickt.</p>
+</details>
+<a class="btn btn-primary" href="{{url:contact}}?topic=ai">Über eine ähnliche Lösung sprechen</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section example-detail" id="example-3">
+<div class="container">
+<div class="case-heading">
+<span class="case-number">03</span>
+<div>
+<p class="eyebrow">Individuelle Web-App</p>
+<h2>Buchungen und Termine an einem Ort</h2>
+</div>
+</div>
+<div class="case-layout">
+<div class="case-visual">
+<img class="" src="{{A}}images/scenario-booking.webp?v={{v}}" alt="" width="1200" height="675" loading="lazy" decoding="async">
+<p class="example-caption">Illustratives Beispiel · keine Kundendaten</p>
+</div>
+<div class="case-explanation">
+<h3>Typische Ausgangslage</h3>
+<p>Terminanfragen werden per Telefon und E-Mail abgestimmt. Ein gemeinsamer Überblick fehlt.</p>
+<h3>Das können wir umsetzen</h3>
+<ul class="deliverables">
+<li>Buchungsoberfläche mit abgestimmten Verfügbarkeiten</li>
+<li>Anbindung an einen bestehenden Kalender, soweit technisch möglich</li>
+<li>Bestätigungen, Erinnerungen und Verwaltungsansicht</li>
+</ul>
+<h3>Wofür die Lösung gedacht ist</h3>
+<p>Eine gemeinsame Terminübersicht statt verteilter Absprachen.</p>
+<details class="scope-note">
+<summary>Wichtig für die Planung</summary>
+<p>Buchungsregeln, Kalender und Benachrichtigungen legen wir vor der Umsetzung fest.</p>
+</details>
+<a class="btn btn-primary" href="{{url:contact}}?topic=app">Über eine ähnliche Lösung sprechen</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container closing-panel">
+<div>
+<p class="eyebrow">CreationFirst</p>
+<h2>Was soll in deinem Betrieb einfacher werden?</h2>
+<p>Erzähl uns kurz davon. Wir melden uns innerhalb von 1–2 Werktagen und klären den nächsten Schritt.</p>
+</div>
+<div class="closing-actions">
+<a class="btn btn-primary" href="{{url:contact}}">Projekt besprechen</a>
+<a class="text-link" href="mailto:info@creationfirst.io">Lieber per E-Mail</a>
+</div>
+</div>
 </section>

@@ -18,7 +18,7 @@
     <div class="contact-form-card" data-reveal>
       <h2>Deine Anfrage</h2>
       <p>Pflichtfelder sind mit <span class="req">*</span> markiert. Je konkreter du schreibst, desto besser können wir uns vorbereiten.</p>
-      <form data-contact-form action="https://creationfirst-chat.creationfirst-wrapd.workers.dev/api/contact" method="POST"
+      <form data-contact-form data-phone-optional="(optional)" data-phone-hint="Optional für Rückfragen. Ohne Nummer antworten wir per E-Mail." action="https://creationfirst-chat.creationfirst-wrapd.workers.dev/api/contact" method="POST"
             data-msg-sending="Wird gesendet …"
             data-msg-ok="Danke! Deine Anfrage ist angekommen. Wir melden uns innerhalb von 1–2 Werktagen bei dir."
             data-msg-err="Das hat leider nicht geklappt. Bitte versuch es noch einmal oder schreib direkt an info@creationfirst.io."
@@ -27,15 +27,15 @@
         <div class="form-grid">
           <div class="form-field">
             <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
-            <input type="text" id="name" name="name" required autocomplete="name">
+            <input type="text" id="name" name="name" maxlength="200" required autocomplete="name">
           </div>
           <div class="form-field">
             <label for="email">E-Mail <span class="req" aria-hidden="true">*</span></label>
-            <input type="email" id="email" name="email" required autocomplete="email" inputmode="email">
+            <input type="email" id="email" name="email" maxlength="320" required autocomplete="email" inputmode="email">
           </div>
           <div class="form-field">
             <label for="phone">Telefon <span class="req" aria-hidden="true">*</span></label>
-            <input type="tel" id="phone" name="phone" required minlength="5" autocomplete="tel" inputmode="tel" placeholder="+49 … oder +385 …" aria-describedby="phone-hint">
+            <input type="tel" id="phone" name="phone" maxlength="40" required minlength="5" autocomplete="tel" inputmode="tel" placeholder="+49 … oder +385 …" aria-describedby="phone-hint">
             <p class="field-hint" id="phone-hint">Für kurze Rückfragen zur Terminabstimmung.</p>
           </div>
           <div class="form-field">
@@ -45,18 +45,13 @@
           <div class="form-field">
             <label for="service">Worum geht es?</label>
             <select id="service" name="service">
-              <option data-topic="call">Kostenloses Erstgespräch</option>
-              <option data-topic="analysis">Kurzanalyse</option>
-              <option data-topic="audit">KI-Audit</option>
-              <option data-topic="sprint">Umsetzungs-Sprint</option>
-              <option data-topic="retainer">Laufende Betreuung</option>
-              <option data-topic="web">Website / Homepage</option>
-              <option data-topic="app">App / Software</option>
-              <option data-topic="ai">KI &amp; Automatisierung</option>
-              <option data-topic="shop">Online-Shop</option>
-              <option data-topic="seo">SEO / Branding</option>
-              <option data-topic="other">Noch unklar / Sonstiges</option>
-            </select>
+<option data-topic="call">Noch offen / Erstgespräch</option>
+<option data-topic="web">Website oder Online-Shop</option>
+<option data-topic="ai">Abläufe automatisieren</option>
+<option data-topic="app">Individuelles Tool / App</option>
+<option data-topic="retainer">Bestehendes verbessern</option>
+<option data-topic="other">Etwas anderes</option>
+</select>
           </div>
           <div class="form-field">
             <label for="budget">Ungefähres Budget</label>
@@ -70,7 +65,7 @@
           </div>
           <div class="form-field full">
             <label for="message">Nachricht <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="message" name="message" required placeholder="Was soll besser werden? Was nutzt ihr heute? Gibt es einen Zeitrahmen?"></textarea>
+            <textarea id="message" name="message" maxlength="5000" required placeholder="Was soll besser werden? Was nutzt ihr heute? Gibt es einen Zeitrahmen?"></textarea>
           </div>
         </div>
         <input class="hp-field" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -139,6 +134,6 @@
         <div class="faq-a"><div class="faq-a-inner">Ja. 30 Minuten, kostenlos und unverbindlich. Du bekommst eine ehrliche Einschätzung, auch wenn wir nicht die Richtigen für dein Vorhaben sind.</div></div>
       </div>
     </div>
-    <p class="faq-after" data-reveal>Nur eine kurze Frage? Der Chat unten rechts antwortet sofort.</p>
+    <p class="faq-after">Eine kurze Frage? Schreib uns direkt an <a href="mailto:info@creationfirst.io">info@creationfirst.io</a>.</p>
   </div>
 </section>

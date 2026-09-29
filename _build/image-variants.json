@@ -1,0 +1,520 @@
+{
+  "bau-handwerk-ablauf": [
+    {
+      "file": "responsive/bau-handwerk-ablauf-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 32248
+    },
+    {
+      "file": "responsive/bau-handwerk-ablauf-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 72000
+    }
+  ],
+  "bau-handwerk-hero": [
+    {
+      "file": "responsive/bau-handwerk-hero-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 23690
+    },
+    {
+      "file": "responsive/bau-handwerk-hero-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 48820
+    }
+  ],
+  "bau-handwerk-website": [
+    {
+      "file": "responsive/bau-handwerk-website-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 36208
+    },
+    {
+      "file": "responsive/bau-handwerk-website-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 82460
+    }
+  ],
+  "case-automation": [
+    {
+      "file": "responsive/case-automation-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 26884
+    },
+    {
+      "file": "responsive/case-automation-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 65750
+    }
+  ],
+  "gastronomie-hotels-ablauf": [
+    {
+      "file": "responsive/gastronomie-hotels-ablauf-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 13856
+    },
+    {
+      "file": "responsive/gastronomie-hotels-ablauf-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 31924
+    }
+  ],
+  "gastronomie-hotels-followup": [
+    {
+      "file": "responsive/gastronomie-hotels-followup-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 15124
+    },
+    {
+      "file": "responsive/gastronomie-hotels-followup-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 31548
+    }
+  ],
+  "gastronomie-hotels-hero": [
+    {
+      "file": "responsive/gastronomie-hotels-hero-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 20854
+    },
+    {
+      "file": "responsive/gastronomie-hotels-hero-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 45872
+    }
+  ],
+  "gastronomie-hotels-process": [
+    {
+      "file": "responsive/gastronomie-hotels-process-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 17988
+    },
+    {
+      "file": "responsive/gastronomie-hotels-process-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 37912
+    }
+  ],
+  "gastronomie-hotels-service": [
+    {
+      "file": "responsive/gastronomie-hotels-service-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 20466
+    },
+    {
+      "file": "responsive/gastronomie-hotels-service-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 45912
+    }
+  ],
+  "gastronomie-hotels-website": [
+    {
+      "file": "responsive/gastronomie-hotels-website-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 22168
+    },
+    {
+      "file": "responsive/gastronomie-hotels-website-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 48700
+    }
+  ],
+  "immobilien-makler-ablauf": [
+    {
+      "file": "responsive/immobilien-makler-ablauf-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 21414
+    },
+    {
+      "file": "responsive/immobilien-makler-ablauf-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 45866
+    }
+  ],
+  "immobilien-makler-followup": [
+    {
+      "file": "responsive/immobilien-makler-followup-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 13560
+    },
+    {
+      "file": "responsive/immobilien-makler-followup-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 29522
+    }
+  ],
+  "immobilien-makler-hero": [
+    {
+      "file": "responsive/immobilien-makler-hero-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 22098
+    },
+    {
+      "file": "responsive/immobilien-makler-hero-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 50500
+    }
+  ],
+  "immobilien-makler-process": [
+    {
+      "file": "responsive/immobilien-makler-process-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 18362
+    },
+    {
+      "file": "responsive/immobilien-makler-process-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 36792
+    }
+  ],
+  "immobilien-makler-service": [
+    {
+      "file": "responsive/immobilien-makler-service-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 19754
+    },
+    {
+      "file": "responsive/immobilien-makler-service-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 44738
+    }
+  ],
+  "immobilien-makler-website": [
+    {
+      "file": "responsive/immobilien-makler-website-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 18436
+    },
+    {
+      "file": "responsive/immobilien-makler-website-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 40126
+    }
+  ],
+  "page-hero-ai": [
+    {
+      "file": "responsive/page-hero-ai-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 8268
+    },
+    {
+      "file": "responsive/page-hero-ai-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 17514
+    }
+  ],
+  "page-hero-services": [
+    {
+      "file": "responsive/page-hero-services-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 23066
+    },
+    {
+      "file": "responsive/page-hero-services-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 56796
+    }
+  ],
+  "praxen-lokale-services-ablauf": [
+    {
+      "file": "responsive/praxen-lokale-services-ablauf-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 17036
+    },
+    {
+      "file": "responsive/praxen-lokale-services-ablauf-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 35880
+    }
+  ],
+  "praxen-lokale-services-followup": [
+    {
+      "file": "responsive/praxen-lokale-services-followup-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 12848
+    },
+    {
+      "file": "responsive/praxen-lokale-services-followup-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 27318
+    }
+  ],
+  "praxen-lokale-services-hero": [
+    {
+      "file": "responsive/praxen-lokale-services-hero-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 16328
+    },
+    {
+      "file": "responsive/praxen-lokale-services-hero-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 34316
+    }
+  ],
+  "praxen-lokale-services-process": [
+    {
+      "file": "responsive/praxen-lokale-services-process-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 17326
+    },
+    {
+      "file": "responsive/praxen-lokale-services-process-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 36448
+    }
+  ],
+  "praxen-lokale-services-service": [
+    {
+      "file": "responsive/praxen-lokale-services-service-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 19980
+    },
+    {
+      "file": "responsive/praxen-lokale-services-service-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 43326
+    }
+  ],
+  "praxen-lokale-services-website": [
+    {
+      "file": "responsive/praxen-lokale-services-website-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 12762
+    },
+    {
+      "file": "responsive/praxen-lokale-services-website-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 27600
+    }
+  ],
+  "sanitaer-elektro-klima-ablauf": [
+    {
+      "file": "responsive/sanitaer-elektro-klima-ablauf-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 25198
+    },
+    {
+      "file": "responsive/sanitaer-elektro-klima-ablauf-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 54348
+    }
+  ],
+  "sanitaer-elektro-klima-followup": [
+    {
+      "file": "responsive/sanitaer-elektro-klima-followup-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 19950
+    },
+    {
+      "file": "responsive/sanitaer-elektro-klima-followup-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 48744
+    }
+  ],
+  "sanitaer-elektro-klima-hero": [
+    {
+      "file": "responsive/sanitaer-elektro-klima-hero-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 26798
+    },
+    {
+      "file": "responsive/sanitaer-elektro-klima-hero-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 60006
+    }
+  ],
+  "sanitaer-elektro-klima-process": [
+    {
+      "file": "responsive/sanitaer-elektro-klima-process-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 20034
+    },
+    {
+      "file": "responsive/sanitaer-elektro-klima-process-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 41340
+    }
+  ],
+  "sanitaer-elektro-klima-service": [
+    {
+      "file": "responsive/sanitaer-elektro-klima-service-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 16832
+    },
+    {
+      "file": "responsive/sanitaer-elektro-klima-service-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 35512
+    }
+  ],
+  "sanitaer-elektro-klima-website": [
+    {
+      "file": "responsive/sanitaer-elektro-klima-website-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 23950
+    },
+    {
+      "file": "responsive/sanitaer-elektro-klima-website-1200.webp",
+      "width": 1200,
+      "height": 675,
+      "bytes": 52402
+    }
+  ],
+  "scenario-assist": [
+    {
+      "file": "responsive/scenario-assist-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 17036
+    },
+    {
+      "file": "responsive/scenario-assist-1200.webp",
+      "width": 1199,
+      "height": 675,
+      "bytes": 39930
+    }
+  ],
+  "scenario-booking": [
+    {
+      "file": "responsive/scenario-booking-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 15664
+    },
+    {
+      "file": "responsive/scenario-booking-1200.webp",
+      "width": 1199,
+      "height": 675,
+      "bytes": 34016
+    }
+  ],
+  "scenario-brand": [
+    {
+      "file": "responsive/scenario-brand-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 20968
+    },
+    {
+      "file": "responsive/scenario-brand-1200.webp",
+      "width": 1199,
+      "height": 675,
+      "bytes": 54668
+    }
+  ],
+  "scenario-chatbot": [
+    {
+      "file": "responsive/scenario-chatbot-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 17036
+    },
+    {
+      "file": "responsive/scenario-chatbot-1200.webp",
+      "width": 1199,
+      "height": 675,
+      "bytes": 39930
+    }
+  ],
+  "scenario-process": [
+    {
+      "file": "responsive/scenario-process-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 18586
+    },
+    {
+      "file": "responsive/scenario-process-1200.webp",
+      "width": 1199,
+      "height": 675,
+      "bytes": 43352
+    }
+  ],
+  "scenario-shop": [
+    {
+      "file": "responsive/scenario-shop-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 30150
+    },
+    {
+      "file": "responsive/scenario-shop-1200.webp",
+      "width": 1199,
+      "height": 675,
+      "bytes": 84526
+    }
+  ],
+  "scenario-web": [
+    {
+      "file": "responsive/scenario-web-640.webp",
+      "width": 640,
+      "height": 360,
+      "bytes": 15478
+    },
+    {
+      "file": "responsive/scenario-web-1200.webp",
+      "width": 1199,
+      "height": 675,
+      "bytes": 32752
+    }
+  ]
+}
