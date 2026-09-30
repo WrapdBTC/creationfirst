@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC = os.path.join(HERE, "src")
 BASE = "https://wrapdbtc.github.io/creationfirst/"
-VER = "20260930-1"
+VER = "20260930-2"
 YEAR = "2026"
 EMAIL = "info@creationfirst.io"
 PHONE_HREF = "+491621717423"
@@ -67,16 +67,16 @@ T = {
  "de": {
   "skip": "Zum Inhalt springen", "home_aria": "CreationFirst, zur Startseite",
   "nav_aria": "Hauptnavigation", "menu": "Menü", "theme": "Hell oder dunkel",
-  "nav": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("portfolio", "Beispiele"),
+  "nav": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("portfolio", "Lösungen"),
           ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
   "nav_mobile": [],
   "cta": "Erstgespräch anfragen", "cta_short": "Erstgespräch",
   "lang_label": "Sprache wählen",
-  "blurb": "Websites, Apps und KI-Automatisierung für kleine und mittlere Unternehmen. Ein kleines Team aus Split, remote für den DACH-Raum und Kroatien.",
+  "blurb": "Websites, Apps und Automatisierung für kleine und mittlere Unternehmen. Ein kleines Team, ein gemeinsamer Anspruch: Lösungen, die im Alltag funktionieren.",
   "f_offer": "Angebot", "f_company": "CreationFirst", "f_contact": "Kontakt",
   "f_offer_links": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("services#zusammenarbeit", "So arbeiten wir"),
                     ("services#kurzanalyse", "Kurzanalyse"), ("trades", "Bau & Handwerk"), ("hospitality", "Gastronomie & Hotels"), ("field_services", "Sanitär, Elektro & Klima"), ("practices", "Praxen & lokale Services"), ("realestate", "Immobilien & Makler")],
-  "f_company_links": [("portfolio", "Lösungsbeispiele"), ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
+  "f_company_links": [("portfolio", "Lösungen"), ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
   "place": "Split, Kroatien", "hours": "Mo–Fr, 9–17 Uhr", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Impressum", "privacy": "Datenschutz",
   "sticky_title": "Erstgespräch", "sticky_sub": "kostenlos · 30 Min.", "sticky_btn": "Anfragen",
@@ -88,16 +88,16 @@ T = {
  "en": {
   "skip": "Skip to content", "home_aria": "CreationFirst, home",
   "nav_aria": "Main navigation", "menu": "Menu", "theme": "Light or dark",
-  "nav": [("services", "Services"), ("ai", "AI automation"), ("portfolio", "Examples"),
+  "nav": [("services", "Services"), ("ai", "AI automation"), ("portfolio", "Solutions"),
           ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
   "nav_mobile": [],
   "cta": "Book a free call", "cta_short": "Free call",
   "lang_label": "Choose language",
-  "blurb": "Websites, apps and AI automation for small and mid-sized businesses. A small team in Split, working remotely across the DACH region and Croatia.",
+  "blurb": "Websites, apps and automation for small and mid-sized businesses. A small team with a shared focus: solutions that work in everyday business.",
   "f_offer": "Offer", "f_company": "CreationFirst", "f_contact": "Contact",
   "f_offer_links": [("services", "Services"), ("ai", "AI automation"), ("services#working-together", "How we work"),
                     ("services#quick-analysis", "Quick analysis"), ("trades", "Construction & trades"), ("hospitality", "Hospitality"), ("field_services", "Plumbing, electrical & HVAC"), ("practices", "Practices & local services"), ("realestate", "Real estate")],
-  "f_company_links": [("portfolio", "Example solutions"), ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
+  "f_company_links": [("portfolio", "Solutions"), ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
   "place": "Split, Croatia", "hours": "Mon–Fri, 9 am–5 pm CET", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Legal notice", "privacy": "Privacy",
   "sticky_title": "Intro call", "sticky_sub": "free · 30 min", "sticky_btn": "Book",
@@ -109,16 +109,16 @@ T = {
  "hr": {
   "skip": "Preskoči na sadržaj", "home_aria": "CreationFirst, početna",
   "nav_aria": "Glavna navigacija", "menu": "Izbornik", "theme": "Svijetlo ili tamno",
-  "nav": [("services", "Usluge"), ("ai", "AI automatizacija"), ("portfolio", "Primjeri"),
+  "nav": [("services", "Usluge"), ("ai", "AI automatizacija"), ("portfolio", "Rješenja"),
           ("playground", "Igra"), ("about", "O nama"), ("contact", "Kontakt")],
   "nav_mobile": [],
   "cta": "Zatraži razgovor", "cta_short": "Razgovor",
   "lang_label": "Odaberi jezik",
-  "blurb": "Web stranice, aplikacije i AI automatizacija za mala i srednja poduzeća. Mali tim iz Splita, na daljinu za DACH regiju i Hrvatsku.",
+  "blurb": "Web-stranice, aplikacije i automatizacija za mala i srednja poduzeća. Mali tim s zajedničkim ciljem: rješenja koja funkcioniraju u svakodnevnom radu.",
   "f_offer": "Ponuda", "f_company": "CreationFirst", "f_contact": "Kontakt",
   "f_offer_links": [("services", "Usluge"), ("ai", "AI automatizacija"), ("services#suradnja", "Kako radimo"),
                     ("services#kratka-analiza", "Kratka analiza"), ("trades", "Građevina i obrt"), ("hospitality", "Ugostiteljstvo i hoteli"), ("field_services", "Instalacije, elektro i klima"), ("practices", "Ordinacije i lokalne usluge"), ("realestate", "Nekretnine")],
-  "f_company_links": [("portfolio", "Primjeri rješenja"), ("playground", "Igra"), ("about", "O nama"), ("contact", "Kontakt")],
+  "f_company_links": [("portfolio", "Rješenja"), ("playground", "Igra"), ("about", "O nama"), ("contact", "Kontakt")],
   "place": "Split, Hrvatska", "hours": "pon–pet, 9–17 h", "langs_line": "Deutsch · English · Hrvatski",
   "rights": "CreationFirst", "imprint": "Impresum", "privacy": "Privatnost",
   "sticky_title": "Uvodni razgovor", "sticky_sub": "besplatno · 30 min", "sticky_btn": "Zatraži",
@@ -505,7 +505,6 @@ def footer(page, lang):
         <ul>
           <li><a href="mailto:%(email)s">%(email)s</a></li>
           <li><a href="tel:%(phone_href)s">%(phone)s</a></li>
-          <li>%(place)s</li>
           <li>%(hours)s</li>
         </ul>
       </div>
