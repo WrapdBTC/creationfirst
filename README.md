@@ -25,7 +25,7 @@ Dazu: `404.html` (eigenständig, funktioniert unter `/creationfirst/` und auf ei
 
 ## 2. Angebot (bewusst ohne Preisschilder)
 
-Hauptmenü: Leistungen, KI-Automatisierung, Beispiele, Über uns, Kontakt. Playground bleibt im Footer. Jeder Punkt ist eine
+Hauptmenü: Leistungen, KI-Automatisierung, Beispiele, Playground, Über uns, Kontakt. Jeder Punkt ist eine
 eigene Seite.
 
 Ablauf auf der Website: kostenloses Erstgespräch, optional Kurzanalyse (199 €, wird bei Beauftragung

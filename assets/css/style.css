@@ -1483,3 +1483,7 @@ html:not(.js) [data-reveal] { opacity: 1; transform: none; }
  .section-contact { padding-top: 24px; }
  .contact-form-card { padding: 24px; }
 }
+
+/* Founder portrait supports the team introduction without replacing it. */
+.person-signature .founder-photo { width: 240px; max-width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 14px; margin-bottom: 18px; }
+@media (max-width: 680px) { .person-signature .founder-photo { width: 210px; } }

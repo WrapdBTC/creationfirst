@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC = os.path.join(HERE, "src")
 BASE = "https://wrapdbtc.github.io/creationfirst/"
-VER = "20260929-1"
+VER = "20260930-1"
 YEAR = "2026"
 EMAIL = "info@creationfirst.io"
 PHONE_HREF = "+491621717423"
@@ -68,7 +68,7 @@ T = {
   "skip": "Zum Inhalt springen", "home_aria": "CreationFirst, zur Startseite",
   "nav_aria": "Hauptnavigation", "menu": "Menü", "theme": "Hell oder dunkel",
   "nav": [("services", "Leistungen"), ("ai", "KI-Automatisierung"), ("portfolio", "Beispiele"),
-          ("about", "Über uns"), ("contact", "Kontakt")],
+          ("playground", "Playground"), ("about", "Über uns"), ("contact", "Kontakt")],
   "nav_mobile": [],
   "cta": "Erstgespräch anfragen", "cta_short": "Erstgespräch",
   "lang_label": "Sprache wählen",
@@ -89,7 +89,7 @@ T = {
   "skip": "Skip to content", "home_aria": "CreationFirst, home",
   "nav_aria": "Main navigation", "menu": "Menu", "theme": "Light or dark",
   "nav": [("services", "Services"), ("ai", "AI automation"), ("portfolio", "Examples"),
-          ("about", "About"), ("contact", "Contact")],
+          ("playground", "Playground"), ("about", "About"), ("contact", "Contact")],
   "nav_mobile": [],
   "cta": "Book a free call", "cta_short": "Free call",
   "lang_label": "Choose language",
@@ -110,7 +110,7 @@ T = {
   "skip": "Preskoči na sadržaj", "home_aria": "CreationFirst, početna",
   "nav_aria": "Glavna navigacija", "menu": "Izbornik", "theme": "Svijetlo ili tamno",
   "nav": [("services", "Usluge"), ("ai", "AI automatizacija"), ("portfolio", "Primjeri"),
-          ("about", "O nama"), ("contact", "Kontakt")],
+          ("playground", "Igra"), ("about", "O nama"), ("contact", "Kontakt")],
   "nav_mobile": [],
   "cta": "Zatraži razgovor", "cta_short": "Razgovor",
   "lang_label": "Odaberi jezik",
@@ -562,7 +562,7 @@ def build_page(page, lang):
              ftr, "", flt, "", scripts(page, lang), "</body>", "</html>", ""]
     return "\n".join(line.rstrip() for part in parts for line in part.split("\n"))
 
-SITEMAP_DATE = "2026-09-29"
+SITEMAP_DATE = "2026-09-30"
 def sitemap():
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
