@@ -4,6 +4,8 @@
  */
 
 const ALLOWED_ORIGINS = [
+  "https://creationfirst.io",
+  "https://www.creationfirst.io",
   "https://wrapdbtc.github.io",
   "http://localhost",
   "http://localhost:5500",
@@ -98,7 +100,9 @@ function corsHeaders(request) {
     ALLOWED_ORIGINS.includes(origin) ||
     origin.startsWith("http://localhost") ||
     origin.startsWith("http://127.0.0.1") ||
-    origin === "https://wrapdbtc.github.io"
+    origin === "https://wrapdbtc.github.io" ||
+    origin === "https://creationfirst.io" ||
+    origin === "https://www.creationfirst.io"
       ? origin || "*"
       : ALLOWED_ORIGINS[0];
 
@@ -374,7 +378,7 @@ async function notifyContactDiscord(env, data) {
   };
   return postDiscord(env, {
     username: "CreationFirst Kontakt",
-    avatar_url: "https://wrapdbtc.github.io/creationfirst/assets/images/discord-avatar.png",
+    avatar_url: "https://creationfirst.io/assets/images/discord-avatar.png",
     embeds: [embed],
   });
 }
@@ -400,7 +404,7 @@ async function notifyChatLeadDiscord(env, data) {
   };
   return postDiscord(env, {
     username: "CreationFirst Chat",
-    avatar_url: "https://wrapdbtc.github.io/creationfirst/assets/images/discord-avatar.png",
+    avatar_url: "https://creationfirst.io/assets/images/discord-avatar.png",
     embeds: [embed],
   });
 }

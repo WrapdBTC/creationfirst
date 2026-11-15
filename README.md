@@ -73,7 +73,7 @@ Deploy nach Worker-Änderungen: `cd chat-relay && npx wrangler deploy`.
   Startseite, `FAQPage` überall dort, wo ein FAQ steht
 - `sitemap.xml` mit allen 30 URLs und hreflang-Alternates
 
-Bei eigener Domain: Basis-URL `https://wrapdbtc.github.io/creationfirst/` in allen HTML-Dateien und in
+Eigene Domain seit 15.11.2026: `https://creationfirst.io/` (Datei `CNAME`, `BASE` in `_build/build.py`). Basis-URL steht in allen HTML-Dateien und in
 `sitemap.xml`/`robots.txt` ersetzen.
 
 ## 6. Wichtig zum alten Generator

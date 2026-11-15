@@ -16,7 +16,7 @@ import html, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC = os.path.join(HERE, "src")
-BASE = "https://wrapdbtc.github.io/creationfirst/"
+BASE = "https://creationfirst.io/"
 VER = "20260930-2"
 YEAR = "2026"
 EMAIL = "info@creationfirst.io"
