@@ -43,6 +43,8 @@ Angebots-Buttons verlinken auf das Kontaktformular mit Vorauswahl, z. B. `kontak
 
 ## 3. Kontaktformular & Live-Chat
 
+Stand 15.11.2026: Das **Kontaktformular** sendet per FormSubmit (`https://formsubmit.co/ajax/info@creationfirst.io`) direkt als E-Mail an info@creationfirst.io (Weiterleitung bei Porkbun an web.de). Der **Live-Chat** ist ausgeschaltet (`assets/js/site-chat-config.js` leer), bis der Worker mit den neuen Origins für creationfirst.io deployed ist; danach die Worker-URL dort wieder eintragen. Der Abschnitt unten beschreibt den früheren Worker-Weg.
+
 Beide laufen über den Cloudflare Worker in `chat-relay/`
 (`https://creationfirst-chat.creationfirst-wrapd.workers.dev`). Das Formular sendet dieselben Felder wie
 bisher (`name`, `email`, `phone`, `company`, `budget`, `service`, `message`, `_gotcha`). Der neue Worker erlaubt Anfragen ohne Telefon. Die Website prüft per GET /api/contact, ob dieser Stand bereits deployed ist; bis dahin bleibt Telefon erforderlich. Anfragen landen per Discord-Webhook, Secrets liegen in Wrangler.

@@ -378,6 +378,7 @@
   input.addEventListener("input", autoSize);
 
   if (!api) {
+    root.style.display = "none";
     root.classList.add("is-disabled");
     launcher.setAttribute("aria-label", t.unavailable);
     setDisabled(true, t.unavailableHint);

@@ -212,11 +212,12 @@
     var serviceSelect = form.querySelector("#service");
     // Progressive enhancement: never allow requests the deployed relay would reject.
     var contactEndpoint = form.getAttribute("action");
+    var isFormSubmit = /formsubmit\.co/.test(contactEndpoint || "");
     if (contactEndpoint) {
-      fetch(contactEndpoint, { credentials: "omit" }).then(function (res) {
+      (isFormSubmit ? Promise.resolve({ phoneOptional: true }) : fetch(contactEndpoint, { credentials: "omit" }).then(function (res) {
         if (!res.ok) throw new Error("Capability unavailable");
         return res.json();
-      }).then(function (capabilities) {
+      })).then(function (capabilities) {
         if (capabilities.phoneOptional !== true) return;
         var phone = form.querySelector("#phone");
         phone.required = false;
@@ -264,6 +265,13 @@
       }
       setStatus(form.getAttribute("data-msg-sending") || "…");
       if (btn) btn.disabled = true;
+      if (isFormSubmit) {
+        if (payload._gotcha) { setStatus(form.getAttribute("data-msg-ok") || "", true); form.reset(); return; }
+        delete payload._gotcha;
+        payload._subject = "Neue Anfrage über creationfirst.io: " + (payload.name || "");
+        payload._template = "table";
+        payload._captcha = "false";
+      }
       fetch(action, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
@@ -272,7 +280,8 @@
       }).then(function (res) {
         if (!res.ok) throw new Error("status " + res.status);
         return res.json().catch(function () { return { ok: true }; });
-      }).then(function () {
+      }).then(function (data) {
+        if (data && (data.success === false || data.success === "false")) throw new Error("not delivered");
         setStatus(form.getAttribute("data-msg-ok") || "", true);
         form.reset();
       }).catch(function () {
