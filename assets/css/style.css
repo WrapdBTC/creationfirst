@@ -1415,6 +1415,7 @@ html:not(.js) [data-reveal] { opacity: 1; transform: none; }
 .person-signature > b { font-size: 1.2rem; }
 .person-signature > span:not(.monogram), .person-signature small { color: var(--color-text-muted); }
 .person-signature small { margin-top: 10px; }
+.person-signature .founder-linkedin { margin-top: 8px; font-size: .92rem; }
 .process-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
 .process-strip li { border-top: 1px solid var(--color-border-strong); padding-top: 20px; }
 .process-strip li > span { color: var(--color-primary-text); font-size: .8rem; }

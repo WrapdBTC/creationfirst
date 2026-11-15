@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC = os.path.join(HERE, "src")
 BASE = "https://creationfirst.io/"
-VER = "20260930-2"
+VER = "20261115-1"
 YEAR = "2026"
 EMAIL = "info@creationfirst.io"
 PHONE_HREF = "+491621717423"
@@ -285,7 +285,7 @@ def org_jsonld():
                   "postalCode": "21000", "addressLocality": "Split", "addressCountry": "HR"},
       "areaServed": ["DE", "AT", "CH", "HR"],
       "knowsLanguage": ["de", "en", "hr"],
-      "founder": {"@type": "Person", "name": "Pierre Schulteis"},
+      "founder": {"@type": "Person", "name": "Pierre Schulteis", "sameAs": ["https://www.linkedin.com/in/pierre-schulteis-298932184/"]},
       "priceRange": "€€",
     }
 
@@ -505,6 +505,7 @@ def footer(page, lang):
         <ul>
           <li><a href="mailto:%(email)s">%(email)s</a></li>
           <li><a href="tel:%(phone_href)s">%(phone)s</a></li>
+          <li><a href="https://www.linkedin.com/in/pierre-schulteis-298932184/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li>%(hours)s</li>
         </ul>
       </div>
