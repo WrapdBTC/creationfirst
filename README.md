@@ -97,3 +97,15 @@ Inhalte in `_build/src/` bearbeiten und anschließend `python3 _build/build.py` 
 Prüfung: `python3 tests/site_structure.py` und `node tests/contact-relay.mjs`. Backend-Tests simulieren die Zustellung vollständig, ohne Nachrichten zu senden.
 
 GitHub Pages veröffentlicht nur die Website. Der geänderte Cloudflare Worker muss separat mit Wrangler deployed werden. Sein GET `/api/contact` liefert danach `{ "phoneOptional": true }`; die Website schaltet die optionale Telefonnummer erst nach diesem Signal frei.
+
+## Umbau November 2026
+
+- **Startseite (DE/EN/HR):** Hero mit Live-Simulation, Branchenleiste, Quer-Galerie mit sechs Beispielen, Zeitrechner, Preis-Hinweise im Ablauf.
+- **Beispiele (eines je Leistung):** `demos/elektro/`, `demos/restaurant/`, `demos/makler/`, `demos/shop/`, `demos/marke/`, `demos/betreuung/`.
+  Eigenständige Seiten, nicht Teil des Builds, immer `noindex`, in DE/EN/HR über `?lang=en|hr`. Sie öffnen sich auf der Seite als Popup.
+- **Schrift:** Bricolage Grotesque (SIL OFL), selbst gehostet in `assets/fonts/`.
+- **Styles:** Abschnitte 19 bis 23 am Ende von `assets/css/style.css` (Next, Bewegung, Scroll-Effekte, Popup, Szenen).
+- **Skripte:** `assets/js/hero-demo.js`; Zusätze am Ende von `assets/js/main.js` (Vorschau-Rahmen, Lichtkegel, Scroll-Effekte, Popup).
+- **Build:** `DEMO=1 python3 _build/build.py` baut eine Vorschau mit `noindex` und Hinweisleiste. Ohne `DEMO=1` entsteht der Live-Stand.
+  `VER` in `_build/build.py` bei jeder Änderung an CSS oder JS erhöhen, sonst behalten Browser die alten Dateien.
+- **Vorschau-Repo:** `WrapdBTC/creationfirst-demo` (GitHub Pages), dort wird zuerst gebaut und geprüft.

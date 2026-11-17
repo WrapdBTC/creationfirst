@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gasthaus Linde – Beispielseite von CreationFirst</title>
+<meta name="description" content="Beispiel: Website eines Gasthauses mit Tischreservierung. Gebaut von CreationFirst.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1f3a2d">
+<link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+<style>
+:root { --green: #1f3a2d; --green-2: #2c5140; --cream: #f6f0e4; --paper: #fffaf0; --ink: #1d1b16; --muted: #6a6355; --line: #e2d8c3; --gold: #b8863b; --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif; --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { margin: 0; font-family: var(--sans); font-size: 17px; line-height: 1.6; color: var(--ink); background: var(--cream); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.08; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 40px); }
+
+.demo-bar { background: #1b1f3a; color: #e8eaf6; font-size: 13px; padding: 8px 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: center; text-align: center; }
+.demo-bar a { color: #fff; font-weight: 700; }
+.is-preview .demo-bar { display: none; }
+.demo-bar .langs a { font-weight: 600; text-decoration: none; opacity: .75; }
+.demo-bar .langs a[aria-current] { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+
+.top { position: sticky; top: 0; z-index: 10; background: rgba(246, 240, 228, .92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-size: 1.35rem; text-decoration: none; color: var(--green); }
+.logo svg { width: 30px; height: 30px; }
+.top nav { display: flex; gap: 28px; font-size: 15px; }
+.top nav a { text-decoration: none; color: var(--muted); }
+.top nav a:hover { color: var(--green); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 26px; border-radius: 999px; border: 1px solid var(--green); background: var(--green); color: var(--cream); font-weight: 600; text-decoration: none; transition: background-color .2s ease, transform .2s ease; }
+.btn:hover { background: var(--green-2); transform: translateY(-1px); }
+.btn:disabled { opacity: .4; cursor: default; transform: none; }
+.btn.ghost { background: transparent; color: var(--green); }
+.top .btn { min-height: 40px; padding: 8px 20px; font-size: 15px; }
+
+.hero { background: var(--green); color: var(--cream); position: relative; overflow: hidden; }
+.hero .wrap { padding-top: clamp(56px, 9vw, 130px); padding-bottom: clamp(56px, 9vw, 130px); position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.hero svg.leaf { position: absolute; right: -60px; bottom: -80px; width: 520px; opacity: .13; pointer-events: none; }
+.kicker { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: #d9b877; margin-bottom: 22px; display: block; }
+.hero h1 { font-size: clamp(3rem, 8vw, 6.4rem); }
+.hero h1 em { font-style: italic; color: #d9b877; }
+.hero .lede { margin: 26px 0 34px; font-size: clamp(1.08rem, 1.6vw, 1.3rem); max-width: 30em; color: #dfd8c6; }
+.hero .btn { background: var(--cream); color: var(--green); border-color: var(--cream); }
+.hero .btn:hover { background: #fff; }
+.hero .btn.ghost { background: transparent; color: var(--cream); border-color: rgba(246, 240, 228, .45); margin-left: 10px; }
+.today { background: rgba(255, 250, 240, .08); border: 1px solid rgba(246, 240, 228, .25); border-radius: 18px; padding: 26px 28px; }
+.today h2 { font-size: 1.5rem; margin-bottom: 14px; }
+.today ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.today li { display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px dotted rgba(246, 240, 228, .3); padding-bottom: 10px; font-size: 16px; }
+.today li:last-child { border: 0; padding: 0; }
+.today li span:last-child { color: #d9b877; white-space: nowrap; }
+
+section { padding: clamp(56px, 8vw, 104px) 0; }
+.head { max-width: 640px; margin: 0 auto 40px; text-align: center; }
+.head h2 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); }
+.head p { margin-top: 14px; color: var(--muted); }
+.menu { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px); }
+.menu h3 { font-size: 1.5rem; font-style: italic; color: var(--green); padding-bottom: 12px; border-bottom: 1px solid var(--line); margin-bottom: 16px; }
+.dish { display: grid; grid-template-columns: 1fr auto; gap: 2px 14px; margin-bottom: 16px; }
+.dish b { font-weight: 600; }
+.dish span { color: var(--green); font-variant-numeric: tabular-nums; }
+.dish small { grid-column: 1 / -1; color: var(--muted); font-size: 14.5px; }
+
+.book { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.book-card { max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: clamp(20px, 4vw, 40px); box-shadow: 0 24px 60px rgba(31, 58, 45, .1); }
+.group { margin-bottom: 26px; }
+.group > .label { display: block; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.days { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x proximity; }
+.day { flex: 0 0 auto; width: 68px; padding: 10px 0; border-radius: 14px; border: 1px solid var(--line); background: #fff; text-align: center; color: var(--ink); scroll-snap-align: start; transition: border-color .15s ease, background-color .15s ease, color .15s ease; }
+.day small { display: block; font-size: 12px; color: var(--muted); }
+.day b { display: block; font-family: var(--serif); font-size: 1.4rem; font-weight: 500; line-height: 1.2; }
+.day:hover { border-color: var(--green); }
+.day[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: var(--cream); }
+.day[aria-pressed="true"] small { color: #d9b877; }
+.day:disabled { opacity: .4; cursor: default; }
+.stepper { display: inline-flex; align-items: center; gap: 14px; border: 1px solid var(--line); border-radius: 999px; padding: 6px; }
+.stepper button { width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--cream); font-size: 1.3rem; line-height: 1; color: var(--green); }
+.stepper button:hover { background: var(--line); }
+.stepper output { min-width: 5.5em; text-align: center; font-weight: 600; }
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 8px; }
+.slot { padding: 11px 0; border-radius: 12px; border: 1px solid var(--line); background: #fff; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink); min-height: 46px; transition: border-color .15s ease, background-color .15s ease, color .15s ease; }
+.slot:hover:not(:disabled) { border-color: var(--green); }
+.slot[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: var(--cream); }
+.slot:disabled { background: var(--cream); color: #b1a892; text-decoration: line-through; cursor: default; }
+.name-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+.name-row .field { flex: 1 1 240px; display: grid; gap: 8px; }
+.name-row input { font: inherit; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line); min-height: 48px; width: 100%; background: #fff; }
+.name-row input:focus { outline: none; border-color: var(--green); }
+.hint { font-size: 14px; color: #a23b1b; min-height: 1.5em; margin-top: 10px; }
+.closed { color: var(--muted); font-style: italic; }
+.confirm { display: none; text-align: center; }
+.confirm.on { display: block; animation: rise .45s ease both; }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.confirm .check { width: 60px; height: 60px; border-radius: 50%; background: var(--green); color: var(--cream); display: grid; place-items: center; font-size: 1.7rem; margin: 0 auto 18px; }
+.confirm h3 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+.confirm > p { color: var(--muted); margin-top: 10px; }
+.sheet { text-align: left; margin: 26px auto 0; max-width: 560px; border: 1px dashed var(--green); border-radius: 16px; padding: 18px 20px; background: var(--paper); }
+.sheet .label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--green); font-weight: 700; margin-bottom: 10px; display: block; }
+.sheet table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.sheet td { padding: 7px 0; border-bottom: 1px solid var(--line); }
+.sheet tr:last-child td { border: 0; }
+.sheet td:last-child { text-align: right; color: var(--muted); }
+.sheet tr.new td { font-weight: 700; color: var(--green); }
+.sheet tr.new td:last-child { color: var(--green); }
+.small { font-size: 13.5px; color: var(--muted); margin-top: 16px; }
+
+.info { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px); }
+.info h3 { font-size: 1.5rem; color: var(--green); margin-bottom: 10px; }
+.info p { color: var(--muted); }
+
+footer { background: var(--green); color: #dfd8c6; padding: 48px 0; font-size: 15px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 24px 48px; justify-content: space-between; align-items: center; }
+footer b { color: var(--cream); font-family: var(--serif); font-size: 1.2rem; font-weight: 500; }
+.made { border: 1px solid rgba(246, 240, 228, .3); border-radius: 14px; padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.made a { color: #e9c98a; font-weight: 700; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .menu, .info { grid-template-columns: 1fr; }
+  .top nav { display: none; }
+  .hero .btn.ghost { margin: 12px 0 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <span>Ein Beispiel von CreationFirst zum Ausprobieren · es wird nichts gesendet.</span>
+  <a href="../../index.html">← Zurück zu CreationFirst</a>
+  <span class="langs"><a href="./" data-lang="de">DE</a> · <a href="?lang=en" data-lang="en">EN</a> · <a href="?lang=hr" data-lang="hr">HR</a></span>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Gasthaus Linde, Startseite">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3c7 4 10 9 10 14a10 10 0 0 1-20 0C6 12 9 7 16 3z" fill="#1f3a2d"/><path d="M16 9v20M16 16l-4-3M16 20l5-4" stroke="#f6f0e4" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Gasthaus Linde
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <a href="#karte">Karte</a>
+      <a href="#reservieren">Reservieren</a>
+      <a href="#besuch">Besuch</a>
+    </nav>
+    <a class="btn" href="#reservieren">Tisch reservieren</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <svg class="leaf" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3c7 4 10 9 10 14a10 10 0 0 1-20 0C6 12 9 7 16 3z" fill="#f6f0e4"/><path d="M16 9v20M16 16l-4-3M16 20l5-4" stroke="#1f3a2d" stroke-width="1.2" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div>
+      <span class="kicker">Musterstadt · unter der alten Linde</span>
+      <h1>Saisonale Küche, <em>lange Tische.</em></h1>
+      <p class="lede">Was der Markt hergibt, kommt bei uns auf den Teller. Dazu Wein aus der Region und Platz für alle, die gern lange sitzen bleiben.</p>
+      <a class="btn" href="#reservieren">Tisch reservieren</a><a class="btn ghost" href="#karte">Zur Karte</a>
+    </div>
+    <div class="today">
+      <h2>Diese Woche</h2>
+      <ul>
+        <li><span>Kürbissuppe mit Kernöl</span><span>8,50 €</span></li>
+        <li><span>Rinderroulade, Rotkohl, Klöße</span><span>24,00 €</span></li>
+        <li><span>Pilzragout mit Serviettenknödel</span><span>19,50 €</span></li>
+        <li><span>Zwetschgenröster, Vanilleeis</span><span>9,00 €</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section id="karte">
+  <div class="wrap">
+    <div class="head">
+      <h2>Aus der Karte</h2>
+      <p>Eine kleine Auswahl. Die ganze Karte wechselt mit der Jahreszeit.</p>
+    </div>
+    <div class="menu">
+      <div>
+        <h3>Vorweg</h3>
+        <div class="dish"><b>Kürbissuppe</b><span>8,50</span><small>Kernöl, geröstete Kerne</small></div>
+        <div class="dish"><b>Feldsalat</b><span>11,00</span><small>Speck, Kartoffeldressing, Croûtons</small></div>
+        <div class="dish"><b>Rote Bete</b><span>12,50</span><small>Ziegenfrischkäse, Walnuss, Honig</small></div>
+      </div>
+      <div>
+        <h3>Hauptsache</h3>
+        <div class="dish"><b>Rinderroulade</b><span>24,00</span><small>Rotkohl, Kartoffelklöße</small></div>
+        <div class="dish"><b>Saibling</b><span>26,50</span><small>Rahmwirsing, Dillkartoffeln</small></div>
+        <div class="dish"><b>Pilzragout</b><span>19,50</span><small>Serviettenknödel, Kräuter · vegetarisch</small></div>
+      </div>
+      <div>
+        <h3>Süßes</h3>
+        <div class="dish"><b>Zwetschgenröster</b><span>9,00</span><small>Vanilleeis, Butterstreusel</small></div>
+        <div class="dish"><b>Schokoladentarte</b><span>9,50</span><small>Sauerrahm, Meersalz</small></div>
+        <div class="dish"><b>Käse vom Hof</b><span>13,00</span><small>Drei Sorten, Feigensenf</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="reservieren">
+  <div class="wrap">
+    <div class="head">
+      <h2>Tisch reservieren</h2>
+      <p>Tag, Personen und Uhrzeit wählen. Die Bestätigung kommt sofort.</p>
+    </div>
+    <div class="book-card">
+      <div id="form">
+        <div class="group">
+          <span class="label" id="l-day">Tag</span>
+          <div class="days" id="days" role="group" aria-labelledby="l-day"></div>
+        </div>
+        <div class="group">
+          <span class="label" id="l-guests">Personen</span>
+          <div class="stepper" role="group" aria-labelledby="l-guests">
+            <button type="button" id="minus" aria-label="Eine Person weniger">−</button>
+            <output id="guests" aria-live="polite">2 Personen</output>
+            <button type="button" id="plus" aria-label="Eine Person mehr">+</button>
+          </div>
+        </div>
+        <div class="group">
+          <span class="label" id="l-time">Uhrzeit</span>
+          <div class="slots" id="slots" role="group" aria-labelledby="l-time"></div>
+        </div>
+        <div class="name-row">
+          <div class="field">
+            <label class="label" for="name" style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)">Auf welchen Namen?</label>
+            <input id="name" autocomplete="name" placeholder="Name für die Reservierung">
+          </div>
+          <button class="btn" type="button" id="reserve">Reservieren</button>
+        </div>
+        <p class="hint" id="hint" role="alert"></p>
+      </div>
+      <div class="confirm" id="confirm" aria-live="polite">
+        <div class="check" aria-hidden="true">✓</div>
+        <h3 id="c-title"></h3>
+        <p id="c-text"></p>
+        <div class="sheet">
+          <span class="label">So sieht es das Team · Tagesübersicht</span>
+          <table><tbody id="c-rows"></tbody></table>
+        </div>
+        <p class="small">Nur ein Beispiel: Es wurde nichts gesendet und nichts gespeichert.</p>
+        <p style="margin-top:18px"><button class="btn ghost" type="button" id="again">Noch eine Reservierung</button></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="besuch">
+  <div class="wrap info">
+    <div><h3>Öffnungszeiten</h3><p>Mittwoch bis Sonntag<br>17:30 bis 23:00 Uhr<br>Montag und Dienstag Ruhetag</p></div>
+    <div><h3>Feiern</h3><p>Der Nebenraum fasst bis zu 28 Gäste. Für Geburtstage und Firmenessen stellen wir gern ein Menü zusammen.</p></div>
+    <div><h3>Anfahrt</h3><p>Beispielweg 3<br>12345 Musterstadt<br>Parkplätze direkt am Haus</p></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Gasthaus Linde</b><br>Beispielweg 3 · 12345 Musterstadt</p>
+    <div class="made">
+      <span>Ein Beispiel, gebaut von CreationFirst.</span>
+      <a href="../../kontakt.html?topic=app">So eine Buchung für meinen Betrieb →</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  // preview=1: Vorschau-Kachel oder Popup auf der CreationFirst-Seite. Hinweisleiste aus, Links zurück zur Seite verlassen den Rahmen.
+  if (/[?&]preview=1/.test(location.search)) {
+    document.documentElement.classList.add("is-preview");
+    document.querySelectorAll('a[href^="../../"]').forEach(function (a) { a.setAttribute("target", "_top"); });
+  }
+
+  // Sprache: ?lang=en oder ?lang=hr. Deutsch steht im HTML, die anderen Sprachen ersetzen die Texte
+  // anhand des deutschen Wortlauts (I18N: deutscher Text -> [Englisch, Kroatisch]).
+  var LANG = (location.search.match(/[?&]lang=(en|hr)/) || [])[1] || "de";
+  var I18N = {
+   "Gasthaus Linde – Beispielseite von CreationFirst": [
+    "Gasthaus Linde – example site by CreationFirst",
+    "Gasthaus Linde – primjer stranice, CreationFirst"
+   ],
+   "Ein Beispiel von CreationFirst zum Ausprobieren · es wird nichts gesendet.": [
+    "An example by CreationFirst to try out · nothing is sent.",
+    "Primjer tvrtke CreationFirst za isprobavanje · ništa se ne šalje."
+   ],
+   "← Zurück zu CreationFirst": [
+    "← Back to CreationFirst",
+    "← Natrag na CreationFirst"
+   ],
+   "Gasthaus Linde, Startseite": [
+    "Gasthaus Linde, home",
+    "Gasthaus Linde, početna"
+   ],
+   "Hauptnavigation": [
+    "Main navigation",
+    "Glavna navigacija"
+   ],
+   "Karte": [
+    "Menu",
+    "Jelovnik"
+   ],
+   "Reservieren": [
+    "Book",
+    "Rezerviraj"
+   ],
+   "Besuch": [
+    "Visit",
+    "Posjet"
+   ],
+   "Tisch reservieren": [
+    "Book a table",
+    "Rezerviraj stol"
+   ],
+   "Musterstadt · unter der alten Linde": [
+    "Sampletown · under the old linden tree",
+    "Primjergrad · pod starom lipom"
+   ],
+   "Saisonale Küche,": [
+    "Seasonal cooking,",
+    "Sezonska kuhinja,"
+   ],
+   "lange Tische.": [
+    "long tables.",
+    "dugi stolovi."
+   ],
+   "Was der Markt hergibt, kommt bei uns auf den Teller. Dazu Wein aus der Region und Platz für alle, die gern lange sitzen bleiben.": [
+    "Whatever the market offers ends up on our plates. With wine from the region and room for everyone who likes to linger.",
+    "Što tržnica nudi, to kod nas stiže na tanjur. Uz vino iz regije i mjesta za sve koji vole dugo sjediti."
+   ],
+   "Zur Karte": [
+    "See the menu",
+    "Pogledaj jelovnik"
+   ],
+   "Diese Woche": [
+    "This week",
+    "Ovaj tjedan"
+   ],
+   "Kürbissuppe mit Kernöl": [
+    "Pumpkin soup with seed oil",
+    "Juha od bundeve s bučinim uljem"
+   ],
+   "Rinderroulade, Rotkohl, Klöße": [
+    "Beef roulade, red cabbage, dumplings",
+    "Goveđa rolada, crveni kupus, okruglice"
+   ],
+   "Pilzragout mit Serviettenknödel": [
+    "Mushroom ragout with bread dumpling",
+    "Ragu od gljiva s okruglicom od kruha"
+   ],
+   "Zwetschgenröster, Vanilleeis": [
+    "Stewed plums, vanilla ice cream",
+    "Pirjane šljive, sladoled od vanilije"
+   ],
+   "Aus der Karte": [
+    "From the menu",
+    "Iz jelovnika"
+   ],
+   "Eine kleine Auswahl. Die ganze Karte wechselt mit der Jahreszeit.": [
+    "A small selection. The full menu changes with the seasons.",
+    "Mali izbor. Cijeli jelovnik mijenja se s godišnjim dobom."
+   ],
+   "Vorweg": [
+    "To start",
+    "Za početak"
+   ],
+   "Hauptsache": [
+    "Mains",
+    "Glavna jela"
+   ],
+   "Süßes": [
+    "Sweets",
+    "Slatko"
+   ],
+   "Kürbissuppe": [
+    "Pumpkin soup",
+    "Juha od bundeve"
+   ],
+   "Kernöl, geröstete Kerne": [
+    "Seed oil, roasted seeds",
+    "Bučino ulje, pržene sjemenke"
+   ],
+   "Feldsalat": [
+    "Lamb's lettuce",
+    "Matovilac"
+   ],
+   "Speck, Kartoffeldressing, Croûtons": [
+    "Bacon, potato dressing, croutons",
+    "Slanina, preljev od krumpira, krutoni"
+   ],
+   "Rote Bete": [
+    "Beetroot",
+    "Cikla"
+   ],
+   "Ziegenfrischkäse, Walnuss, Honig": [
+    "Fresh goat's cheese, walnut, honey",
+    "Svježi kozji sir, orah, med"
+   ],
+   "Rinderroulade": [
+    "Beef roulade",
+    "Goveđa rolada"
+   ],
+   "Rotkohl, Kartoffelklöße": [
+    "Red cabbage, potato dumplings",
+    "Crveni kupus, okruglice od krumpira"
+   ],
+   "Saibling": [
+    "Char",
+    "Zlatovčica"
+   ],
+   "Rahmwirsing, Dillkartoffeln": [
+    "Creamed savoy cabbage, dill potatoes",
+    "Kelj u vrhnju, krumpir s koprom"
+   ],
+   "Pilzragout": [
+    "Mushroom ragout",
+    "Ragu od gljiva"
+   ],
+   "Serviettenknödel, Kräuter · vegetarisch": [
+    "Bread dumpling, herbs · vegetarian",
+    "Okruglica od kruha, začinsko bilje · vegetarijanski"
+   ],
+   "Zwetschgenröster": [
+    "Stewed plums",
+    "Pirjane šljive"
+   ],
+   "Vanilleeis, Butterstreusel": [
+    "Vanilla ice cream, butter crumble",
+    "Sladoled od vanilije, mrvice od maslaca"
+   ],
+   "Schokoladentarte": [
+    "Chocolate tart",
+    "Čokoladni tart"
+   ],
+   "Sauerrahm, Meersalz": [
+    "Sour cream, sea salt",
+    "Kiselo vrhnje, morska sol"
+   ],
+   "Käse vom Hof": [
+    "Farm cheese",
+    "Sir s imanja"
+   ],
+   "Drei Sorten, Feigensenf": [
+    "Three kinds, fig mustard",
+    "Tri vrste, senf od smokava"
+   ],
+   "Tag, Personen und Uhrzeit wählen. Die Bestätigung kommt sofort.": [
+    "Pick a day, party size and time. The confirmation appears straight away.",
+    "Odaberi dan, broj osoba i vrijeme. Potvrda stiže odmah."
+   ],
+   "Tag": [
+    "Day",
+    "Dan"
+   ],
+   "Personen": [
+    "Guests",
+    "Osobe"
+   ],
+   "Uhrzeit": [
+    "Time",
+    "Vrijeme"
+   ],
+   "Eine Person weniger": [
+    "One guest fewer",
+    "Jedna osoba manje"
+   ],
+   "Eine Person mehr": [
+    "One guest more",
+    "Jedna osoba više"
+   ],
+   "Auf welchen Namen?": [
+    "Under which name?",
+    "Na koje ime?"
+   ],
+   "Name für die Reservierung": [
+    "Name for the booking",
+    "Ime za rezervaciju"
+   ],
+   "So sieht es das Team · Tagesübersicht": [
+    "What the team sees · daily overview",
+    "Što vidi tim · dnevni pregled"
+   ],
+   "Nur ein Beispiel: Es wurde nichts gesendet und nichts gespeichert.": [
+    "Just an example: nothing was sent or stored.",
+    "Samo primjer: ništa nije poslano niti spremljeno."
+   ],
+   "Noch eine Reservierung": [
+    "Another booking",
+    "Još jedna rezervacija"
+   ],
+   "Öffnungszeiten": [
+    "Opening hours",
+    "Radno vrijeme"
+   ],
+   "Mittwoch bis Sonntag": [
+    "Wednesday to Sunday",
+    "Od srijede do nedjelje"
+   ],
+   "17:30 bis 23:00 Uhr": [
+    "5:30 pm to 11 pm",
+    "17:30 do 23:00"
+   ],
+   "Montag und Dienstag Ruhetag": [
+    "Closed on Monday and Tuesday",
+    "Ponedjeljkom i utorkom zatvoreno"
+   ],
+   "Feiern": [
+    "Celebrations",
+    "Proslave"
+   ],
+   "Der Nebenraum fasst bis zu 28 Gäste. Für Geburtstage und Firmenessen stellen wir gern ein Menü zusammen.": [
+    "The private room seats up to 28 guests. We are happy to put together a menu for birthdays and company dinners.",
+    "Zasebna sala prima do 28 gostiju. Za rođendane i poslovne večere rado slažemo meni."
+   ],
+   "Anfahrt": [
+    "Getting here",
+    "Dolazak"
+   ],
+   "Parkplätze direkt am Haus": [
+    "Parking right at the house",
+    "Parkiralište uz restoran"
+   ],
+   "Ein Beispiel, gebaut von CreationFirst.": [
+    "An example built by CreationFirst.",
+    "Primjer koji je izradio CreationFirst."
+   ],
+   "So eine Buchung für meinen Betrieb →": [
+    "A booking like this for my business →",
+    "Ovakve rezervacije za moje poslovanje →"
+   ],
+   "2 Personen": [
+    "2 guests",
+    "2 osobe"
+   ]
+  };
+  function t(s) {
+    if (LANG === "de") return s;
+    var e = I18N[s];
+    return e ? e[LANG === "en" ? 0 : 1] : s;
+  }
+  (function () {
+    var bar = document.querySelector(".demo-bar .langs");
+    if (bar) {
+      var keep = /[?&]preview=1/.test(location.search) ? "preview=1&" : "";
+      bar.querySelectorAll("a").forEach(function (a) {
+        var l = a.getAttribute("data-lang");
+        a.setAttribute("href", l === "de" ? (keep ? "?preview=1" : "./") : "?" + keep + "lang=" + l);
+        if (l === LANG) a.setAttribute("aria-current", "true");
+      });
+    }
+    if (LANG === "de") return;
+    document.documentElement.lang = LANG;
+    document.title = t(document.title);
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function (n) {
+      var p = n.parentNode && n.parentNode.nodeName;
+      if (p === "SCRIPT" || p === "STYLE") return;
+      var key = n.nodeValue.replace(/\s+/g, " ").trim();
+      if (key && I18N[key]) n.nodeValue = n.nodeValue.replace(n.nodeValue.trim(), t(key));
+    });
+    ["placeholder", "aria-label"].forEach(function (attr) {
+      document.querySelectorAll("[" + attr + "]").forEach(function (el) { el.setAttribute(attr, t(el.getAttribute(attr))); });
+    });
+    var home = { en: "../../en/index.html", hr: "../../hr/index.html" }[LANG];
+    var contact = { en: "../../en/contact.html", hr: "../../hr/kontakt.html" }[LANG];
+    document.querySelectorAll('a[href^="../../"]').forEach(function (a) {
+      var h = a.getAttribute("href");
+      if (h.indexOf("../../index.html") === 0) a.setAttribute("href", home);
+      else if (h.indexOf("../../kontakt.html") === 0) a.setAttribute("href", contact + h.slice("../../kontakt.html".length));
+    });
+  })();
+
+  var STR = {
+    de: { days: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"], months: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+          closed: "Ruhetag", full: "ausgebucht", one: "Person", many: "Personen", clock: " Uhr", pers: " Pers.", isNew: " · neu",
+          needTime: "Bitte wähle eine Uhrzeit.", needName: "Bitte gib einen Namen für die Reservierung ein.", regulars: "Stammtisch",
+          date: function (d) { return this.days[d.getDay()] + ", " + d.getDate() + ". " + this.months[d.getMonth()]; },
+          title: function (day, first) { return "Bis " + day + ", " + first + "!"; },
+          text: function (guests, date, time) { return "Tisch für " + guests + " am " + date + " um " + time + " Uhr ist vorgemerkt."; } },
+    en: { days: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+          closed: "Closed", full: "fully booked", one: "guest", many: "guests", clock: "", pers: " guests", isNew: " · new",
+          needTime: "Please choose a time.", needName: "Please enter a name for the booking.", regulars: "Regulars' table",
+          date: function (d) { return this.days[d.getDay()] + ", " + d.getDate() + " " + this.months[d.getMonth()]; },
+          title: function (day, first) { return "See you on " + day + ", " + first + "!"; },
+          text: function (guests, date, time) { return "A table for " + guests + " on " + date + " at " + time + " is held for you."; } },
+    hr: { days: ["ned", "pon", "uto", "sri", "čet", "pet", "sub"], months: ["sij", "velj", "ožu", "tra", "svi", "lip", "srp", "kol", "ruj", "lis", "stu", "pro"],
+          closed: "Zatvoreno", full: "popunjeno", one: "osoba", many: "osoba", clock: " h", pers: " os.", isNew: " · novo",
+          needTime: "Odaberi vrijeme.", needName: "Upiši ime za rezervaciju.", regulars: "Stalni gosti",
+          date: function (d) { return this.days[d.getDay()] + ", " + d.getDate() + ". " + this.months[d.getMonth()]; },
+          title: function (day, first) { return "Vidimo se, " + first + "!"; },
+          text: function (guests, date, time) { return "Stol za " + guests + ", " + date + " u " + time + " h, zabilježen je."; } }
+  }[LANG];
+  var DAYS = STR.days;
+  var MONTHS = STR.months;
+  var TIMES = ["17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"];
+  var OTHER_GUESTS = ["Fam. Becker", "Hr. Aydin", "Fr. Lorenz", STR.regulars, "Fr. Novak", "Hr. Peters"];
+
+  var daysEl = document.getElementById("days");
+  var slotsEl = document.getElementById("slots");
+  var guestsEl = document.getElementById("guests");
+  var hintEl = document.getElementById("hint");
+  var formEl = document.getElementById("form");
+  var confirmEl = document.getElementById("confirm");
+  var nameEl = document.getElementById("name");
+  var state = { day: null, time: null, guests: 2 };
+
+  // Belegung ist erfunden, aber pro Tag und Uhrzeit stabil (feste Rechenregel statt Zufall).
+  function busy(date, time) {
+    return (date.getDate() * 5 + TIMES.indexOf(time) * 3) % 7 < 2;
+  }
+  function label(date) { return STR.date(date); }
+
+  function renderDays() {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    for (var i = 0; i < 14; i++) {
+      var d = new Date(today.getTime());
+      d.setDate(today.getDate() + i);
+      var closed = d.getDay() === 1 || d.getDay() === 2;
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "day";
+      btn.setAttribute("aria-pressed", "false");
+      btn.setAttribute("aria-label", label(d) + (closed ? ", " + STR.closed : ""));
+      btn.disabled = closed;
+      btn.innerHTML = "<small>" + DAYS[d.getDay()] + "</small><b>" + d.getDate() + "</b><small>" + (closed ? STR.closed : MONTHS[d.getMonth()]) + "</small>";
+      (function (date, el) {
+        el.addEventListener("click", function () { selectDay(date, el); });
+      })(d, btn);
+      daysEl.appendChild(btn);
+      if (!closed && !state.day) selectDay(d, btn);
+    }
+  }
+
+  function selectDay(date, el) {
+    state.day = date;
+    state.time = null;
+    daysEl.querySelectorAll(".day").forEach(function (b) { b.setAttribute("aria-pressed", b === el ? "true" : "false"); });
+    renderSlots();
+  }
+
+  function renderSlots() {
+    slotsEl.innerHTML = "";
+    TIMES.forEach(function (t) {
+      var full = busy(state.day, t) || (state.guests > 8 && t > "19:30");
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "slot";
+      btn.textContent = t;
+      btn.disabled = full;
+      btn.setAttribute("aria-pressed", "false");
+      if (full) btn.setAttribute("aria-label", t + STR.clock + ", " + STR.full);
+      btn.addEventListener("click", function () {
+        state.time = t;
+        hintEl.textContent = "";
+        slotsEl.querySelectorAll(".slot").forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+      });
+      slotsEl.appendChild(btn);
+    });
+  }
+
+  // Kroatisch: 2–4 "osobe", sonst "osoba" (12–14 wieder "osoba").
+  function guestWord(n) {
+    if (LANG === "hr") return (n % 10 >= 2 && n % 10 <= 4 && (n < 12 || n > 14)) ? "osobe" : "osoba";
+    return n === 1 ? STR.one : STR.many;
+  }
+  function setGuests(n) {
+    state.guests = Math.max(1, Math.min(12, n));
+    guestsEl.textContent = state.guests + " " + guestWord(state.guests);
+    state.time = null;
+    renderSlots();
+  }
+  document.getElementById("minus").addEventListener("click", function () { setGuests(state.guests - 1); });
+  document.getElementById("plus").addEventListener("click", function () { setGuests(state.guests + 1); });
+
+  document.getElementById("reserve").addEventListener("click", function () {
+    var name = nameEl.value.trim();
+    if (!state.time) { hintEl.textContent = STR.needTime; return; }
+    if (name.length < 2) { hintEl.textContent = STR.needName; nameEl.focus(); return; }
+    hintEl.textContent = "";
+    var first = name.split(/\s+/)[0];
+    document.getElementById("c-title").textContent = STR.title(DAYS[state.day.getDay()], first);
+    document.getElementById("c-text").textContent = STR.text(guestsEl.textContent, label(state.day), state.time);
+
+    var rows = TIMES.filter(function (t) { return busy(state.day, t); }).map(function (t, i) {
+      return { time: t, who: OTHER_GUESTS[i % OTHER_GUESTS.length], n: 2 + (i * 3) % 5, isNew: false };
+    });
+    rows.push({ time: state.time, who: name, n: state.guests, isNew: true });
+    rows.sort(function (a, b) { return a.time < b.time ? -1 : a.time > b.time ? 1 : 0; });
+    var tbody = document.getElementById("c-rows");
+    tbody.innerHTML = "";
+    rows.forEach(function (r) {
+      var tr = document.createElement("tr");
+      if (r.isNew) tr.className = "new";
+      [r.time + STR.clock, r.who, r.n + STR.pers + (r.isNew ? STR.isNew : "")].forEach(function (text) {
+        var td = document.createElement("td");
+        td.textContent = text;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    formEl.style.display = "none";
+    confirmEl.classList.add("on");
+  });
+
+  document.getElementById("again").addEventListener("click", function () {
+    confirmEl.classList.remove("on");
+    formEl.style.display = "";
+    nameEl.value = "";
+    state.time = null;
+    renderSlots();
+  });
+
+  renderDays();
+})();
+</script>
+</body>
+</html>

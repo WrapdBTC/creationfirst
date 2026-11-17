@@ -14,10 +14,7 @@
       </div>
     </div>
     <div class="page-hero-visual">
-      <picture>
-        <source srcset="{{A}}images/page-hero-services.webp?v={{v}}" type="image/webp">
-        <img src="{{A}}images/page-hero-services.png?v={{v}}" alt="Radni stol s laptopom na kojem nastaje web stranica" width="1280" height="720" loading="eager" decoding="async">
-      </picture>
+      <div class="scene scene-combo" aria-hidden="true"><div class="sc-combo"><div class="sc-win"><div class="sc-bar"><i></i><i></i><i></i></div><div class="sc-site"><div><b class="sc-l"></b><b class="sc-l s"></b><span class="sc-t"></span><span class="sc-t s"></span><em class="sc-b"></em></div><div class="sc-pic"></div></div></div><div class="sc-card"><div class="sc-row" style="--i:0"><i></i><span></span><em></em></div><div class="sc-row" style="--i:1"><i></i><span></span><em></em></div><div class="sc-row" style="--i:2"><i></i><span></span><em></em></div><div class="sc-row" style="--i:3"><i></i><span></span><em></em></div></div></div></div>
     </div>
   </div>
   <div class="section-divider to-white" aria-hidden="true"></div>
@@ -48,12 +45,15 @@
           <p class="service-price">{{icon:clock}}<span>Obično kao <b>sprint provedbe</b>. Jednostavna web stranica često je gotova za 1–3 tjedna.</span></p>
           <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=web">Zatraži web stranicu</a></div>
         </div>
-        <figure class="service-visual" data-reveal="right">
-          <picture>
-            <source srcset="{{A}}images/scenario-web.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-web.png?v={{v}}" alt="Laptop sa svijetlom, modernom web stranicom" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </figure>
+        <div class="service-visual is-live" data-reveal="right">
+        <div class="live-preview">
+        <div class="browser-frame" aria-hidden="true">
+        <div class="bf-bar"><i></i><i></i><i></i><span>elektro-sommer.example</span></div>
+        <div class="bf-view" data-scale-frame><iframe src="{{R}}demos/elektro/?preview=1&amp;lang=hr" loading="lazy" tabindex="-1" title="" scrolling="no"></iframe></div>
+        </div>
+        <a class="live-preview-cta" href="{{R}}demos/elektro/?lang=hr" data-demo="Elektro Sommer">Elektro Sommer: Isprobaj primjer →</a>
+        </div>
+        </div>
       </div>
       <div class="service-checks" data-reveal>
         <ul class="check-grid">
@@ -80,12 +80,15 @@
           <p class="service-price">{{icon:clock}}<span>Obično u <b>1–3 sprinta</b>, kako bi rano imao nešto upotrebljivo.</span></p>
           <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=app">Zatraži projekt aplikacije</a></div>
         </div>
-        <figure class="service-visual" data-reveal="left">
-          <picture>
-            <source srcset="{{A}}images/scenario-booking.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-booking.png?v={{v}}" alt="Pametni telefon s aplikacijom za rezervacije i kalendarom" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </figure>
+        <div class="service-visual is-live" data-reveal="left">
+        <div class="live-preview">
+        <div class="browser-frame" aria-hidden="true">
+        <div class="bf-bar"><i></i><i></i><i></i><span>gasthaus-linde.example</span></div>
+        <div class="bf-view" data-scale-frame><iframe src="{{R}}demos/restaurant/?preview=1&amp;lang=hr" loading="lazy" tabindex="-1" title="" scrolling="no"></iframe></div>
+        </div>
+        <a class="live-preview-cta" href="{{R}}demos/restaurant/?lang=hr" data-demo="Gasthaus Linde">Gasthaus Linde: Isprobaj primjer →</a>
+        </div>
+        </div>
       </div>
       <div class="service-checks" data-reveal>
         <ul class="check-grid">
@@ -115,12 +118,15 @@
             <a class="btn btn-ghost" href="{{url:ai}}">Pogledaj primjere</a>
           </div>
         </div>
-        <figure class="service-visual" data-reveal="right">
-          <picture>
-            <source srcset="{{A}}images/scenario-assist.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-assist.png?v={{v}}" alt="Zaslon s AI asistentom u uredu" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </figure>
+        <div class="service-visual is-live" data-reveal="right">
+        <div class="live-preview">
+        <div class="browser-frame" aria-hidden="true">
+        <div class="bf-bar"><i></i><i></i><i></i><span>immobilien-kranz.example</span></div>
+        <div class="bf-view" data-scale-frame><iframe src="{{R}}demos/makler/?preview=1&amp;lang=hr" loading="lazy" tabindex="-1" title="" scrolling="no"></iframe></div>
+        </div>
+        <a class="live-preview-cta" href="{{R}}demos/makler/?lang=hr" data-demo="Immobilien Kranz">Immobilien Kranz: Isprobaj primjer →</a>
+        </div>
+        </div>
       </div>
       <div class="service-checks" data-reveal>
         <ul class="check-grid">
@@ -147,12 +153,15 @@
           <p class="service-price">{{icon:clock}}<span>Obično u <b>1–2 sprinta</b>, ovisno o asortimanu i integracijama.</span></p>
           <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=shop">Zatraži webshop</a></div>
         </div>
-        <figure class="service-visual" data-reveal="left">
-          <picture>
-            <source srcset="{{A}}images/scenario-shop.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-shop.png?v={{v}}" alt="Zapakirani proizvod s kutijom za dostavu" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </figure>
+        <div class="service-visual is-live" data-reveal="left">
+        <div class="live-preview">
+        <div class="browser-frame" aria-hidden="true">
+        <div class="bf-bar"><i></i><i></i><i></i><span>roesterei-morgenrot.example</span></div>
+        <div class="bf-view" data-scale-frame><iframe src="{{R}}demos/shop/?preview=1&amp;lang=hr" loading="lazy" tabindex="-1" title="" scrolling="no"></iframe></div>
+        </div>
+        <a class="live-preview-cta" href="{{R}}demos/shop/?lang=hr" data-demo="Rösterei Morgenrot">Rösterei Morgenrot: Isprobaj primjer →</a>
+        </div>
+        </div>
       </div>
       <div class="service-checks" data-reveal>
         <ul class="check-grid">
@@ -179,12 +188,15 @@
           <p class="service-price">{{icon:layers}}<span>Često dio <b>projekta web stranice</b>, može se naručiti i zasebno.</span></p>
           <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=seo">Zatraži branding ili SEO</a></div>
         </div>
-        <figure class="service-visual" data-reveal="right">
-          <picture>
-            <source srcset="{{A}}images/scenario-brand.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-brand.png?v={{v}}" alt="Otvoren priručnik vizualnog identiteta s logotipom i bojama" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </figure>
+        <div class="service-visual is-live" data-reveal="right">
+        <div class="live-preview">
+        <div class="browser-frame" aria-hidden="true">
+        <div class="bf-bar"><i></i><i></i><i></i><span>salon-lumen.example</span></div>
+        <div class="bf-view" data-scale-frame><iframe src="{{R}}demos/marke/?preview=1&amp;lang=hr" loading="lazy" tabindex="-1" title="" scrolling="no"></iframe></div>
+        </div>
+        <a class="live-preview-cta" href="{{R}}demos/marke/?lang=hr" data-demo="Salon Lumen">Salon Lumen: Isprobaj primjer →</a>
+        </div>
+        </div>
       </div>
       <div class="service-checks" data-reveal>
         <ul class="check-grid">
@@ -211,12 +223,15 @@
           <p class="service-price">{{icon:repeat}}<span>Kao <b>stalna podrška</b> ili mali paket održavanja, prema potrebi.</span></p>
           <div class="service-cta"><a class="btn btn-primary" href="{{url:contact}}?topic=retainer">Zatraži podršku</a></div>
         </div>
-        <figure class="service-visual" data-reveal="left">
-          <picture>
-            <source srcset="{{A}}images/scenario-process.webp?v={{v}}" type="image/webp">
-            <img src="{{A}}images/scenario-process.png?v={{v}}" alt="Tablet s nadzornom pločom za posjete i opterećenje" width="1400" height="788" loading="lazy" decoding="async">
-          </picture>
-        </figure>
+        <div class="service-visual is-live" data-reveal="left">
+        <div class="live-preview">
+        <div class="browser-frame" aria-hidden="true">
+        <div class="bf-bar"><i></i><i></i><i></i><span>betreuung.example</span></div>
+        <div class="bf-view" data-scale-frame><iframe src="{{R}}demos/betreuung/?preview=1&amp;lang=hr" loading="lazy" tabindex="-1" title="" scrolling="no"></iframe></div>
+        </div>
+        <a class="live-preview-cta" href="{{R}}demos/betreuung/?lang=hr" data-demo="Schreinerei Holzwerk">Schreinerei Holzwerk: Isprobaj primjer →</a>
+        </div>
+        </div>
       </div>
       <div class="service-checks" data-reveal>
         <ul class="check-grid">
@@ -282,7 +297,7 @@
   <div class="container">
     <div class="cta-band" data-reveal>
       <div class="cta-band-copy">
-        <h2>Razgovarajmo o tvom projektu</h2>
+        <h2>Zatraži besplatni razgovor</h2>
         <p>U 30 minuta razjasnimo koji korak ti odgovara i koliko košta. Besplatno i bez obveze.</p>
       </div>
       <div class="cta-band-actions">

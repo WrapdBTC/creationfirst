@@ -17,7 +17,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SRC = os.path.join(HERE, "src")
 BASE = "https://creationfirst.io/"
-VER = "20261115-3"
+VER = "20261118-1"
+# DEMO=1 python3 _build/build.py  -> Vorschau-Build: noindex auf allen Seiten und Hinweisleiste oben.
+DEMO = os.environ.get("DEMO") == "1"
 YEAR = "2026"
 EMAIL = "info@creationfirst.io"
 PHONE_HREF = "+491621717423"
@@ -45,17 +47,11 @@ PAGES = {
 
 CHAT = ["site-chat-config", "site-chat"]
 SCRIPTS = {
- "home": ["main"] + CHAT,
+ "home": ["main", "hero-demo", "time-calculator"] + CHAT,
  "playground": ["main", "game", "idea-generator", "before-after-sim", "time-calculator"] + CHAT,
 }
 # hero images to preload (LCP)
-PRELOAD = {
- "trades": "images/bau-handwerk-hero.webp",
- "realestate": "images/immobilien-makler-hero.webp",
- "practices": "images/praxen-lokale-services-hero.webp",
- "field_services": "images/sanitaer-elektro-klima-hero.webp",
- "hospitality": "images/gastronomie-hotels-hero.webp",
-}
+PRELOAD = {}  # keine Hero-Fotos mehr: die Unterseiten zeigen gebaute Szenen
 NAV_KEY = {"services": "services", "ai": "ai", "portfolio": "portfolio", "about": "about",
            "playground": "playground", "contact": "contact", "trades": "ai",
            "hospitality": "ai", "field_services": "ai", "practices": "ai", "realestate": "ai"}
@@ -229,7 +225,7 @@ def include_partials(s, lang, depth=0):
 def render_placeholders(s, lang):
     s = include_partials(s, lang)
     A = rel_prefix(lang) + "assets/"
-    s = s.replace("{{A}}", A).replace("{{v}}", VER)
+    s = s.replace("{{A}}", A).replace("{{R}}", rel_prefix(lang)).replace("{{v}}", VER)
     s = re.sub(r"\{\{url:([a-z_]+)(?:#([A-Za-z0-9\-_]+))?\}\}",
                lambda m: url(m.group(1), lang, lang, m.group(2) or ""), s)
     s = re.sub(r"\{\{icon:([a-z\-]+)\}\}", lambda m: icon(m.group(1)), s)
@@ -330,6 +326,8 @@ def head(page, lang, main_html):
         if l != lang:
             out.append('<meta property="og:locale:alternate" content="%s">' % OG_LOCALE[l])
     robots = "noindex, follow" if m.get("noindex") else "index, follow"
+    if DEMO:
+        robots = "noindex, nofollow"
     out += ['<meta name="twitter:card" content="summary_large_image">',
             '<meta name="twitter:title" content="%s">' % esc(m.get("og_title", title)),
             '<meta name="twitter:description" content="%s">' % esc(desc),
@@ -337,6 +335,7 @@ def head(page, lang, main_html):
             '<meta name="robots" content="%s">' % robots,
             '<meta name="theme-color" content="#0a0e1a">',
             '<meta name="format-detection" content="telephone=no">',
+            '<link rel="preload" href="%sfonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>' % A,
             '<link rel="stylesheet" href="%scss/style.css?v=%s">' % (A, VER)]
     graph = [org_jsonld()]
     if page == "home":
@@ -549,16 +548,27 @@ def scripts(page, lang):
                      for n in names)
 
 # ---------------------------------------------------------------- build
+MARQUEE = {"de": ["Websites", "Web-Apps", "Automatisierung", "KI-Abläufe"],
+           "en": ["Websites", "Web apps", "Automation", "AI workflows"],
+           "hr": ["Web-stranice", "Web-aplikacije", "Automatizacija", "AI procesi"]}
+def marquee(lang):
+    """Großes Laufband vor dem Footer; rein dekorativ, zweimal derselbe Inhalt für die Endlosschleife."""
+    one = "".join("<span>%s</span><i>✦</i>" % esc(w) for w in MARQUEE[lang])
+    return '<div class="big-marquee" aria-hidden="true"><div class="big-marquee-track">%s</div></div>' % (one * 2)
+
+DEMO_NOTE = {"de": "Demo-Vorschau · die Live-Seite liegt unter", "en": "Demo preview · the live site is at",
+             "hr": "Demo pregled · stranica uživo nalazi se na"}
 def build_page(page, lang):
     USED_ICONS.clear()
     src = open(os.path.join(SRC, lang, page + ".html"), encoding="utf-8").read()
     main = responsive_images(render_placeholders(src, lang), lang).strip("\n")
     t = T[lang]
     hdr, ftr, flt = header(page, lang), footer(page, lang), floating(page, lang)
-    parts = [head(page, lang, main), "<body>", sprite(),
+    demo_bar = ('<div class="demo-banner">%s <a href="%s">creationfirst.io</a></div>' % (DEMO_NOTE[lang], BASE)) if DEMO else ""
+    parts = [head(page, lang, main), "<body>", sprite(), demo_bar,
              '<div class="scroll-progress" aria-hidden="true"></div>',
              '<a class="skip-link" href="#main">%s</a>' % esc(t["skip"]), "",
-             hdr, "", '<main id="main">', main, "</main>", "",
+             hdr, "", '<main id="main">', main, "</main>", "", marquee(lang), "",
              ftr, "", flt, "", scripts(page, lang), "</body>", "</html>", ""]
     return "\n".join(line.rstrip() for part in parts for line in part.split("\n"))
 

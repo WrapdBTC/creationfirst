@@ -154,6 +154,47 @@
     document.querySelectorAll(".faq-item.is-open .faq-a").forEach(function (a) { a.style.maxHeight = a.scrollHeight + "px"; });
   }, { passive: true });
 
+  /* Auto-Reveal: Bausteine ohne data-reveal bekommen es automatisch, damit jede Seite gleich lebendig ist */
+  if (!reduceMotion) {
+    var AUTO = ".section-head, .usp-card, .card, .service-block, .portfolio-card, .process-step, .faq-item, .cta-band, " +
+      ".closing-panel, .section-figure, .price-card, .entry-card, .personal-grid > *, .service-paths > *, .case-layout > *, " +
+      ".process-strip > li, .compact-faq > *, .contact-info-row, .trust-bar-chips > *, .privacy-promise, .offer-teaser, " +
+      ".example-jumps, .case-heading, .showcase-card, .form-card, .contact-form";
+    document.querySelectorAll(AUTO).forEach(function (el) {
+      if (el.hasAttribute("data-reveal") || el.querySelector("[data-reveal]")) return;
+      if (el.parentElement && el.parentElement.closest("[data-reveal]")) return;
+      if (el.closest(".hero, .page-hero, .studio-hero, [data-hscroll]")) return;
+      el.setAttribute("data-reveal", "");
+    });
+
+    /* Überschrift im Unterseiten-Hero Wort für Wort aufbauen (Vorlesetext bleibt über aria-label ganz) */
+    var splitH1 = document.querySelector(".hero h1, .page-hero h1, .studio-hero.compact h1");
+    if (splitH1) {
+      splitH1.setAttribute("aria-label", splitH1.textContent.replace(/\s+/g, " ").trim());
+      var wordIndex = 0;
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function (part) {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(" ")); return; }
+              var w = document.createElement("span");
+              w.className = "split-word";
+              w.setAttribute("aria-hidden", "true");
+              w.style.setProperty("--i", String(wordIndex++));
+              w.textContent = part;
+              frag.appendChild(w);
+            });
+            node.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && n.tagName !== "BR") {
+            walk(n);
+          }
+        });
+      })(splitH1);
+    }
+  }
+
   /* Reveal on scroll, staggered per group of siblings */
   var revealEls = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window && revealEls.length && !reduceMotion) {
@@ -441,4 +482,264 @@
     window.addEventListener("resize", queue, { passive: true });
     update();
   })();
+})();
+
+/* Vorschau-Rahmen: iframe mit fester Größe (1280 x 800) auf die Breite des Rahmens skalieren. */
+(function () {
+  "use strict";
+  var frames = document.querySelectorAll("[data-scale-frame]");
+  if (!frames.length) return;
+  function fit(el) { el.style.setProperty("--frame-scale", String(el.clientWidth / 1280)); }
+  if ("ResizeObserver" in window) {
+    var ro = new ResizeObserver(function (entries) { entries.forEach(function (e) { fit(e.target); }); });
+    frames.forEach(function (el) { fit(el); ro.observe(el); });
+  } else {
+    frames.forEach(fit);
+    window.addEventListener("resize", function () { frames.forEach(fit); });
+  }
+})();
+
+/* Lichtkegel: Karten und Unterseiten-Heros folgen dem Mauszeiger (nur mit Maus, nicht bei reduzierter Bewegung). */
+(function () {
+  "use strict";
+  var mm = window.matchMedia;
+  if (!mm || !mm("(pointer: fine)").matches || mm("(prefers-reduced-motion: reduce)").matches) return;
+  function track(el, xVar, yVar) {
+    el.addEventListener("pointermove", function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty(xVar, (e.clientX - r.left).toFixed(0) + "px");
+      el.style.setProperty(yVar, (e.clientY - r.top).toFixed(0) + "px");
+    });
+    el.addEventListener("pointerleave", function () {
+      el.style.removeProperty(xVar);
+      el.style.removeProperty(yVar);
+    });
+  }
+  document.querySelectorAll(".card, .usp-card, .process-step, .price-card, .entry-card, .portfolio-card, .example-tile, .showcase-card, .closing-panel").forEach(function (el) {
+    el.classList.add("spot");
+    track(el, "--mx", "--my");
+  });
+  document.querySelectorAll(".hero, .page-hero, .studio-hero.compact").forEach(function (el) { track(el, "--hx", "--hy"); });
+})();
+
+/* Scroll-Effekte: alles hier hängt direkt an der Scroll-Position (kein Hover, keine Bibliothek).
+   Ein einziger requestAnimationFrame-Durchlauf pro Scroll-Ereignis setzt CSS-Variablen; die Optik steht in style.css (Abschnitt 21). */
+(function () {
+  "use strict";
+  var mm = window.matchMedia;
+  if (mm && mm("(prefers-reduced-motion: reduce)").matches) return;
+  var root = document.documentElement;
+  root.classList.add("scrollfx");
+
+  function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function ease(v) { return 1 - Math.pow(1 - v, 3); }
+
+  /* Abschnittstitel in Wörter zerlegen */
+  var titles = [];
+  all(".section-head h2, .calc-band h2, .closing-panel h2, .personal-grid h2, .compact-faq > h2, .cta-band h2, .case-heading h2").forEach(function (h) {
+    if (h.closest(".hero, .page-hero, .studio-hero")) return;
+    h.setAttribute("aria-label", h.textContent.replace(/\s+/g, " ").trim());
+    var words = [];
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(" ")); return; }
+            var w = document.createElement("span");
+            w.className = "sw";
+            w.setAttribute("aria-hidden", "true");
+            w.textContent = part;
+            words.push(w);
+            frag.appendChild(w);
+          });
+          node.replaceChild(frag, n);
+        } else if (n.nodeType === 1 && n.tagName !== "BR") {
+          walk(n);
+        }
+      });
+    })(h);
+    titles.push({ el: h, words: words, lit: -1 });
+  });
+
+  var heroes = all(".hero, .page-hero, .studio-hero.compact");
+  var liveDemo = document.querySelector(".next-hero .live-demo");
+  var images = all(".service-visual, .section-figure, .founder-photo, .case-visual > img");
+  var strips = all(".process-strip").map(function (el) { return { el: el, items: Array.prototype.slice.call(el.children) }; });
+  var grids = all(".grid, .service-paths").map(function (el) {
+    var items = Array.prototype.slice.call(el.children).filter(function (c) { return /usp-card|process-step|\bcard\b/.test(c.className) || el.classList.contains("service-paths"); });
+    items.forEach(function (c, i) {
+      var mid = (items.length - 1) / 2;
+      c.style.setProperty("--gx", ((i - mid) * 46).toFixed(0) + "px");
+      c.style.setProperty("--gr", ((i - mid) * 3.5).toFixed(1) + "deg");
+      c.classList.add("is-visible");
+    });
+    return { el: el, items: items };
+  }).filter(function (g) { return g.items.length > 1; });
+  var gallery = all("[data-hscroll]").map(function (sec) {
+    return { sec: sec, sticky: sec.querySelector(".hscroll-sticky"), track: sec.querySelector(".hscroll-track"), bar: sec.querySelector(".hscroll-progress"), overflow: 0 };
+  });
+  var marquees = all(".big-marquee-track").map(function (el) { return { el: el, half: 0 }; });
+  var tagRows = all(".tag-row").map(function (el) { return { el: el, dir: parseFloat(el.getAttribute("data-dir")) || 1 }; });
+
+  var vh = window.innerHeight;
+  var headerH = 72;
+
+  function measure() {
+    vh = window.innerHeight;
+    var header = document.querySelector(".site-header");
+    if (header) headerH = header.offsetHeight;
+    gallery.forEach(function (g) {
+      var on = window.innerWidth >= 900 && vh >= 620;
+      g.sec.classList.toggle("hscroll-on", on);
+      g.track.style.transform = "";
+      if (!on) { g.sec.style.height = ""; g.overflow = 0; return; }
+      g.overflow = Math.max(0, g.track.scrollWidth - window.innerWidth);
+      g.sec.style.height = (g.sticky.offsetHeight + g.overflow) + "px";
+    });
+    marquees.forEach(function (m) { m.half = m.el.scrollWidth / 2; });
+  }
+
+  function update() {
+    var y = window.scrollY || 0;
+
+    titles.forEach(function (t) {
+      var r = t.el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      var p = clamp((vh * 0.92 - r.top) / (vh * 0.42));
+      var lit = Math.round(p * t.words.length);
+      if (lit === t.lit) return;
+      t.lit = lit;
+      t.words.forEach(function (w, i) { w.classList.toggle("on", i < lit); });
+    });
+
+    heroes.forEach(function (h) {
+      var height = h.offsetHeight || 1;
+      if (y > height + 100) return;
+      h.style.setProperty("--sp", clamp(y / (height * 0.85)).toFixed(3));
+    });
+
+    if (liveDemo) {
+      var lr = liveDemo.getBoundingClientRect();
+      liveDemo.style.setProperty("--tilt", (1 - clamp((vh - lr.top) / (vh * 0.55))).toFixed(3));
+    }
+
+    images.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      el.style.setProperty("--ip", ease(clamp((vh - r.top) / (vh * 0.6))).toFixed(3));
+    });
+
+    strips.forEach(function (s) {
+      var r = s.el.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      var p = clamp((vh * 0.88 - r.top) / (vh * 0.45));
+      s.el.style.setProperty("--p", p.toFixed(3));
+      s.items.forEach(function (li, i) { li.classList.toggle("is-on", p > (i + 0.35) / s.items.length); });
+    });
+
+    grids.forEach(function (g) {
+      var r = g.el.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 150) return;
+      var p = clamp((vh - r.top) / (vh * 0.5));
+      var stacked = window.innerWidth < 760; /* untereinander: jede Karte nach ihrer eigenen Position */
+      g.items.forEach(function (c, i) {
+        var own = stacked ? clamp((vh - c.getBoundingClientRect().top) / (vh * 0.3)) : clamp(p * 1.25 - i * 0.08);
+        c.style.setProperty("--gp", ease(own).toFixed(3));
+      });
+    });
+
+    gallery.forEach(function (g) {
+      if (!g.overflow) return;
+      var r = g.sec.getBoundingClientRect();
+      var p = clamp((headerH - r.top) / g.overflow);
+      g.track.style.transform = "translate3d(" + (-p * g.overflow).toFixed(1) + "px,0,0)";
+      if (g.bar) g.bar.style.setProperty("--hp", p.toFixed(3));
+    });
+
+    tagRows.forEach(function (t) {
+      var r = t.el.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      var p = (vh - r.top) / (vh + r.height);
+      t.el.style.transform = "translate3d(" + (t.dir * (p - 0.5) * 520).toFixed(1) + "px,0,0)";
+    });
+
+    marquees.forEach(function (m) {
+      if (!m.half) return;
+      m.el.style.transform = "translate3d(" + (-((y * 0.55) % m.half)).toFixed(1) + "px,0,0)";
+    });
+  }
+
+  var queued = false;
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    window.requestAnimationFrame(function () { queued = false; update(); });
+  }
+  function refresh() { measure(); update(); }
+  document.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", refresh, { passive: true });
+  window.addEventListener("load", refresh);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+  refresh();
+})();
+
+/* Beispiele im Popup: Links auf demos/ öffnen ein Fenster über der Seite statt die Seite zu verlassen.
+   Ohne JavaScript, mit Strg/Cmd-Klick oder per „In neuem Tab“ bleibt es ein normaler Link. */
+(function () {
+  "use strict";
+  if (!("HTMLDialogElement" in window)) return;
+  var lang = (document.documentElement.lang || "de").slice(0, 2);
+  var TXT = {
+    de: { note: "Beispiel zum Ausprobieren · es wird nichts gesendet", tab: "In neuem Tab ↗", close: "Schließen" },
+    en: { note: "An example to try out · nothing is sent", tab: "Open in new tab ↗", close: "Close" },
+    hr: { note: "Primjer za isprobavanje · ništa se ne šalje", tab: "Otvori u novoj kartici ↗", close: "Zatvori" }
+  }[lang] || null;
+  if (!TXT) return;
+
+  var dialog, frame, titleEl, tabLink, lastFocus;
+  function build() {
+    dialog = document.createElement("dialog");
+    dialog.className = "demo-modal";
+    dialog.innerHTML = '<div class="dm-bar"><span class="dm-dots" aria-hidden="true"><i></i><i></i><i></i></span>' +
+      '<strong class="dm-title"></strong><span class="dm-note"></span><a class="dm-new" target="_blank" rel="noopener"></a>' +
+      '<button class="dm-close" type="button"></button></div><iframe title=""></iframe>';
+    frame = dialog.querySelector("iframe");
+    titleEl = dialog.querySelector(".dm-title");
+    tabLink = dialog.querySelector(".dm-new");
+    dialog.querySelector(".dm-note").textContent = TXT.note;
+    tabLink.textContent = TXT.tab;
+    var closeBtn = dialog.querySelector(".dm-close");
+    closeBtn.textContent = "×";
+    closeBtn.setAttribute("aria-label", TXT.close);
+    closeBtn.addEventListener("click", function () { dialog.close(); });
+    dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener("close", function () {
+      frame.removeAttribute("src");
+      document.documentElement.classList.remove("modal-open");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    });
+    document.body.appendChild(dialog);
+  }
+
+  document.addEventListener("click", function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target.closest ? e.target.closest('a[href*="demos/"]') : null;
+    if (!a || a.target === "_blank") return;
+    e.preventDefault();
+    if (!dialog) build();
+    var href = a.getAttribute("href");
+    var name = a.getAttribute("data-demo") || a.textContent.trim();
+    lastFocus = a;
+    titleEl.textContent = name;
+    frame.setAttribute("title", name);
+    tabLink.setAttribute("href", href);
+    var hashAt = href.indexOf("#"); /* ein Teil hinter # bleibt am Ende stehen */
+    var base = hashAt === -1 ? href : href.slice(0, hashAt);
+    frame.setAttribute("src", base + (base.indexOf("?") === -1 ? "?" : "&") + "preview=1" + (hashAt === -1 ? "" : href.slice(hashAt)));
+    document.documentElement.classList.add("modal-open");
+    dialog.showModal();
+  });
 })();

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elektro Sommer – Beispielseite von CreationFirst</title>
+<meta name="description" content="Beispiel: Website eines Elektrobetriebs mit geführter Anfrage. Gebaut von CreationFirst.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#111111">
+<link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+<link rel="preload" href="../../assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Bricolage Grotesque"; font-weight: 200 800; font-display: swap; src: url("../../assets/fonts/bricolage-grotesque-latin.woff2") format("woff2"); }
+:root { --ink: #111; --paper: #fbfaf5; --volt: #ffd60a; --volt-dark: #e6bd00; --line: #e4e1d6; --muted: #5d5a50; --ok: #1a7f4b; --display: "Bricolage Grotesque", -apple-system, "Segoe UI", Roboto, Arial, sans-serif; --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; font-family: var(--body); font-size: 17px; line-height: 1.55; color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.02; letter-spacing: -.03em; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 40px); }
+
+.demo-bar { background: #1b1f3a; color: #e8eaf6; font-size: 13px; padding: 8px 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: center; align-items: center; text-align: center; }
+.demo-bar a { color: #fff; font-weight: 700; }
+.is-preview .demo-bar { display: none; }
+.demo-bar .langs a { font-weight: 600; text-decoration: none; opacity: .75; }
+.demo-bar .langs a[aria-current] { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+
+.top { position: sticky; top: 0; z-index: 10; background: var(--ink); color: #fff; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 800; font-size: 1.25rem; letter-spacing: -.02em; text-decoration: none; }
+.logo svg { width: 30px; height: 30px; }
+.top nav { display: flex; gap: 26px; font-size: 15px; font-weight: 600; }
+.top nav a { text-decoration: none; opacity: .85; }
+.top nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--volt); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 10px; border: 2px solid var(--ink); background: var(--volt); color: var(--ink); font-weight: 800; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease; box-shadow: 4px 4px 0 var(--ink); }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.top .btn { min-height: 40px; padding: 8px 16px; border-color: var(--volt); box-shadow: none; font-size: 15px; }
+
+.hero { background: var(--ink); color: #fff; position: relative; overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(28px, 5vw, 64px); align-items: end; padding-top: clamp(48px, 8vw, 110px); padding-bottom: clamp(48px, 7vw, 96px); position: relative; }
+.hero::before { content: ""; position: absolute; right: -8%; top: -30%; width: 55%; aspect-ratio: 1; background: var(--volt); clip-path: polygon(58% 0, 22% 52%, 46% 52%, 34% 100%, 80% 40%, 54% 40%, 70% 0); opacity: .95; }
+.tag { display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--volt); margin-bottom: 20px; }
+.hero h1 { font-size: clamp(3rem, 8.5vw, 7rem); font-weight: 800; }
+.hero h1 span { color: var(--volt); }
+.hero .lede { margin: 26px 0 32px; font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 34em; color: #d6d3c7; }
+.hero .btn { box-shadow: 4px 4px 0 #fff; }
+.hero .btn:hover { box-shadow: 6px 6px 0 #fff; }
+.facts { position: relative; display: grid; gap: 12px; }
+.facts div { background: #1c1c1c; border: 1px solid #333; border-radius: 14px; padding: 16px 18px; }
+.facts b { display: block; font-family: var(--display); font-size: 2rem; letter-spacing: -.03em; color: var(--volt); line-height: 1.1; }
+.facts span { font-size: 14px; color: #bdb9ab; }
+
+section { padding: clamp(56px, 8vw, 104px) 0; }
+.head { max-width: 720px; margin-bottom: 36px; }
+.head h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); font-weight: 800; }
+.head p { margin-top: 14px; color: var(--muted); font-size: 1.08rem; }
+.services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.service { background: #fff; border: 2px solid var(--ink); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 10px; transition: transform .2s ease, box-shadow .2s ease; }
+.service:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--volt); }
+.service svg { width: 34px; height: 34px; }
+.service h3 { font-size: 1.3rem; font-weight: 700; }
+.service p { font-size: 15px; color: var(--muted); }
+
+.ask { background: var(--volt); }
+.ask-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.ask .head { margin: 0; }
+.ask .head p { color: #3d3a2c; }
+.ask ul { margin: 22px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-weight: 600; }
+.ask li::before { content: "✓ "; font-weight: 800; }
+.card { background: #fff; border: 2px solid var(--ink); border-radius: 20px; box-shadow: 8px 8px 0 var(--ink); padding: clamp(20px, 3vw, 32px); }
+.progress { display: flex; gap: 6px; margin-bottom: 22px; }
+.progress i { flex: 1; height: 6px; border-radius: 6px; background: var(--line); transition: background-color .3s ease; }
+.progress i.on { background: var(--ink); }
+.step { display: none; }
+.step.on { display: block; animation: stepIn .35s ease both; }
+@keyframes stepIn { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
+.step-count { font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.step h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; margin: 6px 0 18px; }
+.chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.chip { text-align: left; padding: 14px 16px; border-radius: 12px; border: 2px solid var(--line); background: #fff; font-weight: 700; color: var(--ink); min-height: 52px; transition: border-color .15s ease, background-color .15s ease; }
+.chip:hover { border-color: var(--ink); }
+.chip[aria-pressed="true"] { border-color: var(--ink); background: var(--volt); }
+.field { display: grid; gap: 6px; margin-top: 16px; }
+.field label, .field .label { font-size: 14px; font-weight: 700; }
+.field input { font: inherit; padding: 12px 14px; border-radius: 10px; border: 2px solid var(--line); background: #fff; min-height: 50px; width: 100%; }
+.field input:focus { outline: none; border-color: var(--ink); }
+.hint { font-size: 13px; color: #b42318; min-height: 1.4em; margin-top: 8px; }
+.row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 18px; }
+.back { background: none; border: 0; padding: 10px 4px; font-weight: 700; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; }
+.result { display: none; }
+.result.on { display: grid; gap: 16px; animation: stepIn .4s ease both; }
+.result h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; }
+.result .thanks { color: var(--muted); }
+.ticket { border: 2px dashed var(--ink); border-radius: 14px; padding: 16px 18px; background: var(--paper); }
+.ticket .label { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px; }
+.ticket .label i { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); }
+.ticket dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-size: 15px; }
+.ticket dt { color: var(--muted); }
+.ticket dd { margin: 0; font-weight: 700; }
+.small { font-size: 13px; color: var(--muted); }
+
+.steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: s; }
+.steps3 div { border-top: 4px solid var(--ink); padding-top: 18px; }
+.steps3 div::before { counter-increment: s; content: "0" counter(s); font-family: var(--display); font-weight: 800; font-size: 1.1rem; color: var(--volt-dark); }
+.steps3 h3 { font-size: 1.4rem; font-weight: 700; margin: 8px 0; }
+.steps3 p { color: var(--muted); font-size: 15.5px; }
+
+footer { background: var(--ink); color: #d6d3c7; padding: 48px 0; font-size: 15px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 24px 48px; justify-content: space-between; align-items: center; }
+footer b { color: #fff; }
+.made { background: #1c1c1c; border: 1px solid #333; border-radius: 14px; padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.made a { color: var(--volt); font-weight: 800; }
+
+@media (max-width: 900px) {
+  .hero .wrap, .ask-grid { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: repeat(3, 1fr); }
+  .services { grid-template-columns: 1fr 1fr; }
+  .top nav { display: none; }
+  .hero::before { width: 80%; right: -30%; opacity: .25; }
+}
+@media (max-width: 600px) {
+  .services, .steps3, .chips { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: 1fr; }
+  .facts b { font-size: 1.6rem; }
+  .card { box-shadow: 5px 5px 0 var(--ink); }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <span>Ein Beispiel von CreationFirst zum Ausprobieren · es wird nichts gesendet.</span>
+  <a href="../../index.html">← Zurück zu CreationFirst</a>
+  <span class="langs"><a href="./" data-lang="de">DE</a> · <a href="?lang=en" data-lang="en">EN</a> · <a href="?lang=hr" data-lang="hr">HR</a></span>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Elektro Sommer, Startseite">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#ffd60a"/><path d="M18 4 8 18h6l-2 10 12-15h-7z" fill="#111"/></svg>
+      Elektro Sommer
+    </a>
+    <nav aria-label="Hauptnavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#anfrage">Anfrage</a>
+    </nav>
+    <a class="btn" href="#anfrage">Anfrage starten</a>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag">Meisterbetrieb · Musterstadt und Umgebung</span>
+      <h1>Strom, der <span>einfach läuft.</span></h1>
+      <p class="lede">Wallbox, Zählerschrank, Photovoltaik und alles dazwischen. Sauber geplant, pünktlich montiert und verständlich erklärt.</p>
+      <a class="btn" href="#anfrage">Anfrage in 60 Sekunden →</a>
+    </div>
+    <div class="facts">
+      <div><b>1 Werktag</b><span>bis zur ersten Rückmeldung</span></div>
+      <div><b>Festpreis</b><span>nach dem Vor-Ort-Termin</span></div>
+      <div><b>12 Leute</b><span>im Team, davon 3 Meister</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="leistungen">
+  <div class="wrap">
+    <div class="head">
+      <h2>Was wir für dich erledigen</h2>
+      <p>Vom einzelnen Anschluss bis zur kompletten Sanierung. Du sagst, was du brauchst – wir kümmern uns um Planung, Anmeldung und Montage.</p>
+    </div>
+    <div class="services">
+      <article class="service">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="4" width="16" height="22" rx="3"/><path d="M17 9l-4 6h6l-4 6"/><path d="M12 30h8"/></svg>
+        <h3>Wallbox &amp; E-Mobilität</h3>
+        <p>Beratung, Montage und Anmeldung beim Netzbetreiber aus einer Hand.</p>
+      </article>
+      <article class="service">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="22" height="24" rx="2"/><path d="M10 10h4M18 10h4M10 16h4M18 16h4M10 22h12"/></svg>
+        <h3>Zählerschrank &amp; Sanierung</h3>
+        <p>Alte Anlagen prüfen, erneuern und fit machen für heutige Lasten.</p>
+      </article>
+      <article class="service">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="10" r="4"/><path d="M16 2v2M6 10H4M28 10h-2M9 4l1.5 1.5M23 4l-1.5 1.5"/><path d="M6 28l3-10h14l3 10zM8 23h16M16 18v10"/></svg>
+        <h3>Photovoltaik &amp; Speicher</h3>
+        <p>Anlage planen, montieren und so einstellen, dass sich der Eigenverbrauch lohnt.</p>
+      </article>
+      <article class="service">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20a8 8 0 1 1 10 0v3H11z"/><path d="M12 27h8M14 30h4"/></svg>
+        <h3>Smart Home &amp; Licht</h3>
+        <p>Licht, Rollläden und Heizung bequem steuern, ohne Technik-Wirrwarr.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="ask" id="anfrage">
+  <div class="wrap ask-grid">
+    <div class="head">
+      <h2>Sag uns kurz, worum es geht.</h2>
+      <p>Drei kurze Fragen statt einer langen E-Mail. So haben wir beim Rückruf schon alles, was wir brauchen.</p>
+      <ul>
+        <li>Dauert etwa eine Minute</li>
+        <li>Rückmeldung innerhalb eines Werktags</li>
+        <li>Unverbindlich und kostenlos</li>
+      </ul>
+    </div>
+    <div class="card" id="wizard">
+      <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+
+      <div class="step on" data-step="0">
+        <span class="step-count">Frage 1 von 3</span>
+        <h3>Worum geht es?</h3>
+        <div class="chips" data-group="topic">
+          <button class="chip" type="button" aria-pressed="false">Wallbox</button>
+          <button class="chip" type="button" aria-pressed="false">Zählerschrank</button>
+          <button class="chip" type="button" aria-pressed="false">Photovoltaik</button>
+          <button class="chip" type="button" aria-pressed="false">Smart Home</button>
+          <button class="chip" type="button" aria-pressed="false">Störung oder Defekt</button>
+          <button class="chip" type="button" aria-pressed="false">Etwas anderes</button>
+        </div>
+        <p class="hint" role="alert"></p>
+      </div>
+
+      <div class="step" data-step="1">
+        <span class="step-count">Frage 2 von 3</span>
+        <h3>Wo soll gearbeitet werden?</h3>
+        <div class="chips" data-group="place">
+          <button class="chip" type="button" aria-pressed="false">Einfamilienhaus</button>
+          <button class="chip" type="button" aria-pressed="false">Wohnung</button>
+          <button class="chip" type="button" aria-pressed="false">Mehrfamilienhaus</button>
+          <button class="chip" type="button" aria-pressed="false">Gewerbe</button>
+        </div>
+        <div class="field">
+          <label for="plz">Postleitzahl</label>
+          <input id="plz" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="z. B. 12345">
+        </div>
+        <p class="hint" role="alert"></p>
+        <div class="row"><button class="back" type="button">← Zurück</button><button class="btn next" type="button">Weiter</button></div>
+      </div>
+
+      <div class="step" data-step="2">
+        <span class="step-count">Frage 3 von 3</span>
+        <h3>Wann passt es dir?</h3>
+        <div class="chips" data-group="when">
+          <button class="chip" type="button" aria-pressed="false">So bald wie möglich</button>
+          <button class="chip" type="button" aria-pressed="false">In den nächsten 4 Wochen</button>
+          <button class="chip" type="button" aria-pressed="false">In 2–3 Monaten</button>
+          <button class="chip" type="button" aria-pressed="false">Bin flexibel</button>
+        </div>
+        <div class="field">
+          <label for="name">Dein Name</label>
+          <input id="name" autocomplete="name" placeholder="Vor- und Nachname">
+        </div>
+        <p class="hint" role="alert"></p>
+        <div class="row"><button class="back" type="button">← Zurück</button><button class="btn send" type="button">Anfrage absenden</button></div>
+      </div>
+
+      <div class="result" aria-live="polite">
+        <h3>Danke, <span data-out="first"></span>!</h3>
+        <p class="thanks">Wir melden uns innerhalb eines Werktags bei dir. So sieht deine Anfrage bei uns im Büro aus:</p>
+        <div class="ticket">
+          <div class="label"><i></i>Neue Anfrage · sortiert im Betrieb angekommen</div>
+          <dl>
+            <dt>Kunde</dt><dd data-out="name"></dd>
+            <dt>Anliegen</dt><dd data-out="topic"></dd>
+            <dt>Objekt</dt><dd data-out="place"></dd>
+            <dt>PLZ</dt><dd data-out="plz"></dd>
+            <dt>Zeitraum</dt><dd data-out="when"></dd>
+            <dt>Nächster Schritt</dt><dd>Rückruf einplanen</dd>
+          </dl>
+        </div>
+        <p class="small">Nur ein Beispiel: Es wurde nichts gesendet und nichts gespeichert.</p>
+        <div class="row"><button class="back restart" type="button">Noch einmal von vorn</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ablauf">
+  <div class="wrap">
+    <div class="head">
+      <h2>So läuft es ab</h2>
+    </div>
+    <div class="steps3">
+      <div><h3>Anfrage</h3><p>Du beantwortest drei Fragen. Wir rufen innerhalb eines Werktags zurück.</p></div>
+      <div><h3>Vor-Ort-Termin</h3><p>Wir schauen uns alles an und du bekommst ein Angebot mit festem Preis.</p></div>
+      <div><h3>Montage</h3><p>Ein fester Termin, ein sauberer Arbeitsplatz und eine Einweisung am Ende.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Elektro Sommer</b><br>Beispielstraße 1 · 12345 Musterstadt<br>Mo–Fr 7–17 Uhr</p>
+    <div class="made">
+      <span>Ein Beispiel, gebaut von CreationFirst.</span>
+      <a href="../../kontakt.html?topic=web">So eine Website für meinen Betrieb →</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  // preview=1: Vorschau-Kachel oder Popup auf der CreationFirst-Seite. Hinweisleiste aus, Links zurück zur Seite verlassen den Rahmen.
+  if (/[?&]preview=1/.test(location.search)) {
+    document.documentElement.classList.add("is-preview");
+    document.querySelectorAll('a[href^="../../"]').forEach(function (a) { a.setAttribute("target", "_top"); });
+  }
+
+  // Sprache: ?lang=en oder ?lang=hr. Deutsch steht im HTML, die anderen Sprachen ersetzen die Texte
+  // anhand des deutschen Wortlauts (I18N: deutscher Text -> [Englisch, Kroatisch]).
+  var LANG = (location.search.match(/[?&]lang=(en|hr)/) || [])[1] || "de";
+  var I18N = {
+   "Elektro Sommer – Beispielseite von CreationFirst": [
+    "Elektro Sommer – example site by CreationFirst",
+    "Elektro Sommer – primjer stranice, CreationFirst"
+   ],
+   "Ein Beispiel von CreationFirst zum Ausprobieren · es wird nichts gesendet.": [
+    "An example by CreationFirst to try out · nothing is sent.",
+    "Primjer tvrtke CreationFirst za isprobavanje · ništa se ne šalje."
+   ],
+   "← Zurück zu CreationFirst": [
+    "← Back to CreationFirst",
+    "← Natrag na CreationFirst"
+   ],
+   "Elektro Sommer, Startseite": [
+    "Elektro Sommer, home",
+    "Elektro Sommer, početna"
+   ],
+   "Hauptnavigation": [
+    "Main navigation",
+    "Glavna navigacija"
+   ],
+   "Leistungen": [
+    "Services",
+    "Usluge"
+   ],
+   "Ablauf": [
+    "Process",
+    "Postupak"
+   ],
+   "Anfrage": [
+    "Inquiry",
+    "Upit"
+   ],
+   "Anfrage starten": [
+    "Start inquiry",
+    "Pošalji upit"
+   ],
+   "Meisterbetrieb · Musterstadt und Umgebung": [
+    "Master electricians · Sampletown and surroundings",
+    "Ovlašteni elektroinstalateri · Primjergrad i okolica"
+   ],
+   "Strom, der": [
+    "Power that",
+    "Struja koja"
+   ],
+   "einfach läuft.": [
+    "simply works.",
+    "jednostavno radi."
+   ],
+   "Wallbox, Zählerschrank, Photovoltaik und alles dazwischen. Sauber geplant, pünktlich montiert und verständlich erklärt.": [
+    "Wallboxes, meter cabinets, solar and everything in between. Carefully planned, installed on time and explained in plain words.",
+    "Punjači, razvodni ormari, solarni sustavi i sve između. Uredno planirano, montirano na vrijeme i objašnjeno razumljivo."
+   ],
+   "Anfrage in 60 Sekunden →": [
+    "Inquiry in 60 seconds →",
+    "Upit u 60 sekundi →"
+   ],
+   "1 Werktag": [
+    "1 working day",
+    "1 radni dan"
+   ],
+   "bis zur ersten Rückmeldung": [
+    "until our first reply",
+    "do prvog odgovora"
+   ],
+   "Festpreis": [
+    "Fixed price",
+    "Fiksna cijena"
+   ],
+   "nach dem Vor-Ort-Termin": [
+    "after the on-site visit",
+    "nakon izlaska na teren"
+   ],
+   "12 Leute": [
+    "12 people",
+    "12 ljudi"
+   ],
+   "im Team, davon 3 Meister": [
+    "on the team, 3 of them masters",
+    "u timu, od toga 3 majstora"
+   ],
+   "Was wir für dich erledigen": [
+    "What we take care of",
+    "Što rješavamo za tebe"
+   ],
+   "Vom einzelnen Anschluss bis zur kompletten Sanierung. Du sagst, was du brauchst – wir kümmern uns um Planung, Anmeldung und Montage.": [
+    "From a single connection to a full renovation. You tell us what you need – we handle planning, registration and installation.",
+    "Od jednog priključka do potpune obnove. Ti kažeš što trebaš – mi rješavamo planiranje, prijavu i montažu."
+   ],
+   "Wallbox & E-Mobilität": [
+    "Wallbox & e-mobility",
+    "Punjači i e-mobilnost"
+   ],
+   "Beratung, Montage und Anmeldung beim Netzbetreiber aus einer Hand.": [
+    "Advice, installation and grid registration from one source.",
+    "Savjetovanje, montaža i prijava operatoru mreže na jednom mjestu."
+   ],
+   "Zählerschrank & Sanierung": [
+    "Meter cabinet & renovation",
+    "Razvodni ormar i obnova"
+   ],
+   "Alte Anlagen prüfen, erneuern und fit machen für heutige Lasten.": [
+    "Checking old installations, renewing them and making them fit for today's loads.",
+    "Provjera starih instalacija, obnova i priprema za današnja opterećenja."
+   ],
+   "Photovoltaik & Speicher": [
+    "Solar & storage",
+    "Solarni sustavi i baterije"
+   ],
+   "Anlage planen, montieren und so einstellen, dass sich der Eigenverbrauch lohnt.": [
+    "Planning and installing the system and setting it up so that self-consumption pays off.",
+    "Planiranje i montaža sustava te podešavanje da se vlastita potrošnja isplati."
+   ],
+   "Smart Home & Licht": [
+    "Smart home & lighting",
+    "Pametni dom i rasvjeta"
+   ],
+   "Licht, Rollläden und Heizung bequem steuern, ohne Technik-Wirrwarr.": [
+    "Control lighting, shutters and heating comfortably, without a tangle of tech.",
+    "Udobno upravljanje rasvjetom, roletama i grijanjem, bez tehničke zbrke."
+   ],
+   "Sag uns kurz, worum es geht.": [
+    "Tell us briefly what it is about.",
+    "Reci nam ukratko o čemu se radi."
+   ],
+   "Drei kurze Fragen statt einer langen E-Mail. So haben wir beim Rückruf schon alles, was wir brauchen.": [
+    "Three short questions instead of a long email. That way we already have everything we need when we call back.",
+    "Tri kratka pitanja umjesto dugog e-maila. Tako pri povratnom pozivu već imamo sve što trebamo."
+   ],
+   "Dauert etwa eine Minute": [
+    "Takes about a minute",
+    "Traje oko minutu"
+   ],
+   "Rückmeldung innerhalb eines Werktags": [
+    "A reply within one working day",
+    "Odgovor unutar jednog radnog dana"
+   ],
+   "Unverbindlich und kostenlos": [
+    "Free and without obligation",
+    "Besplatno i bez obveze"
+   ],
+   "Frage 1 von 3": [
+    "Question 1 of 3",
+    "Pitanje 1 od 3"
+   ],
+   "Frage 2 von 3": [
+    "Question 2 of 3",
+    "Pitanje 2 od 3"
+   ],
+   "Frage 3 von 3": [
+    "Question 3 of 3",
+    "Pitanje 3 od 3"
+   ],
+   "Worum geht es?": [
+    "What is it about?",
+    "O čemu se radi?"
+   ],
+   "Wallbox": [
+    "Wallbox",
+    "Punjač"
+   ],
+   "Zählerschrank": [
+    "Meter cabinet",
+    "Razvodni ormar"
+   ],
+   "Photovoltaik": [
+    "Solar",
+    "Solarni sustav"
+   ],
+   "Smart Home": [
+    "Smart home",
+    "Pametni dom"
+   ],
+   "Störung oder Defekt": [
+    "Fault or defect",
+    "Kvar ili smetnja"
+   ],
+   "Etwas anderes": [
+    "Something else",
+    "Nešto drugo"
+   ],
+   "Wo soll gearbeitet werden?": [
+    "Where is the work?",
+    "Gdje se izvode radovi?"
+   ],
+   "Einfamilienhaus": [
+    "Detached house",
+    "Obiteljska kuća"
+   ],
+   "Wohnung": [
+    "Flat",
+    "Stan"
+   ],
+   "Mehrfamilienhaus": [
+    "Apartment building",
+    "Stambena zgrada"
+   ],
+   "Gewerbe": [
+    "Commercial",
+    "Poslovni prostor"
+   ],
+   "Postleitzahl": [
+    "Postcode",
+    "Poštanski broj"
+   ],
+   "z. B. 12345": [
+    "e.g. 12345",
+    "npr. 12345"
+   ],
+   "← Zurück": [
+    "← Back",
+    "← Natrag"
+   ],
+   "Weiter": [
+    "Next",
+    "Dalje"
+   ],
+   "Wann passt es dir?": [
+    "When suits you?",
+    "Kada ti odgovara?"
+   ],
+   "So bald wie möglich": [
+    "As soon as possible",
+    "Što prije"
+   ],
+   "In den nächsten 4 Wochen": [
+    "Within the next 4 weeks",
+    "U sljedeća 4 tjedna"
+   ],
+   "In 2–3 Monaten": [
+    "In 2–3 months",
+    "Za 2–3 mjeseca"
+   ],
+   "Bin flexibel": [
+    "I am flexible",
+    "Fleksibilno"
+   ],
+   "Dein Name": [
+    "Your name",
+    "Tvoje ime"
+   ],
+   "Vor- und Nachname": [
+    "First and last name",
+    "Ime i prezime"
+   ],
+   "Anfrage absenden": [
+    "Send inquiry",
+    "Pošalji upit"
+   ],
+   "Danke,": [
+    "Thanks,",
+    "Hvala,"
+   ],
+   "Wir melden uns innerhalb eines Werktags bei dir. So sieht deine Anfrage bei uns im Büro aus:": [
+    "We will get back to you within one working day. This is what your inquiry looks like in our office:",
+    "Javit ćemo ti se unutar jednog radnog dana. Ovako tvoj upit izgleda u našem uredu:"
+   ],
+   "Neue Anfrage · sortiert im Betrieb angekommen": [
+    "New inquiry · arrived sorted at the business",
+    "Novi upit · stigao razvrstan u tvrtku"
+   ],
+   "Kunde": [
+    "Customer",
+    "Klijent"
+   ],
+   "Anliegen": [
+    "Request",
+    "Upit"
+   ],
+   "Objekt": [
+    "Property",
+    "Objekt"
+   ],
+   "PLZ": [
+    "Postcode",
+    "Poštanski broj"
+   ],
+   "Zeitraum": [
+    "Timeframe",
+    "Rok"
+   ],
+   "Nächster Schritt": [
+    "Next step",
+    "Sljedeći korak"
+   ],
+   "Rückruf einplanen": [
+    "Schedule a call back",
+    "Zakazati povratni poziv"
+   ],
+   "Nur ein Beispiel: Es wurde nichts gesendet und nichts gespeichert.": [
+    "Just an example: nothing was sent or stored.",
+    "Samo primjer: ništa nije poslano niti spremljeno."
+   ],
+   "Noch einmal von vorn": [
+    "Start over",
+    "Kreni ispočetka"
+   ],
+   "So läuft es ab": [
+    "How it works",
+    "Kako to ide"
+   ],
+   "Du beantwortest drei Fragen. Wir rufen innerhalb eines Werktags zurück.": [
+    "You answer three questions. We call back within one working day.",
+    "Odgovoriš na tri pitanja. Nazovemo te unutar jednog radnog dana."
+   ],
+   "Vor-Ort-Termin": [
+    "On-site visit",
+    "Izlazak na teren"
+   ],
+   "Wir schauen uns alles an und du bekommst ein Angebot mit festem Preis.": [
+    "We take a look at everything and you receive a fixed-price quote.",
+    "Sve pregledamo, a ti dobivaš ponudu s fiksnom cijenom."
+   ],
+   "Montage": [
+    "Installation",
+    "Montaža"
+   ],
+   "Ein fester Termin, ein sauberer Arbeitsplatz und eine Einweisung am Ende.": [
+    "A fixed date, a tidy workplace and a walkthrough at the end.",
+    "Čvrst termin, uredno radno mjesto i upute na kraju."
+   ],
+   "Mo–Fr 7–17 Uhr": [
+    "Mon–Fri 7 am–5 pm",
+    "Pon–pet 7–17 h"
+   ],
+   "Ein Beispiel, gebaut von CreationFirst.": [
+    "An example built by CreationFirst.",
+    "Primjer koji je izradio CreationFirst."
+   ],
+   "So eine Website für meinen Betrieb →": [
+    "A website like this for my business →",
+    "Ovakva web-stranica za moje poslovanje →"
+   ],
+   "Bitte wähle aus, um was für ein Objekt es geht.": [
+    "Please choose the type of property.",
+    "Odaberi o kakvom se objektu radi."
+   ],
+   "Bitte gib eine fünfstellige Postleitzahl ein.": [
+    "Please enter a five-digit postcode.",
+    "Upiši peteroznamenkasti poštanski broj."
+   ],
+   "Bitte wähle einen Zeitraum.": [
+    "Please choose a timeframe.",
+    "Odaberi rok."
+   ],
+   "Bitte gib deinen Namen ein.": [
+    "Please enter your name.",
+    "Upiši svoje ime."
+   ]
+  };
+  function t(s) {
+    if (LANG === "de") return s;
+    var e = I18N[s];
+    return e ? e[LANG === "en" ? 0 : 1] : s;
+  }
+  (function () {
+    var bar = document.querySelector(".demo-bar .langs");
+    if (bar) {
+      var keep = /[?&]preview=1/.test(location.search) ? "preview=1&" : "";
+      bar.querySelectorAll("a").forEach(function (a) {
+        var l = a.getAttribute("data-lang");
+        a.setAttribute("href", l === "de" ? (keep ? "?preview=1" : "./") : "?" + keep + "lang=" + l);
+        if (l === LANG) a.setAttribute("aria-current", "true");
+      });
+    }
+    if (LANG === "de") return;
+    document.documentElement.lang = LANG;
+    document.title = t(document.title);
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function (n) {
+      var p = n.parentNode && n.parentNode.nodeName;
+      if (p === "SCRIPT" || p === "STYLE") return;
+      var key = n.nodeValue.replace(/\s+/g, " ").trim();
+      if (key && I18N[key]) n.nodeValue = n.nodeValue.replace(n.nodeValue.trim(), t(key));
+    });
+    ["placeholder", "aria-label"].forEach(function (attr) {
+      document.querySelectorAll("[" + attr + "]").forEach(function (el) { el.setAttribute(attr, t(el.getAttribute(attr))); });
+    });
+    var home = { en: "../../en/index.html", hr: "../../hr/index.html" }[LANG];
+    var contact = { en: "../../en/contact.html", hr: "../../hr/kontakt.html" }[LANG];
+    document.querySelectorAll('a[href^="../../"]').forEach(function (a) {
+      var h = a.getAttribute("href");
+      if (h.indexOf("../../index.html") === 0) a.setAttribute("href", home);
+      else if (h.indexOf("../../kontakt.html") === 0) a.setAttribute("href", contact + h.slice("../../kontakt.html".length));
+    });
+  })();
+
+  var wizard = document.getElementById("wizard");
+  var steps = wizard.querySelectorAll(".step");
+  var bars = wizard.querySelectorAll(".progress i");
+  var result = wizard.querySelector(".result");
+  var answers = {};
+  var current = 0;
+
+  function show(n) {
+    current = n;
+    steps.forEach(function (s, i) { s.classList.toggle("on", i === n); });
+    bars.forEach(function (b, i) { b.classList.toggle("on", i <= n); });
+    result.classList.remove("on");
+  }
+  function hint(msg) { steps[current].querySelector(".hint").textContent = msg || ""; }
+
+  wizard.querySelectorAll(".chips").forEach(function (group) {
+    var key = group.getAttribute("data-group");
+    group.querySelectorAll(".chip").forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        group.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
+        answers[key] = chip.textContent;
+        hint("");
+        if (key === "topic") setTimeout(function () { show(1); }, 180);
+      });
+    });
+  });
+
+  wizard.querySelector(".next").addEventListener("click", function () {
+    var plz = document.getElementById("plz").value.trim();
+    if (!answers.place) return hint(t("Bitte wähle aus, um was für ein Objekt es geht."));
+    if (!/^\d{5}$/.test(plz)) return hint(t("Bitte gib eine fünfstellige Postleitzahl ein."));
+    answers.plz = plz;
+    hint("");
+    show(2);
+  });
+
+  wizard.querySelector(".send").addEventListener("click", function () {
+    var name = document.getElementById("name").value.trim();
+    if (!answers.when) return hint(t("Bitte wähle einen Zeitraum."));
+    if (name.length < 2) return hint(t("Bitte gib deinen Namen ein."));
+    answers.name = name;
+    answers.first = name.split(/\s+/)[0];
+    hint("");
+    Object.keys(answers).forEach(function (k) {
+      var el = result.querySelector('[data-out="' + k + '"]');
+      if (el) el.textContent = answers[k];
+    });
+    steps.forEach(function (s) { s.classList.remove("on"); });
+    bars.forEach(function (b) { b.classList.add("on"); });
+    result.classList.add("on");
+  });
+
+  wizard.querySelectorAll(".back").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      if (btn.classList.contains("restart")) {
+        answers = {};
+        wizard.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+        wizard.querySelectorAll("input").forEach(function (i) { i.value = ""; });
+        show(0);
+      } else {
+        show(Math.max(0, current - 1));
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

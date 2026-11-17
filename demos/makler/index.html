@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immobilien Kranz – Beispielseite von CreationFirst</title>
+<meta name="description" content="Beispiel: Posteingang eines Maklerbüros mit vorbereiteten Antworten. Gebaut von CreationFirst.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#16202b">
+<link rel="icon" type="image/svg+xml" href="../../assets/images/favicon.svg">
+<style>
+:root { --bg: #f2f4f7; --panel: #fff; --ink: #16202b; --muted: #5b6878; --line: #dfe4ea; --side: #16202b; --side-2: #202d3b; --accent: #0f766e; --accent-soft: #e3f4f1; --new: #b45309; --new-soft: #fdf1dc; --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font-family: var(--sans); font-size: 15.5px; line-height: 1.5; color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; }
+h1, h2, h3, p { margin: 0; }
+button { font: inherit; cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+
+.demo-bar { background: #1b1f3a; color: #e8eaf6; font-size: 13px; padding: 8px 16px; display: flex; flex-wrap: wrap; gap: 4px 16px; justify-content: center; text-align: center; }
+.demo-bar a { color: #fff; font-weight: 700; }
+.is-preview .demo-bar { display: none; }
+.demo-bar .langs a { font-weight: 600; text-decoration: none; opacity: .75; }
+.demo-bar .langs a[aria-current] { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+
+.app { flex: 1; display: grid; grid-template-columns: 232px minmax(0, 1fr); min-height: 0; }
+.side { background: var(--side); color: #c9d3de; padding: 22px 16px; display: flex; flex-direction: column; gap: 26px; }
+.brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; font-size: 1.05rem; letter-spacing: -.01em; }
+.brand svg { width: 30px; height: 30px; flex-shrink: 0; }
+.side nav { display: grid; gap: 4px; }
+.side nav span { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 9px 12px; border-radius: 9px; font-size: 14.5px; }
+.side nav span.on { background: var(--side-2); color: #fff; font-weight: 600; }
+.side nav b { background: #f59e0b; color: #1b1300; border-radius: 999px; font-size: 12px; padding: 1px 8px; min-width: 22px; text-align: center; transition: background-color .3s ease; }
+.side nav b.zero { background: #2f3f50; color: #9fb0c0; }
+.side .foot { margin-top: auto; font-size: 13px; line-height: 1.45; border-top: 1px solid #2a3948; padding-top: 16px; }
+.side .foot a { color: #7dd3c8; font-weight: 700; display: inline-block; margin-top: 6px; }
+
+.main { display: grid; grid-template-rows: auto minmax(0, 1fr); min-width: 0; min-height: 0; }
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; padding: 18px clamp(16px, 2.4vw, 28px); background: var(--panel); border-bottom: 1px solid var(--line); }
+.bar h1 { font-size: 1.35rem; letter-spacing: -.02em; }
+.bar p { color: var(--muted); font-size: 14px; }
+.stats { display: flex; gap: 10px; }
+.stat { border: 1px solid var(--line); border-radius: 12px; padding: 7px 14px; text-align: center; min-width: 92px; }
+.stat b { display: block; font-size: 1.3rem; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12px; color: var(--muted); }
+.stat.done b { color: var(--accent); }
+
+.work { display: grid; grid-template-columns: minmax(250px, 340px) minmax(0, 1fr); min-height: 0; }
+.list { border-right: 1px solid var(--line); background: var(--panel); overflow-y: auto; }
+.item { display: block; width: 100%; text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); border-left: 3px solid transparent; padding: 14px 16px 14px 13px; color: var(--ink); transition: background-color .15s ease; }
+.item:hover { background: #f7f9fb; }
+.item[aria-pressed="true"] { background: var(--accent-soft); border-left-color: var(--accent); }
+.item .top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.item .who { font-weight: 700; }
+.item .when { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.item .subject { font-size: 14px; color: var(--muted); margin: 2px 0 8px; }
+.pill { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: var(--new-soft); color: var(--new); }
+.pill.done { background: var(--accent-soft); color: var(--accent); }
+
+.detail { overflow-y: auto; padding: clamp(16px, 2.4vw, 28px); display: grid; gap: 16px; align-content: start; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+.card > .label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.msg p { white-space: pre-line; }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.fact { border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; animation: pop .35s ease both; }
+.fact:nth-child(2) { animation-delay: .08s; }
+.fact:nth-child(3) { animation-delay: .16s; }
+@keyframes pop { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.fact small { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.fact b { font-size: 14.5px; }
+.draft textarea { font: inherit; width: 100%; min-height: 190px; resize: vertical; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; color: var(--ink); background: #fbfcfd; line-height: 1.55; }
+.draft textarea:focus { outline: none; border-color: var(--accent); background: #fff; }
+.draft textarea[readonly] { background: var(--accent-soft); border-color: transparent; }
+.next-step { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--accent); font-weight: 600; margin-top: 10px; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 14px; }
+.btn { min-height: 44px; padding: 10px 20px; border-radius: 10px; border: 0; background: var(--accent); color: #fff; font-weight: 700; transition: background-color .15s ease, transform .15s ease; }
+.btn:hover { background: #0c5f59; transform: translateY(-1px); }
+.btn:disabled { background: #a7b4c0; cursor: default; transform: none; }
+.actions .note { font-size: 13.5px; color: var(--muted); }
+.sent { color: var(--accent); font-weight: 700; }
+.all-done { display: none; text-align: center; padding: 28px 18px; }
+.all-done.on { display: block; animation: pop .4s ease both; }
+.all-done .check { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-size: 1.5rem; margin: 0 auto 12px; }
+.all-done h2 { font-size: 1.3rem; }
+.all-done p { color: var(--muted); margin: 6px 0 14px; }
+.link-btn { background: none; border: 0; color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; padding: 6px; }
+
+@media (max-width: 900px) {
+  body { display: block; }
+  .app { display: block; }
+  .side { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 12px 16px; }
+  .side nav { display: none; }
+  .side .foot { margin: 0 0 0 auto; border: 0; padding: 0; }
+  .work { display: block; }
+  .list { border-right: 0; border-bottom: 1px solid var(--line); }
+  .facts { grid-template-columns: 1fr; }
+  .stat { min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <span>Ein Beispiel von CreationFirst zum Ausprobieren · es wird nichts gesendet.</span>
+  <a href="../../index.html">← Zurück zu CreationFirst</a>
+  <span class="langs"><a href="./" data-lang="de">DE</a> · <a href="?lang=en" data-lang="en">EN</a> · <a href="?lang=hr" data-lang="hr">HR</a></span>
+</div>
+
+<div class="app">
+  <aside class="side">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0f766e"/><path d="M7 16l9-8 9 8v8a1 1 0 0 1-1 1h-5v-6h-6v6H8a1 1 0 0 1-1-1z" fill="#fff"/></svg>
+      Immobilien Kranz
+    </div>
+    <nav aria-label="Bereiche">
+      <span class="on">Posteingang <b id="badge">3</b></span>
+      <span>Besichtigungen</span>
+      <span>Objekte</span>
+      <span>Kontakte</span>
+    </nav>
+    <div class="foot">
+      Ein Beispiel, gebaut von CreationFirst.<br>
+      <a href="../../kontakt.html?topic=ai">So etwas für mein Büro →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="bar">
+      <div>
+        <h1>Posteingang</h1>
+        <p>Jede Anfrage kommt sortiert an. Die Antwort ist vorbereitet, du gibst sie frei.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b id="open">3</b><span>Offen</span></div>
+        <div class="stat done"><b id="done">0</b><span>Beantwortet</span></div>
+      </div>
+    </div>
+    <div class="work">
+      <div class="list" id="list" role="group" aria-label="Anfragen"></div>
+      <div class="detail" id="detail" aria-live="polite"></div>
+    </div>
+  </main>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  // preview=1: Vorschau-Kachel oder Popup auf der CreationFirst-Seite. Hinweisleiste aus, Links zurück zur Seite verlassen den Rahmen.
+  if (/[?&]preview=1/.test(location.search)) {
+    document.documentElement.classList.add("is-preview");
+    document.querySelectorAll('a[href^="../../"]').forEach(function (a) { a.setAttribute("target", "_top"); });
+  }
+
+  // Sprache: ?lang=en oder ?lang=hr. Deutsch steht im HTML und in DATA, die anderen Sprachen ersetzen die Texte
+  // anhand des deutschen Wortlauts (I18N: deutscher Text -> [Englisch, Kroatisch]).
+  var LANG = (location.search.match(/[?&]lang=(en|hr)/) || [])[1] || "de";
+  var I18N = {
+    "Immobilien Kranz – Beispielseite von CreationFirst": ["Immobilien Kranz – example site by CreationFirst", "Immobilien Kranz – primjer stranice, CreationFirst"],
+    "Ein Beispiel von CreationFirst zum Ausprobieren · es wird nichts gesendet.": ["An example by CreationFirst to try out · nothing is sent.", "Primjer tvrtke CreationFirst za isprobavanje · ništa se ne šalje."],
+    "← Zurück zu CreationFirst": ["← Back to CreationFirst", "← Natrag na CreationFirst"],
+    "Bereiche": ["Sections", "Odjeljci"], "Anfragen": ["Inquiries", "Upiti"],
+    "Posteingang": ["Inbox", "Ulazni sandučić"], "Besichtigungen": ["Viewings", "Razgledi"], "Objekte": ["Properties", "Nekretnine"], "Kontakte": ["Contacts", "Kontakti"],
+    "Ein Beispiel, gebaut von CreationFirst.": ["An example built by CreationFirst.", "Primjer koji je izradio CreationFirst."],
+    "So etwas für mein Büro →": ["Something like this for my office →", "Nešto ovakvo za moj ured →"],
+    "Jede Anfrage kommt sortiert an. Die Antwort ist vorbereitet, du gibst sie frei.": ["Every inquiry arrives sorted. The reply is prepared, you approve it.", "Svaki upit stiže razvrstan. Odgovor je pripremljen, ti ga odobravaš."],
+    "Offen": ["Open", "Otvoreno"], "Beantwortet": ["Answered", "Odgovoreno"], "Neu": ["New", "Novo"],
+    "Nachricht": ["Message", "Poruka"], "Erkannt": ["Recognised", "Prepoznato"], "Antwortentwurf": ["Draft reply", "Nacrt odgovora"],
+    "Freigeben & senden": ["Approve & send", "Odobri i pošalji"],
+    "Du kannst den Text vorher anpassen. Nichts geht ohne deine Freigabe raus.": ["You can edit the text first. Nothing goes out without your approval.", "Tekst možeš prije prilagoditi. Ništa ne izlazi bez tvog odobrenja."],
+    "Gesendet. (Nur ein Beispiel: Es wurde nichts verschickt.)": ["Sent. (Just an example: nothing was actually sent.)", "Poslano. (Samo primjer: ništa nije stvarno poslano.)"],
+    "Alles beantwortet.": ["Everything answered.", "Sve je odgovoreno."],
+    "Drei Anfragen, drei Klicks. Der Posteingang ist leer.": ["Three inquiries, three clicks. The inbox is empty.", "Tri upita, tri klika. Sandučić je prazan."],
+    "Noch einmal von vorn": ["Start over", "Kreni ispočetka"],
+    "vor 12 Min.": ["12 min ago", "prije 12 min"], "vor 1 Std.": ["1 hr ago", "prije 1 h"], "heute, 8:14": ["today, 8:14", "danas, 8:14"],
+    "Objekt": ["Property", "Nekretnina"], "Haushalt": ["Household", "Kućanstvo"], "Wunsch": ["Request", "Želja"], "Anliegen": ["Matter", "Predmet"], "Nutzung": ["Use", "Namjena"],
+    "3-Zimmer-Wohnung, Gartenstraße": ["3-room flat, Gartenstraße", "Trosoban stan, Gartenstraße"],
+    "Guten Tag, ich interessiere mich für die 3-Zimmer-Wohnung in der Gartenstraße. Wir sind zu zweit, beide berufstätig. Wäre eine Besichtigung am Wochenende möglich?": ["Hello, I am interested in the 3-room flat in Gartenstraße. There are two of us, both working. Would a viewing at the weekend be possible?", "Poštovani, zanima me trosoban stan u ulici Gartenstraße. Nas je dvoje, oboje zaposleni. Je li moguć razgled tijekom vikenda?"],
+    "2 Personen, berufstätig": ["2 people, both working", "2 osobe, zaposlene"],
+    "Besichtigung am Wochenende": ["Viewing at the weekend", "Razgled tijekom vikenda"],
+    "Zwei freie Termine am Samstag vorgeschlagen": ["Two free slots on Saturday suggested", "Predložena dva slobodna termina u subotu"],
+    "Guten Tag Frau Hofmann,\n\nvielen Dank für Ihr Interesse an der Wohnung in der Gartenstraße. Gern zeigen wir Ihnen die Wohnung am Samstag um 11:00 Uhr oder um 14:30 Uhr. Welcher Termin passt Ihnen besser?\n\nFreundliche Grüße\nImmobilien Kranz": ["Dear Ms Hofmann,\n\nthank you for your interest in the flat in Gartenstraße. We would be happy to show you the flat on Saturday at 11:00 am or at 2:30 pm. Which time suits you better?\n\nKind regards\nImmobilien Kranz", "Poštovana gospođo Hofmann,\n\nhvala Vam na interesu za stan u ulici Gartenstraße. Rado ćemo Vam pokazati stan u subotu u 11:00 ili u 14:30 sati. Koji Vam termin više odgovara?\n\nSrdačan pozdrav\nImmobilien Kranz"],
+    "Haus verkaufen, Bewertung": ["Selling a house, valuation", "Prodaja kuće, procjena"],
+    "Hallo, wir überlegen, unser Reihenhaus zu verkaufen (Baujahr 2004, ca. 130 m²). Was wäre es ungefähr wert und wie läuft das bei Ihnen ab?": ["Hi, we are thinking about selling our terraced house (built 2004, approx. 130 m²). What would it roughly be worth, and how does the process work with you?", "Pozdrav, razmišljamo o prodaji naše kuće u nizu (izgrađena 2004., oko 130 m²). Koliko bi otprilike vrijedila i kako kod vas izgleda postupak?"],
+    "Verkauf, Wertermittlung": ["Sale, valuation", "Prodaja, procjena vrijednosti"],
+    "Reihenhaus, 2004, ca. 130 m²": ["Terraced house, 2004, approx. 130 m²", "Kuća u nizu, 2004., oko 130 m²"],
+    "Ablauf erklären": ["Explain the process", "Objasniti postupak"],
+    "Vor-Ort-Termin zur Bewertung vorgeschlagen": ["On-site valuation visit suggested", "Predložen izlazak na teren radi procjene"],
+    "Guten Tag Herr Reuter,\n\ndanke für Ihre Nachricht. Für eine verlässliche Einschätzung schauen wir uns Ihr Haus gern vor Ort an. Das dauert etwa 45 Minuten und ist für Sie kostenlos. Passt Ihnen Dienstag oder Donnerstag am späten Nachmittag?\n\nFreundliche Grüße\nImmobilien Kranz": ["Dear Mr Reuter,\n\nthank you for your message. For a reliable estimate we would like to see your house in person. This takes about 45 minutes and is free of charge for you. Would Tuesday or Thursday in the late afternoon suit you?\n\nKind regards\nImmobilien Kranz", "Poštovani gospodine Reuter,\n\nhvala Vam na poruci. Za pouzdanu procjenu rado bismo pogledali Vašu kuću uživo. To traje oko 45 minuta i za Vas je besplatno. Odgovara li Vam utorak ili četvrtak kasno poslijepodne?\n\nSrdačan pozdrav\nImmobilien Kranz"],
+    "Ladenfläche am Marktplatz": ["Shop unit on the market square", "Poslovni prostor na glavnom trgu"],
+    "Guten Morgen, ist die Ladenfläche am Marktplatz noch frei? Ich suche ab Mai etwa 80 m² für ein Café. Gibt es einen Grundriss?": ["Good morning, is the shop unit on the market square still available? I am looking for about 80 m² for a café from May. Is there a floor plan?", "Dobro jutro, je li poslovni prostor na glavnom trgu još slobodan? Od svibnja tražim oko 80 m² za kafić. Postoji li tlocrt?"],
+    "Ladenfläche, Marktplatz": ["Shop unit, market square", "Poslovni prostor, glavni trg"],
+    "Café, ca. 80 m², ab Mai": ["Café, approx. 80 m², from May", "Kafić, oko 80 m², od svibnja"],
+    "Grundriss zusenden": ["Send the floor plan", "Poslati tlocrt"],
+    "Grundriss als Anhang vorgemerkt": ["Floor plan queued as attachment", "Tlocrt pripremljen kao privitak"],
+    "Guten Morgen Frau Demir,\n\ndie Ladenfläche am Marktplatz ist noch frei. Den Grundriss finden Sie im Anhang. Wenn die Fläche für Ihr Café passt, zeigen wir sie Ihnen gern vor Ort.\n\nFreundliche Grüße\nImmobilien Kranz": ["Good morning Ms Demir,\n\nthe shop unit on the market square is still available. You will find the floor plan attached. If the space suits your café, we would be happy to show it to you in person.\n\nKind regards\nImmobilien Kranz", "Dobro jutro, gospođo Demir,\n\nposlovni prostor na glavnom trgu još je slobodan. Tlocrt Vam šaljemo u privitku. Ako prostor odgovara Vašem kafiću, rado ćemo Vam ga pokazati uživo.\n\nSrdačan pozdrav\nImmobilien Kranz"]
+  };
+  function t(s) {
+    if (LANG === "de") return s;
+    var e = I18N[s];
+    return e ? e[LANG === "en" ? 0 : 1] : s;
+  }
+  (function () {
+    var bar = document.querySelector(".demo-bar .langs");
+    if (bar) {
+      var keep = /[?&]preview=1/.test(location.search) ? "preview=1&" : "";
+      bar.querySelectorAll("a").forEach(function (a) {
+        var l = a.getAttribute("data-lang");
+        a.setAttribute("href", l === "de" ? (keep ? "?preview=1" : "./") : "?" + keep + "lang=" + l);
+        if (l === LANG) a.setAttribute("aria-current", "true");
+      });
+    }
+    if (LANG === "de") return;
+    document.documentElement.lang = LANG;
+    document.title = t(document.title);
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function (n) {
+      var p = n.parentNode && n.parentNode.nodeName;
+      if (p === "SCRIPT" || p === "STYLE") return;
+      var key = n.nodeValue.replace(/\s+/g, " ").trim();
+      if (key && I18N[key]) n.nodeValue = n.nodeValue.replace(n.nodeValue.trim(), t(key));
+    });
+    document.querySelectorAll("[aria-label]").forEach(function (el) { el.setAttribute("aria-label", t(el.getAttribute("aria-label"))); });
+    var home = { en: "../../en/index.html", hr: "../../hr/index.html" }[LANG];
+    var contact = { en: "../../en/contact.html", hr: "../../hr/kontakt.html" }[LANG];
+    document.querySelectorAll('a[href^="../../"]').forEach(function (a) {
+      var h = a.getAttribute("href");
+      if (h.indexOf("../../index.html") === 0) a.setAttribute("href", home);
+      else if (h.indexOf("../../kontakt.html") === 0) a.setAttribute("href", contact + h.slice("../../kontakt.html".length));
+    });
+  })();
+
+  var DATA = [
+    { who: "Lena Hofmann", when: "vor 12 Min.", subject: "3-Zimmer-Wohnung, Gartenstraße",
+      msg: "Guten Tag, ich interessiere mich für die 3-Zimmer-Wohnung in der Gartenstraße. Wir sind zu zweit, beide berufstätig. Wäre eine Besichtigung am Wochenende möglich?",
+      facts: [["Objekt", "3-Zimmer-Wohnung, Gartenstraße"], ["Haushalt", "2 Personen, berufstätig"], ["Wunsch", "Besichtigung am Wochenende"]],
+      next: "Zwei freie Termine am Samstag vorgeschlagen",
+      draft: "Guten Tag Frau Hofmann,\n\nvielen Dank für Ihr Interesse an der Wohnung in der Gartenstraße. Gern zeigen wir Ihnen die Wohnung am Samstag um 11:00 Uhr oder um 14:30 Uhr. Welcher Termin passt Ihnen besser?\n\nFreundliche Grüße\nImmobilien Kranz" },
+    { who: "Tobias Reuter", when: "vor 1 Std.", subject: "Haus verkaufen, Bewertung",
+      msg: "Hallo, wir überlegen, unser Reihenhaus zu verkaufen (Baujahr 2004, ca. 130 m²). Was wäre es ungefähr wert und wie läuft das bei Ihnen ab?",
+      facts: [["Anliegen", "Verkauf, Wertermittlung"], ["Objekt", "Reihenhaus, 2004, ca. 130 m²"], ["Wunsch", "Ablauf erklären"]],
+      next: "Vor-Ort-Termin zur Bewertung vorgeschlagen",
+      draft: "Guten Tag Herr Reuter,\n\ndanke für Ihre Nachricht. Für eine verlässliche Einschätzung schauen wir uns Ihr Haus gern vor Ort an. Das dauert etwa 45 Minuten und ist für Sie kostenlos. Passt Ihnen Dienstag oder Donnerstag am späten Nachmittag?\n\nFreundliche Grüße\nImmobilien Kranz" },
+    { who: "Aylin Demir", when: "heute, 8:14", subject: "Ladenfläche am Marktplatz",
+      msg: "Guten Morgen, ist die Ladenfläche am Marktplatz noch frei? Ich suche ab Mai etwa 80 m² für ein Café. Gibt es einen Grundriss?",
+      facts: [["Objekt", "Ladenfläche, Marktplatz"], ["Nutzung", "Café, ca. 80 m², ab Mai"], ["Wunsch", "Grundriss zusenden"]],
+      next: "Grundriss als Anhang vorgemerkt",
+      draft: "Guten Morgen Frau Demir,\n\ndie Ladenfläche am Marktplatz ist noch frei. Den Grundriss finden Sie im Anhang. Wenn die Fläche für Ihr Café passt, zeigen wir sie Ihnen gern vor Ort.\n\nFreundliche Grüße\nImmobilien Kranz" }
+  ];
+
+  var listEl = document.getElementById("list");
+  var detailEl = document.getElementById("detail");
+  var state = { current: 0, done: DATA.map(function () { return false; }), drafts: DATA.map(function (d) { return t(d.draft); }) };
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function counts() {
+    var done = state.done.filter(Boolean).length;
+    var open = DATA.length - done;
+    document.getElementById("open").textContent = open;
+    document.getElementById("done").textContent = done;
+    var badge = document.getElementById("badge");
+    badge.textContent = open;
+    badge.classList.toggle("zero", open === 0);
+    return open;
+  }
+
+  function renderList() {
+    listEl.innerHTML = "";
+    DATA.forEach(function (d, i) {
+      var b = el("button", "item");
+      b.type = "button";
+      b.setAttribute("aria-pressed", i === state.current ? "true" : "false");
+      var top = el("div", "top");
+      top.appendChild(el("span", "who", d.who));
+      top.appendChild(el("span", "when", t(d.when)));
+      b.appendChild(top);
+      b.appendChild(el("div", "subject", t(d.subject)));
+      b.appendChild(el("span", "pill" + (state.done[i] ? " done" : ""), t(state.done[i] ? "Beantwortet" : "Neu")));
+      b.addEventListener("click", function () { state.current = i; render(); });
+      listEl.appendChild(b);
+    });
+  }
+
+  function renderDetail() {
+    var i = state.current, d = DATA[i];
+    detailEl.innerHTML = "";
+
+    var msg = el("div", "card msg");
+    msg.appendChild(el("span", "label", t("Nachricht") + " · " + d.who));
+    msg.appendChild(el("p", null, t(d.msg)));
+    detailEl.appendChild(msg);
+
+    var rec = el("div", "card");
+    rec.appendChild(el("span", "label", t("Erkannt")));
+    var facts = el("div", "facts");
+    d.facts.forEach(function (f) {
+      var box = el("div", "fact");
+      box.appendChild(el("small", null, t(f[0])));
+      box.appendChild(el("b", null, t(f[1])));
+      facts.appendChild(box);
+    });
+    rec.appendChild(facts);
+    rec.appendChild(el("div", "next-step", "✓ " + t(d.next)));
+    detailEl.appendChild(rec);
+
+    var draft = el("div", "card draft");
+    var label = el("label", "label", t("Antwortentwurf"));
+    label.setAttribute("for", "draft");
+    draft.appendChild(label);
+    var ta = el("textarea");
+    ta.id = "draft";
+    ta.value = state.drafts[i];
+    ta.readOnly = state.done[i];
+    ta.addEventListener("input", function () { state.drafts[i] = ta.value; });
+    draft.appendChild(ta);
+    var actions = el("div", "actions");
+    if (state.done[i]) {
+      actions.appendChild(el("span", "sent", t("Gesendet. (Nur ein Beispiel: Es wurde nichts verschickt.)")));
+    } else {
+      var btn = el("button", "btn", t("Freigeben & senden"));
+      btn.type = "button";
+      btn.addEventListener("click", function () {
+        state.done[i] = true;
+        var nextOpen = state.done.indexOf(false);
+        if (nextOpen !== -1) state.current = nextOpen;
+        render();
+      });
+      actions.appendChild(btn);
+      actions.appendChild(el("span", "note", t("Du kannst den Text vorher anpassen. Nichts geht ohne deine Freigabe raus.")));
+    }
+    draft.appendChild(actions);
+    detailEl.appendChild(draft);
+  }
+
+  function renderAllDone() {
+    detailEl.innerHTML = "";
+    var box = el("div", "card all-done on");
+    box.appendChild(el("div", "check", "✓"));
+    box.appendChild(el("h2", null, t("Alles beantwortet.")));
+    box.appendChild(el("p", null, t("Drei Anfragen, drei Klicks. Der Posteingang ist leer.")));
+    var again = el("button", "link-btn", t("Noch einmal von vorn"));
+    again.type = "button";
+    again.addEventListener("click", function () {
+      state.done = DATA.map(function () { return false; });
+      state.drafts = DATA.map(function (d) { return t(d.draft); });
+      state.current = 0;
+      render();
+    });
+    box.appendChild(again);
+    detailEl.appendChild(box);
+  }
+
+  function render() {
+    var open = counts();
+    renderList();
+    if (open === 0) renderAllDone(); else renderDetail();
+  }
+  render();
+})();
+</script>
+</body>
+</html>
